@@ -1,0 +1,252 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>tagatame.sikuli</h2> <a href="tagatame.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># tagatame.py last updated 26/06/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">from</span> sikuli <span class="kw">import</span> *
+<span class="kw">import</span> time
+
+
+
+<span class="cmt">#  -------------------------Settings-------------------------</span>
+Settings.MinSimilarity = <span class="dig">0.8</span>
+
+
+<span class="cmt"># Waiting time</span>
+short = <span class="dig">0.1</span>
+normal = <span class="dig">1</span>
+double = <span class="dig">2</span>
+changePage = <span class="dig">5</span>
+extend = <span class="dig">7</span>
+long = <span class="dig">180</span>
+
+
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+<span class="cmt"># External</span>
+fiddler = <img src="fiddler.png" />
+
+
+<span class="cmt"># Homepage</span>
+home = <img src="home.png" />
+settings = <img src="setting.png" />
+menuMain = <img src="menuMain.png" />
+quest = Pattern(<img src="quest.png" />).similar(<span class="dig">0.90</span>)
+questArrow = Pattern(<img src="bannerDown.png" />).similar(<span class="dig">0.85</span>)
+SP = Pattern(<img src="spQuest.png" />).targetOffset(<span class="dig">30</span>,<span class="dig">135</span>)    <span class="cmt"># Location of Special Quest in respect to Secret Shop</span>
+
+
+<span class="cmt"># Battle menu</span>
+noQuota = <img src="noQuota.png" />
+noAP = <img src="noAP.png" />
+teamArrow = <img src="teamArrow.png" />
+confirm = Pattern(<img src="confirm.png" />).similar(<span class="dig">0.85</span>)
+btStart = Pattern(<img src="btStart.png" />).similar(<span class="dig">0.75</span>)
+
+
+<span class="cmt"># Team slot (slot 8 not applicable to tower)</span>
+<span class="cmt"># Story and event team list stored separately</span>
+<span class="cmt"># Event includes Seiseki &amp; Babel</span>
+<span class="cmt"># May also use png instead, but pay attention to similarity</span>
+slot1 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">60</span>)    <span class="cmt">#Location(260, 240)</span>
+slot2 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">110</span>)    <span class="cmt">#Location(260, 290)</span>
+slot3 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">160</span>)    <span class="cmt">#Location(260, 340)</span>
+slot4 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">210</span>)    <span class="cmt">#Location(260, 390)</span>
+slot5 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">260</span>)    <span class="cmt">#Location(260, 440)</span>
+slot6 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">310</span>)    <span class="cmt">#Location(260, 490)</span>
+slot7 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">360</span>)    <span class="cmt">#Location(260, 540)</span>
+slot8 = Pattern(<img src="teamArrow.png" />).targetOffset(<span class="dig">80</span>,<span class="dig">410</span>)    <span class="cmt">#Location(260, 590)</span>
+
+
+<span class="cmt"># Battle</span>
+birdView = <img src="birdView.png" />
+toggleAuto = <img src="toggleAuto.png" />
+autoOn = <img src="autoOn.png" />
+btMenu = <img src="btMenu.png" />
+quitQuest = <img src="quitQuest.png" />
+cfnQuit = Pattern(<img src="cfnQuit.png" />).similar(<span class="dig">0.80</span>)
+btNext = <img src="btNext.png" />
+questMission = <img src="questMission.png" />
+visionMax = <img src="visionMax.png" />
+questEnd = Pattern(<img src="questEnd.png" />).similar(<span class="dig">0.80</span>)
+
+missionNew = <img src="missionNew.png" />
+rewardGet = <img src="rewardGet.png" />
+
+
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="cmt"># Debug message</span>
+<span class="kw">def</span> sysMsg(text):
+    now = time.localtime()
+    <span class="kw">print</span>(<span class="str">"%02d:%02d:%02d "</span> % (now.tm_hour, now.tm_min, now.tm_sec) + text)
+
+
+<span class="cmt"># Click icon (optional: delay = length // loop = repeat until no longer exists)</span>
+<span class="kw">def</span> clkIco(icon, length=None, loop=False):
+    <span class="kw">if</span> <span class="kw">not</span> exists(icon):
+        sysMsg(<span class="str">"Waiting for "</span> + str(icon))
+        <span class="skw">wait</span>(icon, FOREVER)
+    <span class="kw">if</span> length != None:
+        sysMsg(<span class="str">"Delay clicking on "</span> + str(icon) + <span class="str">" for length = "</span> + str(length))
+        <span class="skw">sleep</span>(length)
+    <span class="kw">if</span> loop == False:
+        <span class="skw">click</span>(icon)
+        sysMsg(<span class="str">"Clicked on "</span> + str(icon))
+    <span class="kw">else</span>:
+        <span class="kw">while</span> exists(icon):
+            <span class="skw">click</span>(icon)
+            <span class="skw">sleep</span>(normal)
+            sysMsg(<span class="str">"Force clicking on "</span> + str(icon))
+
+
+
+<span class="cmt"># Wait for icon and press ESC (optional: delay = length)</span>
+<span class="kw">def</span> esc(icon, length=None):
+    <span class="kw">if</span> <span class="kw">not</span> exists(icon, normal):
+        <span class="skw">wait</span>(icon, FOREVER)
+        sysMsg(<span class="str">"Waiting for "</span> + str(icon))
+    <span class="kw">if</span> length <span class="kw">is</span> <span class="kw">not</span> None:
+        <span class="skw">sleep</span>(length)
+        sysMsg(<span class="str">"Delay pressing ESC for "</span> + str(icon) + <span class="str">" for length = "</span> + str(length))
+    <span class="skw">type</span>(Key.ESC)
+    sysMsg(<span class="str">"Pressed ESC for "</span> + str(icon))
+    <span class="skw">sleep</span>(normal)
+
+
+<span class="cmt"># After entering battle, toggle Auto if not On, and complete.</span>
+<span class="kw">def</span> btAction():
+    <span class="skw">wait</span>(btMenu, <span class="dig">20</span>)
+    <span class="kw">if</span> exists(toggleAuto, normal):
+        <span class="skw">click</span>(toggleAuto)
+        sysMsg(<span class="str">"Toggled auto"</span>)
+        <span class="skw">sleep</span>(short)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"Auto already on"</span>)
+    clkIco(questMission)
+    sysMsg(<span class="str">"Quest completed"</span>)
+    <span class="kw">while</span> exists(visionMax):
+        sysMsg(<span class="str">"Vision achieved"</span>)
+        <span class="skw">sleep</span>(normal)
+        esc(visionMax)
+    <span class="kw">else</span>:
+        <span class="skw">sleep</span>(changePage)
+        <span class="skw">type</span>(Key.ESC)
+
+
+<span class="cmt"># After entering battle, quit.</span>
+<span class="kw">def</span> btQuit():
+    <span class="skw">click</span>(btMenu)
+    <span class="skw">click</span>(quitQuest)
+    <span class="skw">click</span>(cfnQuit)
+
+
+<span class="cmt"># Define class for story quest</span>
+<span class="kw">class</span> storyQ(object):
+    <span class="kw">def</span> __init__(self, <span class="skw">type</span>, chapter, subChapter, stage):
+        self.<span class="skw">type</span> = <span class="skw">type</span>    <span class="cmt">#main, seiseki, babel</span>
+        self.chapter = chapter
+        self.subChapter = subChapter    <span class="cmt">#applicable to mainStory only</span>
+        self.stage = stage
+
+
+<span class="cmt"># Define class for team</span>
+<span class="kw">class</span> team(object):
+    <span class="kw">def</span> __init__(self, teamIco, teamSlot):
+        self.teamIco = teamIco
+        self.teamSlot = teamSlot
+
+
+<span class="cmt"># Select team</span>
+<span class="kw">def</span> teamSelect(team):
+    sysMsg(<span class="str">"Changing team"</span>)
+    <span class="kw">if</span> <span class="kw">not</span> exists(team.teamIco, normal):
+        <span class="skw">click</span>(teamArrow)
+        <span class="skw">sleep</span>(normal)
+        <span class="skw">click</span>(team.teamSlot)
+        sysMsg(<span class="str">"Team changed"</span>)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"Team already chosen"</span>)
+
+<span class="cmt"># Get reward from completed mission</span>
+<span class="kw">def</span> getReward():
+    clkIco(menuMain)
+    clkIco(missionNew)
+    <span class="kw">while</span> exists(rewardGet):
+        clkIco(rewardGet, None, True)
+        <span class="skw">sleep</span>(normal)
+        <span class="skw">type</span>(key.ESC)
+    sysMsg(<span class="str">"Done"</span>)
+</pre>
+</body>
+</html>

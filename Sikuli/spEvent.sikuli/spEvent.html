@@ -1,0 +1,251 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>spEvent.sikuli</h2> <a href="spEvent.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># spEvent.py last updated 07/07/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+bossHard = Pattern(<img src="bossHard.png" />).similar(<span class="dig">0.88</span>)
+spStart = <img src="spStart.png" />
+spDrawBtn = <img src="spDrawBtn.png" />
+spDraw10 = Pattern(<img src="spDraw10.png" />).similar(<span class="dig">0.96</span>)
+empty = <img src="empty.png" />
+noCoin = <img src="noCoin.png" />
+spOK = <img src="drawOK.png" />
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+<span class="cmt"># Define class for special event</span>
+
+<span class="kw">class</span> spQ(object):
+    <span class="kw">def</span> __init__(self, event, logo, stage, reward):
+        self.event = event
+        self.logo = logo
+        self.stage = stage
+        self.reward = reward
+
+movie1Ev = <img src="movie1Ev.png" />
+movie1Logo = <img src="movie1Logo.png" />
+movie1Stage = <img src="movie1Stage.png" />
+movie1Coin = <img src="movie1Coin.png" />
+movie1 = spQ(movie1Ev, movie1Logo, movie1Stage, movie1Coin)
+
+
+movie2Ev = <img src="movie2Ev.png" />
+movie2Logo = <img src="movie2Logo.png" />
+movie2Stage = <img src="movie2Stage.png" />
+movie2Coin = <img src="movie2Coin.png" />
+movie2 = spQ(movie2Ev, movie2Logo, movie2Stage, movie2Coin)
+
+
+movie3Ev = <img src="movie3Ev.png" />
+movie3Logo = <img src="movie3Logo.png" />
+movie3Stage = <img src="movie3Stage.png" />
+movie3Coin = <img src="movie3Coin.png" />
+movie3 = spQ(movie3Ev, movie3Logo, movie3Stage, movie3Coin)
+
+
+fggEv = <img src="fggEv.png" />
+fggLogo = <img src="fggLogo.png" />
+fggStage = <img src="fggStage.png" />
+fggCoin = <img src="fggCoin.png" />
+fgg = spQ(fggEv, fggLogo, fggStage, fggCoin)
+
+dramaEv = <img src="dramaEv.png" />
+dramaLogo = <img src="dramaLogo.png" />
+dramaStage = <img src="dramaStage.png" />
+dramaCoin = <img src="dramaCoin.png" />
+drama = spQ(dramaEv, dramaLogo, dramaStage, dramaCoin)
+
+
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="cmt"># Go to special event</span>
+<span class="kw">def</span> gotoSP(spQ):
+    <span class="kw">if</span> <span class="kw">not</span> exists(spQ.stage, short):
+        sysMsg(<span class="str">"Going to selected special event"</span>)
+        <span class="kw">if</span> <span class="kw">not</span> exists(spQ.logo, short):
+            <span class="kw">if</span> <span class="kw">not</span> exists(spQ.event, short):
+                <span class="kw">if</span> exists(home, short):
+                    <span class="skw">click</span>(home)
+                clkIco(SP, None, True)
+                <span class="kw">while</span> <span class="kw">not</span> exists(spQ.event, double):
+                    <span class="skw">click</span>(questArrow)
+                    clkIco(spQ.event)
+            clkIco(bossHard)
+        clkIco(spStart)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"Already in selected special event"</span>)
+
+
+<span class="cmt"># After entering battle, toggle Auto if not On, and complete.</span>
+<span class="kw">def</span> spAction(reward):
+    <span class="skw">wait</span>(btMenu, <span class="dig">20</span>)
+    <span class="kw">if</span> exists(toggleAuto, normal):
+        <span class="skw">click</span>(toggleAuto)
+        sysMsg(<span class="str">"Toggled auto"</span>)
+        <span class="skw">sleep</span>(short)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"Auto already on"</span>)
+    <span class="skw">wait</span>(reward, FOREVER)
+    <span class="kw">if</span> exists(spStart):
+        sysMsg(<span class="str">"Quest failed"</span>)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"Quest completed"</span>)
+        clkIco(reward)
+        <span class="kw">global</span> c
+        c = c + <span class="dig">1</span>
+
+
+<span class="cmt"># Start battle - hard boss</span>
+<span class="kw">def</span> spBoss(spQ, n=<span class="dig">1</span>):
+    sysMsg(<span class="str">"Initializing SpecialEventBoss command"</span>)
+    i = <span class="dig">0</span>
+    <span class="kw">global</span> c
+    c = <span class="dig">0</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(spQ.reward, short):
+        gotoSP(spQ)
+        clkIco(bossHard)
+    <span class="kw">while</span> i &lt; n:
+        clkIco(spStart)
+        <span class="cmt">#teamSelect(team)</span>
+        clkIco(btStart)
+        spAction(spQ.reward)
+        i = i + <span class="dig">1</span>
+        sysMsg(<span class="str">"Successfully executed "</span> + str(i) + <span class="str">" time(s); killed boss "</span> + str(c) + <span class="str">" time(s)"</span>)
+        <span class="skw">sleep</span>(normal)
+    <span class="kw">else</span>:
+        <span class="kw">if</span> n &lt; <span class="dig">0</span>:
+            sysMsg(<span class="str">"Error: n must be empty or positive"</span>)
+        <span class="kw">else</span>:
+            exit()
+
+
+<span class="kw">def</span> spDraw(spQ, n=<span class="dig">1</span>):
+    sysMsg(<span class="str">"Initializing SpecialEventDraw command"</span>)
+    i = <span class="dig">0</span>
+    <span class="kw">if</span> spQ != <span class="str">"now"</span>:
+        gotoSP(spQ)
+        clkIco(spDrawBtn)
+    clkIco(spDraw10, None, True)
+    <span class="kw">if</span> exists(empty, short):
+        clkIco(spOK, None, True)
+        clkIco(spDraw10, None, True)
+    <span class="skw">click</span>(atMouse())
+    i = i + <span class="dig">1</span>
+    sysMsg(<span class="str">"Successfully executed 1st time"</span>)
+    <span class="kw">if</span> n == <span class="str">"all"</span>:
+        <span class="kw">while</span> <span class="kw">not</span> exists(noCoin):
+            <span class="skw">click</span>(atMouse())
+            <span class="kw">if</span> exists(empty):
+                clkIco(spOK, None, True)
+                clkIco(spDraw10, None, True)
+            i = i + <span class="dig">1</span>
+            <span class="skw">sleep</span>(extend)
+            sysMsg(<span class="str">"Successfully executed "</span> + str(i) + <span class="str">" times"</span>)
+            <span class="kw">if</span> exists(noCoin):
+                exit()
+    <span class="kw">else</span>:
+        <span class="kw">while</span> i &lt; n:
+            <span class="skw">click</span>(atMouse())
+            <span class="kw">if</span> exists(empty):
+                clkIco(spOK, None, True)
+                clkIco(spDraw10, None, True)
+            i = i + <span class="dig">1</span>
+            <span class="skw">sleep</span>(extend)
+            sysMsg(<span class="str">"Successfully executed "</span> + str(i) + <span class="str">" times"</span>)
+        <span class="kw">else</span>:
+            <span class="kw">if</span> n &lt; <span class="dig">0</span>:
+                sysMsg(<span class="str">"Error: n must be empty or positive"</span>)
+            <span class="kw">else</span>:
+                exit()
+
+
+
+<span class="cmt">#  -------------------------Command-------------------------</span>
+<span class="cmt"># spBoss(movie1, 5)</span>
+<span class="cmt"># spBoss(movie2, 6)</span>
+<span class="cmt"># spBoss(fgg, 5)</span>
+spDraw(<span class="str">"now"</span>, <span class="str">"all"</span>)
+<span class="cmt"># spDraw(movie1, 50)</span>
+<span class="cmt"># spDraw(movie2, 50)</span>
+<span class="cmt"># spDraw(fgg, 50)</span>
+<span class="cmt"># spBoss(drama, 8)</span>
+
+</pre>
+</body>
+</html>

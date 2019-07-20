@@ -1,0 +1,188 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>inspSkill.sikuli</h2> <a href="inspSkill.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># inspSkill.py last updated 26/06/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+<span class="cmt"># Homepage</span>
+menuEq = <img src="menuEq.png" />
+tabIS = Pattern(<img src="ISTab.png" />).similar(<span class="dig">0.80</span>)
+nextPage = <img src="nextPage.png" />
+resetTab = <img src="resetTab.png" />
+resetBtn = Pattern(<img src="resetBtn.png" />).similar(<span class="dig">0.80</span>)
+resetOK = Pattern(<img src="resetOK.png" />).similar(<span class="dig">0.80</span>)
+
+
+<span class="cmt"># Battle</span>
+learnIS = <img src="learnIS.png" />
+btAgain = <img src="btAgain.png" />
+
+
+<span class="cmt"># Skill</span>
+OHS300 = <img src="1hs300.png" />
+staff140 = <img src="staff140.png" />
+staff200 = <img src="staff200.png" />
+staff210 = staff140
+staff240 = <img src="staff230.png" />
+staff231 = <span class="str">""</span>
+staff231A = <span class="str">""</span>
+staff331 = <img src="staff331.png" />
+
+
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="kw">def</span> gotoQuest():
+    <span class="skw">click</span>(home)
+    tagatame.clkIco(quest)
+    <span class="skw">click</span>(story)
+    <span class="cmt">#click(mainStory)</span>
+    <span class="skw">click</span>(seiseki)
+    <span class="kw">while</span> <span class="kw">not</span> exists(bannerCh, <span class="dig">1.2</span>):
+        <span class="skw">click</span>(questDown)
+        <span class="kw">print</span>(<span class="str">"Turning page: chapter"</span>)
+    <span class="skw">click</span>(bannerCh)
+    <span class="kw">while</span> <span class="kw">not</span> exists(bannerStg, <span class="dig">1.2</span>):
+        <span class="skw">click</span>(storyDown)
+        <span class="kw">print</span>(<span class="str">"Turning page: stage"</span>)
+    <span class="skw">click</span>(bannerStg)
+
+
+<span class="kw">def</span> resetEQ(EQ):
+    <span class="skw">click</span>(menuMain)
+    <span class="skw">click</span>(menuEq)
+    <span class="skw">click</span>(tabIS)
+    <span class="kw">while</span> <span class="kw">not</span> exists(EQ, <span class="dig">1</span>):
+        <span class="skw">click</span>(nextPage)
+        <span class="kw">print</span>(<span class="str">"Turning page: gear"</span>)
+    <span class="skw">click</span>(EQ)
+    <span class="skw">click</span>(resetTab)
+    <span class="skw">click</span>(resetBtn)
+    <span class="skw">click</span>(resetOK)
+    <span class="skw">click</span>(home)
+    <span class="skw">sleep</span>(<span class="dig">1</span>)
+    gotoQuest()
+
+
+<span class="kw">def</span> btActionIS():
+    <span class="kw">while</span> True:
+        <span class="skw">click</span>(btStart)
+        <span class="kw">if</span> exists(cfnEmpty):
+            <span class="skw">click</span>(cfnEmpty)
+        <span class="skw">wait</span>(btMenu, <span class="dig">20</span>)
+        <span class="kw">if</span> exists(toggleAuto, normal):
+            <span class="skw">click</span>(toggleAuto)
+            <span class="skw">sleep</span>(short)
+        clkIco(questMission)
+        <span class="kw">if</span> exists(learnIS, changePage):
+            <span class="kw">if</span> exists(targetIS):
+                <span class="skw">click</span>(learnIS)
+                <span class="skw">click</span>(btAgain)
+                <span class="kw">print</span>(<span class="str">"Target IS found - entering battle again"</span>)
+            <span class="kw">else</span>:
+                <span class="kw">if</span> exists(finalIS):
+                    <span class="skw">popup</span>(<span class="str">"Final Inspiration Skill learnt"</span>)
+                    exit()
+                <span class="kw">else</span>:
+                    <span class="skw">click</span>(learnIS)
+                    tagatame.esc(questEnd)
+                    <span class="kw">print</span>(<span class="str">"Wrong IS learnt - resetting IS"</span>)
+                    resetEQ1()
+        <span class="kw">else</span>:
+            <span class="skw">click</span>(btAgain)
+            <span class="skw">sleep</span>(normal)
+            <span class="skw">click</span>(btAgain)
+            <span class="kw">print</span>(<span class="str">"No IS learnt - entering battle again"</span>)
+
+
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+chapter = <img src="chapter.png" />
+stage = Pattern(<img src="stage.png" />).similar(<span class="dig">0.80</span>)
+<span class="cmt">#EQ1 = Pattern("eq1.png").similar(0.96)</span>
+EQ1 = Pattern(<img src="EQ1.png" />).similar(<span class="dig">0.90</span>)
+targetIS = staff200 <span class="cmt">#and staff230</span>
+<span class="cmt">#finalIS = staff230</span>
+
+
+
+<span class="cmt">#  -------------------------Body-------------------------</span>
+resetEQ(EQ1)
+<span class="cmt"># btActionIS()</span>
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,184 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>tower.sikuli</h2> <a href="tower.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># tower.py last updated 07/07/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+<span class="cmt">#Interface</span>
+challenge = <img src="challenge.png" />
+tower = <img src="tower.png" />
+veda = <img src="veda.png" />
+extra = <img src="extra.png" />
+mobius = <img src="mobius.png" />
+towerStart = <img src="towerStart.png" />
+invalid = Pattern(<img src="invalid.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">250</span>)
+reward = <img src="reward.png" />
+
+
+<span class="cmt">#Team</span>
+<span class="cmt">#s = selected team</span>
+tT1s = Pattern(<img src="tT1s.png" />).exact()
+tT2s = Pattern(<img src="tT2s.png" />).exact()
+tT3s = Pattern(<img src="tT3s.png" />).exact()
+tT4s = Pattern(<img src="tT4s.png" />).exact()
+tT5s = Pattern(<img src="tT5s.png" />).exact()
+tT6s = Pattern(<img src="tT6s.png" />).exact()
+tT7s = Pattern(<img src="tT7s.png" />).exact()
+
+
+<span class="cmt">#tT = tower Team</span>
+tT1 = team(tT1s, slot1)
+tT2 = team(tT2s, slot2)
+tT3 = team(tT3s, slot3)
+tT4 = team(tT4s, slot4)
+tT5 = team(tT5s, slot5)
+tT6 = team(tT6s, slot6)
+tT7 = team(tT7s, slot7)
+
+
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="cmt"># Go to tower menu</span>
+<span class="kw">def</span> gotoTower(<span class="skw">type</span>):
+    <span class="kw">if</span> <span class="kw">not</span> exists(towerStart, <span class="dig">0</span>):
+        sysMsg(<span class="str">"Going to selected tower (start floor menu)"</span>)
+        <span class="kw">if</span> <span class="kw">not</span> exists(<span class="skw">type</span>):
+            <span class="kw">if</span> exists(home, <span class="dig">0</span>):
+                clkIco(home)
+            clkIco(quest, None, True)
+            clkIco(challenge, None, True)
+            clkIco(tower, None, True)
+        <span class="cmt"># In case there are more towers</span>
+        <span class="cmt"># while not exists(type, short):</span>
+            <span class="cmt"># click(questArrow)</span>
+            <span class="cmt"># sysMsg("Turning page: tower")</span>
+        clkIco(<span class="skw">type</span>)
+        clkIco(towerStart)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"Already in selected tower (start floor menu)"</span>)
+
+
+<span class="cmt"># Choose team to enter tower and toggle auto (if not already on)</span>
+<span class="kw">def</span> autoTower(team):
+    i = <span class="dig">0</span>
+    sysMsg(<span class="str">"Initializing AutoTower command"</span>)
+    <span class="kw">if</span> <span class="kw">not</span> exists(btStart, <span class="dig">0</span>):
+        gotoTower(veda)
+    teamSelect(team)
+    <span class="kw">while</span> <span class="kw">not</span> exists(invalid):
+        <span class="skw">click</span>(btStart)
+        <span class="kw">if</span> exists(invalid, normal):
+            <span class="skw">click</span>(invalid)
+            sysMsg(<span class="str">"Invalid team composition"</span>)
+        <span class="kw">else</span>:
+            <span class="skw">wait</span>(btMenu, <span class="dig">20</span>)
+            <span class="kw">if</span> exists(toggleAuto, normal):
+                <span class="skw">click</span>(toggleAuto)
+                sysMsg(<span class="str">"Toggled auto"</span>)
+                <span class="skw">sleep</span>(short)
+            <span class="kw">else</span>:
+                sysMsg(<span class="str">"Auto already on"</span>)
+            <span class="skw">wait</span>(reward <span class="kw">or</span> towerStart, FOREVER)
+            <span class="kw">if</span> exists(reward):
+                i = i + <span class="dig">1</span>
+                sysMsg(str(i) + <span class="str">" floor(s) cleared"</span>)
+                <span class="skw">click</span>(reward)
+                esc(reward)
+                esc(questEnd)
+                <span class="skw">sleep</span>(changePage)
+                clkIco(towerStart)
+            <span class="kw">else</span>:
+                sysMsg(<span class="str">"Returned to Battle Preparation"</span>)
+                <span class="skw">sleep</span>(changePage)
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+
+
+
+<span class="cmt">#  -------------------------Command-------------------------</span>
+autoTower(tT1)
+autoTower(tT2)
+autoTower(tT3)
+autoTower(tT4)
+autoTower(tT5)
+autoTower(tT6)
+autoTower(tT7)
+</pre>
+</body>
+</html>

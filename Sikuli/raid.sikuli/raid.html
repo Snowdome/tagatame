@@ -1,0 +1,212 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>raid.sikuli</h2> <a href="raid.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># raid.py last updated 24/05/2019</span>
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+assist = <img src="assist.png" />
+guild = Pattern(<img src="guild.png" />).targetOffset(<span class="dig">70</span>,<span class="dig">0</span>)
+friend = Pattern(<img src="friend.png" />).targetOffset(<span class="dig">70</span>,<span class="dig">0</span>)
+anyone = <img src="anyone.png" />
+refresh = <img src="refresh.png" />
+raidOK = <img src="raidOK.png" />
+raidTeamSelect = <img src="raidTeamSelect.png" />
+raidStart = <img src="raidStart.png" />
+raidEnd = <img src="raidEnd.png" />
+endMsg = <img src="endMsg.png" />
+raidReward = Pattern(<img src="raidReward.png" />).similar(<span class="dig">0.90</span>)
+cfnReward = Pattern(<img src="cfnReward.png" />).similar(<span class="dig">0.80</span>)
+raidQuit = <img src="raidQuit.png" />
+raidBack1 = <img src="raidBack1.png" />
+raidBack2 =     <img src="raidBack2.png" />
+assistOngoing = Pattern(<img src="assistOngoing.png" />).similar(<span class="dig">0.95</span>)
+assistFinished = Pattern(<img src="assistFinished.png" />).similar(<span class="dig">0.95</span>)
+alreadyDead = Pattern(<img src="alreadyDead.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">255</span>)
+fullRaid = Pattern(<img src="fullRaid.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">255</span>)
+assistKilled = <img src="assistKilled.png" />
+assistOK = <img src="assistOK.png" />
+addFd = Pattern(<img src="addFd.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">380</span>)
+
+<span class="cmt"># Assist list</span>
+aSlot1 = Region(<span class="dig">241</span>,<span class="dig">208</span>,<span class="dig">531</span>,<span class="dig">99</span>)
+joinSlot1 = Location(<span class="dig">689</span>, <span class="dig">271</span>)
+aSlot2 = Region(<span class="dig">243</span>,<span class="dig">323</span>,<span class="dig">529</span>,<span class="dig">100</span>)
+joinSlot2 = Location(<span class="dig">687</span>, <span class="dig">386</span>)
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="cmt"># Define class for raid quest</span>
+<span class="kw">class</span> raidQ(object):
+        <span class="kw">def</span> __init__(self, raidEvent, mode, timeout):
+                self.event = <span class="str">"event"</span>
+                self.mode = <span class="str">"mode"</span>              <span class="cmt"># 1. guild only / 2. friend only / 3. guild or friend / 4. anyone</span>
+                self.timeout = <span class="str">"timeout"</span>        <span class="cmt"># how long until the withdraw from the assisted boss</span>
+
+<span class="cmt"># Go to raid boss</span>
+<span class="kw">def</span> gotoRaid(raidEvent):
+        <span class="kw">if</span> <span class="kw">not</span> exists(settings, <span class="dig">0</span>):
+                <span class="skw">click</span>(home)
+                <span class="skw">wait</span>(quest, <span class="dig">20</span>)
+                <span class="skw">sleep</span>(double)
+        clkIco(raidEvent)
+
+<span class="cmt"># Check if boss is already dead, and refresh if so</span>
+
+
+<span class="cmt"># Assist raid boss</span>
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+<span class="cmt"># raidMF = "raidMF.png"</span>
+raidSSK = <img src="raidSSK.png" />
+<span class="cmt"># Boss</span>
+chirstmasWind = <img src="chirstmasWind.png" />
+queen = <img src="queen.png" />
+demon = <img src="demon.png" />
+waginao = <img src="waginao.png" />
+orion = <img src="orion.png" />
+
+<span class="cmt">#  -------------------------Body-------------------------</span>
+<span class="cmt"># raidAssist(raidQ)</span>
+SSK = raidQ(raidSSK, <span class="dig">4</span>, FOREVER)
+<span class="kw">def</span> raidAssist():
+    clkIco(assist)
+    <span class="skw">sleep</span>(double)
+    <span class="skw">click</span>(joinSlot1)
+    clkIco(raidOK)
+    <span class="kw">if</span> exists(alreadyDead, normal):
+        sysMsg(<span class="str">"Boss is already dead"</span>)
+        <span class="skw">click</span>(alreadyDead)
+        <span class="skw">click</span>(assist)
+        clkIco(refresh)
+        <span class="skw">sleep</span>(normal)
+        <span class="skw">type</span>(Key.ESC)
+    <span class="kw">else</span>:
+        clkIco(raidTeamSelect)
+        clkIco(raidStart)
+        <span class="kw">if</span> exists(alreadyDead, normal):
+            sysMsg(<span class="str">"Boss is already dead"</span>)
+            <span class="skw">click</span>(alreadyDead)
+            <span class="skw">click</span>(assist)
+            clkIco(refresh)
+            <span class="skw">sleep</span>(normal)
+            <span class="skw">type</span>(Key.ESC)
+        <span class="kw">else</span>:
+            <span class="kw">if</span> exists(fullRaid, normal):
+                sysMsg(<span class="str">"Raid is full"</span>)
+                <span class="skw">click</span>(fullRaid)
+                <span class="skw">sleep</span>(normal)
+                <span class="skw">type</span>(Key.ESC)
+            <span class="kw">else</span>:
+                sysMsg(<span class="str">"Engaging raid boss"</span>)
+                <span class="skw">wait</span>(raidEnd, <span class="dig">300</span>)
+                sysMsg(<span class="str">"Battle ended"</span>)
+                esc(raidEnd)
+                <span class="skw">sleep</span>(<span class="dig">5</span>)
+                esc(raidEnd)
+                <span class="skw">wait</span>(endMsg)
+                <span class="kw">while</span> exists(endMsg):
+                    sysMsg(<span class="str">"Looping ending messages"</span>)
+                    <span class="skw">sleep</span>(<span class="dig">3</span>)
+                    <span class="skw">click</span>(endMsg)
+                    <span class="skw">sleep</span>(normal)
+                <span class="kw">else</span>:
+                    <span class="kw">if</span> exists(assistKilled, normal):
+                        <span class="skw">click</span>(assistOK)
+                    <span class="kw">else</span>:
+                        sysMsg(<span class="str">"ended"</span>)
+                        clkIco(raidReward)
+                        clkIco(cfnReward)
+                        clkIco(addFd)
+                    clkIco(raidReward)
+                    clkIco(cfnReward)
+                    clkIco(addFd)
+
+<span class="kw">while</span> True:
+    raidAssist()
+
+<span class="cmt">#---Idea---</span>
+<span class="cmt"># 1. Set assist mode (1:guild only / 2:friend noly / 3:guild or firend / 4:anyone</span>
+<span class="cmt"># 2. Set ongoing mode (A: keep / B: skip after (n) second)</span>
+<span class="cmt"># 3. Choose boss, Start raid, wait until auto end, OK x3 (or 4 if boss is dead)</span>
+<span class="cmt"># 4. If boss dead, raidOK, raidReward x2, raidOK</span>
+<span class="cmt"># 5A. For mode A. if boss alive, refresh once per minute, then step 3</span>
+<span class="cmt"># 6A. Repeat step 3</span>
+<span class="cmt"># 5B. For mode B, if boss alive, raidBack1, wait (n) second, assist_onhoing</span>
+<span class="cmt"># 6B. If raidQuit exist, raidQuit, else raidReward</span>
+<span class="cmt"># 7B. Repeat step 3</span>
+
+</pre>
+</body>
+</html>

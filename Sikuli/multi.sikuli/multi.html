@@ -1,0 +1,344 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>multi.sikuli</h2> <a href="multi.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># multi.py last updated 04/07/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+multi = <img src="multi.png" />
+teamEdit = <img src="teamEdit.png" />
+myUnit = Pattern(<img src="teamEdit.png" />).targetOffset(-<span class="dig">80</span>,<span class="dig">0</span>)
+arrowRight = <img src="arrowRight.png" />
+createRoom = <img src="createRoom.png" />
+private = Pattern(<img src="private.png" />).targetOffset(<span class="dig">126</span>,<span class="dig">0</span>)
+confirmCreate = <img src="confirmCreate.png" />
+questFailed = Pattern(<img src="questFailed.png" />).targetOffset(<span class="dig">20</span>,<span class="dig">143</span>)
+dc = Pattern(<img src="dc.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">256</span>)
+finished = Pattern(<img src="finished.png" />).similar(<span class="dig">0.90</span>)
+
+noxHome = <img src="noxHome.png" />
+noxQuest = <img src="noxQuest.png" />
+noxMulti = <img src="noxMulti.png" />
+noxMultiMenu = <img src="noxMultiMenu.png" />
+noxMyUnit = <img src="noxMyUnit.png" />
+noxArrow = Pattern(<img src="1563059761867.png" />).targetOffset(-<span class="dig">150</span>,<span class="dig">425</span>)    <span class="cmt"># Offset for arrow location</span>
+noxCreateRoom = <img src="noxCreateRoom.png" />
+noxPrivate = Pattern(<img src="noxPrivate.png" />).targetOffset(<span class="dig">100</span>,<span class="dig">0</span>)
+noxConfirmCreate = <img src="noxConfirmCreate.png" />
+noxInvite = <img src="noxInvite.png" />
+noxIniteSlot1 = Pattern(<img src="noxIniteSlot1.png" />).targetOffset(-<span class="dig">120</span>,<span class="dig">60</span>)
+noxConfirmInvite = <img src="noxConfirmInvite.png" />
+rdpMsg = <img src="rdpMsg.png" />
+inviteError = <img src="inviteError.png" />
+rdpInviteSlot1 = Pattern(<img src="rdpInviteSlot1.png" />).targetOffset(<span class="dig">400</span>,<span class="dig">110</span>)
+ready = <img src="ready.png" />
+noxBtStart = <img src="noxBtStart.png" />
+noxBtMenu = <img src="noxBtMenu.png" />
+noxRetreatBtn = <img src="noxRetreatBtn.png" />
+noxConfirm = Pattern(<img src="noxConfirm.png" />).similar(<span class="dig">0.80</span>)
+OK = Pattern(<img src="OK.png" />).similar(<span class="dig">0.80</span>)
+<span class="cmt"># Finished</span>
+<span class="cmt"># rdpOK</span>
+<span class="cmt"># rdpHome</span>
+<span class="cmt"># rdpMsg</span>
+
+
+
+
+
+
+<span class="cmt"># -------------------------Multi Action-------------------------</span>
+<span class="cmt"># Main interface</span>
+title = <img src="title.png" />
+
+<span class="cmt"># Battle interface</span>
+end = <img src="end.png" />
+atk = Pattern(<img src="end.png" />).targetOffset(-<span class="dig">202</span>,-<span class="dig">19</span>)
+mainSkill = Pattern(<img src="end.png" />).targetOffset(-<span class="dig">100</span>,-<span class="dig">60</span>)
+subSkill = Pattern(<img src="end.png" />).targetOffset(-<span class="dig">30</span>,-<span class="dig">135</span>)
+masterSkill = Pattern(<img src="end.png" />).targetOffset(<span class="dig">10</span>,-<span class="dig">235</span>)
+actOK = <img src="actOK.png" />
+skillDown = Pattern(<img src="skillDown.png" />).targetOffset(<span class="dig">13</span>,<span class="dig">420</span>)
+skill1 = Pattern(<img src="skillDown.png" />).targetOffset(-<span class="dig">190</span>,<span class="dig">120</span>)
+skill2 = Pattern(<img src="skillDown.png" />).targetOffset(-<span class="dig">190</span>,<span class="dig">260</span>)
+skill3 = Pattern(<img src="skillDown.png" />).targetOffset(-<span class="dig">190</span>,<span class="dig">420</span>)
+
+<span class="kw">def</span> noxRetreat():
+    clkIco(noxBtMenu)
+    clkIco(noxRetreatBtn)
+    clkIco(noxConfirm)
+    clkIco(OK)
+
+<span class="kw">def</span> act102():
+    sysMsg(<span class="str">"Executing Act 102"</span>)
+    sysMsg(<span class="str">"レティシア uses 2nd main skill - 銀彩ルサールカ, stays and end turn"</span>)
+    clkIco(mainSkill)
+    clkIco(skill2)
+    clkIco(actOK)
+    noxRetreat()
+    clkIco(end)
+    clkIco(actOK)
+    sysMsg(<span class="str">"Step 2: クリーマ uses 5th main skill - 長雨カタツムリ, stays and end turn"</span>)
+    clkIco(mainSkill)
+    clkIco(skillDown)
+    clkIco(skillDown)
+    clkIco(skill3)
+    clkIco(actOK)
+    clkIco(end)
+    clkIco(actOK)
+    sysMsg(<span class="str">"レティシア stays and end turn"</span>)
+    clkIco(end)
+    clkIco(actOK)
+    sysMsg(<span class="str">"Step 4: クリーマ uses 5th main skill - 長雨カタツムリ, stays and end turn"</span>)
+    clkIco(mainSkill)
+    clkIco(skillDown)
+    clkIco(skillDown)
+    clkIco(skill3)
+    clkIco(actOK)
+    clkIco(end)
+    clkIco(actOK)
+    sysMsg(<span class="str">"Step 5: レティシア stays and end turn"</span>)
+    clkIco(end)
+    clkIco(actOK)
+    sysMsg(<span class="str">"Step 6: クリーマ uses 5th main skill - 長雨カタツムリ, quest completed"</span>)
+    clkIco(mainSkill)
+    clkIco(skillDown)
+    clkIco(skillDown)
+    clkIco(skill3)
+    clkIco(actOK)
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+<span class="cmt"># Define class for multi quest</span>
+<span class="kw">class</span> multiQ(object):
+    <span class="kw">def</span> __init__(self, chapter, stage):
+        self.chapter = chapter
+        self.stage = stage
+
+
+ch = <img src="ch.png" />
+stg = Pattern(<img src="stg.png" />).exact()
+gain = <img src="gain.png" />
+zin = <img src="zin.png" />
+solo = multiQ(ch, stg)
+
+
+noxCh1 = <img src="noxCh1.png" />
+noxStg02 = Pattern(<img src="noxStg02.png" />).similar(<span class="dig">0.90</span>)
+noxStg05 = Pattern(<img src="noxStg05.png" />).similar(<span class="dig">0.90</span>)
+nox102 = multiQ(noxCh1, noxStg02)
+nox105 = multiQ(noxCh1, noxStg05)
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="cmt"># Choose unit</span>
+<span class="kw">def</span> myUnit(icon):
+    <span class="skw">click</span>(myUnit)
+    <span class="kw">while</span> <span class="kw">not</span> exists(icon):
+        <span class="skw">click</span>(arrowRight)
+        sysMsg(<span class="str">"Turning page: character"</span>)
+    <span class="skw">click</span>(icon)
+
+
+<span class="cmt"># Go to multi quest</span>
+<span class="kw">def</span> gotoMulti(multiQ):
+    <span class="kw">if</span> <span class="kw">not</span> exists(settings, short):
+        <span class="skw">click</span>(home)
+        <span class="skw">wait</span>(quest, <span class="dig">20</span>)
+        <span class="skw">sleep</span>(double)
+    <span class="skw">click</span>(quest)
+    clkIco(multi)
+    <span class="kw">while</span> <span class="kw">not</span> exists(multiQ.chapter, double):
+        <span class="skw">click</span>(questArrow)
+        sysMsg(<span class="str">"Turning page: chapter"</span>)
+    <span class="skw">click</span>(multiQ.chapter)
+    <span class="kw">while</span> <span class="kw">not</span> exists(multiQ.stage, double):
+        <span class="skw">click</span>(questArrow)
+        sysMsg(<span class="str">"Turning page: stage"</span>)
+    clkIco(multiQ.stage)
+    <span class="skw">click</span>(createRoom)
+    <span class="skw">click</span>(private)
+    <span class="skw">click</span>(confirmCreate)
+
+
+<span class="kw">def</span> gotoNoxMulti(multiQ):
+    <span class="kw">if</span> <span class="kw">not</span> exists(noxInvite, short):
+        sysMsg(<span class="str">"[Nox] Going to selected multi quest"</span>)
+        <span class="kw">if</span> <span class="kw">not</span> exists(noxMyUnit, short):
+            <span class="kw">if</span> <span class="kw">not</span> exists(noxMultiMenu, short):
+                <span class="kw">if</span> exists(noxHome, short):
+                    clkIco(noxHome)
+                clkIco(noxQuest)
+                clkIco(noxMulti)
+                <span class="skw">wait</span>(noxMultiMenu, FOREVER)
+            <span class="kw">while</span> <span class="kw">not</span> exists(multiQ.chapter, double):
+                clkIco(noxArrow)
+                sysMsg(<span class="str">"[Nox] Turning page: chapter"</span>)
+            clkIco(multiQ.chapter)
+            <span class="skw">sleep</span>(double)
+        <span class="kw">while</span> <span class="kw">not</span> exists(multiQ.stage, double):
+            clkIco(noxArrow)
+            sysMsg(<span class="str">"[Nox] Turning page: stage"</span>)
+        clkIco(multiQ.stage)
+        clkIco(noxCreateRoom)
+        clkIco(noxPrivate)
+        clkIco(noxConfirmCreate)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"[Nox] Aleady in multi quest preparation page"</span>)
+
+<span class="cmt"># Remote Desktop accept invitation</span>
+<span class="kw">def</span> rdpAcceptInvite():
+    <span class="kw">if</span> exists(home):
+        clkIco(home)
+    clkIco(rdpMsg)
+    <span class="kw">if</span> exists(inviteError):
+        sysMsg(<span class="str">"Error - no invitation message"</span>)
+        exit()
+    clkIco(rdpInviteSlot1)
+    clkIco(ready)
+
+
+<span class="kw">def</span> multiSingle(multiQ):
+    sysMsg(<span class="str">"Initializing MultiSingle command"</span>)
+    <span class="kw">if</span> <span class="kw">not</span> exists(btStart, short):
+        sysMsg(<span class="str">"Going to selected multiplayer quest"</span>)
+        gotoMulti(chapter, stage)
+    clkIco(btStart)
+    sysMsg(<span class="str">"Quest started"</span>)
+    <span class="kw">if</span> exists(noAP, short):
+        sysMsg(<span class="str">"Insufficient AP"</span>)
+        exit()
+    <span class="skw">click</span>(cfnEmpty)
+    sysMsg(<span class="str">"Battle started"</span>)
+    <span class="kw">if</span> exists(questFailed, <span class="dig">180</span>):
+        clkIco(questFailed)
+        sysMsg(<span class="str">"Quest failed"</span>)
+    <span class="kw">else</span>:
+        clkIco(finished)
+    <span class="kw">if</span> exists(finished):
+        sysMsg(<span class="str">"Quest completed"</span>)
+        clkIco(finished)
+        <span class="skw">sleep</span>(<span class="dig">10</span>)
+        <span class="skw">type</span>(Key.ESC)
+        <span class="skw">sleep</span>(changePage)
+
+
+<span class="kw">def</span> multiDouble(multiQ, script, n=<span class="dig">0</span>):
+    sysMsg(<span class="str">"Initializing MultiDouble command"</span>)
+    i = <span class="dig">0</span>
+    <span class="kw">while</span> i &lt; n:
+        gotoNoxMulti(multiQ)
+        <span class="cmt"># Nox send invitation (slot 1)</span>
+        clkIco(noxInvite)
+        clkIco(noxIniteSlot1)
+        clkIco(noxConfirmInvite)
+        rdpAcceptInvite()
+        <span class="cmt"># Nox start multi quest and retreat</span>
+        clkIco(noxBtStart, None, True)
+        sysMsg(<span class="str">"Entering battle"</span>)
+        <span class="cmt">### Nox disconnect script here ###</span>
+<span class="cmt">#        if exists(title):</span>
+<span class="cmt">#            clkIco(title)</span>
+<span class="cmt">#            clkIco(OK)</span>
+<span class="cmt">#            sysMsg("Nox has reconnected")</span>
+        <span class="cmt"># Executed saved action</span>
+        script()
+        <span class="cmt"># multiAction(multiQ.action)</span>
+        <span class="cmt">#       if exists(questFailed, 180):</span>
+        <span class="cmt">#           clkIco(questFailed)</span>
+        <span class="cmt">#           sysMsg("Quest failed")</span>
+        <span class="cmt"># Remote Desktop completed quest</span>
+        <span class="cmt">#if exists(finished):</span>
+        <span class="cmt">#    sysMsg("Quest completed")</span>
+        clkIco(finished, extend)
+        clkIco(OK)
+        i = i + <span class="dig">1</span>
+        sysMsg(<span class="str">"Successfully executed "</span> + str(i) + <span class="str">" time(s)"</span>)
+    <span class="kw">if</span> n &lt; <span class="dig">0</span>:
+        sysMsg(<span class="str">"Error: n must be empty or positive"</span>)
+    <span class="kw">else</span>:
+        exit()
+
+
+
+<span class="cmt">#  -------------------------Body-------------------------</span>
+<span class="cmt"># multiSingle(solo)</span>
+multiDouble(nox102, act102, <span class="dig">100</span>)
+<span class="cmt"># act102()</span>
+
+</pre>
+</body>
+</html>

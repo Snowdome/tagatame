@@ -1,0 +1,261 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>event.sikuli</h2> <a href="event.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># event.py last updated 04/07/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+<span class="cmt"># Homepage</span>
+event = <img src="event.png" />
+eventQuest = <img src="eventQuest.png" />
+eventDaily = <img src="eventDaily.png" />
+
+
+<span class="cmt"># Team</span>
+<span class="cmt"># s = selected team</span>
+<span class="cmt"># eT1s = Pattern("eT1s.png").similar(0.98)</span>
+<span class="cmt"># eT2s = Pattern("eT2s.png").similar(0.98)</span>
+<span class="cmt"># eT3s = Pattern("eT3s.png").similar(0.98)</span>
+<span class="cmt"># eT4s = Pattern("eT4s.png").similar(0.98)</span>
+<span class="cmt"># eT5s = Pattern("eT5s.png").similar(0.98)</span>
+<span class="cmt"># eT6s = Pattern("eT6s.png").similar(0.98)</span>
+eT7s = Pattern(<img src="eT7s.png" />).similar(<span class="dig">0.98</span>)
+eT8s = Pattern(<img src="eT8s.png" />).similar(<span class="dig">0.98</span>)
+
+
+<span class="cmt"># eT = event Team</span>
+<span class="cmt"># eT1 = team(eT1s, slot1)</span>
+<span class="cmt"># eT2 = team(eT2s, slot2)</span>
+<span class="cmt"># eT3 = team(eT3s, slot3)</span>
+<span class="cmt"># eT4 = team(eT4s, slot4)</span>
+<span class="cmt"># eT5 = team(eT5s, slot5)</span>
+<span class="cmt"># eT6 = team(eT6s, slot6)</span>
+eT7 = team(eT7s, slot7)
+eT8 = team(eT8s, slot8)
+
+
+<span class="cmt"># Wanted        #Currently not working</span>
+TS_VISION = <img src="TS_VISION.png" />
+
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+<span class="cmt"># Define class for event quest</span>
+<span class="kw">class</span> eventQ(object):
+    <span class="kw">def</span> __init__(self, category, chapter, subChapter, stage):
+        self.category = category    <span class="cmt">#seasonal, daily</span>
+        self.chapter = chapter
+        self.subChapter = subChapter    <span class="cmt">#applicable to some daily quest only</span>
+        self.stage = stage
+
+vision1CH = vc_cp_08
+vision2CH = vc_cp_06
+vision1 = eventQ(<span class="str">"seasonal"</span>, vision1CH, <span class="dig">0</span>, visionQ)
+vision2 = eventQ(<span class="str">"seasonal"</span>, vision2CH, <span class="dig">0</span>, visionQ)
+
+
+<span class="cmt"># Vision clear quest</span>
+vc_cp_06 = <img src="1562209261262.png" />
+vc_cp_08 = <img src="vc_cp_08.png" />
+visionQ =  Pattern(<img src="visionQ.png" />).similar(<span class="dig">0.80</span>)
+
+
+<span class="cmt"># Daily quest</span>
+dailyQuest = <img src="dailyQuest.png" />
+goldQuest = <img src="goldQuest.png" />
+goldQuestL4 = Pattern(<img src="goldQuestL4.png" />).similar(<span class="dig">0.95</span>) <span class="cmt">#0AP</span>
+goldQuestL3 = Pattern(<img src="goldQuestL3.png" />).similar(<span class="dig">0.95</span>) <span class="cmt">#0AP</span>
+goldQuestL2 = Pattern(<img src="goldQuestL2.png" />).similar(<span class="dig">0.95</span>) <span class="cmt">#0AP</span>
+goldQuestL1 = Pattern(<img src="goldQuestL1.png" />).similar(<span class="dig">0.95</span>) <span class="cmt">#0AP</span>
+gearQuest = <img src="gearQuest.png" />
+gearQuestStg = <img src="gearQuestL1.png" />
+gearQuestHard = <img src="gearQuestHard.png" />
+gearQuestHardStg = <img src="gearQuestHardStg.png" />
+
+goldL4 = eventQ(<span class="str">"daily"</span>, goldQuest, <span class="dig">0</span>, goldQuestL4)
+goldL3 = eventQ(<span class="str">"daily"</span>, goldQuest, <span class="dig">0</span>, goldQuestL3)
+goldL2 = eventQ(<span class="str">"daily"</span>, goldQuest, <span class="dig">0</span>, goldQuestL2)
+goldL1 = eventQ(<span class="str">"daily"</span>, goldQuest, <span class="dig">0</span>, goldQuestL1)
+gearL2 = eventQ(<span class="str">"daily"</span>, gearQuestHard, <span class="dig">0</span>, gearQuestHardStg)
+gearL1 = eventQ(<span class="str">"daily"</span>, gearQuest, <span class="dig">0</span>, gearQuestStg)
+
+<span class="cmt"># Weekly quest</span>
+weeklyVision = <img src="weeklyVision.png" />
+weeklyVisionQ = <img src="weeklyVisionQ.png" />
+weeklyGear = <img src="weeklyGear.png" />
+weeklyGearQ = <img src="weeklyGearQ.png" />
+weeklyItem = <img src="weeklyItem.png" />
+weeklyItemQ = <img src="weeklyItemQ.png" />
+weeklyMaterial = <img src="weeklyMaterial.png" />
+weeklyMaterialQ = <img src="weeklyMaterialQ.png" />
+weeklyGold = <img src="weeklyGold.png" />
+weeklyGoldQ = <img src="weeklyGoldQ.png" />
+
+
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="cmt"># Go to event quest</span>
+<span class="cmt">#def gotoEvent(eventQ):</span>
+<span class="cmt">#    if not exists(eventQ.title)</span>
+
+
+    <span class="kw">if</span> <span class="kw">not</span> exists(settings, short):
+        <span class="skw">click</span>(home)
+        <span class="skw">wait</span>(quest, <span class="dig">20</span>)
+        <span class="skw">sleep</span>(double)
+    clkIco(quest)
+    <span class="skw">click</span>(event)
+    <span class="cmt"># For seasonal event</span>
+    <span class="kw">if</span> eventQ.category == <span class="str">"seasonal"</span>:
+        sysMsg(<span class="str">"Going to selected event quest stage"</span>)
+        <span class="skw">click</span>(eventQuest)
+        <span class="kw">while</span> <span class="kw">not</span> exists(eventQ.chapter, double):
+            <span class="skw">click</span>(questArrow)
+            sysMsg(<span class="str">"Turning page: chapter"</span>)
+        <span class="skw">click</span>(eventQ.chapter)
+        <span class="kw">while</span> <span class="kw">not</span> exists(eventQ.stage, double):
+            <span class="skw">click</span>(questArrow)
+            sysMsg(<span class="str">"Turning page: stage"</span>)
+        <span class="skw">click</span>(eventQ.stage)
+    <span class="cmt"># For daily quest</span>
+    <span class="kw">if</span> getattr(eventQ, <span class="str">"category"</span>) == <span class="str">"daily"</span>:
+        sysMsg(<span class="str">"Going to selected daily quest stage"</span>)
+        <span class="skw">click</span>(eventDaily)
+        <span class="kw">while</span> <span class="kw">not</span> exists(eventQ.chapter, double):
+            <span class="skw">click</span>(questArrow)
+            sysMsg(<span class="str">"Turning page: chapter"</span>)
+        <span class="skw">click</span>(eventQ.chapter)
+        <span class="kw">if</span> <span class="kw">not</span> eventQ.subChapter == <span class="dig">0</span>:    <span class="cmt">#untested</span>
+            <span class="kw">while</span> <span class="kw">not</span> exists(eventQ.subChapter, double):
+                <span class="skw">click</span>(questArrow)
+                sysMsg(<span class="str">"Turning page: sub-chapter"</span>)
+        <span class="skw">click</span>(chapter)
+        <span class="kw">while</span> <span class="kw">not</span> exists(eventQ.stage, double):
+            <span class="skw">click</span>(questArrow)
+            sysMsg(<span class="str">"Turning page: stage"</span>)
+        <span class="skw">click</span>(eventQ.stage)
+
+
+<span class="cmt"># Auto restart until TS_VISION is found and used all quota</span>
+<span class="kw">def</span> tsVision(eventQ, team):
+    sysMsg(<span class="str">"Initializing tsVision command"</span>)
+    <span class="kw">if</span> <span class="kw">not</span> exists(eventQ.stage, short):
+        gotoEvent(eventQ)
+    <span class="kw">else</span>:
+        <span class="skw">click</span>(eventQ.stage)
+    <span class="skw">wait</span>(teamArrow, changePage)
+    teamSelect(team)
+    clkIco(btStart)
+    <span class="kw">while</span> <span class="kw">not</span> exists(noQuota, normal):
+        <span class="kw">if</span> <span class="kw">not</span> exists(fiddler):
+            sysMsg(<span class="str">"Fiddler window not found!"</span>)
+            <span class="skw">popup</span>(<span class="str">"Fiddler window not found!"</span>)
+            <span class="skw">wait</span>(fiddler, <span class="dig">60</span>)
+        <span class="skw">wait</span>(btMenu, <span class="dig">60</span>)
+        <span class="kw">if</span> exists(TS_VISION, normal):
+            sysMsg(<span class="str">"Target found"</span>)
+            btAction()
+        <span class="kw">else</span>:
+            sysMsg(<span class="str">"Target not found"</span>)
+            btQuit()
+        clkIco(eventQ.stage)
+        clkIco(btStart)
+    <span class="kw">else</span>:
+        sysMsg(<span class="str">"No more quota"</span>)
+        <span class="skw">type</span>(Key.ESC) <span class="cmt">#return to Battle Preparation</span>
+        <span class="skw">sleep</span>(normal)
+        <span class="skw">type</span>(Key.ESC) <span class="cmt">#return to Quest List</span>
+        <span class="skw">sleep</span>(double)
+        clkIco(home) <span class="cmt">#return to Home page</span>
+        <span class="skw">sleep</span>(double)
+
+
+<span class="cmt">#def dailyGold():</span>
+<span class="cmt">#    sysMsg("dailyGold started")</span>
+<span class="cmt">#    if not exists(goldQuestL4)</span>
+<span class="cmt">#        gotoEvent(goldL4. </span>
+
+
+
+
+<span class="cmt">#  -------------------------Body-------------------------</span>
+<span class="cmt"># tsVision(vision1, eT7)</span>
+<span class="cmt"># tsVision(vision2, eT8)</span>
+
+</pre>
+</body>
+</html>
