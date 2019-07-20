@@ -7,3 +7,4 @@
 <p>Tools:
 <br>Draw.io https://www.draw.io/
 <br>Sikuli http://sikulix.com/
+<br>Nox Player https://www.bignox.com/
