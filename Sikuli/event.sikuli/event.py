@@ -1,4 +1,4 @@
-# event.py last updated 04/07/2019
+# event.py last updated 06/10/2019
 
 #  -------------------------Import Modules-------------------------
 import tagatame
@@ -16,12 +16,12 @@ eventDaily = "eventDaily.png"
 
 # Team
 # s = selected team
-# eT1s = Pattern("eT1s.png").similar(0.98)
-# eT2s = Pattern("eT2s.png").similar(0.98)
-# eT3s = Pattern("eT3s.png").similar(0.98)
-# eT4s = Pattern("eT4s.png").similar(0.98)
-# eT5s = Pattern("eT5s.png").similar(0.98)
-# eT6s = Pattern("eT6s.png").similar(0.98)
+# eT1s = Pattern("").similar(0.98)
+# eT2s = Pattern("").similar(0.98)
+# eT3s = Pattern("").similar(0.98)
+# eT4s = Pattern("").similar(0.98)
+# eT5s = Pattern("").similar(0.98)
+# eT6s = Pattern("").similar(0.98)
 eT7s = Pattern("eT7s.png").similar(0.98)
 eT8s = Pattern("eT8s.png").similar(0.98)
 
@@ -37,18 +37,18 @@ eT7 = team(eT7s, slot7)
 eT8 = team(eT8s, slot8)
 
 
-# Wanted        #Currently not working
+# Wanted		#Currently not working
 TS_VISION = "TS_VISION.png"
 
 
 #  -------------------------Variables-------------------------
 # Define class for event quest
 class eventQ(object):
-    def __init__(self, category, chapter, subChapter, stage):
-        self.category = category    #seasonal, daily
-        self.chapter = chapter
-        self.subChapter = subChapter    #applicable to some daily quest only
-        self.stage = stage
+	def __init__(self, category, chapter, subChapter, stage):
+		self.category = category	#seasonal, daily
+		self.chapter = chapter
+		self.subChapter = subChapter	#applicable to some daily quest only
+		self.stage = stage
 
 vision1CH = vc_cp_08
 vision2CH = vc_cp_06
@@ -57,20 +57,20 @@ vision2 = eventQ("seasonal", vision2CH, 0, visionQ)
 
 
 # Vision clear quest
-vc_cp_06 = "1562209261262.png"
+vc_cp_06 = "vc_cp_06.png"
 vc_cp_08 = "vc_cp_08.png"
-visionQ =  Pattern("visionQ.png").similar(0.80)
+visionQ =  "visionQ.png"
 
 
 # Daily quest
 dailyQuest = "dailyQuest.png"
 goldQuest = "goldQuest.png"
-goldQuestL4 = Pattern("goldQuestL4.png").similar(0.95) #0AP
-goldQuestL3 = Pattern("goldQuestL3.png").similar(0.95) #0AP
-goldQuestL2 = Pattern("goldQuestL2.png").similar(0.95) #0AP
-goldQuestL1 = Pattern("goldQuestL1.png").similar(0.95) #0AP
+goldQuestL4 = "goldQuestL4.png" # 0AP
+goldQuestL3 = Pattern("goldQuestL4.png").targetOffset(0,106) # 0AP
+goldQuestL2 = Pattern("goldQuestL4.png").targetOffset(0,212) # 0AP
+goldQuestL1 = Pattern("goldQuestL4.png").targetOffset(0,288) # 0AP
 gearQuest = "gearQuest.png"
-gearQuestStg = "gearQuestL1.png"
+gearQuestStg = "gearQuestStg.png"
 gearQuestHard = "gearQuestHard.png"
 gearQuestHardStg = "gearQuestHardStg.png"
 
@@ -98,84 +98,84 @@ weeklyGoldQ = "weeklyGoldQ.png"
 #  -------------------------Define Function-------------------------
 # Go to event quest
 #def gotoEvent(eventQ):
-#    if not exists(eventQ.title)
-    
-    
-    if not exists(settings, short):
-        click(home)
-        wait(quest, 20)
-        sleep(double)
-    clkIco(quest)
-    click(event)
-    # For seasonal event
-    if eventQ.category == "seasonal":
-        sysMsg("Going to selected event quest stage")
-        click(eventQuest)
-        while not exists(eventQ.chapter, double):
-            click(questArrow)
-            sysMsg("Turning page: chapter")
-        click(eventQ.chapter)
-        while not exists(eventQ.stage, double):
-            click(questArrow)
-            sysMsg("Turning page: stage")
-        click(eventQ.stage)
-    # For daily quest
-    if getattr(eventQ, "category") == "daily":
-        sysMsg("Going to selected daily quest stage")
-        click(eventDaily)
-        while not exists(eventQ.chapter, double):
-            click(questArrow)
-            sysMsg("Turning page: chapter")
-        click(eventQ.chapter)
-        if not eventQ.subChapter == 0:    #untested
-            while not exists(eventQ.subChapter, double):
-                click(questArrow)
-                sysMsg("Turning page: sub-chapter")
-        click(chapter)
-        while not exists(eventQ.stage, double):
-            click(questArrow)
-            sysMsg("Turning page: stage")
-        click(eventQ.stage)        
+#	if not exists(eventQ.title)
+	
+	
+	if not exists(settings, short):
+		click(home)
+		wait(quest, 20)
+		sleep(double)
+	clkIco(quest)
+	click(event)
+	# For seasonal event
+	if eventQ.category == "seasonal":
+		sysMsg("Going to selected event quest stage")
+		click(eventQuest)
+		while not exists(eventQ.chapter, double):
+			click(questArrow)
+			sysMsg("Turning page: chapter")
+		click(eventQ.chapter)
+		while not exists(eventQ.stage, double):
+			click(questArrow)
+			sysMsg("Turning page: stage")
+		click(eventQ.stage)
+	# For daily quest
+	if getattr(eventQ, "category") == "daily":
+		sysMsg("Going to selected daily quest stage")
+		click(eventDaily)
+		while not exists(eventQ.chapter, double):
+			click(questArrow)
+			sysMsg("Turning page: chapter")
+		click(eventQ.chapter)
+		if not eventQ.subChapter == 0:	#untested
+			while not exists(eventQ.subChapter, double):
+				click(questArrow)
+				sysMsg("Turning page: sub-chapter")
+		click(chapter)
+		while not exists(eventQ.stage, double):
+			click(questArrow)
+			sysMsg("Turning page: stage")
+		click(eventQ.stage)		
 
 
 # Auto restart until TS_VISION is found and used all quota
 def tsVision(eventQ, team):
-    sysMsg("Initializing tsVision command")
-    if not exists(eventQ.stage, short):
-        gotoEvent(eventQ)
-    else:
-        click(eventQ.stage)
-    wait(teamArrow, changePage)
-    teamSelect(team)
-    clkIco(btStart)
-    while not exists(noQuota, normal):
-        if not exists(fiddler):
-            sysMsg("Fiddler window not found!")
-            popup("Fiddler window not found!")
-            wait(fiddler, 60)
-        wait(btMenu, 60)
-        if exists(TS_VISION, normal):
-            sysMsg("Target found")
-            btAction()
-        else:
-            sysMsg("Target not found")
-            btQuit()
-        clkIco(eventQ.stage)
-        clkIco(btStart)
-    else:
-        sysMsg("No more quota")
-        type(Key.ESC) #return to Battle Preparation
-        sleep(normal)
-        type(Key.ESC) #return to Quest List
-        sleep(double)
-        clkIco(home) #return to Home page
-        sleep(double)
+	sysMsg("Initializing tsVision command")
+	if not exists(eventQ.stage, short):
+		gotoEvent(eventQ)
+	else:
+		click(eventQ.stage)
+	wait(teamArrow, changePage)
+	teamSelect(team)
+	clkIco(btStart)
+	while not exists(noQuota, normal):
+		if not exists(fiddler):
+			sysMsg("Fiddler window not found!")
+			popup("Fiddler window not found!")
+			wait(fiddler, 60)
+		wait(btMenu, 60)
+		if exists(TS_VISION, normal):
+			sysMsg("Target found")
+			btAction()
+		else:
+			sysMsg("Target not found")
+			btQuit()
+		clkIco(eventQ.stage)
+		clkIco(btStart)
+	else:
+		sysMsg("No more quota")
+		type(Key.ESC) #return to Battle Preparation
+		sleep(normal)
+		type(Key.ESC) #return to Quest List
+		sleep(double)
+		clkIco(home) #return to Home page
+		sleep(double)
 
 
 #def dailyGold():
-#    sysMsg("dailyGold started")
-#    if not exists(goldQuestL4)
-#        gotoEvent(goldL4. 
+#	sysMsg("dailyGold started")
+#	if not exists(goldQuestL4)
+#		gotoEvent(goldL4. 
 
 
 

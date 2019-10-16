@@ -33,69 +33,69 @@ drawOK =Pattern("drawOK.png").targetOffset(0,330)
 
 # Inbox
 sysGift = "sysGift.png"
-giftWE = Pattern("giftWE.png").similar(0.75)    #With Expiry
+giftWE = Pattern("giftWE.png").similar(0.75)	#With Expiry
 openAll = "openAll.png"
 
 
 
 #  -------------------------Define Function-------------------------
 def sendGift():
-    sysMsg("Initializing DaillyGift command")
-    if not exists(settings, 0):
-        click(home)
-        sleep(changePage)
-    clkIco(menuFd)
-    clkIco(fdGift)
-    clkIco(giftGet)
-    clkIco(giftGot)
-    clkIco(giftTab)
-    clkIco(giftSend)
-    sleep(changePage)
-    type(Key.ESC)
-    sleep(normal)
+	sysMsg("Initializing DaillyGift command")
+	if not exists(settings, 0):
+		click(home)
+		sleep(changePage)
+	clkIco(menuFd)
+	clkIco(fdGift)
+	clkIco(giftGet)
+	clkIco(giftGot)
+	clkIco(giftTab)
+	clkIco(giftSend)
+	sleep(changePage)
+	type(Key.ESC)
+	sleep(normal)
 
 
-def drawTicket(box, n=1):    #slot = slot number or ticket name
-    i = 0
-    while i < n:
-        if not exists(settings or ticSum, short):
-            click(home)
-            clkIco(drawMenu, double)
-            sleep(double)
-        while not exists(box, 0):
-            clkIco(drawDown)
-            sleep(normal)
-        clkIco(box)
-        clkIco(max)
-        clkIco(confirm)
-        clkIco(skip)
-        clkIco(drawOK, double)
-        i = i + 1
-        sysMsg("Successfully executed " + str(i) + " time(s)")
-    else:
-        if n < 0:
-            sysMsg("Error: n must be empty or positive")
-        else:
-            exit()
+def drawTicket(box, n=1):	#slot = slot number or ticket name
+	i = 0
+	while i < n:
+		if not exists(settings or ticSum, short):
+			click(home)
+			clkIco(drawMenu, double)
+			sleep(double)
+		while not exists(box, 0):
+			clkIco(drawDown)
+			sleep(normal)
+		clkIco(box)
+		clkIco(max)
+		clkIco(confirm)
+		clkIco(skip)
+		clkIco(drawOK, double)
+		i = i + 1
+		sysMsg("Successfully executed " + str(i) + " time(s)")
+	else:
+		if n < 0:
+			sysMsg("Error: n must be empty or positive")
+		else:
+			exit()
 
 
 def getGift():
-    sysMsg("Initializing GetGift command")
-    i = 0
-    if not exists(openAll, short):
-        if not exists(giftWE, short):
-            if not exists(settings, short):
-                click(home)
-            clkIco(sysGift, normal, True)
-        clkIco(giftWE)
-    while exists(openAll):
-        while not exists(confirm):
-            clkIco(openAll)
-        clkIco(confirm)
-        clkIco(drawOK)
-        i = i + 1
-        sysMsg("Successfully executed " + str(i) + " time(s)")
-        sleep(normal)
+	sysMsg("Initializing GetGift command")
+	i = 0
+	if not exists(openAll, short):
+		if not exists(giftWE, short):
+			if not exists(settings, short):
+				click(home)
+			clkIco(sysGift, normal, True)
+		clkIco(giftWE)
+	while exists(openAll):
+		while not exists(confirm):
+			clkIco(openAll)
+		clkIco(confirm)
+		clkIco(drawOK)
+		i = i + 1
+		sysMsg("Successfully executed " + str(i) + " time(s)")
+		sleep(normal)
 
 
 

@@ -34,68 +34,68 @@ staff331 = "staff331.png"
 
 #  -------------------------Define Function-------------------------
 def gotoQuest():
-    click(home)
-    tagatame.clkIco(quest)
-    click(story)
-    #click(mainStory)
-    click(seiseki)
-    while not exists(bannerCh, 1.2):
-        click(questDown)
-        print("Turning page: chapter")
-    click(bannerCh)
-    while not exists(bannerStg, 1.2):
-        click(storyDown)
-        print("Turning page: stage")
-    click(bannerStg)
-    
+	click(home)
+	tagatame.clkIco(quest)
+	click(story)
+	#click(mainStory)
+	click(seiseki)
+	while not exists(bannerCh, 1.2):
+		click(questDown)
+		print("Turning page: chapter")
+	click(bannerCh)
+	while not exists(bannerStg, 1.2):
+		click(storyDown)
+		print("Turning page: stage")
+	click(bannerStg)
+	
 
 def resetEQ(EQ):
-    click(menuMain)
-    click(menuEq)
-    click(tabIS)
-    while not exists(EQ, 1):
-        click(nextPage)
-        print("Turning page: gear")
-    click(EQ)
-    click(resetTab)
-    click(resetBtn)
-    click(resetOK)
-    click(home)
-    sleep(1)
-    gotoQuest()
-    
+	click(menuMain)
+	click(menuEq)
+	click(tabIS)
+	while not exists(EQ, 1):
+		click(nextPage)
+		print("Turning page: gear")
+	click(EQ)
+	click(resetTab)
+	click(resetBtn)
+	click(resetOK)
+	click(home)
+	sleep(1)
+	gotoQuest()
+	
 
 def btActionIS():
-    sysMsg("Initializing btActionIS command")
-    while True:
-        click(btStart)
-        if exists(cfnEmpty):
-            click(cfnEmpty)
-        wait(btMenu, 20)
-        if exists(toggleAuto, normal):
-            click(toggleAuto)
-            sleep(short)
-        clkIco(questMission)
-        if exists(learnIS, changePage):
-            if exists(targetIS):
-                click(learnIS)
-                click(btAgain)
-                print("Target IS found - entering battle again")    
-            else:
-                if exists(finalIS):
-                    popup("Final Inspiration Skill learnt")
-                    exit()
-                else:
-                    click(learnIS)
-                    tagatame.esc(questEnd)
-                    print("Wrong IS learnt - resetting IS")
-                    resetEQ1()
-        else:
-            click(btAgain)
-            sleep(normal)
-            click(btAgain)
-            print("No IS learnt - entering battle again")
-        
+	sysMsg("Initializing btActionIS command")
+	while True:
+		click(btStart)
+		if exists(cfnEmpty):
+			click(cfnEmpty)
+		wait(btMenu, 20)
+		if exists(toggleAuto, normal):
+			click(toggleAuto)
+			sleep(short)
+		clkIco(questMission)
+		if exists(learnIS, changePage):
+			if exists(targetIS):
+				click(learnIS)
+				click(btAgain)
+				print("Target IS found - entering battle again")	
+			else:
+				if exists(finalIS):
+					popup("Final Inspiration Skill learnt")
+					exit()
+				else:
+					click(learnIS)
+					tagatame.esc(questEnd)
+					print("Wrong IS learnt - resetting IS")
+					resetEQ1()
+		else:
+			click(btAgain)
+			sleep(normal)
+			click(btAgain)
+			print("No IS learnt - entering battle again")
+		
 
 
 #  -------------------------Variables-------------------------
