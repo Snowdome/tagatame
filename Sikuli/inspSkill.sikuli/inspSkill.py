@@ -1,6 +1,6 @@
-# inspSkill.py last updated 04/07/2019
+# inspSkill.py last updated 20/10/2019
 
-#  -------------------------Import Modules-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
@@ -35,7 +35,7 @@ staff331 = "staff331.png"
 #  -------------------------Define Function-------------------------
 def gotoQuest():
 	click(home)
-	tagatame.clkIco(quest)
+	tagatame.clkObj(quest)
 	click(story)
 	#click(mainStory)
 	click(seiseki)
@@ -75,7 +75,7 @@ def btActionIS():
 		if exists(toggleAuto, normal):
 			click(toggleAuto)
 			sleep(short)
-		clkIco(questMission)
+		clkObj(questMission)
 		if exists(learnIS, changePage):
 			if exists(targetIS):
 				click(learnIS)

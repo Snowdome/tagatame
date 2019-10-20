@@ -1,6 +1,6 @@
-# event.py last updated 06/10/2019
+# event.py last updated 20/10/2019
 
-#  -------------------------Import Modules-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
@@ -105,7 +105,7 @@ weeklyGoldQ = "weeklyGoldQ.png"
 		click(home)
 		wait(quest, 20)
 		sleep(double)
-	clkIco(quest)
+	clkObj(quest)
 	click(event)
 	# For seasonal event
 	if eventQ.category == "seasonal":
@@ -147,7 +147,7 @@ def tsVision(eventQ, team):
 		click(eventQ.stage)
 	wait(teamArrow, changePage)
 	teamSelect(team)
-	clkIco(btStart)
+	clkObj(btStart)
 	while not exists(noQuota, normal):
 		if not exists(fiddler):
 			sysMsg("Fiddler window not found!")
@@ -160,15 +160,15 @@ def tsVision(eventQ, team):
 		else:
 			sysMsg("Target not found")
 			btQuit()
-		clkIco(eventQ.stage)
-		clkIco(btStart)
+		clkObj(eventQ.stage)
+		clkObj(btStart)
 	else:
 		sysMsg("No more quota")
 		type(Key.ESC) #return to Battle Preparation
 		sleep(normal)
 		type(Key.ESC) #return to Quest List
 		sleep(double)
-		clkIco(home) #return to Home page
+		clkObj(home) #return to Home page
 		sleep(double)
 
 

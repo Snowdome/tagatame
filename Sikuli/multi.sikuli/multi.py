@@ -1,6 +1,6 @@
-# multi.py last updated 15/10/2019
+# multi.py last updated 20/10/2019
 
-#  -------------------------Import Modules-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
@@ -37,14 +37,14 @@ subConfirmCreate = "subConfirmCreate.png"
 subInvite = "subInvite.png"
 subIniteSlot1 = Pattern("subIniteSlot1.png").targetOffset(-100,60)	# Location of down arrow in respect to the message in sub-window
 subAdded = Pattern("subAdded.png").similar(0.80)
-subConfirmInvite = Pattern("subConfirmInvite.png").similar(0.80)
+subConfirmInvite = Pattern("subConfirmInvite.png").similar(0.90)
 mainInvite = "mainInvite.png"
-inviteError = "inviteError.png"
+inviteError = Pattern("inviteError.png").targetOffset(245,-255)
 mainInviteSlot1 = Pattern("mainInviteSlot1.png").targetOffset(375,100)	# Location of down arrow in respect to the header in main-window
 ready = "ready.png"
 subBtStart = "subBtStart.png"
 subBtMenu = "subBtMenu.png"
-subRetreatBtn = "subRetreatBtn.png"
+subRetreatBtn = Pattern("subRetreatBtn.png").similar(0.80)
 subConfirm = "subConfirm.png"
 OK = Pattern("OK.png").similar(0.80)
 # Finished
@@ -67,6 +67,7 @@ atk = Pattern("end.png").targetOffset(-190,-15)	# Locaation of Attack button in 
 mainSkill = Pattern("end.png").targetOffset(-100,-50)	# Locaation of Main Skill button in respec to End button
 subSkill = Pattern("end.png").targetOffset(-30,-125)	# Locaation of Sub Skill button in respec to End button
 masterSkill = Pattern("end.png").targetOffset(10,-220)	# Locaation of Master Art button in respec to End button
+cancel = "cancel.png"
 actOK = "actOK.png"
 skillDown = "skillDown.png"
 skill1 = Pattern("skillDown.png").targetOffset(-190,120)
@@ -75,20 +76,20 @@ skill3 = Pattern("skillDown.png").targetOffset(-190,420)
 
 
 #  -------------------------Saved automation-------------------------
-def noxMacro(icon):
+def noxMacro(object):
 	if not exists(mRec, 0):
 		sysMsg("Opening Macro Recorder window")
-		clkIco(mRecBtn)
+		clkObj(mRecBtn)
 		dragDrop(mRec, Pattern(mRec).targetOffset(760,0))
 		sleep(normal)
-	clkIco(icon)
+	clkObj(object)
 
 
 def subRetreat():
-	clkIco(subBtMenu)
-	clkIco(subRetreatBtn)
-	clkIco(subConfirm)
-	clkIco(OK)
+	clkObj(subBtMenu)
+	clkObj(subRetreatBtn)
+	clkObj(subConfirm)
+	clkObj(OK)
 
 
 def act105():
@@ -99,12 +100,12 @@ def act105():
 		btQuit()
 		wait(quest, FOREVER)
 		gotoMulti(solo105)
-		clkIco(multiStart)
+		clkObj(multiStart)
 		wait(double)
 		if exists(noAP, 1):
 			resAP()
-			clkIco(multiStart)
-		clkIco(confirm)
+			clkObj(multiStart)
+		clkObj(confirm)
 		sysMsg("Quest restarted")
 		wait(btMenu, FOREVER)
 		noxMacro(m105)
@@ -112,7 +113,7 @@ def act105():
 			sysMsg("Cannot complete quest twice - exiting")
 			exit()
 		else:
-			clkIco(finished)
+			clkObj(finished)
 			sleep(changePage)
 			esc(finished)
 	else:
@@ -122,42 +123,44 @@ def act105():
 def act202():
 	sysMsg("Executing Act 202")
 	sysMsg("レティシア uses 2nd main skill - 銀彩ルサールカ, stays and end turn")
-	clkIco(mainSkill)
-	clkIco(skill2)
-	clkIco(actOK)
+	clkObj(mainSkill)
+	clkObj(skill2)
+	clkObj(actOK)
 	subRetreat()
-	clkIco(end)
-	clkIco(actOK)	
+	clkObj(end)
+	clkObj(actOK)	
 	sysMsg("Step 2: クリーマ uses 5th main skill - 長雨カタツムリ, stays and end turn")
-	clkIco(mainSkill)
-	clkIco(skillDown)
-	clkIco(skillDown)
-	clkIco(skill3)
-	clkIco(actOK)
-	clkIco(end)
-	clkIco(actOK)
+	clkObj(mainSkill)
+	clkObj(skillDown)
+	clkObj(skillDown)
+	clkObj(skill3)
+	clkObj(actOK)
+	clkObj(end)
+	clkObj(actOK)
 	sysMsg("レティシア stays and end turn")
-	clkIco(end)
-	clkIco(actOK)
+	clkObj(end)
+	clkObj(actOK)
 	sysMsg("Step 4: クリーマ uses 5th main skill - 長雨カタツムリ, stays and end turn")
-	clkIco(mainSkill)
-	clkIco(skillDown)
-	clkIco(skillDown)
-	clkIco(skill3)
-	clkIco(actOK)
-	clkIco(end)
-	clkIco(actOK)
+	clkObj(mainSkill)
+	clkObj(skillDown)
+	clkObj(skillDown)
+	clkObj(skill3)
+	clkObj(actOK)
+	clkObj(end)
+	clkObj(actOK)
 	sysMsg("Step 5: レティシア stays and end turn")
-	clkIco(end)
-	clkIco(actOK)
+	clkObj(end)
+	clkObj(actOK)
 	sysMsg("Step 6: クリーマ uses 5th main skill - 長雨カタツムリ, quest completed")
-	clkIco(mainSkill)
-	clkIco(skillDown)
-	clkIco(skillDown)
-	clkIco(skill3)
-	clkIco(actOK)
+	clkObj(mainSkill)
+	clkObj(skillDown)
+	clkObj(skillDown)
+	clkObj(skill3)
+	clkObj(actOK)
 
 def act205():
+	clkObj(atk)
+	clkObj(cancel)
 	subRetreat()
 	noxMacro(m105)
 
@@ -185,12 +188,12 @@ sub205 = multiQ(subCh2, subStg205)
 
 #  -------------------------Define Function-------------------------
 # Choose unit
-def myUnit(icon):
+def myUnit(object):
 	click(myUnit)
-	while not exists(icon):
+	while not exists(object):
 		click(arrowRight)
 		sysMsg("Turning page: character")
-	click(icon)
+	click(object)
 
 
 # Go to multi quest
@@ -205,7 +208,7 @@ def gotoMulti(multiQ):
 				wait(quest, 20)
 				sleep(double)
 			click(quest)
-			clkIco(multi)
+			clkObj(multi)
 			wait(multiList, FOREVER)
 		else:
 			sysMsg("Already in Multi Quest selection menu")
@@ -216,10 +219,10 @@ def gotoMulti(multiQ):
 		while not exists(multiQ.stage, double):
 			click(questArrow)
 			sysMsg("Turning page: stage")
-		clkIco(multiQ.stage)
+		clkObj(multiQ.stage)
 		click(createRoom)
 		if exists(private, double):
-			clkIco(private)
+			clkObj(private)
 		else:
 			sysMsg("Room is already private")
 		click(confirmCreate)
@@ -231,25 +234,25 @@ def gotoSubMulti(multiQ):
 		if not exists(subMyUnit, short):
 			if not exists(subMultiMenu, short):		
 				if exists(subHome, short):
-					clkIco(subHome)
-				clkIco(subQuest)
-				clkIco(subMulti)
+					clkObj(subHome)
+				clkObj(subQuest)
+				clkObj(subMulti)
 				wait(subMultiMenu, FOREVER)
 			while not exists(multiQ.chapter, double):
-				clkIco(subArrow)
+				clkObj(subArrow)
 				sysMsg("[Sub] Turning page: chapter")
-			clkIco(multiQ.chapter)
+			clkObj(multiQ.chapter)
 			sleep(double)
 		while not exists(multiQ.stage, double):
-			clkIco(subArrow)
+			clkObj(subArrow)
 			sysMsg("[Sub] Turning page: stage")
-		clkIco(multiQ.stage)
-		clkIco(subCreateRoom)
+		clkObj(multiQ.stage)
+		clkObj(subCreateRoom)
 		if exists(subPrivate, double):
-			clkIco(subPrivate)
+			clkObj(subPrivate)
 		else:
 			sysMsg("Room is already private")
-		clkIco(subConfirmCreate)
+		clkObj(subConfirmCreate)
 	else:
 		sysMsg("[Sub] Aleady in multi quest preparation page")
 		
@@ -260,12 +263,12 @@ def multiSingle(multiQ, script, n=0):
 	if not exists(btStart, short):
 		gotoMulti(multiQ)
 	while i < n:
-		clkIco(multiStart)
+		clkObj(multiStart)
 		wait(normal)
 		if exists(noAP, short):
 			resAP()
-			clkIco(multiStart)
-		clkIco(confirm)
+			clkObj(multiStart)
+		clkObj(confirm)
 		sysMsg("Quest started")
 		wait(btMenu, 30)
 		script()
@@ -284,45 +287,57 @@ def multiDouble(multiQ, script, n=1):
 	while i < n:
 		gotoSubMulti(multiQ)
 		# Sub send invitation (slot 1)
-		clkIco(subInvite)
-		clkIco(subIniteSlot1)
-		clkIco(subAdded)
-		clkIco(subConfirmInvite, None, True)
+		clkObj(subInvite)
+		clkObj(subIniteSlot1)
+		if exists(subAdded):
+			clkObj(subConfirmInvite, None, True)
+		else:
+			while not exists(subAdded):
+				clkObj(subIniteSlot1)
+				clkObj(subConfirmInvite, None, True)
 		# Main accept invitation
 		if exists(home):
-			clkIco(home)
-		try:
-			clkIco(mainInvite)
-		except FindFailed:
-			sysMsg("Error - no invitation message")
-		clkIco(mainInviteSlot1)
-		clkIco(ready)
+			clkObj(home)
+		clkObj(mainInvite)
+		while exists(inviteError, double):
+			clkObj(inviteError)
+			if exists(subInvite, normal):
+				clkObj(subInvite)
+			if exists(subInviteSlot1):
+				clkObj(subIniteSlot1)
+				clkObj(subAdded)
+			if exists(subConfirmInvite):
+				clkObj(subConfirmInvite, None, True)
+			clkObj(mainInvite)
+		else:
+			clkObj(mainInviteSlot1)
+			clkObj(ready)
 		# Sub start multi quest and retreat
 		try:
-			clkIco(subBtStart, double, True)
+			clkObj(subBtStart, double, True)
 			if exists(subConfirm):
-				clkIco(subConfirm)
+				clkObj(subConfirm)
 		except FindFailed:
 			pass
 		sysMsg("Entering battle")
 		### Nox disconnect script here ###
 #		if exists(title):
-#			clkIco(title)
-#			clkIco(OK)
+#			clkObj(title)
+#			clkObj(OK)
 #			sysMsg("Nox has reconnected")
 		# Executed saved action
 		script()
 		# multiAction(multiQ.action)
 		#	   if exists(questFailed, 180):
-		#		   clkIco(questFailed)
+		#		   clkObj(questFailed)
 		#		   sysMsg("Quest failed")
 		# Remote Desktop completed quest
 		#if exists(finished):
 		#	sysMsg("Quest completed")
 		sleep(extend)
-		clkIco(finished)
-		clkIco(OK)
-		clkIco(home)
+		clkObj(finished)
+		clkObj(OK)
+		clkObj(home)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
 	if n < 0:

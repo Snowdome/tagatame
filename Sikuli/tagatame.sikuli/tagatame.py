@@ -1,6 +1,6 @@
-# tagatame.py last updated 13/10/2019
+# tagatame.py last updated 20/10/2019
 
-#  -------------------------Import Modules and Class-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
 import time
 from inspect import currentframe, getframeinfo
@@ -91,7 +91,7 @@ confirm = "confirm.png"
 btNext = "btNext.png"
 questMission = "questMission.png"
 visionMax = Pattern("visionMax.png").targetOffset(0,440)	# Location of OK button in respect to the title bar
-questEnd = "questEnd.png"
+btEnd = "btEnd.png"
 
 shop = Pattern("shop.png").targetOffset(-85,210)
 
@@ -104,45 +104,66 @@ def sysMsg(text):
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
 
 
-# Click icon (optional: delay = length // loop = repeat until no longer exists)
-def clkIco(icon, delay=None, loop=False):
-	if not exists(icon):
-		sysMsg("Waiting for " + str(icon))
-		wait(icon, wTime)
-	if delay != None:
-		sysMsg("Delay clicking on " + str(icon) + " for " + str(delay))
+# Click object (optional: delay = length(ms), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
+def clkObj(object, delay=0, loop=0, remark=0):
+	if remark == 0:
+		subject = repr(object)
+	else:
+		if remark == 1:
+			subject = object.remark
+		else:
+			subject = remark
+	if not exists(object):
+		sysMsg("Waiting for " + subject)
+		wait(object, wTime)
+	if delay != 0:
+		sysMsg("Delay clicking on " + subject + " for " + str(delay))
 		sleep(delay)
-	if loop == False:
-		click(icon)
-		sysMsg("Clicked on " + str(icon))
+	if loop == 0:
+		click(object)
+		sysMsg("Clicked on " + subject)
 	else:
 		try:
-			click(icon)
+			click(object)
 			sleep(normal)
-			sysMsg("Repeat clicking on " + str(icon))
+			sysMsg("Repeat clicking on " + subject)
 		except FindFailed:
-			sysMsg("Cannot find icon")
+			sysMsg("Cannot find object")
 
 
-# Wait for icon and press ESC (optional: delay = length)
-def esc(icon, length=None):
-	if not exists(icon, normal):
-		wait(icon, FOREVER)
-		sysMsg("Waiting for " + str(icon))
-	if length is not None:
-		sleep(length)
-		sysMsg("Delay pressing ESC for " + str(icon) + " for length = " + str(length))
-	type(Key.ESC)
-	sysMsg("Pressed ESC for " + str(icon))
-	sleep(normal)
+# Wait for object and press ESC (optional: delay = length(ms))
+def esc(object, delay=0):
+	if remark == 0:
+		subject = repr(object)
+	else:
+		if remark == 1:
+			subject = object.remark
+		else:
+			subject = remark
+	if not exists(object):
+		sysMsg("Waiting for " + subject)
+		wait(object, wTime)
+	if delay != 0:
+		sysMsg("Delay ESC for " + subject + " for " + str(delay))
+		sleep(delay)
+	if loop == 0:
+		type(Key.ESC)
+		sysMsg("ESC on " + subject)
+	else:
+		try:
+			type(Key.ESC)
+			sleep(normal)
+			sysMsg("Repeat ESC on " + subject)
+		except FindFailed:
+			sysMsg("Cannot find object")
 
 
-# Restore AP (optional: icon = leaf type)
-def resAP(icon=leaf120):
+# Restore AP (optional: object = leaf type)
+def resAP(object=leaf120):
 	if exists(noAP):
-		clkIco(icon)
-		clkIco(okAP)
-		clkIco(restoredAP)
+		clkObj(object)
+		clkObj(okAP)
+		clkObj(restoredAP)
 	else:
 		sysMsg("Invalid command - no insufficient AP message")
 
@@ -155,7 +176,7 @@ def btAction():
 		sleep(short)
 	else:
 		sysMsg("Auto already on")
-	clkIco(questMission)
+	clkObj(questMission)
 	sysMsg("Quest completed")
 	while exists(visionMax):
 		sysMsg("Vision achieved")
@@ -173,24 +194,29 @@ def btQuit():
 	click(confirm)
 
 
-# Select team (1 - 8)
-def teamSelect(slot):
-	sysMsg("Changing team")
-	click(teamArrow)
+# Select team
+# Tower: Page 1 [1-7] // Page 2 [8-12] // Page 3 [13-16] // Page 4 [17-20]
+def teamSelect(slot, page=1):
+	p = 1
+	sysMsg("Changing team @ page " + str(page))
+	clkObj(teamArrow)
 	sleep(normal)
-	click(slot)
-	sysMsg("Team changed")
+	while p < page:
+		clkObj(teamNext)
+		sysMsg("Turned to team page " + str(page))
+	clkObj(slot)
+	sysMsg("Team changed to " + str(slot))
 
 
 
 # Get reward from completed mission
 def getReward():
-	clkIco(mainMenu)
-	clkIco(missionNew)
+	clkObj(mainMenu)
+	clkObj(missionNew)
 	while exists(rewardGet):
-		clkIco(rewardGet, None, True)
+		clkObj(rewardGet, None, True)
 		sleep(normal)
 		type(key.ESC)
-	sysMsg("Done")
+	sysMsg("Claimed reward")
 
 sysMsg("Imported tagatame.sikuli")

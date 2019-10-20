@@ -1,5 +1,5 @@
-# PoK.py last updated 16/10/2019
-#  -------------------------Import Modules-------------------------
+# PoK.py last updated 20/10/2019
+#  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
 import time
@@ -17,7 +17,6 @@ long = 180
 wTime = FOREVER
 
 i = 0
-msgCount = "***************Successfully executed " + str(i) + " time(s)**************"
 msgError = "Error: n must be empty or positive"
 msgEnd = "***************End of function***************"
 
@@ -85,38 +84,38 @@ def sysMsg(text):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
 
-# Click icon (optional: delay = length(ms), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
-def clkIco(icon, delay=None, loop=False, remark=0):
+# Click object (optional: delay = length(ms), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
+def clkObj(object, delay=0, loop=0, remark=0):
 	if remark == 0:
-		obj = repr(icon)
+		subject = repr(object)
 	else:
 		if remark == 1:
-			obj = icon.remark
+			subject = object.remark
 		else:
-			obj = remark
-	if not exists(icon):
-		sysMsg("Waiting for " + obj)
-		wait(icon, wTime)
-	if delay != None:
-		sysMsg("Delay clicking on " + obj + " for length = " + str(delay))
+			subject = remark
+	if not exists(object):
+		sysMsg("Waiting for " + subject)
+		wait(object, wTime)
+	if delay != 0:
+		sysMsg("Delay clicking on " + subject + " for length = " + str(delay))
 		sleep(delay)
-	if loop == False:
-		click(icon)
-		sysMsg("Clicked on " + obj)
+	if loop == 0:
+		click(object)
+		sysMsg("Clicked on " + subject)
 	else:
 		try:
-			click(icon)
-			sysMsg("Clicked on " + obj + " for the 1st time")
+			click(object)
+			sysMsg("Clicked on " + subject + " for the 1st time")
 			sleep(double)
-			while exists(icon, changePage):
-				click(icon)
+			while exists(object, changePage):
+				click(object)
 				hover("start.png")
-				sysMsg("Repeat clicking on " + obj)
+				sysMsg("Repeat clicking on " + subject)
 				sleep(double)
 			else:
-				sysMsg("Finished looping on " + obj)
+				sysMsg("Finished looping on " + subject)
 		except FindFailed:
-			sysMsg("Cannot find icon")
+			sysMsg("Cannot find object")
 
 
 # Enhance hime with chosen doll
@@ -124,12 +123,12 @@ def enhance(doll, n=1):
 	sysMsg("Initializing Enhance command")
 	i = 0
 	while i < n:
-		clkIco(himeEn)
-		clkIco(doll)
-		clkIco(OK)
-		clkIco(confirm)
-		clkIco(enStart)
-		clkIco(yes)
+		clkObj(himeEn)
+		clkObj(doll)
+		clkObj(OK)
+		clkObj(confirm)
+		clkObj(enStart)
+		clkObj(yes)
 		while not exists(himeEn):
 			click(atMouse())
 			sleep(short)
@@ -146,11 +145,11 @@ def forge(n=1):
 	sysMsg("Initializing Forge command")
 	i = 0
 	while i < n:
-		clkIco(gearForge)
-		clkIco(selectOre)
-		clkIco(confirm)
-		clkIco(forgeStart)
-		clkIco(yes)
+		clkObj(gearForge)
+		clkObj(selectOre)
+		clkObj(confirm)
+		clkObj(forgeStart)
+		clkObj(yes)
 		sleep(double)
 		click(atMouse())
 		sleep(double)
@@ -158,7 +157,7 @@ def forge(n=1):
 		#while not exists(pageBack):
 		#	click(atMouse())
 		#	sleep(short)
-		clkIco(pageBack)
+		clkObj(pageBack)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
 	else:
@@ -172,9 +171,9 @@ def drawDoll(n=1):
 	sysMsg("Initializing DrawDoll command")
 	i = 0
 	while i < n:
-		clkIco(dollMax)
-		clkIco(skip)
-		clkIco(pageNext)
+		clkObj(dollMax)
+		clkObj(skip)
+		clkObj(pageNext)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
 	else:
@@ -188,16 +187,16 @@ def drawTicket(n=1):
 	sysMsg("Initializing DrawTicket command")
 	i = 0
 	while i < n:
-		clkIco(ticket)
+		clkObj(ticket)
 		if not exists(noMulti, short):
-			clkIco(drawMax)
-			clkIco(skip)
-			clkIco(pageNext)
+			clkObj(drawMax)
+			clkObj(skip)
+			clkObj(pageNext)
 			sleep(double)
 		else:
-			clkIco(drawOnce)
-			clkIco(skip)
-			clkIco(pageBack)
+			clkObj(drawOnce)
+			clkObj(skip)
+			clkObj(pageBack)
 			sleep(double)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
@@ -212,15 +211,15 @@ def btAction(n=1):
 	sysMsg("Initializing BattleAction command")
 	i = 0
 	while i < n:
-		clkIco(btStart)
+		clkObj(btStart)
 		wait(btResult, FOREVER)
 		sleep(normal)
 		while exists(affinity):
 			click(affinity)
 			sleep(double)
-		clkIco(btResult, normal, True, remark = "btResult")
-		clkIco(loot, normal, True)
-		clkIco(btAgain)
+		clkObj(btResult, normal, True, remark = "btResult")
+		clkObj(loot, normal, True)
+		clkObj(btAgain)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
 	else:
@@ -234,20 +233,20 @@ def btPtQuest(n=1):
 	sysMsg("Initializing BattlePointQuest command")
 	i = 0
 	while i < n:
-		clkIco(btStart)
+		clkObj(btStart)
 		wait(btResult, FOREVER)
 		while exists(affinity):
 			click(affinity)
 			sleep(double)
 		while exists(btResult):
-			clkIco(btResult, loading, remark = "btResult")
-		clkIco(loot, changePage)
-		clkIco(pt, changePage)
-		clkIco(accPt, double)
+			clkObj(btResult, loading, remark = "btResult")
+		clkObj(loot, changePage)
+		clkObj(pt, changePage)
+		clkObj(accPt, double)
 		while not exists(btAgain):
-			clkIco(ptAch, double)
+			clkObj(ptAch, double)
 			sleep(double)
-		clkIco(btAgain)
+		clkObj(btAgain)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
 	else:
@@ -263,18 +262,18 @@ def btUnitQuest(n=1):
 	i = 0
 	while i < n:
 		if exists(btAgain, normal):
-			clkIco(btAgain)
-		clkIco(btStart)
+			clkObj(btAgain)
+		clkObj(btStart)
 		wait(btResult, FOREVER)
-		clkIco(btResult, loading, remark = "btResult")
+		clkObj(btResult, loading, remark = "btResult")
 		while not exists(pageNext):
 			click(atMouse())
 			sleep(normal)
-		clkIco(pageNext, changePage)
+		clkObj(pageNext, changePage)
 		while not exists(btAgain):
 			click(atMouse())
 			sleep(double)
-		clkIco(btAgain)
+		clkObj(btAgain)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
 		sleep(normal)
@@ -287,35 +286,35 @@ def btUnitQuest(n=1):
 
 # Starting from stats menu, reincarnate and level up via key stage
 def keyLv():
-	clkIco(menuBack)
-	clkIco(train)
-	clkIco(himeRe)
-	clkIco(reConfirm)
-	clkIco(yes)
+	clkObj(menuBack)
+	clkObj(train)
+	clkObj(himeRe)
+	clkObj(reConfirm)
+	clkObj(yes)
 	sleep(double)
 	click(atMouse())
 	sleep(double)
 	click(atMouse())
 	sleep(double)
 	click(atMouse())
-	clkIco(btStart)
-	clkIco(btResult, changePage, remark = "btResult")
+	clkObj(btStart)
+	clkObj(btResult, changePage, remark = "btResult")
 	sleep(double)
 	click(atMouse())
 	if exists(OK):
-		clkIco(OK)
-	clkIco(btResult, double, True, remark = "btResult")
-	clkIco(loot, double, True)
-	clkIco(btEndNext)
-	clkIco(keyUnlock)
-	clkIco(keyLv3)
-	clkIco(yes)
-	clkIco(keyStg, changePage)
-	clkIco(unit1)
-	clkIco(gear1)
-	clkIco(egg)
-	clkIco(confirm)
-	clkIco(stats)
+		clkObj(OK)
+	clkObj(btResult, double, True, remark = "btResult")
+	clkObj(loot, double, True)
+	clkObj(btEndNext)
+	clkObj(keyUnlock)
+	clkObj(keyLv3)
+	clkObj(yes)
+	clkObj(keyStg, changePage)
+	clkObj(unit1)
+	clkObj(gear1)
+	clkObj(egg)
+	clkObj(confirm)
+	clkObj(stats)
 	
 
 #  -------------------------Script-------------------------

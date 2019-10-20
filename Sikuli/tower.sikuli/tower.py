@@ -1,10 +1,9 @@
-# tower.py last updated 08/10/2019
+# tower.py last updated 20/10/2019
 
-#  -------------------------Import Modules-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
-
 
 
 #  -------------------------Assets-------------------------
@@ -14,6 +13,7 @@ tower = "tower.png"
 veda = "veda.png"
 extra = "extra.png"
 thunder = "thunder.png"
+water = "water.png"
 mobius = "mobius.png"
 towerStart = "towerStart.png"
 restore = "restore.png"
@@ -22,59 +22,39 @@ invalid = Pattern("invalid.png").targetOffset(0,240)
 reward = Pattern("reward.png").targetOffset(0,160)
 
 
-#Team
-#s = selected team
-tT1s = "tT1s.png"
-tT2s = Pattern("tT2s.png").exact()
-tT3s = Pattern("tT3s.png").exact()
-tT4s = Pattern("tT4s.png").exact()
-tT5s = Pattern("tT5s.png").exact()
-tT6s = Pattern("tT6s.png").exact()
-tT7s = Pattern("tT7s.png").exact()
-
-# Select team (9+, Tower)
-def slot9():
-	sysMsg("Changing team")
-	click(teamArrow)
-	sleep(normal)
-	click(teamNext)
-	click(slot3)
-	sysMsg("Team changed")
-
-
-
 #  -------------------------Define Function-------------------------
 # Go to tower menu
 def gotoTower(type):
-	if not exists(towerStart, 0):
-		sysMsg("Going to selected tower (start floor menu)")
-		if not exists(type):
-			if exists(home, 0):
-				clkIco(home)
-			clkIco(quest, None, True)
-			clkIco(challenge, None, True)
-			clkIco(tower, None, True)
+	if not exists(towerStart, short):
+		sysMsg("Going to selected tower (team preparation menu)")
+		if not exists(type, short):
+			if exists(home, short):
+				clkObj(home)
+			clkObj(quest, 0, 1)
+			clkObj(challenge, 0, 1)
+			clkObj(tower, 0, 1)
 		# In case there are more towers
 		# while not exists(type, short):
 			# click(questArrow)
 			# sysMsg("Turning page: tower")
-		clkIco(type)
-		clkIco(towerStart)
+		clkObj(type)
+		clkObj(towerStart)
 	else:
-		sysMsg("Already in selected tower (start floor menu)")
+		sysMsg("Already in selected tower (team preparation menu)")
 
 
 # Choose team to enter tower and toggle auto (if not already on)
-def autoTower(tower, team):
+# Tower: Page 1 [1-7] // Page 2 [8-12] // Page 3 [13-16] // Page 4 [17-20]
+def autoTower(tower, teamSlot, teamPage=1):
 	i = 0
 	sysMsg("Initializing AutoTower command")
-	if not exists(btStart, 0):
+	if not exists(btStart, short):
 		gotoTower(tower)
-		
+		teamSelect(teamSlot, teamPage)
 	while not exists(invalid):
 		click(btStart)
 		if exists(invalid, normal):
-			clkIco(invalid)
+			clkObj(invalid)
 			sysMsg("Invalid team composition")
 		else:	
 			wait(btMenu, 20)
@@ -88,10 +68,12 @@ def autoTower(tower, team):
 			if exists(reward):
 				i = i + 1
 				sysMsg("***************" + str(i) + " floor(s) cleared***************")
-				clkIco(reward)
-				esc(questEnd)
+				clkObj(reward)
+				clkObj(btEnd)
+				sleep(normal)
+				clkObj(Pattern("btEnd.png").targetOffset(50,0))
 				sleep(changePage)
-				clkIco(towerStart)
+				clkObj(towerStart)
 			else:
 				sysMsg("Returned to Battle Preparation")
 				sleep(changePage)
@@ -99,20 +81,16 @@ def autoTower(tower, team):
 def resTower():
 	sysMsg("Checking for free restore")
 	if exists(restore):
-		clkIco(restore)
-		clkIco(cfnRestore)
+		clkObj(restore)
+		clkObj(cfnRestore)
 		sysMsg("All unit restored")
 	else:
 		sysMsg("Free restore is not available")
-
-#  -------------------------Variables-------------------------
-
 
 
 #  -------------------------Command-------------------------
 #autoTower(thunder, tT1)
 #resTower()
 #autoTower(thunder, tT1)
-#autoTower(veda, tT1)
-
-#slot9()
+#autoTower(veda, slot1)
+autoTower(veda, slot2)

@@ -8,7 +8,7 @@ from tagatame import *
 
 
 #  -------------------------Assets-------------------------
-seiseki = "seiseki.png"
+seiseki = "seiseki.png" 
 babel = "babel.png"
 babelBanner = "babelBanner.png"
 

@@ -1,6 +1,6 @@
-# spEvent.py last updated 06/10/2019
+# spEvent.py last updated 20/10/2019
 
-#  -------------------------Import Modules-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
@@ -114,17 +114,17 @@ def gotoSP(spQ):
 				if exists(home, 0):
 					click(home)
 				if spQ.menuLoc == "up":
-					clkIco(SP, None, True)
+					clkObj(SP, None, True)
 				if spQ.menuLoc == "left":
-					clkIco(SPX, None, True)
+					clkObj(SPX, None, True)
 			while not exists(spQ.event, double):
 				click(questArrow)
-			clkIco(spQ.event)
+			clkObj(spQ.event)
 		if spQ.menuLoc == "up":
-			clkIco(bossHard)
+			clkObj(bossHard)
 		if spQ.menuLoc == "left":
-			clkIco(bossHardX)
-		clkIco(spStart)
+			clkObj(bossHardX)
+		clkObj(spStart)
 	else:
 		sysMsg("Already in selected special event")
 
@@ -143,7 +143,7 @@ def spAction(reward):
 		sysMsg("Quest failed")
 	else:
 		sysMsg("Quest completed")
-		clkIco(reward)
+		clkObj(reward)
 		global c
 		c = c + 1
 
@@ -156,23 +156,23 @@ def spBoss(spQ, n=1):
 	c = 0
 	if not exists(spQ.reward, short):
 		gotoSP(spQ)
-		clkIco(bossHard)
+		clkObj(bossHard)
 	#if n == "all":
 	#	while not exists(noTicket)
-		#	clkIco(spStart)
+		#	clkObj(spStart)
 		#	teamSelect(team)
-		#	clkIco(btStart)
+		#	clkObj(btStart)
 		#	spAction(spQ.reward)
 		#	i = i + 1
 		#	sysMsg("Successfully executed " + str(i) + " time(s); killed boss " + str(c) + " time(s)")
 		#	sleep(normal)	
 	while i < n:
-		clkIco(spStart)
+		clkObj(spStart)
 		sleep(double)
 		try:
 			find(btStart)
 			#teamSelect(team)
-			clkIco(btStart)
+			clkObj(btStart)
 			spAction(spQ.reward)
 			i = i + 1
 			sysMsg("Successfully executed " + str(i) + " time(s); killed boss " + str(c) + " time(s)")
@@ -190,33 +190,33 @@ def spDraw(n=1):
 	sysMsg("Initializing SpecialEventDraw command")
 	i = 0
 	if exists(evDraw,0):
-		clkIco(evDraw)
+		clkObj(evDraw)
 	if exists(evDrawX,0):
-		clkIco(evDrawX)
-	clkIco(evDraw10)
+		clkObj(evDrawX)
+	clkObj(evDraw10)
 	if exists(empty, 0.5):
-		clkIco(spOK)
+		clkObj(spOK)
 		sleep(normal)
-		clkIco(spOK)
-		clkIco(evDraw10)
+		clkObj(spOK)
+		clkObj(evDraw10)
 	if exists(noCoin, 0):
-		clkIco(spOK)
+		clkObj(spOK)
 		sysMsg("No more coins available")
 	else:
 		try:
-			clkIco(drawing)
+			clkObj(drawing)
 			i = i + 1
 		except FindFailed:
 			pass
 		sysMsg("Successfully executed 1st time")
 		if n == "all":
 			while not exists(noCoin):
-				clkIco(evDraw10)
+				clkObj(evDraw10)
 				if exists(empty, 0.5):
-					clkIco(spOK)
+					clkObj(spOK)
 					sleep(normal)
-					clkIco(spOK)
-					clkIco(evDraw10)
+					clkObj(spOK)
+					clkObj(evDraw10)
 				i = i + 1
 				try:
 					click(drawing)
@@ -224,25 +224,25 @@ def spDraw(n=1):
 					pass
 				sysMsg("Successfully executed " + str(i) + " times")
 				if exists(noCoin):
-					clkIco(spOK)
+					clkObj(spOK)
 					sysMsg("No more coins available")
 		else:
 			while i < n:
-				clkIco(evDraw10)
+				clkObj(evDraw10)
 				if exists(empty, 0.5):
-					clkIco(spOK)
+					clkObj(spOK)
 					sleep(normal)
-					clkIco(spOK)
-					clkIco(evDraw10)
+					clkObj(spOK)
+					clkObj(evDraw10)
 				if not exists(noCoin, 0):
 					try:
-						clkIco(drawing)
+						clkObj(drawing)
 						i = i + 1
 					except FindFailed:
 						pass
 					sysMsg("Successfully executed " + str(i) + " times")
 				else:
-					clkIco(spOK)
+					clkObj(spOK)
 					sysMsg("No more coins available")
 					i = n
 			else:
