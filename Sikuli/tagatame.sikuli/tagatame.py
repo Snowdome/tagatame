@@ -1,4 +1,4 @@
-# tagatame.py last updated 20/10/2019
+# tagatame.py last updated 21/10/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -7,18 +7,7 @@ from inspect import currentframe, getframeinfo
 import os
 
 
-# Define class for story quest
-class storyQ(object):
-	def __init__(self, type, chapter, subChapter, stage):
-		self.type = type	#main, seiseki, babel
-		self.chapter = chapter
-		self.subChapter = subChapter	#applicable to mainStory only
-		self.stage = stage
 
-class slot(int):
-	def __init__(self, number, position):
-		self.number = number
-		self.position = position
 
 #  -------------------------Settings-------------------------
 #Settings.MinSimilarity = 0.8
@@ -72,11 +61,11 @@ back = "back.png"
 
 slot1 = Pattern("teamArrow.png").targetOffset(70,56)	# Offset(70,56)
 slot2 = Pattern("teamArrow.png").targetOffset(70,102)	# Offset(70,102)
-slot3 = Pattern("teamArrow.png").targetOffset(70,148)	# Offset(70,148)
-slot4 = Pattern("teamArrow.png").targetOffset(70,194)	# Offset(70,194)
-slot5 = Pattern("teamArrow.png").targetOffset(70,240)	# Offset(70,240)
-slot6 = Pattern("teamArrow.png").targetOffset(70,286)	# Offset(70,286)
-slot7 = Pattern("teamArrow.png").targetOffset(70,332)	# Offset(70,332)
+slot3 = Pattern("teamArrow.png").targetOffset(70,155)	# Offset(70,148)
+slot4 = Pattern("teamArrow.png").targetOffset(70,205)	# Offset(70,194)
+slot5 = Pattern("teamArrow.png").targetOffset(70,230)	# Offset(70,230)
+slot6 = Pattern("teamArrow.png").targetOffset(70,280)	# Offset(70,280)
+slot7 = Pattern("teamArrow.png").targetOffset(70,325)	# Offset(70,325)
 slot8 = Pattern("teamArrow.png").targetOffset(70,378)	# Offset(70,378)
 teamNext = Pattern("teamArrow.png").targetOffset(170,340)	# Offset(170,340)
 
@@ -196,16 +185,17 @@ def btQuit():
 
 # Select team
 # Tower: Page 1 [1-7] // Page 2 [8-12] // Page 3 [13-16] // Page 4 [17-20]
-def teamSelect(slot, page=1):
+def teamSelect(position, page=1):
 	p = 1
 	sysMsg("Changing team @ page " + str(page))
 	clkObj(teamArrow)
 	sleep(normal)
 	while p < page:
 		clkObj(teamNext)
+		p = p + 1
 		sysMsg("Turned to team page " + str(page))
-	clkObj(slot)
-	sysMsg("Team changed to " + str(slot))
+	clkObj(position)
+	sysMsg("Team changed to " + str(position))
 
 
 

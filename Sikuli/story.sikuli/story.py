@@ -1,10 +1,18 @@
-# story.py last updated 18/06/2019
+# story.py last updated 21/10/2019
 
-#  -------------------------Import Modules-------------------------
+#  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
 
+
+# Define class for story quest
+class storyQ(object):
+	def __init__(self, type, chapter, subChapter, stage):
+		self.type = type	#main, seiseki, babel
+		self.chapter = chapter
+		self.subChapter = subChapter	#applicable to mainStory only
+		self.stage = stage
 
 
 #  -------------------------Assets-------------------------
@@ -15,22 +23,13 @@ babelBanner = "babelBanner.png"
 
 
 #  -------------------------Define Function-------------------------
-# Define class for story quest
-class storyQ(object):
-	def __init__(self, type, chapter, subChapter, stage):
-		self.type = type	#main, seiseki, babel
-		self.chapter = chapter
-		self.subChapter = subChapter	#applicable to mainStory only
-		self.stage = stage
-
-
 # Go to story quest
 def gotoStory(storyQ):
 	if not exists(settings, short):
 		click(home)
 		wait(quest, 20)
 		sleep(double)
-	clkIco(quest)
+	clkObj(quest)
 	click(story)
 	# For main story
 	if storyQ.type == "main":
@@ -70,7 +69,7 @@ def gotoStory(storyQ):
 	if storyQ.type == "babel":
 		sysMsg("Going to selected Babel Chronicle stage")
 		click(babel)
-		clkIco(babelBanner)
+		clkObj(babelBanner)
 		while not exists(storyQ.chapter, double):
 			click(questArrow)
 			sysMsg("Turning page: chapter")

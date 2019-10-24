@@ -1,10 +1,19 @@
-# spEvent.py last updated 20/10/2019
+# spEvent.py last updated 21/10/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
 
+
+# Define class for special event
+class spQ():
+	def __init__(self, event, menuLoc, logo, stage, reward):
+		self.event = event
+		self.menuLoc = menuLoc	# up: Above news banner	left: On the left of news banner
+		self.logo = logo
+		self.stage = stage
+		self.reward = reward
 
 
 #  -------------------------Assets-------------------------
@@ -20,16 +29,6 @@ spOK = "spOK.png"
 drawing = "drawing.png"
 
 #  -------------------------Variables-------------------------
-# Define class for special event
-
-class spQ(object):
-	def __init__(self, event, menuLoc, logo, stage, reward):
-		self.event = event
-		self.menuLoc = menuLoc	# up: Above news banner	left: On the left of news banner
-		self.logo = logo
-		self.stage = stage
-		self.reward = reward
-
 # Advance Boss Movie01 - 「劇場版 誰ガ為のアルケミスト」前編
 movie1Ev = "movie1Ev.png"
 movie1Logo = "movie1Logo.png"
@@ -84,25 +83,25 @@ gen1Ev = "gen1Ev.png"
 gen1Logo = "gen1Logo.png"
 gen1Stage = "gen1Stage.png"
 genCoin = "gen1Coin.png"
-genesis1 = spQ(gen1Ev, "left", gen1Logo, gen1Stage, genCoin)
+genesis1 = spQ(gen1Ev, "up", gen1Logo, gen1Stage, genCoin)
 
 # Genesis Boss 2 - 「創る、この世界を」（後編）
 gen2Ev = "gen2Ev.png"
 gen2Logo = "gen2Logo.png"
 gen2Stage = "gen2Stage.png"
-genesis2 = spQ(gen2Ev, "left", gen2Logo, gen2Stage, genCoin)
+genesis2 = spQ(gen2Ev, "up", gen2Logo, gen2Stage, genCoin)
 
 # Genesis Boss 3 - 「恋と、色欲の偏差」（前編）
 gen3Ev = "gen3Ev.png"
 gen3Logo = "gen3Logo.png"
 gen3Stage = "gen3Stage.png"
-genesis3 = spQ(gen3Ev, "left", gen3Logo, gen3Stage, genCoin)
+genesis3 = spQ(gen3Ev, "up", gen3Logo, gen3Stage, genCoin)
 
 # Genesis Boss 4 - 「恋と、色欲の偏差」（後編）
 gen4Ev = "gen4Ev.png"
 gen4Logo = "gen3Logo.png"
 gen4Stage = "gen3Stage.png"
-genesis4 = spQ(gen4Ev, "left", gen4Logo, gen4Stage, genCoin)
+genesis4 = spQ(gen4Ev, "up", gen4Logo, gen4Stage, genCoin)
 
 #  -------------------------Define Function-------------------------
 # Go to special event
@@ -114,9 +113,10 @@ def gotoSP(spQ):
 				if exists(home, 0):
 					click(home)
 				if spQ.menuLoc == "up":
-					clkObj(SP, None, True)
+					clkObj(SP, 0, 1)
 				if spQ.menuLoc == "left":
-					clkObj(SPX, None, True)
+					clkObj(SPX, 0, 1)
+				sleep(changePage)
 			while not exists(spQ.event, double):
 				click(questArrow)
 			clkObj(spQ.event)
@@ -155,8 +155,11 @@ def spBoss(spQ, n=1):
 	global c
 	c = 0
 	if not exists(spQ.reward, short):
-		gotoSP(spQ)
-		clkObj(bossHard)
+		if not exists(bossHard):
+			gotoSP(spQ)
+		else:
+			clkObj(spStart)
+			clkObj(btStart)
 	#if n == "all":
 	#	while not exists(noTicket)
 		#	clkObj(spStart)
@@ -183,15 +186,22 @@ def spBoss(spQ, n=1):
 		if n < 0:
 			sysMsg("Error: n must be empty or positive")
 		else:
-			pass
+			sysMsg("Function end. Sleeping for" + str(changePage))
+			sleep(changePage)
 
 
 def spDraw(n=1):
 	sysMsg("Initializing SpecialEventDraw command")
 	i = 0
-	if exists(evDraw,0):
+	if exists(btStart, 0):
+		clkObj(back)
+		sleep(normal)
+	if exists(back, 0):
+		clkObj(back)
+		sleep(changePage)
+	if exists(evDraw, 0):
 		clkObj(evDraw)
-	if exists(evDrawX,0):
+	if exists(evDrawX, 0):
 		clkObj(evDrawX)
 	clkObj(evDraw10)
 	if exists(empty, 0.5):
@@ -254,9 +264,7 @@ def spDraw(n=1):
 
 
 #  -------------------------Command-------------------------
+spBoss(genesis1, 6)
 spDraw("all")
-# spBoss(sevenSin, 1)
-# spBoss(genesis4, 18)
-# spBoss(movie2, 6)
-# spBoss(fgg, 5)
-# spBoss(drama, 8)
+spBoss(genesis1, 15)
+spDraw("all")
