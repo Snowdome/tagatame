@@ -1,15 +1,9 @@
-# tower.py last updated 21/10/2019
+# tower.py last updated 27/10/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
 reload(tagatame)
 from tagatame import *
-
-
-class team():
-	def __init__(self, position, page):
-		self.position = position
-		self.page = page
 
 
 #  -------------------------Assets-------------------------
@@ -23,9 +17,9 @@ water = "water.png"
 mobius = "mobius.png"
 towerStart = "towerStart.png"
 restore = "restore.png"
-cfnRestore = Pattern("cfnRestore.png").targetOffset(100,180)
-invalid = Pattern("invalid.png").targetOffset(0,240)
-reward = Pattern("reward.png").targetOffset(0,160)
+cfnRestore = Pattern("cfnRestore.png").targetOffset(100,180)	# Location in rspect to the message
+invalid = Pattern("invalid.png").targetOffset(0,240)	# Location in rspect to the message
+reward = Pattern("reward.png").targetOffset(0,160)	# Location in rspect to the message
 
 
 
@@ -73,8 +67,8 @@ def autoTower(tower, team, teamPage=1):
 	while not exists(invalid):
 		click(btStart)
 		if exists(invalid, normal):
-			clkObj(invalid)
-			sysMsg("Invalid team composition, end of function")
+			clkObj(invalid, 0, 0, "Invalid")
+			sysMsg("Invalid team composition, end of command")
 		else:	
 			wait(btMenu, 20)
 			if exists(toggleAuto, normal):
@@ -87,7 +81,7 @@ def autoTower(tower, team, teamPage=1):
 			if exists(reward):
 				i = i + 1
 				sysMsg("***************" + str(i) + " floor(s) cleared***************")
-				clkObj(reward)
+				clkObj(reward, 0, 0, "Reward")
 				clkObj(btEnd)
 				sleep(normal)
 				mouseMove(50,0)
@@ -102,7 +96,7 @@ def resTower():
 	sysMsg("Checking for free restore")
 	if exists(restore):
 		clkObj(restore)
-		clkObj(cfnRestore)
+		clkObj(cfnRestore, 0, 0, "Confirm Restore")
 		sysMsg("All unit restored")
 	else:
 		sysMsg("Free restore is not available")

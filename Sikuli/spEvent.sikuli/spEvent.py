@@ -1,4 +1,4 @@
-# spEvent.py last updated 21/10/2019
+# spEvent.py last updated 27/10/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -178,7 +178,7 @@ def spBoss(spQ, n=1):
 			clkObj(btStart)
 			spAction(spQ.reward)
 			i = i + 1
-			sysMsg("Successfully executed " + str(i) + " time(s); killed boss " + str(c) + " time(s)")
+			sysMsg("***************Successfully executed " + str(i) + " time(s); killed boss " + str(c) + " time(s)***************")
 		except FindFailed:
 			sysMsg("Error: Cannot find btStart button. Not enough ticket?")
 			i = n
@@ -203,12 +203,12 @@ def spDraw(n=1):
 		clkObj(evDraw)
 	if exists(evDrawX, 0):
 		clkObj(evDrawX)
-	clkObj(evDraw10)
+	clkObj(evDraw10, 0, 0, "Event Draw-10")
 	if exists(empty, 0.5):
 		clkObj(spOK)
 		sleep(normal)
 		clkObj(spOK)
-		clkObj(evDraw10)
+		clkObj(evDraw10, 0, 0, "Event Draw-10")
 	if exists(noCoin, 0):
 		clkObj(spOK)
 		sysMsg("No more coins available")
@@ -218,39 +218,39 @@ def spDraw(n=1):
 			i = i + 1
 		except FindFailed:
 			pass
-		sysMsg("Successfully executed 1st time")
+		sysMsg("***************Successfully executed 1st time***************")
 		if n == "all":
 			while not exists(noCoin):
-				clkObj(evDraw10)
+				clkObj(evDraw10, 0, 0, "Event Draw-10")
 				if exists(empty, 0.5):
 					clkObj(spOK)
 					sleep(normal)
 					clkObj(spOK)
-					clkObj(evDraw10)
+					clkObj(evDraw10, 0, 0, "Event Draw-10")
 				i = i + 1
 				try:
 					click(drawing)
 				except FindFailed:
 					pass
-				sysMsg("Successfully executed " + str(i) + " times")
+				sysMsg("***************Successfully executed " + str(i) + " times***************")
 				if exists(noCoin):
 					clkObj(spOK)
 					sysMsg("No more coins available")
 		else:
 			while i < n:
-				clkObj(evDraw10)
+				clkObj(evDraw10, 0, 0, "Event Draw-10")
 				if exists(empty, 0.5):
 					clkObj(spOK)
 					sleep(normal)
 					clkObj(spOK)
-					clkObj(evDraw10)
+					clkObj(evDraw10, 0, 0, "Event Draw-10")
 				if not exists(noCoin, 0):
 					try:
 						clkObj(drawing)
 						i = i + 1
 					except FindFailed:
 						pass
-					sysMsg("Successfully executed " + str(i) + " times")
+					sysMsg("***************Successfully executed " + str(i) + " times***************")
 				else:
 					clkObj(spOK)
 					sysMsg("No more coins available")

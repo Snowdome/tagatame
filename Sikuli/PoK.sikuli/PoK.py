@@ -1,4 +1,4 @@
-# PoK.py last updated 20/10/2019
+# PoK.py last updated 27/10/2019
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -84,12 +84,12 @@ def sysMsg(text):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
 
-# Click object (optional: delay = length(ms), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
+# Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
 	if remark == 0:
 		subject = repr(object)
 	else:
-		if remark == 1:
+		if remark == 1:	# Not yet implemented
 			subject = object.remark
 		else:
 			subject = remark
@@ -97,25 +97,21 @@ def clkObj(object, delay=0, loop=0, remark=0):
 		sysMsg("Waiting for " + subject)
 		wait(object, wTime)
 	if delay != 0:
-		sysMsg("Delay clicking on " + subject + " for length = " + str(delay))
+		sysMsg("Delay clicking on " + subject + " for " + str(delay) + " sec")
 		sleep(delay)
 	if loop == 0:
 		click(object)
 		sysMsg("Clicked on " + subject)
 	else:
-		try:
-			click(object)
-			sysMsg("Clicked on " + subject + " for the 1st time")
-			sleep(double)
-			while exists(object, changePage):
+		while exists(object):
+			try:
 				click(object)
-				hover("start.png")
+				sleep(normal)
+				mouseMove(10,0)
 				sysMsg("Repeat clicking on " + subject)
-				sleep(double)
-			else:
-				sysMsg("Finished looping on " + subject)
-		except FindFailed:
-			sysMsg("Cannot find object")
+			except FindFailed:
+				sysMsg("Cannot find object")
+
 
 
 # Enhance hime with chosen doll

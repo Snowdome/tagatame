@@ -1,4 +1,4 @@
-# tagatame.py last updated 21/10/2019
+# tagatame.py last updated 27/10/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -7,11 +7,15 @@ from inspect import currentframe, getframeinfo
 import os
 
 
+# Define class for team and page number
+class team():
+	def __init__(self, position, page):
+		self.position = position
+		self.page = page
 
 
 #  -------------------------Settings-------------------------
 #Settings.MinSimilarity = 0.8
-
 
 # Waiting time
 short = 0.1
@@ -20,8 +24,8 @@ double = 2
 changePage = 5
 extend = 7
 long = 180
+battle = 300
 wTime = FOREVER
-
 
 
 #  -------------------------Assets-------------------------
@@ -77,6 +81,7 @@ btMenu = "btMenu.png"
 quitQuest = "quitQuest.png"
 btAgain = "btAgain.png"
 confirm = "confirm.png"
+cancel = "cancel.png"
 btNext = "btNext.png"
 questMission = "questMission.png"
 visionMax = Pattern("visionMax.png").targetOffset(0,440)	# Location of OK button in respect to the title bar
@@ -93,12 +98,12 @@ def sysMsg(text):
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
 
 
-# Click object (optional: delay = length(ms), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
+# Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
 	if remark == 0:
 		subject = repr(object)
 	else:
-		if remark == 1:
+		if remark == 1:	# Not yet implemented
 			subject = object.remark
 		else:
 			subject = remark
@@ -106,18 +111,20 @@ def clkObj(object, delay=0, loop=0, remark=0):
 		sysMsg("Waiting for " + subject)
 		wait(object, wTime)
 	if delay != 0:
-		sysMsg("Delay clicking on " + subject + " for " + str(delay))
+		sysMsg("Delay clicking on " + subject + " for " + str(delay) + " sec")
 		sleep(delay)
 	if loop == 0:
 		click(object)
 		sysMsg("Clicked on " + subject)
 	else:
-		try:
-			click(object)
-			sleep(normal)
-			sysMsg("Repeat clicking on " + subject)
-		except FindFailed:
-			sysMsg("Cannot find object")
+		while exists(object):
+			try:
+				click(object)
+				sleep(normal)
+				mouseMove(10,0)
+				sysMsg("Repeat clicking on " + subject)
+			except FindFailed:
+				sysMsg("Cannot find object")
 
 
 # Wait for object and press ESC (optional: delay = length(ms))
@@ -158,7 +165,7 @@ def resAP(object=leaf120):
 
 # After entering battle, toggle Auto if not On, and complete.
 def btAction():
-	wait(btMenu, 20)
+	wait(btMenu, long)
 	if exists(toggleAuto, normal):
 		click(toggleAuto)
 		sysMsg("Toggled auto")
