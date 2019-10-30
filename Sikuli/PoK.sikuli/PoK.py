@@ -12,8 +12,9 @@ short = 0.1
 normal = 1
 double = 2
 changePage = 5
-loading = 12
+extend = 7
 long = 180
+battle = 300
 wTime = FOREVER
 
 i = 0
@@ -235,7 +236,7 @@ def btPtQuest(n=1):
 			click(affinity)
 			sleep(double)
 		while exists(btResult):
-			clkObj(btResult, loading, remark = "btResult")
+			clkObj(btResult, double, 0, remark = "btResult")
 		clkObj(loot, changePage)
 		clkObj(pt, changePage)
 		clkObj(accPt, double)
@@ -257,22 +258,25 @@ def btUnitQuest(n=1):
 	sysMsg("Initializing UnitQuest command")
 	i = 0
 	while i < n:
-		if exists(btAgain, normal):
+		try:
+			if exists(btAgain, normal):
+				clkObj(btAgain)
+			clkObj(btStart)
+			wait(btResult, FOREVER)
+			clkObj(btResult, double, 0, remark = "btResult")
+			while not exists(pageNext):
+				click(atMouse())
+				sleep(normal)
+			clkObj(pageNext, changePage)
+			while not exists(btAgain):
+				click(atMouse())
+				sleep(double)
 			clkObj(btAgain)
-		clkObj(btStart)
-		wait(btResult, FOREVER)
-		clkObj(btResult, loading, remark = "btResult")
-		while not exists(pageNext):
-			click(atMouse())
+			i = i + 1
+			sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
 			sleep(normal)
-		clkObj(pageNext, changePage)
-		while not exists(btAgain):
-			click(atMouse())
-			sleep(double)
-		clkObj(btAgain)
-		i = i + 1
-		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
-		sleep(normal)
+		except FindFailed:
+			sysMsg("FindFailed! Need further examination.")
 	else:
 		if n <= 0:
 			sysMsg(msgError)
@@ -317,8 +321,8 @@ def keyLv():
 #keyLv()
 #btAction(3)
 #btPtQuest(8)
-#btUnitQuest(50)
+btUnitQuest(70)
 #forge(50)
 #enhance(dollWhite, 23)
 #drawTicket()
-drawDoll(100)
+#drawDoll(100)

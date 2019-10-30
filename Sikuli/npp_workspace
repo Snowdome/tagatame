@@ -1,17 +1,15 @@
 <NotepadPlus>
-	<Project name="Tagatame">
-		<File name="action.sikuli\action.py" />
-		<File name="event.sikuli\event.py" />
-		<File name="inspSkill.sikuli\inspSkill.py" />
-		<File name="gift.sikuli\gift.py" />
-		<File name="multi.sikuli\multi.py" />
-		<File name="raid.sikuli\raid.py" />
-		<File name="spEvent.sikuli\spEvent.py" />
-		<File name="story.sikuli\story.py" />
-		<File name="tagatame.sikuli\tagatame.py" />
-		<File name="tower.sikuli\tower.py" />
-	</Project>
-	<Project name="PoK">
-		<File name="PoK.sikuli\PoK.py" />
-	</Project>
+    <Project name="Tagatame">
+        <File name="event.sikuli\event.py" />
+        <File name="inspSkill.sikuli\inspSkill.py" />
+        <File name="multi.sikuli\multi.py" />
+        <File name="raid.sikuli\raid.py" />
+        <File name="spEvent.sikuli\spEvent.py" />
+        <File name="story.sikuli\story.py" />
+        <File name="tagatame.sikuli\tagatame.py" />
+        <File name="tower.sikuli\tower.py" />
+    </Project>
+    <Project name="PoK">
+        <File name="PoK.sikuli\PoK.py" />
+    </Project>
 </NotepadPlus>

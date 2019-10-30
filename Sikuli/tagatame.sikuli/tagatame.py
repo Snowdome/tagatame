@@ -15,7 +15,7 @@ class team():
 
 
 #  -------------------------Settings-------------------------
-#Settings.MinSimilarity = 0.8
+# Settings.MinSimilarity = 0.8
 
 # Waiting time
 short = 0.1
@@ -26,7 +26,8 @@ extend = 7
 long = 180
 battle = 300
 wTime = FOREVER
-
+msgError = "Error: n must be empty or positive"
+msgEnd = "***************End of function***************"
 
 #  -------------------------Assets-------------------------
 # External

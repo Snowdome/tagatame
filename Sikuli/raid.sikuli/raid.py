@@ -16,8 +16,9 @@ class raidQ():
 
 
 #  -------------------------Settings-------------------------
-resRP = 1	# Number of times allowed to restore RP before terminating the command.
+resRP = 0	# Number of times allowed to restore RP before terminating the command.
 raQuit = 10	# Time wait before quitting assisted boss. If set to 0, auto quit.
+pokLoad = 0	# If 1, also auto PoK quest
 
 #  -------------------------Assets-------------------------
 assist = "assist.png"
@@ -41,12 +42,13 @@ reset = "reset.png"
 raidQuit = "raidQuit.png"
 raidQuited = Pattern("raidQuited.png").targetOffset(0,235)	# Location of OK button in respect to the message
 requestAid = "requestAid.png"
+requestedAid = "requestedAid.png"
 sendRequest = "sendRequest.png"
 sentRequest = Pattern("sentRequest.png").targetOffset(-5,240)	# Location of OK button in respect to the message
 raidBack1 = "raidBack1.png"
 raidBack2 =	 "raidBack2.png"
 fullRaid = Pattern("fullRaid.png").targetOffset(0,255)
-killed = Pattern("killed.png").targetOffset(-107,240)	# Location of OK button in respect to the message
+killed = Pattern("killed.png").similar(0.90).targetOffset(-107,240)	# Location of OK button in respect to the message
 addFd = Pattern("addFd.png").targetOffset(0,405)	# Location of yes button in respect to the title bar
 noRP = Pattern("noRP.png").targetOffset(95,140)
 restoredRP = Pattern("restoredRP.png").targetOffset(3,185)
@@ -97,6 +99,23 @@ def raidFull():
 	sysMsg("Raid is full")
 	pass
 
+# Claim raid reward
+def claimReward():
+	sysMsg("Checking whether there is reward to be claimed")
+	if exists(raidReward, 0):
+		clkObj(raidReward)
+		sleep(double)
+		clkObj(cfnReward)
+		if exists(addFd, changePage):
+			clkObj(addFd, 0, 0, "Yes (add friend)")
+			sleep(double)
+		else:
+			sysMsg("No assistant list found")
+			sleep(normal)
+	else:
+		sysMsg("No reward found")
+
+
 # After entering battle, toggle Auto if not On, and complete.
 # Possible to add semi-auto strategy? 
 def raidAction():
@@ -106,8 +125,12 @@ def raidAction():
 		click(toggleAuto)
 		sysMsg("Toggled auto")
 		sleep(short)
+		if pokLoad == 1:
+			pokPugin.btQuest()
 	else:
 		sysMsg("Auto already on")
+		if pokLoad == 1:
+			pokPugin.btQuest()
 	if exists(btEnd, battle):
 		clkObj(btEnd)
 		sleep(normal)
@@ -118,34 +141,41 @@ def raidAction():
 def raidEnd():
 	sysMsg("Skipping raid statistics")
 	clkObj(atkDmg)
-	while exists(endMsg):
+	clkObj(endMsg)	# Attack Damage, click, Accumulated Damage, click, Damage reward, Tier reward
+	while exists(endMsg):			
 		try:
-			clkObj(endMsg)	# Attack Damage, click, Accumulated Damage, click, Damage reward, Tier reward
 			click(atMouse())
+			mouseMove(10,0)
 		except FindFailed:
 			pass
 	wait(home, long)
 	sysMsg("Returned to raid menu")
 	if exists(killed, normal):
 		clkObj(killed, 0, 0, "OK (boss killed)")
-	if exists(requestAid):	# For main boss, check if still alive, and act accordingly.
+	if exists(requestAid, 0):	# For main boss, check if still alive, and act accordingly.
 		sysMsg("/////Main boss is still alive/////")
+		q = 0
 		clkObj(requestAid)
 		clkObj(sendRequest)
 		clkObj(sentRequest, 0, 0, "sentRequest")
 		clkObj(back)
-		while not exists(killed):
+		while q != -1:
 			sysMsg("Attampting to assist boss")
 			raidAssist()
 			clkObj(raidStart)
-			if exists(killed, double):
+			sleep(double)
+			if exists(killed):
 				sysMsg("/////Main boss has been slained/////")
-				clkObj(killed, 0, 0, "OK (boss killed)")
+				q = -1
 			else:
 				sysMsg("/////Main boss is still alive/////")
 				clkObj(back)
+				q = q + 1
+				sysMsg("Restarting, accumualted " + str(q) + " time(s)")
+			clkObj(killed, 0, 0, "OK (boss killed) this???")
+			sleep(normal)
 	if exists(raidQuit, 0):	# For assisted boss, check if still alive, and act accordingly.
-		sysMsg("/////Boss is still alive/////")
+		sysMsg("/////Assisting boss is still alive/////")
 		if raQuit == 0:
 			clkObj(raidQuit)
 			clkObj(raidQuited, 0, 0, "OK (quit assisting)")
@@ -167,30 +197,17 @@ def raidEnd():
 			if exists(killed, double):
 				sysMsg("/////Assisted boss has been slained/////")
 				clkObj(killed, 0, 0, "OK (boss killed)")
-				clkObj(raidReward)
-				sleep(double)
-				clkObj(cfnReward)
-				if exists(addFd, changePage):
-					clkObj(addFd, 0, 0, "Yes (add friend)")
-					sleep(double)
-				else:
-					sysMsg("No assistant list found")
+				claimReward()
 			else:
 				clkObj(raidQuit)
 				clkObj(raidQuited, 0, 0, "OK (quit assisting)")
 	if exists(raidReward, 0):
-		clkObj(raidReward)
-		sleep(double)
-		clkObj(cfnReward)
-		if exists(addFd, changePage):
-			clkObj(addFd, 0, 0, "Yes (add friend)")
-			sleep(double)
-		else:
-			sysMsg("No assistant list found")
+		claimReward()
 
 # Check for next area / reset raid message and act accordingly
 def raidCleared():
-	if exists(areaReward):
+	sysMsg("Checking if area is cleared")
+	if exists(areaReward, 0):
 		clkObj(areaReward)
 		sleep(normal)
 		if exists(nextArea):
@@ -199,48 +216,120 @@ def raidCleared():
 		else:
 			clkObj(reset)
 			sysMsg("All area cleared. Resetting raid.")
+	else:
+		sysMsg("Area not cleared")
 
-def raidBoss(rB=1):	# Team select not yet implemented
+# Terminate command for insufficient RP
+def raidBossEnd():
+	clkObj(cancel)
+	sysMsg("Insufficient RP")
+	clkObj(back)
+	clkObj(back)
+	rBi = rB
+	sleep(normal)
+	sysMsg("Terminated command due to insufficient RP")
+
+def raidBoss(rB=1, FF=0):	# FF: If 1, focus fire on existing boss. Team select not yet implemented.
 	rBi = 0
+	rAi = 1
 	rRPi = resRP
+	k = 0
 	sysMsg("Initializing RaidBoss command")
 	gotoRaid()
 	while rB > rBi:
-		clkObj(raidStart)	# on map screen
+		clkObj(raidStart, 0, 0, "raidStart 1/2")	# on map screen
 		sleep(normal)
-		clkObj(raidStart, 0, 1)	# on boss menu
-		# teamSelect(check boss type, choose correspondent team)
-		clkObj(btStart)
-		# RP check. If insufficient RP, restore RP or return to map screen as per settings.
-		if exists(noRP, normal):
-			if rRPi > 0:
-				clkObj(confirm)
-				clkObj(restoredRP)
-				rRPi = rRPi - 1
-				sysMsg("RP restored. Remaining " + str(rRPi) + " times before terminating the command")
-				clkObj(btStart)
-				raidAction()
-				raidEnd()
-				rBi = rBi + 1
-				sysMsg("***************Successfully raided " + str(rBi) + " time(s)***************")
-				raidCleared()
+		if exists(killed):
+			sysMsg("Dead main boss found")
+			clkObj(killed)
+			sleep(normal)
+		claimReward()
+		raidCleared()
+		if exists(requestedAid, 0):
+			sysMsg("Existing boss found")
+			if FF == 0:
+				clkObj(back)
+				while k == 0:
+					sysMsg("Attampting to assist boss")
+					raidAssist()
+					clkObj(raidStart)
+					if exists(killed, double):
+						sysMsg("/////Main boss has been slained/////")
+						clkObj(killed, 0, 0, "OK (boss killed)")
+						claimReward()
+						areaCleared()
+						rBi = rBi + 1
+						k = 1
+						sysMsg("***************Successfully raided " + str(rBi) + " time(s)***************")
+					else:
+						sysMsg("/////Main boss is still alive/////")
+						clkObj(back)
 			else:
-				clkObj(cancel)
-				sysMsg("Insufficient RP")
-				clkObj(back)
-				clkObj(back)
-				i = rB
-				sysMsg("Terminated command due to insufficient RP")
+				clkObj(raidStart, 0, 1, "raidStart 2/2")	# on boss menu
+				# teamSelect(check boss type, choose correspondent team)
+				clkObj(btStart)
+				# RP check. If insufficient RP, restore RP or return to map screen as per settings.
+				if exists(noRP, normal):
+					if rRPi > 0:
+						clkObj(confirm)
+						clkObj(restoredRP)
+						rRPi = rRPi - 1
+						sysMsg("RP restored. Remaining " + str(rRPi) + " times before terminating the command")
+						clkObj(btStart)
+						raidAction()
+						raidEnd()
+						rBi = rBi + 1
+						sysMsg("***************Successfully raided " + str(rBi) + " time(s)***************")
+						raidCleared()
+					else:
+						raidBossEnd()
+				else:
+					raidAction()
+					raidEnd()
+					rBi = rBi + 1
+					sysMsg("***************Successfully raided " + str(rBi) + " time(s)***************")
+					raidCleared()
 		else:
+			clkObj(raidStart, 0, 1, "raidStart 2/2")	# on boss menu
+			# teamSelect(check boss type, choose correspondent team)
+			clkObj(btStart)
+			# RP check. If insufficient RP, restore RP or return to map screen as per settings.
+			if exists(noRP, normal):
+				if rRPi > 0:
+					clkObj(confirm)
+					clkObj(restoredRP)
+					rRPi = rRPi - 1
+					sysMsg("RP restored. Remaining " + str(rRPi) + " times before terminating the command")
+					clkObj(btStart)
+					raidAction()
+					raidEnd()
+					rBi = rBi + 1
+					sysMsg("***************Successfully raided " + str(rBi) + " time(s)***************")
+					raidCleared()
+				else:
+					raidBossEnd()
 			raidAction()
 			raidEnd()
 			rBi = rBi + 1
 			sysMsg("***************Successfully raided " + str(rBi) + " time(s)***************")
 			raidCleared()
+	else:
+		if rB < 0:
+			sysMsg("Error: rB must be empty or positive")
+		else:
+			sysMsg("Command ended. Sleeping for" + str(changePage) + " sec")
+			sleep(changePage)
+
 
 # Assist raid boss
 def raidAssist(rA=1):	# Mode not yet implemented
-	rAi = 0
+	try:
+		if rAi > 0:
+			print("Path A")
+			pass
+	except NameError:
+		rAi = 0
+		print("Path B")
 	sysMsg("Initializing RaidAssist command")
 	gotoRaid()
 	while rA > rAi:
@@ -250,7 +339,7 @@ def raidAssist(rA=1):	# Mode not yet implemented
 		if exists(errDead, normal):
 			bossDead()
 		else:
-			clkObj(raidStart, double)
+			clkObj(raidStart)
 			if exists(errDead, normal):
 				bossDead()
 			#teamSelect
@@ -268,16 +357,9 @@ def raidAssist(rA=1):	# Mode not yet implemented
 					sysMsg("***************Assisted " + str(rAi) + " time(s)***************")
 
 #  -------------------------Command-------------------------
-raidBoss(rB=3)
+raidBoss(rB=5)
+raidAssist(rA=99)
+raidBoss(rB=5)
 raidAssist(rA=10)
-
-
-#  -------------------------Ideas-------------------------
-# 1. Start main boss
-# 2A. If main boss is dead, go to 1
-# 2B. Else, start assist boss
-# 3. Check if assist boss is dead:
-# 3A. If assist boss is dead, check if main boss is dead.
-# 3Aa. If main boss is dead, go to 1
-# 3Ab. Else, go to 2B
-# 3B. Else, quit and go to 2B (or wait)
+raidBoss(rB=5)
+raidAssist(rA=10)
