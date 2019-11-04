@@ -1,4 +1,4 @@
-# tagatame.py last updated 27/10/2019
+# tagatame.py last updated 04/11/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -73,6 +73,7 @@ slot6 = Pattern("teamArrow.png").targetOffset(70,280)	# Offset(70,280)
 slot7 = Pattern("teamArrow.png").targetOffset(70,325)	# Offset(70,325)
 slot8 = Pattern("teamArrow.png").targetOffset(70,378)	# Offset(70,378)
 teamNext = Pattern("teamArrow.png").targetOffset(170,340)	# Offset(170,340)
+teamEmpty = Pattern("teamEmpty.png").targetOffset(100,125)	# Location of confirm button in respect to the message
 
 # Battle
 birdView = "birdView.png"

@@ -1,4 +1,4 @@
-# spEvent.py last updated 27/10/2019
+# spEvent.py last updated 04/11/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -30,39 +30,19 @@ drawing = "drawing.png"
 
 #  -------------------------Variables-------------------------
 # Advance Boss Movie01 - 「劇場版 誰ガ為のアルケミスト」前編
-movie1Ev = "movie1Ev.png"
-movie1Logo = "movie1Logo.png"
-movie1Stage = "movie1Stage.png"
-movie1Coin = "movie1Coin.png"
-movie1 = spQ(movie1Ev, "up", movie1Logo, movie1Stage, movie1Coin)
+movie1 = spQ("movie1Ev.png", "up", "movie1Logo.png", "movie1Stage.png", "movie1Coin.png")
 
 # Advance Boss Movie02 - 「劇場版 誰ガ為のアルケミスト」中編
-movie2Ev = "movie2Ev.png"
-movie2Logo = "movie2Logo.png"
-movie2Stage = "movie2Stage.png"
-movie2Coin = "movie2Coin.png"
-movie2 = spQ(movie2Ev, "up", movie2Logo, movie2Stage, movie2Coin)
+movie2 = spQ("movie2Ev.png", "up", "movie2Logo.png", "movie2Stage.png", "movie2Coin.png")
 
 # Advane Boss Movie03 - 「劇場版 誰ガ為のアルケミスト」後編
-movie3Ev = "movie3Ev.png"
-movie3Logo = "movie3Logo.png"
-movie3Stage = "movie3Stage.png"
-movie3Coin = "movie3Coin.png"
-movie3 = spQ(movie3Ev, "up", movie3Logo, movie3Stage, movie3Coin)
+movie3 = spQ("movie3Ev.png", "up", "movie3Logo.png", "movie3Stage.png", "movie3Coin.png")
 
 # Advance Boss 3Title - すなわち恋の雪景色
-fggEv = "fggEv.png"
-fggLogo = "fggLogo.png"
-fggStage = "fggStage.png"
-fggCoin = "fggCoin.png"
-fgg = spQ(fggEv, "up", fggLogo, fggStage, fggCoin)
+fgg = spQ("fggEv.png", "up", "fggLogo.png", "fggStage.png", "fggCoin.png")
 
 # Advance Boss Butai - 誓いの刃、貫く魔槍
-dramaEv = "dramaEv.png"
-dramaLogo = "dramaLogo.png"
-dramaStage = "dramaStage.png"
-dramaCoin = "dramaCoin.png"
-drama = spQ(dramaEv, "up", dramaLogo, dramaStage, dramaCoin)
+drama = spQ("dramaEv.png", "up", "dramaLogo.png", "dramaStage.png", "dramaCoin.png")
 
 # Advance Boss Novel - 姉弟とヒトリの剣士
 # Missing
@@ -71,37 +51,23 @@ drama = spQ(dramaEv, "up", dramaLogo, dramaStage, dramaCoin)
 # Missing
 
 # Advance Boss Crossover - 夜明けに奏でるクレーデレ
-sevenSinEv = "7sinEv.png"
-sevenSinLogo = "7sinLogo.png"
-sevenSinStage = "7sinStage.png"
-sevenSinCoin = "7sinCoin.png"
-sevenSin = spQ(sevenSinEv, "left", sevenSinLogo, sevenSinStage, sevenSinCoin)
+sevenSin = spQ("7sinEv.png", "left", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")
 
 
 # Genesis Boss 1 - 「創る、この世界を」（前編）
-gen1Ev = "gen1Ev.png"
-gen1Logo = "gen1Logo.png"
-gen1Stage = "gen1Stage.png"
-genCoin = "gen1Coin.png"
-genesis1 = spQ(gen1Ev, "up", gen1Logo, gen1Stage, genCoin)
+gen1 = spQ("gen1Ev.png", "up", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
 
 # Genesis Boss 2 - 「創る、この世界を」（後編）
-gen2Ev = "gen2Ev.png"
-gen2Logo = "gen2Logo.png"
-gen2Stage = "gen2Stage.png"
-genesis2 = spQ(gen2Ev, "up", gen2Logo, gen2Stage, genCoin)
+gen2 = spQ("gen2Ev.png", "up", "gen2Logo.png", "gen2Stage.png", "genCoin.png")
 
 # Genesis Boss 3 - 「恋と、色欲の偏差」（前編）
-gen3Ev = "gen3Ev.png"
-gen3Logo = "gen3Logo.png"
-gen3Stage = "gen3Stage.png"
-genesis3 = spQ(gen3Ev, "up", gen3Logo, gen3Stage, genCoin)
+gen3 = spQ("gen3Ev.png", "up", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
 
 # Genesis Boss 4 - 「恋と、色欲の偏差」（後編）
-gen4Ev = "gen4Ev.png"
-gen4Logo = "gen3Logo.png"
-gen4Stage = "gen3Stage.png"
-genesis4 = spQ(gen4Ev, "up", gen4Logo, gen4Stage, genCoin)
+gen4 = spQ("gen4Ev.png", "up", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
+
+# Genesis Boss 5 - 「それを怠惰と呼ぶのなら」（前編）
+gen5 = spQ("gen5Ev.png", "up", "gen5Logo.png", "gen5Stage.png", "genCoin.png")
 
 #  -------------------------Define Function-------------------------
 # Go to special event

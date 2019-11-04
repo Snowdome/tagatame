@@ -1,0 +1,185 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>gift.sikuli</h2> <a href="gift.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># gift.py last updated 04/07/2019</span>
+
+<span class="cmt">#  -------------------------Import Modules-------------------------</span>
+<span class="kw">import</span> tagatame
+reload(tagatame)
+<span class="kw">from</span> tagatame <span class="kw">import</span> *
+
+
+
+<span class="cmt">#  -------------------------Assets-------------------------</span>
+<span class="cmt"># Daily friend coin</span>
+menuFd = <img src="menuFd.png" />
+fdGift = <img src="fdGift.png" />
+giftGet = <img src="giftGet.png" />
+giftGot = Pattern(<img src="giftGot.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">330</span>)
+giftTab = <img src="giftTab.png" />
+giftSend = <img src="giftSend.png" />
+
+
+<span class="cmt"># Draw menu</span>
+drawMenu = <img src="drawMenu.png" />
+drawArrow = Pattern(<img src="drawLast.png" />).targetOffset(<span class="dig">55</span>,-<span class="dig">44</span>)
+ticSum = <img src="ticSum.png" />
+drawS1 = Pattern(<img src="drawLast.png" />).targetOffset(-<span class="dig">165</span>,-<span class="dig">400</span>)
+drawS2 = Pattern(<img src="drawLast.png" />).targetOffset(-<span class="dig">165</span>,-<span class="dig">275</span>)
+drawS3 = Pattern(<img src="drawLast.png" />).targetOffset(-<span class="dig">165</span>,-<span class="dig">150</span>)
+drawS4 = Pattern(<img src="drawLast.png" />).targetOffset(-<span class="dig">165</span>,-<span class="dig">25</span>)
+drawDown = Pattern(<img src="drawLast.png" />).targetOffset(-<span class="dig">70</span>,<span class="dig">0</span>)
+max = <img src="max.png" />
+skip = <img src="skip.png" />
+drawOK =Pattern(<img src="drawOK.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">330</span>)
+
+
+<span class="cmt"># Inbox</span>
+sysGift = <img src="sysGift.png" />
+giftWE = Pattern(<img src="giftWE.png" />).similar(<span class="dig">0.75</span>)    <span class="cmt">#With Expiry</span>
+openAll = <img src="openAll.png" />
+
+
+
+<span class="cmt">#  -------------------------Define Function-------------------------</span>
+<span class="kw">def</span> sendGift():
+    sysMsg(<span class="str">"Initializing DaillyGift command"</span>)
+    <span class="kw">if</span> <span class="kw">not</span> exists(settings, <span class="dig">0</span>):
+        <span class="skw">click</span>(home)
+        <span class="skw">sleep</span>(changePage)
+    clkIco(menuFd)
+    clkIco(fdGift)
+    clkIco(giftGet)
+    clkIco(giftGot)
+    clkIco(giftTab)
+    clkIco(giftSend)
+    <span class="skw">sleep</span>(changePage)
+    <span class="skw">type</span>(Key.ESC)
+    <span class="skw">sleep</span>(normal)
+
+
+<span class="kw">def</span> drawTicket(box, n=<span class="dig">1</span>):    <span class="cmt">#slot = slot number or ticket name</span>
+    i = <span class="dig">0</span>
+    <span class="kw">while</span> i &lt; n:
+        <span class="kw">if</span> <span class="kw">not</span> exists(settings <span class="kw">or</span> ticSum, short):
+            <span class="skw">click</span>(home)
+            clkIco(drawMenu, double)
+            <span class="skw">sleep</span>(double)
+        <span class="kw">while</span> <span class="kw">not</span> exists(box, <span class="dig">0</span>):
+            clkIco(drawDown)
+            <span class="skw">sleep</span>(normal)
+        clkIco(box)
+        clkIco(max)
+        clkIco(confirm)
+        clkIco(skip)
+        clkIco(drawOK, double)
+        i = i + <span class="dig">1</span>
+        sysMsg(<span class="str">"Successfully executed "</span> + str(i) + <span class="str">" time(s)"</span>)
+    <span class="kw">else</span>:
+        <span class="kw">if</span> n &lt; <span class="dig">0</span>:
+            sysMsg(<span class="str">"Error: n must be empty or positive"</span>)
+        <span class="kw">else</span>:
+            exit()
+
+
+<span class="kw">def</span> getGift():
+    sysMsg(<span class="str">"Initializing GetGift command"</span>)
+    i = <span class="dig">0</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(openAll, short):
+        <span class="kw">if</span> <span class="kw">not</span> exists(giftWE, short):
+            <span class="kw">if</span> <span class="kw">not</span> exists(settings, short):
+                <span class="skw">click</span>(home)
+            clkIco(sysGift, normal, True)
+        clkIco(giftWE)
+    <span class="kw">while</span> exists(openAll):
+        <span class="kw">while</span> <span class="kw">not</span> exists(confirm):
+            clkIco(openAll)
+        clkIco(confirm)
+        clkIco(drawOK)
+        i = i + <span class="dig">1</span>
+        sysMsg(<span class="str">"Successfully executed "</span> + str(i) + <span class="str">" time(s)"</span>)
+        <span class="skw">sleep</span>(normal)
+
+
+
+<span class="cmt">#  -------------------------Variables-------------------------</span>
+ticGear = Pattern(<img src="ticGear.png" />).targetOffset(<span class="dig">210</span>,<span class="dig">45</span>)
+
+
+
+<span class="cmt">#  -------------------------Body-------------------------</span>
+<span class="cmt"># sendGift()</span>
+<span class="cmt"># drawTicket(ticGear, 1)</span>
+getGift()
+</pre>
+</body>
+</html>
