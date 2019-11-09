@@ -321,7 +321,7 @@ def keyLv():
 #keyLv()
 #btAction(3)
 #btPtQuest(8)
-btUnitQuest(6)
+btUnitQuest(370/5)
 #forge(50)
 #enhance(dollWhite, 23)
 #drawTicket()
