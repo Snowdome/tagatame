@@ -1,4 +1,4 @@
-# PoK.py last updated 27/10/2019
+# PoK.py last updated 11/11/2019
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -24,12 +24,11 @@ msgEnd = "***************End of function***************"
 #  -------------------------Assets-------------------------
 # Draw
 ticket = Pattern("ticket.png").targetOffset(0,125)
-drawOnce = Pattern("gachuHeader.png").targetOffset(-95,230)
-drawMax = Pattern("gachuHeader.png").targetOffset(85,230)
-noMulti = Pattern("noMulti.png").exact()
-dollMax = "dollMax.png"
+drawMax = Pattern("gachuHeader.png").targetOffset(135,275)	# Location of max button in respect to title bar
 noTicket = "noTicket.png"
+drawOK = "drawOK.png"
 skip = "skip.png"
+redraw = "redraw.png"
 pageNext = "pageNext.png"
 pageBack = "pageBack.png"
 
@@ -183,20 +182,34 @@ def drawDoll(n=1):
 def drawTicket(n=1):
 	sysMsg("Initializing DrawTicket command")
 	i = 0
-	while i < n:
-		clkObj(ticket)
-		if not exists(noMulti, short):
-			clkObj(drawMax)
-			clkObj(skip)
-			clkObj(pageNext)
-			sleep(double)
+	clkObj(ticket, 0, 0, "1st ticket")
+	if n != "all":
+		while i < n:
+			clkObj(drawMax, 0, 0, "drawMax")
+			clkObj(drawOK)
+			clkObj(skip, 0, 1)
+			i = i + 1
+			sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
+			if i < n:
+				if exists(redraw):
+					clkObj(redraw)
+				else:
+					if exists(pageNext, 0):
+						clkObj(pageNext)
+			else:		
+				pass
 		else:
-			clkObj(drawOnce)
-			clkObj(skip)
-			clkObj(pageBack)
-			sleep(double)
-		i = i + 1
-		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
+			while i != -1:
+				clkObj(drawMax, 0, 0, "drawMax")
+				clkObj(drawOK)
+				clkObj(skip, 1, 1)
+				i = i + 1
+				sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
+				if exists(redraw):
+					clkObj(redraw)
+				else:
+					if exists(pageNext, 0):
+						clkObj(pageNext)
 	else:
 		if n < 0:
 			sysMsg(msgError)
@@ -283,6 +296,31 @@ def btUnitQuest(n=1):
 		else:
 			sysMsg(msgEnd)
 
+def btQuest(n=1):
+	sysMsg("Initializing BtQuest command")
+	i = 0
+	while i < n:
+		try:
+			if exists(btAgain, normal):
+				clkObj(btAgain)
+			clkObj(btStart)
+			wait(btResult, FOREVER)
+			clkObj(btResult, double, 0, remark = "btResult")
+			while not exists(btAgain):
+				click(atMouse())
+				sleep(double)
+			clkObj(btAgain)
+			i = i + 1
+			sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
+			sleep(normal)
+		except FindFailed:
+			sysMsg("FindFailed! Need further examination.")
+	else:
+		if n <= 0:
+			sysMsg(msgError)
+		else:
+			sysMsg(msgEnd)
+
 
 # Starting from stats menu, reincarnate and level up via key stage
 def keyLv():
@@ -321,8 +359,8 @@ def keyLv():
 #keyLv()
 #btAction(3)
 #btPtQuest(8)
-btUnitQuest(370/5)
+btUnitQuest(20)
 #forge(50)
 #enhance(dollWhite, 23)
-#drawTicket()
+#drawTicket("all")
 #drawDoll(100)
