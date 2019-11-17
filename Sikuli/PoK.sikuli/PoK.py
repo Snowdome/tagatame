@@ -1,4 +1,4 @@
-# PoK.py last updated 11/11/2019
+# PoK.py last updated 17/11/2019
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -15,7 +15,7 @@ changePage = 5
 extend = 7
 long = 180
 battle = 300
-wTime = FOREVER
+wTime = 10
 
 i = 0
 msgError = "Error: n must be empty or positive"
@@ -62,7 +62,7 @@ btAgain = "btAgain.png"
 btEndNext = "btEndNext.png"
 btAP = "btAP.png"
 btStart = "btStart.png"
-
+btMenu = "btMenu.png"
 keyUnlock = Pattern("keyUnlock.png").similar(0.80)
 keyLv3 = "keyLv3.png"
 keyStg = Pattern("keyStg.png").targetOffset(130,415)
@@ -77,12 +77,21 @@ reConfirm = "reConfirm.png"
 unit1 = Pattern("unit1.png").targetOffset(-215,-155)	#Offset for 1st unit slot
 gear1 = Pattern("gear1.png").targetOffset(-30,60)	#Offset for 1st gear slot
 
+# Tower event
+challenge = "challenge.png"
+setup = "setup.png"
+btSummary = "btSummary.png"
+towerReward = "towerReward.png"
 
 #  -------------------------Define Function-------------------------
 # Debug message
-def sysMsg(text):
+def sysMsg(text, popType=0):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
+	if popType != 0:	# Sikilu pop up message
+		popup(text, popType)
+		now = time.localtime()
+		print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "OK button has been pressed")
 
 # Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
@@ -93,24 +102,24 @@ def clkObj(object, delay=0, loop=0, remark=0):
 			subject = object.remark
 		else:
 			subject = remark
-	if not exists(object):
-		sysMsg("Waiting for " + subject)
-		wait(object, wTime)
-	if delay != 0:
-		sysMsg("Delay clicking on " + subject + " for " + str(delay) + " sec")
-		sleep(delay)
-	if loop == 0:
-		click(object)
-		sysMsg("Clicked on " + subject)
-	else:
-		while exists(object):
-			try:
+	try:
+		if not exists(object):
+			sysMsg("Waiting for " + subject)
+			wait(object, wTime)
+		if delay != 0:
+			sysMsg("Delay clicking on " + subject + " for " + str(delay) + " sec")
+			sleep(delay)
+		if loop == 0:
+			click(object)
+			sysMsg("Clicked on " + subject)
+		else:
+			while exists(object):
 				click(object)
 				sleep(normal)
 				mouseMove(10,0)
 				sysMsg("Repeat clicking on " + subject)
-			except FindFailed:
-				sysMsg("Cannot find object")
+	except FindFailed:
+		sysMsg("Cannot find " + subject + "\nPress OK after the object has been clicked.", "FindFailed Error")
 
 
 
@@ -355,12 +364,47 @@ def keyLv():
 	clkObj(stats)
 	
 
+# Auto Tower
+def autoTower():
+	i = 0
+	e = 1
+	while i != -1:
+		if not exists(btStart, 0):
+			clkObj(challenge)
+			if exists(setup):
+				e = 0
+			while e == 0:
+				sysMsg("Cannot find Start button. \nPress OK after team has been fixed and returned to preparation screen.", "Team Composition Error")
+				if exists(btStart, 0):
+					e = 1
+		t = 0
+		clkObj(btStart)
+		while t != -1:
+			if exists(challenge, 0):
+				sysMsg("Returned to Battle Preparation")
+				t = -1
+			else:
+				if exists(btSummary):
+					i = i + 1
+					sysMsg("*************** " + str(i) + " floor(s) cleared ***************")
+					clkObj(btSummary)
+					clkObj(towerReward)
+					sleep(normal)
+					click(atMouse())
+					t = -1
+				else:
+					t = t + 10	
+					sleep(10)
+					sysMsg("Completion message not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
+	sysMsg("End of command")
+
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
 #btPtQuest(8)
-btUnitQuest(20)
+#btQuest(20)
 #forge(50)
 #enhance(dollWhite, 23)
 #drawTicket("all")
 #drawDoll(100)
+autoTower()

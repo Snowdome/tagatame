@@ -1,4 +1,4 @@
-# tagatame.py last updated 04/11/2019
+# tagatame.py last updated 17/11/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -25,7 +25,7 @@ changePage = 5
 extend = 7
 long = 180
 battle = 300
-wTime = FOREVER
+wTime = 10
 msgError = "Error: n must be empty or positive"
 msgEnd = "***************End of function***************"
 
@@ -109,24 +109,24 @@ def clkObj(object, delay=0, loop=0, remark=0):
 			subject = object.remark
 		else:
 			subject = remark
-	if not exists(object):
-		sysMsg("Waiting for " + subject)
-		wait(object, wTime)
-	if delay != 0:
-		sysMsg("Delay clicking on " + subject + " for " + str(delay) + " sec")
-		sleep(delay)
-	if loop == 0:
-		click(object)
-		sysMsg("Clicked on " + subject)
-	else:
-		while exists(object):
-			try:
+	try:
+		if not exists(object):
+			sysMsg("Waiting for " + subject)
+			wait(object, wTime)
+		if delay != 0:
+			sysMsg("Delay clicking on " + subject + " for " + str(delay) + " sec")
+			sleep(delay)
+		if loop == 0:
+			click(object)
+			sysMsg("Clicked on " + subject)
+		else:
+			while exists(object):
 				click(object)
 				sleep(normal)
 				mouseMove(10,0)
 				sysMsg("Repeat clicking on " + subject)
-			except FindFailed:
-				sysMsg("Cannot find object")
+	except FindFailed:
+		sysMsg("Cannot find " + subject + "\nPress OK after the object has been clicked.", "FindFailed Error")
 
 
 # Wait for object and press ESC (optional: delay = length(ms))

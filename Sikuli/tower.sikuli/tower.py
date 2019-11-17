@@ -1,4 +1,4 @@
-# tower.py last updated 04/11/2019
+# tower.py last updated 17/11/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -122,7 +122,7 @@ def autoTower(tEvent, team):
 					else:
 						t = t + 10	
 						sleep(10)
-						sysMsg("Completion not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
+						sysMsg("Completion message not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
 		sysMsg("End of command")
 
 
