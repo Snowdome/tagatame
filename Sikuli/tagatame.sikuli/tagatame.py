@@ -1,4 +1,4 @@
-# tagatame.py last updated 17/11/2019
+# tagatame.py last updated 19/11/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -95,10 +95,15 @@ shop = Pattern("shop.png").targetOffset(-85,210)
 
 #  -------------------------Define Function-------------------------
 # Debug message
-def sysMsg(text):
+def sysMsg(text, popType=0):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
-
+	if popType != 0:	# Sikilu pop up message
+		decision = popAsk(text + "\nOr press No for exit.", popType)
+		now = time.localtime()
+		if not decision:
+			exit(1)
+		print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "Yes button has been pressed")
 
 # Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
@@ -126,11 +131,11 @@ def clkObj(object, delay=0, loop=0, remark=0):
 				mouseMove(10,0)
 				sysMsg("Repeat clicking on " + subject)
 	except FindFailed:
-		sysMsg("Cannot find " + subject + "\nPress OK after the object has been clicked.", "FindFailed Error")
+		sysMsg("Cannot find " + subject + "\nPress Yes after the object has been clicked.", "FindFailed Error")
 
 
 # Wait for object and press ESC (optional: delay = length(ms))
-def esc(object, delay=0):
+def esc(object, delay=0, loop=0, remark=0):
 	if remark == 0:
 		subject = repr(object)
 	else:

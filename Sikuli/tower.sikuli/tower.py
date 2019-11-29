@@ -1,4 +1,4 @@
-# tower.py last updated 17/11/2019
+# tower.py last updated 20/11/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -19,6 +19,7 @@ veda = tEvent("vedaLogo.png", "vedaStage.png")
 extra = tEvent("extraLogo.png", "dummy")
 thunder = tEvent("thunderLogo.png", "dummy")
 water = tEvent("waterLogo.png", "waterStage.png")
+fire = tEvent("fireLogo.png", "1574259977517.png")
 mobius = tEvent("mobiusLogo.png", "dummy")
 towerStart = "towerStart.png"
 restore = Pattern("restore.png").similar(0.95)

@@ -1,4 +1,4 @@
-# PoK.py last updated 17/11/2019
+# PoK.py last updated 18/11/2019
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -89,9 +89,11 @@ def sysMsg(text, popType=0):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
 	if popType != 0:	# Sikilu pop up message
-		popup(text, popType)
+		decision = popAsk(text + "\nOr press No for exit.", popType)
 		now = time.localtime()
-		print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "OK button has been pressed")
+		if not decision:
+			exit(1)
+		print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "Yes button has been pressed")
 
 # Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
@@ -119,7 +121,7 @@ def clkObj(object, delay=0, loop=0, remark=0):
 				mouseMove(10,0)
 				sysMsg("Repeat clicking on " + subject)
 	except FindFailed:
-		sysMsg("Cannot find " + subject + "\nPress OK after the object has been clicked.", "FindFailed Error")
+		sysMsg("Cannot find " + subject + "\nPress Yes after the object has been clicked.", "FindFailed Error")
 
 
 
@@ -207,23 +209,25 @@ def drawTicket(n=1):
 						clkObj(pageNext)
 			else:		
 				pass
-		else:
-			while i != -1:
-				clkObj(drawMax, 0, 0, "drawMax")
-				clkObj(drawOK)
-				clkObj(skip, 1, 1)
-				i = i + 1
-				sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
-				if exists(redraw):
-					clkObj(redraw)
-				else:
-					if exists(pageNext, 0):
-						clkObj(pageNext)
 	else:
-		if n < 0:
-			sysMsg(msgError)
+		while i != -1:
+			clkObj(drawMax, 0, 0, "drawMax")
+			clkObj(drawOK)
+			clkObj(skip, 1, 1)
+			i = i + 1
+			sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
+			if exists(redraw):
+				clkObj(redraw)
+			else:
+				if exists(pageNext, 0):
+					clkObj(pageNext)
+					sleep(changePage)
+					clkObj(ticket, 0, 0, "1st ticket")
 		else:
-			sysMsg(msgEnd)
+			if n < 0:
+				sysMsg(msgError)
+			else:
+				sysMsg(msgEnd)
 
 # Start battle for normal quest
 def btAction(n=1):
@@ -305,6 +309,7 @@ def btUnitQuest(n=1):
 		else:
 			sysMsg(msgEnd)
 
+# Start battle for normal quest
 def btQuest(n=1):
 	sysMsg("Initializing BtQuest command")
 	i = 0
@@ -374,7 +379,7 @@ def autoTower():
 			if exists(setup):
 				e = 0
 			while e == 0:
-				sysMsg("Cannot find Start button. \nPress OK after team has been fixed and returned to preparation screen.", "Team Composition Error")
+				sysMsg("Cannot find Start button. \nPress Yes after team has been fixed and returned to preparation screen.", "Team Composition Error")
 				if exists(btStart, 0):
 					e = 1
 		t = 0
@@ -402,9 +407,10 @@ def autoTower():
 #keyLv()
 #btAction(3)
 #btPtQuest(8)
+btUnitQuest(160/7+5)
 #btQuest(20)
 #forge(50)
 #enhance(dollWhite, 23)
 #drawTicket("all")
 #drawDoll(100)
-autoTower()
+#autoTower()

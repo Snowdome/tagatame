@@ -152,7 +152,7 @@ def spBoss(spQ, n=1):
 		if n < 0:
 			sysMsg("Error: n must be empty or positive")
 		else:
-			sysMsg("Function end. Sleeping for" + str(changePage))
+			sysMsg("Function end. Sleeping for " + str(changePage) + "sec.")
 			sleep(changePage)
 
 
@@ -230,7 +230,7 @@ def spDraw(n=1):
 
 
 #  -------------------------Command-------------------------
-spBoss(genesis1, 6)
-spDraw("all")
-spBoss(genesis1, 15)
-spDraw("all")
+spBoss(gen5, 3)
+#spDraw("all")
+#spBoss(genesis1, 15)
+#spDraw("all")
