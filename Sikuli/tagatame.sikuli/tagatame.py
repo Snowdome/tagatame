@@ -1,4 +1,4 @@
-# tagatame.py last updated 19/11/2019
+# tagatame.py last updated 5/12/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -27,7 +27,7 @@ long = 180
 battle = 300
 wTime = 10
 msgError = "Error: n must be empty or positive"
-msgEnd = "***************End of function***************"
+msgEnd = "***************End of command***************"
 
 #  -------------------------Assets-------------------------
 # External

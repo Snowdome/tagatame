@@ -19,7 +19,7 @@ wTime = 10
 
 i = 0
 msgError = "Error: n must be empty or positive"
-msgEnd = "***************End of function***************"
+msgEnd = "***************End of command***************"
 
 #  -------------------------Assets-------------------------
 # Draw
@@ -406,11 +406,11 @@ def autoTower():
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
-#btPtQuest(8)
-#btUnitQuest(160/7+5)
-#btQuest(20)
+#btPtQuest(100)
+btUnitQuest(10)
+#btQuest(18)
 #forge(50)
 #enhance(dollWhite, 23)
 #drawTicket("all")
 #drawDoll(100)
-autoTower()
+#autoTower()
