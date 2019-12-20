@@ -1,4 +1,4 @@
-# spEvent.py last updated 04/11/2019
+# spEvent.py last updated 11/12/2019
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -69,6 +69,9 @@ gen4 = spQ("gen4Ev.png", "up", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
 # Genesis Boss 5 - 「それを怠惰と呼ぶのなら」（前編）
 gen5 = spQ("gen5Ev.png", "up", "gen5Logo.png", "gen5Stage.png", "genCoin.png")
 
+# Genesis Boss 6 - 「それを怠惰と呼ぶのなら」（後編） ハードボス
+gen6 = spQ("gen6Ev.png", "up", "gen6Logo.png", "gen6Stage.png", "genCoin.png")
+
 #  -------------------------Define Function-------------------------
 # Go to special event
 def gotoSP(spQ):
@@ -124,8 +127,7 @@ def spBoss(spQ, n=1):
 		if not exists(bossHard):
 			gotoSP(spQ)
 		else:
-			clkObj(spStart)
-			clkObj(btStart)
+			clkObj(bossHard)
 	#if n == "all":
 	#	while not exists(noTicket)
 		#	clkObj(spStart)
@@ -162,7 +164,7 @@ def spDraw(n=1):
 	if exists(btStart, 0):
 		clkObj(back)
 		sleep(normal)
-	if exists(back, 0):
+	if exists(spStart, 0):
 		clkObj(back)
 		sleep(changePage)
 	if exists(evDraw, 0):
@@ -180,7 +182,7 @@ def spDraw(n=1):
 		sysMsg("No more coins available")
 	else:
 		try:
-			clkObj(drawing)
+			#clkObj(drawing)
 			i = i + 1
 		except FindFailed:
 			pass
@@ -193,9 +195,9 @@ def spDraw(n=1):
 					sleep(normal)
 					clkObj(spOK)
 					clkObj(evDraw10, 0, 0, "Event Draw-10")
-				i = i + 1
 				try:
-					click(drawing)
+					#click(drawing)
+					i = i + 1
 				except FindFailed:
 					pass
 				sysMsg("***************Successfully executed " + str(i) + " times***************")
@@ -212,7 +214,7 @@ def spDraw(n=1):
 					clkObj(evDraw10, 0, 0, "Event Draw-10")
 				if not exists(noCoin, 0):
 					try:
-						clkObj(drawing)
+						#clkObj(drawing)
 						i = i + 1
 					except FindFailed:
 						pass
@@ -230,7 +232,6 @@ def spDraw(n=1):
 
 
 #  -------------------------Command-------------------------
-spBoss(gen5, 3)
-#spDraw("all")
-#spBoss(genesis1, 15)
+#spBoss(gen5, 5)
+spDraw("all")
 #spDraw("all")
