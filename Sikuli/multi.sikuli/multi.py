@@ -47,6 +47,7 @@ subBtMenu = "subBtMenu.png"
 subRetreatBtn = Pattern("subRetreatBtn.png").similar(0.80)
 subConfirm = "subConfirm.png"
 OK = Pattern("OK.png").similar(0.80)
+loadingScreen = "loadingScreen.png"
 # Finished
 # rdpOK
 # rdpHome
@@ -54,7 +55,9 @@ OK = Pattern("OK.png").similar(0.80)
 
 mRec = "mRec.png"
 mRecBtn = "mRecBtn.png"
-m105 = Pattern("m105.png").targetOffset(155,0)
+s105 = Pattern("s105.png").targetOffset(150,0)
+sS2b = Pattern("sS2b.png").targetOffset(150,0)
+s102 = Pattern("s102.png").targetOffset(150,0)
 	
 
 # -------------------------Multi Action-------------------------
@@ -76,52 +79,14 @@ skill3 = Pattern("skillDown.png").targetOffset(-190,420)
 
 
 #  -------------------------Saved automation-------------------------
-def noxMacro(object):
-	if not exists(mRec, 0):
-		sysMsg("Opening Macro Recorder window")
-		clkObj(mRecBtn)
-		dragDrop(mRec, Pattern(mRec).targetOffset(760,0))
-		sleep(normal)
-	clkObj(object)
-
-
 def subRetreat():
 	clkObj(subBtMenu)
 	clkObj(subRetreatBtn)
 	clkObj(subConfirm)
 	clkObj(OK)
 
-
-def act105():
-	sysMsg("Executing Act 105")
-	noxMacro(m105)
-	if not exists(finished, 30):
-		sysMsg("Cannot complete quest - target still alive? Attampting to restart the current quest.")
-		btQuit()
-		wait(quest, FOREVER)
-		gotoMulti(solo105)
-		clkObj(multiStart)
-		wait(double)
-		if exists(noAP, 1):
-			resAP()
-			clkObj(multiStart)
-		clkObj(confirm)
-		sysMsg("Quest restarted")
-		wait(btMenu, FOREVER)
-		noxMacro(m105)
-		if not exists(finished, 30):
-			sysMsg("Cannot complete quest twice - exiting")
-			exit()
-		else:
-			clkObj(finished)
-			sleep(changePage)
-			esc(finished)
-	else:
-		sysMsg("Quest completed")
-				
-
-def act202():
-	sysMsg("Executing Act 202")
+def actm202():
+	sysMsg("Executing Main-Act 202")
 	sysMsg("レティシア uses 2nd main skill - 銀彩ルサールカ, stays and end turn")
 	clkObj(mainSkill)
 	clkObj(skill2)
@@ -158,11 +123,26 @@ def act202():
 	clkObj(skill3)
 	clkObj(actOK)
 
-def act205():
-	clkObj(atk)
+def acts105():
+	sysMsg("Executing Sub-Act 105")
+	clkObj(atk, remark="Attack")
 	clkObj(cancel)
 	subRetreat()
-	noxMacro(m105)
+	clkObj(s105)
+
+def actS2b():
+	sysMsg("Executing Sub-Act Sin2B")
+	clkObj(atk, remark="Attack")
+	clkObj(cancel)
+	subRetreat()
+	clkObj(sS2b)
+
+def acts102():
+	sysMsg("Executing Sub-Act 102")
+	clkObj(atk, remark="Attack")
+	clkObj(cancel)
+	subRetreat()
+	clkObj(s102)
 
 #  -------------------------Variables-------------------------
 gain = "gain.png"
@@ -172,19 +152,22 @@ zin = "zin.png"
 sin = "sin.png"
 sin2a = Pattern("stg1.png").exact()
 mainCh1 = "mainCh1.png"
-mainStg05 = Pattern("mainStg05.png").similar(0.95)
-solo105 = multiQ(mainCh1, mainStg05)
+mainStg105 = Pattern("mainStg05.png").similar(0.95)
+solo105 = multiQ(mainCh1, mainStg105)
 
 # Ch1: double team seiseki
 # Ch2: normal seiseki
-subCh1 = "subCh1.png"
+subCh1 = "subCh1.png"	# 2-player quest
 subStg102 = "subStg102.png"
 subStg105 = "subStg105.png"
-subCh2 = "subCh2.png"
+subCh2 = "subCh2.png"	# 4-player quest
 subStg205 = "subStg205.png"
 sub102 = multiQ(subCh1, subStg102)
 sub105 = multiQ(subCh1, subStg105)
 sub205 = multiQ(subCh2, subStg205)
+subSin = "subSin.png"
+subSin2b = Pattern("subSin2b.png").similar(0.95)
+subS2b = multiQ(subSin, subSin2b)
 
 #  -------------------------Define Function-------------------------
 # Choose unit
@@ -239,12 +222,12 @@ def gotoSubMulti(multiQ):
 				clkObj(subMulti)
 				wait(subMultiMenu, FOREVER)
 			while not exists(multiQ.chapter, double):
-				clkObj(subArrow)
+				clkObj(subArrow, remark="[Sub]Arrow")
 				sysMsg("[Sub] Turning page: chapter")
 			clkObj(multiQ.chapter)
 			sleep(double)
 		while not exists(multiQ.stage, double):
-			clkObj(subArrow)
+			clkObj(subArrow, remark="[Sub]Arrow")
 			sysMsg("[Sub] Turning page: stage")
 		clkObj(multiQ.stage)
 		clkObj(subCreateRoom)
@@ -260,6 +243,8 @@ def gotoSubMulti(multiQ):
 def multiSingle(multiQ, script, n=0):
 	sysMsg("Initializing MultiSingle command")
 	i = 0
+	if not exists(mRec, 0):
+		sysMsg("Cannot find Macro Recorder.\nPress Yes after the window has been opened.", "Setup error")
 	if not exists(btStart, short):
 		gotoMulti(multiQ)
 	while i < n:
@@ -284,17 +269,19 @@ def multiSingle(multiQ, script, n=0):
 def multiDouble(multiQ, script, n=1):
 	sysMsg("Initializing MultiDouble command")
 	i = 0
+	if not exists(mRec, 0):
+		sysMsg("Cannot find Macro Recorder.\nPress Yes after the window has been opened.", "Setup error")
+	gotoSubMulti(multiQ)
+	# Sub send invitation (slot 1)
+	clkObj(subInvite)
+	clkObj(subIniteSlot1)
+	if exists(subAdded):
+		clkObj(subConfirmInvite, 0, True)
+	else:
+		while not exists(subAdded):
+			clkObj(subIniteSlot1)
+			clkObj(subConfirmInvite, 0, True)
 	while i < n:
-		gotoSubMulti(multiQ)
-		# Sub send invitation (slot 1)
-		clkObj(subInvite)
-		clkObj(subIniteSlot1)
-		if exists(subAdded):
-			clkObj(subConfirmInvite, None, True)
-		else:
-			while not exists(subAdded):
-				clkObj(subIniteSlot1)
-				clkObj(subConfirmInvite, None, True)
 		# Main accept invitation
 		if exists(home):
 			clkObj(home)
@@ -307,19 +294,25 @@ def multiDouble(multiQ, script, n=1):
 				clkObj(subIniteSlot1)
 				clkObj(subAdded)
 			if exists(subConfirmInvite):
-				clkObj(subConfirmInvite, None, True)
+				clkObj(subConfirmInvite, 0, True)
 			clkObj(mainInvite)
 		else:
 			clkObj(mainInviteSlot1)
 			clkObj(ready)
+			sleep(double)
 		# Sub start multi quest and retreat
-		try:
-			clkObj(subBtStart, double, True)
-			if exists(subConfirm):
+		clkObj(subBtStart)
+		if exists(subConfirm, short):
+			clkObj(subConfirm)
+		sleep(normal)
+		if not exists(loadingScreen, 15):
+			sysMsg("Cannot find loaning screen. Retrying.")
+			mouseMove(10,0)
+			clkObj(subBtStart)
+			if exists(subConfirm, 0):
 				clkObj(subConfirm)
-		except FindFailed:
-			pass
 		sysMsg("Entering battle")
+		wait(end, FOREVER)
 		### Nox disconnect script here ###
 #		if exists(title):
 #			clkObj(title)
@@ -334,10 +327,24 @@ def multiDouble(multiQ, script, n=1):
 		# Remote Desktop completed quest
 		#if exists(finished):
 		#	sysMsg("Quest completed")
+		if i + 1 < n:
+			wait(subHome, 30)
+			gotoSubMulti(multiQ)
+			# Sub send invitation (slot 1)
+			clkObj(subInvite)
+			clkObj(subIniteSlot1)
+			if exists(subAdded):
+				clkObj(subConfirmInvite, 0, True)
+			else:
+				while not exists(subAdded):
+					clkObj(subIniteSlot1)
+					clkObj(subConfirmInvite, 0, True)
+		wait(finished, FOREVER)
 		sleep(extend)
 		clkObj(finished)
+		wait(OK, 30)
 		clkObj(OK)
-		clkObj(home)
+		clkObj(home, double)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
 	if n < 0:
@@ -348,5 +355,7 @@ def multiDouble(multiQ, script, n=1):
 
 
 #  -------------------------Body-------------------------
-#multiSingle(solo105, act105, 1000)
-multiDouble(sub205, act205, 1000)
+#multiSingle(solo105, actm105, 1000)
+#multiDouble(sub205, acts105, 1000)
+#multiDouble(subS2b, actsS2b, 1000)
+multiDouble(sub102, acts102, 1000)

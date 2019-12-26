@@ -1,4 +1,4 @@
-# PoK.py last updated 18/11/2019
+# PoK.py last updated 22/11/2019
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -89,7 +89,7 @@ def sysMsg(text, popType=0):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
 	if popType != 0:	# Sikilu pop up message
-		decision = popAsk(text + "\nOr press No for exit.", popType)
+		decision = popAsk(text + "\nOr press No to terminate the command.", popType)
 		now = time.localtime()
 		if not decision:
 			exit(1)
@@ -406,9 +406,9 @@ def autoTower():
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
-#btPtQuest(100)
-btUnitQuest(3)
-#btQuest(100)
+#btPtQuest(30)
+#btUnitQuest(482/15)
+btQuest(100)
 #forge(50-7)
 #enhance(dollWhite, 23)
 #drawTicket("all")
