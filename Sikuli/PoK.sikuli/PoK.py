@@ -262,7 +262,10 @@ def btPtQuest(n=1):
 			click(affinity)
 			sleep(double)
 		while exists(btResult):
-			clkObj(btResult, double, 0, remark = "btResult")
+			try:
+				clkObj(btResult, double, 0, remark = "btResult")
+			except FindFailed:
+				pass
 		clkObj(loot, changePage)
 		clkObj(pt, changePage)
 		clkObj(accPt, double)
@@ -406,9 +409,9 @@ def autoTower():
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
-#btPtQuest(30)
-#btUnitQuest(482/15)
-btQuest(100)
+#btPtQuest(440/5)
+btUnitQuest(400/5)
+#btQuest(4)
 #forge(50-7)
 #enhance(dollWhite, 23)
 #drawTicket("all")

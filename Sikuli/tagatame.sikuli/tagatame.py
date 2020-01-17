@@ -1,4 +1,4 @@
-# tagatame.py last updated 22/12/2019
+# tagatame.py last updated 05/01/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *

@@ -17,6 +17,9 @@ class spQ():
 
 
 #  -------------------------Assets-------------------------
+story = "story.png"
+event = "event.png"
+bbq = "bbq.png"
 bossHard = "bossHard.png"
 bossHardX = "bossHardX.png"
 spStart = "spStart.png"
@@ -30,47 +33,53 @@ drawing = "drawing.png"
 
 #  -------------------------Variables-------------------------
 # Advance Boss Movie01 - 「劇場版 誰ガ為のアルケミスト」前編
-movie1 = spQ("movie1Ev.png", "up", "movie1Logo.png", "movie1Stage.png", "movie1Coin.png")
+movie1 = spQ("movie1Ev.png", "adv", "movie1Logo.png", "movie1Stage.png", "movie1Coin.png")
 
 # Advance Boss Movie02 - 「劇場版 誰ガ為のアルケミスト」中編
-movie2 = spQ("movie2Ev.png", "up", "movie2Logo.png", "movie2Stage.png", "movie2Coin.png")
+movie2 = spQ("movie2Ev.png", "adv", "movie2Logo.png", "movie2Stage.png", "movie2Coin.png")
 
 # Advane Boss Movie03 - 「劇場版 誰ガ為のアルケミスト」後編
-movie3 = spQ("movie3Ev.png", "up", "movie3Logo.png", "movie3Stage.png", "movie3Coin.png")
+movie3 = spQ("movie3Ev.png", "adv", "movie3Logo.png", "movie3Stage.png", "movie3Coin.png")
 
 # Advance Boss 3Title - すなわち恋の雪景色
-fgg = spQ("fggEv.png", "up", "fggLogo.png", "fggStage.png", "fggCoin.png")
+fgg = spQ("fggEv.png", "adv", "fggLogo.png", "fggStage.png", "fggCoin.png")
 
 # Advance Boss Butai - 誓いの刃、貫く魔槍
-drama = spQ("dramaEv.png", "up", "dramaLogo.png", "dramaStage.png", "dramaCoin.png")
+drama = spQ("dramaEv.png", "adv", "dramaLogo.png", "dramaStage.png", "dramaCoin.png")
 
 # Advance Boss Novel - 姉弟とヒトリの剣士
 # Missing
 
 # Advnace Boss Templar - 七色琥珀のサンセリフ
-# Missing
+as1 = spQ("as1Ev.png", "adv", "as1Logo.png", "as1Stage.png", "asCoin.png")
+
+# Advnace Boss Templar - うるさいよ五月雨
+as2 = spQ("as2Ev.png", "adv", "as2Logo.png", "as2Stage.png", "asCoin.png")
 
 # Advance Boss Crossover - 夜明けに奏でるクレーデレ
-sevenSin = spQ("7sinEv.png", "left", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")
+sevenSin = spQ("7sinEv.png", "adv", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")
+
+# Advance Boss Crossover - 捻じれ時空のスカベンジャー
+slime = spQ("slimeEv.png", "adv", "slimeLogo.png", "slimeStage.png", "slimeCoin.png")
 
 
 # Genesis Boss 1 - 「創る、この世界を」（前編）
-gen1 = spQ("gen1Ev.png", "up", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
+gen1 = spQ("gen1Ev.png", "gen", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
 
 # Genesis Boss 2 - 「創る、この世界を」（後編）
-gen2 = spQ("gen2Ev.png", "up", "gen2Logo.png", "gen2Stage.png", "genCoin.png")
+gen2 = spQ("gen2Ev.png", "gen", "gen2Logo.png", "gen2Stage.png", "genCoin.png")
 
 # Genesis Boss 3 - 「恋と、色欲の偏差」（前編）
-gen3 = spQ("gen3Ev.png", "up", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
+gen3 = spQ("gen3Ev.png", "gen", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
 
 # Genesis Boss 4 - 「恋と、色欲の偏差」（後編）
-gen4 = spQ("gen4Ev.png", "up", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
+gen4 = spQ("gen4Ev.png", "gen", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
 
 # Genesis Boss 5 - 「それを怠惰と呼ぶのなら」（前編）
-gen5 = spQ("gen5Ev.png", "up", "gen5Logo.png", "gen5Stage.png", "genCoin.png")
+gen5 = spQ("gen5Ev.png", "gen", "gen5Logo.png", "gen5Stage.png", "genCoin.png")
 
 # Genesis Boss 6 - 「それを怠惰と呼ぶのなら」（後編） ハードボス
-gen6 = spQ("gen6Ev.png", "up", "gen6Logo.png", "gen6Stage.png", "genCoin.png")
+gen6 = spQ("gen6Ev.png", "gen", "gen6Logo.png", "gen6Stage.png", "genCoin.png")
 
 #  -------------------------Define Function-------------------------
 # Go to special event
@@ -80,18 +89,21 @@ def gotoSP(spQ):
 		if not exists(spQ.logo, 0):
 			if not exists(spQ.event, 0):
 				if exists(home, 0):
-					click(home)
-				if spQ.menuLoc == "up":
-					clkObj(SP, 0, 1)
-				if spQ.menuLoc == "left":
-					clkObj(SPX, 0, 1)
+					click(mainMenu)
+				clkObj(quest)
+				if spQ.menuLoc == "gen":
+					clkObj(story)
+					clkObj("1578161614894.png", 0, 1)
+				if spQ.menuLoc == "adv":
+					clkObj(event)
+					clkObj(bbq, 0, 1)
 				sleep(changePage)
 			while not exists(spQ.event, double):
 				click(questArrow)
 			clkObj(spQ.event)
-		if spQ.menuLoc == "up":
+		if spQ.menuLoc == "gen":
 			clkObj(bossHard)
-		if spQ.menuLoc == "left":
+		if spQ.menuLoc == "adv":
 			clkObj(bossHardX)
 		clkObj(spStart)
 	else:
@@ -156,6 +168,8 @@ def spBoss(spQ, n=1):
 		else:
 			sysMsg("Function end. Sleeping for " + str(changePage) + "sec.")
 			sleep(changePage)
+			clkObj(back)
+			sleep(double)
 
 
 def spDraw(n=1):
@@ -211,7 +225,7 @@ def spDraw(n=1):
 					clkObj(spOK)
 					sleep(normal)
 					clkObj(spOK)
-					clkObj(evDraw10, 0, 0, "Event Draw-10")
+					clkObj(evDraw10, 0, 0, "Event Draw-10x")
 				if not exists(noCoin, 0):
 					try:
 						#clkObj(drawing)
@@ -232,6 +246,6 @@ def spDraw(n=1):
 
 
 #  -------------------------Command-------------------------
-#spBoss(gen5, 5)
+spBoss(as2, 551/40)
 spDraw("all")
 #spDraw("all")

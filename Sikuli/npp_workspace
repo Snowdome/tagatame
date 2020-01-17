@@ -13,4 +13,118 @@
         <File name="PoK.sikuli\PoK.py" />
         <File name="C:\Program Files (x86)\DMMGamePlayer\PoK\Data\paths.json" />
     </Project>
+    <Project name="AlchemistHan">
+        <Folder name="Hans">
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\Hans\JPResult.xlsx" />
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\Hans\JSONWord.gz" />
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\Hans\SY" />
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\Hans\ver" />
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\Hans\WR" />
+        </Folder>
+        <Folder name="TACExport">
+            <Folder name="TACExport">
+                <Folder name="Properties">
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\Properties\AssemblyInfo.cs" />
+                </Folder>
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\app.config" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\FodyWeavers.xml" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\FodyWeavers.xsd" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\packages.config" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\Program.cs" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\ResultDiff.txt" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\TACExport.csproj" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport\wiki.txt" />
+            </Folder>
+            <Folder name="TransGUI">
+                <Folder name="Model">
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Model\Trans.cs" />
+                </Folder>
+                <Folder name="Pages">
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Pages\MainView.xaml" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Pages\MainView.xaml.cs" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Pages\MainViewModel.cs" />
+                </Folder>
+                <Folder name="Properties">
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Properties\AssemblyInfo.cs" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Properties\Resources.Designer.cs" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Properties\Resources.resx" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Properties\Settings.Designer.cs" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Properties\Settings.settings" />
+                </Folder>
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\App.config" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\App.xaml" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\App.xaml.cs" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\Bootstrapper.cs" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\FodyWeavers.xml" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\packages.config" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TransGUI\TransGUI.csproj" />
+            </Folder>
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\TACExport\TACExport.sln" />
+        </Folder>
+        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\.gitattributes" />
+        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\.gitignore" />
+        <Folder name="AlchemistHan">
+            <Folder name="AlchemistDMM">
+                <Folder name="Properties">
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\Properties\AssemblyInfo.cs" />
+                </Folder>
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\AlchemistDMM.csproj" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\App.config" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\FodyWeavers.xml" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\FodyWeavers.xsd" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\packages.config" />
+                <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistDMM\Program.cs" />
+            </Folder>
+            <Folder name="AlchemistHan">
+                <Folder name="AlchemistHan">
+                    <Folder name="Models">
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\Models\Model.cs" />
+                    </Folder>
+                    <Folder name="Services">
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\Services\ISystem.cs" />
+                    </Folder>
+                    <Folder name="ViewModels">
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\ViewModels\MainPageViewModel.cs" />
+                    </Folder>
+                    <Folder name="Views">
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\Views\MainPage.xaml" />
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\Views\MainPage.xaml.cs" />
+                    </Folder>
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.csproj" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\App.xaml" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\App.xaml.cs" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\FodyWeavers.xml" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan\FodyWeavers.xsd" />
+                </Folder>
+                <Folder name="AlchemistHan.Android">
+                    <Folder name="Assets">
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Assets\AboutAssets.txt" />
+                    </Folder>
+                    <Folder name="Properties">
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Properties\AndroidManifest.xml" />
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Properties\AssemblyInfo.cs" />
+                    </Folder>
+                    <Folder name="Resources">
+                        <Folder name="drawable">
+                            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\drawable\icon.png" />
+                        </Folder>
+                        <Folder name="layout">
+                            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\layout\Tabbar.axml" />
+                            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\layout\Toolbar.axml" />
+                        </Folder>
+                        <Folder name="values">
+                            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\values\colors.xml" />
+                            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\values\styles.xml" />
+                        </Folder>
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\AboutResources.txt" />
+                        <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\Resources\Resource.designer.cs" />
+                    </Folder>
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\AlchemistHan.Android.csproj" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\MainActivity.cs" />
+                    <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan\AlchemistHan.Android\System_Android.cs" />
+                </Folder>
+            </Folder>
+            <File name="C:\Users\kklau\OneDrive\Tagatame\JPAlchemistHan\AlchemistHan\AlchemistHan.sln" />
+        </Folder>
+    </Project>
 </NotepadPlus>
