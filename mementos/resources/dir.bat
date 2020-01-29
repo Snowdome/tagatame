@@ -1,0 +1,1 @@
+dir /o:N /b *.png > mmtList.txt

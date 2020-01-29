@@ -1,0 +1,78 @@
+/*
+#mmtList {
+	border:1px solid black;
+}
+*/
+
+table {
+	border-spacing: 0;
+	border: 1px solid #ddd;
+	width: auto;
+}
+
+th {
+	white-space: nowrap;
+}
+
+th[onclick*="sortTable"] {
+	cursor: pointer;
+	color: blue;
+}
+
+th, td {
+	text-align: left;
+	padding-left: 8px;
+	padding-right: 8px;
+	border: 1px dotted black;
+	vertical-align: middle;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th[id="icon"], th[id="rank"], td[headers="icon"], td[headers="rank"] {
+	text-align: center;
+	white-space: nowrap;
+}
+
+td[headers="name"], td[headers="origin"], td[headers="group"] {
+	white-space: nowrap;
+}
+
+th[id="remark"], td[headers="remark"] {
+	width: 32px;
+	text-align: center;
+}
+
+th[id="a.type"], th[id="special"], td[headers="a.type"], td[headers="special"]{
+	text-align: center;
+}
+
+th[id="score"], th[id="patk"], th[id="matk"], th[id="pdef"], th[id="mdef"], th[id="dex"], th[id="agi"], th[id="a.bonus"], th[id="sp.bonus"], th[id*="sin"], td[headers="score"], td[headers="patk"], td[headers="matk"], td[headers="pdef"], td[headers="mdef"], td[headers="dex"], td[headers="agi"], td[headers="a.bonus"], td[headers="sp.bonus"], td[headers*="sin"] {
+	text-align: right;
+	white-space: nowrap;
+}
+
+th[id="HP"], th[id="luck"] {
+	width: 32px;
+	text-align: center;
+}
+
+td[headers="HP"], td[headers="luck"] {
+	text-align: right;
+}
+
+th[id="a.type"], td[headers="a.type"] {
+	width: 100px;
+}
+
+th[id="others"], td[headers="others"] {
+	width: 120px;
+}
+
+td[headers="icon"] > img {
+	height: 32px;
+	text-align: center;
+	vertical-align: middle;
+}
