@@ -1,4 +1,4 @@
-# tagatame.py last updated 05/01/2020
+# tagatame.py last updated 06/02/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -128,7 +128,7 @@ def clkObj(object, delay=0, loop=0, remark=0):
 				mouseMove(10,0)
 				sysMsg("Repeat clicking on " + subject)
 	except FindFailed:
-		sysMsg("Cannot find " + subject + "\nPress Yes after the object has been clicked.", "FindFailed Error")
+		sysMsg("Cannot find " + subject + "\nPress Yes to start the next step", "FindFailed Error")
 
 
 # Wait for object and press ESC (optional: delay = length(ms))

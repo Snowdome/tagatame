@@ -67,6 +67,10 @@ th[id="a.type"], td[headers="a.type"] {
 	width: 100px;
 }
 
+td[headers="special"] {
+	width: 70px;
+}
+
 th[id="others"], td[headers="others"] {
 	width: 120px;
 }
@@ -75,4 +79,16 @@ td[headers="icon"] > img {
 	height: 32px;
 	text-align: center;
 	vertical-align: middle;
+}
+
+#patchNote, #patchNote td {
+	border-spacing: 0;
+	border: none;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+}
+
+#patchNote td p {
+	display: inline;
 }
