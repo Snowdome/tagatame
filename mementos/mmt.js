@@ -15,9 +15,10 @@ function score() {
 	b1 = 0; b2 = 0;	b0 = 0;
 	s1 = 0; s2 = 0; s3 = 0; s4 = 0; s5 = 0; s6 = 0; s7 = 0; s0 = 0;
 	e01 = 0; e02 = 0; e03 = 0; e04 = 0; e05 = 0; e06 = 0; e07 = 0; e08 = 0; e09 = 0; e10 = 0; e11 = 0; e12 = 0; e13 = 0; e14 = 0; e15 = 0;
+	pm = 0; sin = 0; ex = 0;
 	pm = document.querySelector('input[name = "pm"]:checked').value;
 	sin = document.querySelector('input[name = "sin"]:checked').value;
-	ex = document.getElementById("extra").value;
+	
 	if (pm == "phy") {
 		b1 = 1;
 	}	else if (pm == "mag") {
@@ -25,6 +26,7 @@ function score() {
 	}	else	{
 		b0 = 1;
 	}
+	
 	if (sin == "envy")	{
 		s1 = 1;
 	}	else if (sin == "sloth") {
@@ -42,37 +44,22 @@ function score() {
 	}	else if (sin == "any") {
 		s0 = 1;
 	}
-	if (ex == "slash") {
-		e01 = 1;
-	}	else if	(ex == "pierce") {
-		e02 = 1;
-	}	else if	(ex == "blow") {
-		e03 = 1;
-	}	else if	(ex == "shoot") {
-		e04 = 1;
-	}	else if	(ex == "magical") {
-		e05 = 1;
-	}	else if	(ex == "null") {
-		e06 = 1;
-	}	else if	(ex == "counter") {
-		e07 = 1;
-	}	else if	(ex == "wind") {
-		e08 = 1;
-	}	else if	(ex == "dark") {
-		e09 = 1;
-	}	else if	(ex == "single") {
-		e10 = 1;
-	}	else if	(ex == "area") {
-		e11 = 1;
-	}	else if	(ex == "human") {
-		e12 = 1;
-	}	else if	(ex == "hybrids") {
-		e13 = 1;
-	}	else if	(ex == "vajra") {
-		e14 = 1;
-	}	else if	(ex == "magDoll") {
-		e15 = 1;
-	}
+	var e01 = document.querySelector("#ex01").checked;
+	var e02 = document.querySelector("#ex02").checked;
+	var e03 = document.querySelector("#ex03").checked;
+	var e04 = document.querySelector("#ex04").checked;
+	var e05 = document.querySelector("#ex05").checked;
+	var e06 = document.querySelector("#ex06").checked;
+	var e07 = document.querySelector("#ex07").checked;
+	var e08 = document.querySelector("#ex08").checked;
+	var e09 = document.querySelector("#ex09").checked;
+	var e10 = document.querySelector("#ex10").checked;
+	var e11 = document.querySelector("#ex11").checked;
+	var e12 = document.querySelector("#ex12").checked;
+	var e13 = document.querySelector("#ex13").checked;
+	var e14 = document.querySelector("#ex14").checked;
+	var e15 = document.querySelector("#ex15").checked;
+	
 	document.getElementById('m001').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m002').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m003').innerHTML = (b1*0+b2*0+b0*0) + (s1*15+s2*0+s3*0+s4*0+s5*15+s6*0+s7*0+s0*15) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
@@ -142,23 +129,23 @@ function score() {
 	document.getElementById('m067').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m068').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m069').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m070').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*30+s3*0+s4*0+s5*0+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m071').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*40+s3*0+s4*0+s5*0+s6*20+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*30+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m072').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m073').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*0+s7*30+s0*30) + (e01*0+e02*0+e03*20+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m074').innerHTML = (b1*50+b2*0+b0*50) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m075').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*0+s7*30+s0*30) + (e01*0+e02*0+e03*20+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m076').innerHTML = (b1*0+b2*20+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m077').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*20+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m078').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*20+s4*0+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*20+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m079').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*20+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*20+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m080').innerHTML = (b1*30+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m081').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*30+e05*30+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m082').innerHTML = (b1*0+b2*50+b0*50) + (s1*20+s2*0+s3*0+s4*0+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m083').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*30+s6*0+s7*30+s0*30) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m084').innerHTML = (b1*0+b2*40+b0*40) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m085').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*20+s4*0+s5*20+s6*0+s7*20+s0*20) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m086').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m070').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m071').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*30+s3*0+s4*0+s5*0+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m072').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*40+s3*0+s4*0+s5*0+s6*20+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*30+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m073').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m074').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*0+s7*30+s0*30) + (e01*0+e02*0+e03*20+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m075').innerHTML = (b1*50+b2*0+b0*50) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m076').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*0+s7*30+s0*30) + (e01*0+e02*0+e03*20+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m077').innerHTML = (b1*0+b2*20+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m078').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*20+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m079').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*20+s4*0+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*20+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m080').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*20+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*20+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m081').innerHTML = (b1*30+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m082').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*40+e05*40+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*10+e13*0+e14*0+e15*0);
+	document.getElementById('m083').innerHTML = (b1*0+b2*50+b0*50) + (s1*20+s2*0+s3*0+s4*0+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m084').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*30+s6*0+s7*30+s0*30) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m085').innerHTML = (b1*0+b2*40+b0*40) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*20+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m086').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*20+s4*0+s5*20+s6*0+s7*20+s0*20) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m087').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m088').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m089').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
@@ -167,41 +154,41 @@ function score() {
 	document.getElementById('m092').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m093').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m094').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m095').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m096').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m095').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m096').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m097').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m098').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m099').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m100').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m101').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m102').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m103').innerHTML = (b1*30+b2*0+b0*30) + (s1*20+s2*0+s3*20+s4*0+s5*0+s6*20+s7*0+s0*20) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m104').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*10+s4*0+s5*20+s6*0+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m105').innerHTML = (b1*30+b2*30+b0*30) + (s1*0+s2*0+s3*60+s4*0+s5*0+s6*0+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*40+e15*0);
-	document.getElementById('m106').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*0+s4*0+s5*60+s6*0+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*40+e15*0);
-	document.getElementById('m107').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*20+s4*0+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m108').innerHTML = (b1*50+b2*0+b0*50) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*40+s7*20+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*20+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m109').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m110').innerHTML = (b1*20+b2*20+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m111').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m103').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m104').innerHTML = (b1*30+b2*0+b0*30) + (s1*20+s2*0+s3*20+s4*0+s5*0+s6*20+s7*0+s0*20) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m105').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*10+s4*0+s5*20+s6*0+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m106').innerHTML = (b1*30+b2*30+b0*30) + (s1*0+s2*0+s3*60+s4*0+s5*0+s6*0+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*40+e15*0);
+	document.getElementById('m107').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*0+s4*0+s5*60+s6*0+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*40+e15*0);
+	document.getElementById('m108').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*20+s4*0+s5*0+s6*0+s7*40+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m109').innerHTML = (b1*50+b2*0+b0*50) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*40+s7*20+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*20+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m110').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m111').innerHTML = (b1*20+b2*20+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m112').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m113').innerHTML = (b1*20+b2*0+b0*20) + (s1*20+s2*20+s3*0+s4*0+s5*0+s6*20+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*50+e14*0+e15*0);
-	document.getElementById('m114').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*0+s5*10+s6*0+s7*20+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m115').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m116').innerHTML = (b1*50+b2*0+b0*50) + (s1*0+s2*0+s3*0+s4*20+s5*30+s6*0+s7*10+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*30+e14*0+e15*0);
-	document.getElementById('m117').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*40+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m118').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m119').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*30+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m113').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m114').innerHTML = (b1*20+b2*0+b0*20) + (s1*20+s2*20+s3*0+s4*0+s5*0+s6*20+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*50+e14*0+e15*0);
+	document.getElementById('m115').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*0+s5*10+s6*0+s7*20+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m116').innerHTML = (b1*60+b2*0+b0*60) + (s1*30+s2*0+s3*0+s4*0+s5*0+s6*30+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m117').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m118').innerHTML = (b1*50+b2*0+b0*50) + (s1*0+s2*0+s3*0+s4*20+s5*30+s6*0+s7*10+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*30+e14*0+e15*0);
+	document.getElementById('m119').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*60+s0*60) + (e01*0+e02*0+e03*0+e04*40+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m120').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m121').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*60+s3*0+s4*0+s5*0+s6*0+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*20+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m121').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*30+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m122').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m123').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m124').innerHTML = (b1*0+b2*30+b0*30) + (s1*20+s2*0+s3*0+s4*0+s5*40+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*20+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m125').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*40+s5*20+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*30+e06*0+e07*0+e08*0+e09*0+e10*0+e11*20+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m126').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m127').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*30+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m123').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*60+s3*0+s4*0+s5*0+s6*0+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*20+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m124').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m125').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m126').innerHTML = (b1*0+b2*30+b0*30) + (s1*20+s2*0+s3*0+s4*0+s5*40+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*20+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m127').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*40+s5*20+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*30+e06*0+e07*0+e08*0+e09*0+e10*0+e11*20+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m128').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m129').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m129').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*30+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m130').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m131').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m132').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
@@ -212,50 +199,52 @@ function score() {
 	document.getElementById('m137').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m138').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m139').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m140').innerHTML = (b1*0+b2*40+b0*40) + (s1*0+s2*30+s3*0+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*10+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m140').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m141').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m142').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m142').innerHTML = (b1*0+b2*40+b0*40) + (s1*0+s2*30+s3*0+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*10+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m143').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m144').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m145').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m146').innerHTML = (b1*20+b2*20+b0*20) + (s1*30+s2*0+s3*0+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m147').innerHTML = (b1*30+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*30+s5*0+s6*0+s7*30+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*40);
-	document.getElementById('m148').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*0+s4*40+s5*20+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m149').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*20+s3*0+s4*0+s5*40+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m150').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m151').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m152').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*40+s4*0+s5*0+s6*0+s7*20+s0*40) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m145').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m146').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m147').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m148').innerHTML = (b1*20+b2*20+b0*20) + (s1*30+s2*0+s3*0+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m149').innerHTML = (b1*30+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*30+s5*0+s6*0+s7*30+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*40);
+	document.getElementById('m150').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*0+s4*40+s5*20+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m151').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*20+s3*0+s4*0+s5*40+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m152').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m153').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m154').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m155').innerHTML = (b1*0+b2*0+b0*0) + (s1*20+s2*0+s3*0+s4*0+s5*20+s6*20+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m156').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*20+s4*20+s5*20+s6*0+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m157').innerHTML = (b1*20+b2*20+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*60+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m158').innerHTML = (b1*0+b2*40+b0*40) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*30+e05*30+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m159').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*60+s7*0+s0*60) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m160').innerHTML = (b1*20+b2*0+b0*20) + (s1*30+s2*0+s3*0+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*10+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m161').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m162').innerHTML = (b1*30+b2*0+b0*30) + (s1*10+s2*10+s3*0+s4*0+s5*0+s6*10+s7*0+s0*10) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m163').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m164').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m165').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*20+s5*0+s6*40+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m166').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*30+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*20+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m167').innerHTML = (b1*30+b2*0+b0*30) + (s1*30+s2*0+s3*0+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m168').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m169').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m154').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*40+s4*0+s5*0+s6*0+s7*20+s0*40) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m155').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m156').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m157').innerHTML = (b1*0+b2*0+b0*0) + (s1*20+s2*0+s3*0+s4*0+s5*20+s6*20+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m158').innerHTML = (b1*40+b2*0+b0*40) + (s1*0+s2*0+s3*20+s4*20+s5*20+s6*0+s7*0+s0*20) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m159').innerHTML = (b1*20+b2*20+b0*20) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*60+s7*0+s0*60) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m160').innerHTML = (b1*0+b2*40+b0*40) + (s1*0+s2*0+s3*30+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*30+e05*30+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m161').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*60+s7*0+s0*60) + (e01*40+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m162').innerHTML = (b1*20+b2*0+b0*20) + (s1*30+s2*0+s3*0+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*10+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m163').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*30+s7*0+s0*30) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m164').innerHTML = (b1*30+b2*0+b0*30) + (s1*10+s2*10+s3*0+s4*0+s5*0+s6*10+s7*0+s0*10) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m165').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m166').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m167').innerHTML = (b1*0+b2*30+b0*30) + (s1*0+s2*0+s3*0+s4*20+s5*0+s6*40+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m168').innerHTML = (b1*30+b2*0+b0*30) + (s1*0+s2*0+s3*0+s4*30+s5*0+s6*30+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*20+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m169').innerHTML = (b1*30+b2*0+b0*30) + (s1*30+s2*0+s3*0+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*30+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m170').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m171').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m172').innerHTML = (b1*60+b2*0+b0*60) + (s1*0+s2*0+s3*0+s4*0+s5*20+s6*40+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m173').innerHTML = (b1*0+b2*0+b0*0) + (s1*15+s2*0+s3*0+s4*0+s5*15+s6*0+s7*0+s0*15) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m174').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*0+s4*40+s5*20+s6*0+s7*0+s0*40) + (e01*0+e02*20+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m175').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m176').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m177').innerHTML = (b1*0+b2*30+b0*30) + (s1*30+s2*0+s3*0+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m172').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m173').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m174').innerHTML = (b1*60+b2*0+b0*60) + (s1*0+s2*0+s3*0+s4*0+s5*20+s6*40+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m175').innerHTML = (b1*0+b2*0+b0*0) + (s1*15+s2*0+s3*0+s4*0+s5*15+s6*0+s7*0+s0*15) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m176').innerHTML = (b1*20+b2*0+b0*20) + (s1*0+s2*0+s3*0+s4*40+s5*20+s6*0+s7*0+s0*40) + (e01*0+e02*20+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m177').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m178').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m179').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m179').innerHTML = (b1*0+b2*30+b0*30) + (s1*30+s2*0+s3*0+s4*0+s5*30+s6*0+s7*0+s0*30) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 	document.getElementById('m180').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m181').innerHTML = (b1*15+b2*0+b0*15) + (s1*40+s2*0+s3*0+s4*0+s5*0+s6*20+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m182').innerHTML = (b1*30+b2*0+b0*30) + (s1*20+s2*0+s3*0+s4*0+s5*40+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*10+e12*0+e13*0+e14*0+e15*0);
-	document.getElementById('m183').innerHTML = (b1*20+b2*0+b0*20) + (s1*60+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*60) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m181').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m182').innerHTML = (b1*0+b2*0+b0*0) + (s1*0+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*0) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m183').innerHTML = (b1*15+b2*0+b0*15) + (s1*40+s2*0+s3*0+s4*0+s5*0+s6*20+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m184').innerHTML = (b1*30+b2*0+b0*30) + (s1*20+s2*0+s3*0+s4*0+s5*40+s6*0+s7*0+s0*40) + (e01*0+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*10+e12*0+e13*0+e14*0+e15*0);
+	document.getElementById('m185').innerHTML = (b1*20+b2*0+b0*20) + (s1*60+s2*0+s3*0+s4*0+s5*0+s6*0+s7*0+s0*60) + (e01*20+e02*0+e03*0+e04*0+e05*0+e06*0+e07*0+e08*0+e09*0+e10*0+e11*0+e12*0+e13*0+e14*0+e15*0);
 }
 
 function sortTableByString(n) {

@@ -1,3 +1,4 @@
+@charset "UTF-8"; 
 /*
 #mmtList {
 	border:1px solid black;
@@ -17,6 +18,19 @@ th {
 th[onclick*="sortTable"] {
 	cursor: pointer;
 	color: blue;
+}
+
+.title {
+	color: blue;
+	font-weight: bold;
+}
+
+.event {
+	color: green;
+}
+
+.limited {
+	color: red;
 }
 
 th, td {

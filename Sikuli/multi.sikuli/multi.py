@@ -1,4 +1,4 @@
-# multi.py last updated 20/10/2019
+# multi.py last updated 12/02/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -30,7 +30,7 @@ subQuest = "subQuest.png"
 subMulti = "subMulti.png"
 subMultiMenu = "subMultiMenu.png"
 subMyUnit = "subMyUnit.png"
-subArrow = Pattern("subMenu.png").targetOffset(-130,380)	# Location of down arrow in respect to the menu in sub-window
+subArrow = Pattern("1581461703200.png").targetOffset(-130,390)	# Location of down arrow in respect to the menu in sub-window
 subCreateRoom = "subCreateRoom.png"
 subPrivate = Pattern("subPrivate.png").similar(0.90).targetOffset(100,0)
 subConfirmCreate = "subConfirmCreate.png"
@@ -342,6 +342,8 @@ def multiDouble(multiQ, script, n=1):
 		wait(finished, FOREVER)
 		sleep(extend)
 		clkObj(finished)
+		mouseMove(10,0)
+		click(atMouse())
 		wait(OK, 30)
 		clkObj(OK)
 		clkObj(home, double)

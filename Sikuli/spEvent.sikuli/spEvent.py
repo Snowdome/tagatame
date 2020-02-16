@@ -56,6 +56,9 @@ as1 = spQ("as1Ev.png", "adv", "as1Logo.png", "as1Stage.png", "asCoin.png")
 # Advnace Boss Templar - うるさいよ五月雨
 as2 = spQ("as2Ev.png", "adv", "as2Logo.png", "as2Stage.png", "asCoin.png")
 
+# Advnace Boss Templar - うるさいよ五月雨
+as3 = spQ("as3Ev.png", "adv", "as3Logo.png", "as3Stage.png", "asCoin2.png")
+
 # Advance Boss Crossover - 夜明けに奏でるクレーデレ
 sevenSin = spQ("7sinEv.png", "adv", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")
 
@@ -246,6 +249,6 @@ def spDraw(n=1):
 
 
 #  -------------------------Command-------------------------
-spBoss(as2, 551/40)
+#spBoss(as2, 551/40)
 spDraw("all")
 #spDraw("all")

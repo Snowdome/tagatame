@@ -1,4 +1,4 @@
-# PoK.py last updated 06/02/2019
+# PoK.py last updated 08/02/2020
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -51,6 +51,7 @@ forgeStart = "forgeStart.png"
 yes = "yes.png"
 
 # Battle
+btMenu = "btMenu.png"
 stageMission = "stageMission.png"
 affinity = Pattern("affinity.png").similar(0.80)
 btResult = Pattern("btResult.png").similar(0.90)
@@ -251,30 +252,39 @@ def btAction(n=1):
 		else:
 			sysMsg(msgEnd)
 
-# Start battle for point quest
-def btPtQuest(n=1):
-	sysMsg("Initializing BattlePointQuest command")
+# Start battle for unit quest
+def btPt Quest(n=1):
+	sysMsg("Initializing UnitQuest command")
 	i = 0
 	while i < n:
-		clkObj(btStart)
-		wait(btResult, FOREVER)
-		while exists(affinity):
-			click(affinity)
-			sleep(double)
-		while exists(btResult):
-			try:
-				clkObj(btResult, double, 0, remark = "btResult")
-			except FindFailed:
-				pass
-		clkObj(loot, changePage)
-		clkObj(pt, changePage)
-		clkObj(accPt, double)
-		while not exists(btAgain):
-			clkObj(ptAch, double)
-			sleep(double)
-		clkObj(btAgain)
-		i = i + 1
-		sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
+		try:
+			if exists(btAgain, normal):
+				clkObj(btAgain)
+			clkObj(btStart)
+			t = 0
+			while t != -1:
+				if exists(btMenu, 0):
+					t = t + 10
+					sleep (10)
+					sysMsg("Battle in progress. Waiting for 10 more sec. Total waiting time: " + str(t) + "sec.")
+				else:
+					if exists(btResult, 0):
+						sysMsg("***************btResult found***************")
+						t = -1
+						clkObj(btResult, double, 0, remark = "btResult")
+			while not exists(pageNext):
+				click(atMouse())
+				sleep(normal)
+			clkObj(pageNext, changePage)
+			while not exists(btAgain):
+				click(atMouse())
+				sleep(double)
+			clkObj(btAgain)
+			i = i + 1
+			sysMsg("***************Successfully executed " + str(i) + " time(s)**************")
+			sleep(normal)
+		except FindFailed:
+			sysMsg("FindFailed! Need further examination.")
 	else:
 		if n <= 0:
 			sysMsg(msgError)
@@ -409,8 +419,8 @@ def autoTower():
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
-#btPtQuest(10)
-btUnitQuest(4)
+btPtQuest(20)
+#btUnitQuest(4)
 #btQuest(4)
 #forge(50-7)
 #enhance(dollWhite, 23)
