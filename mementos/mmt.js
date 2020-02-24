@@ -1,13 +1,12 @@
 function hide() {
-  var x = document.getElementById("patchNote");
-  var y = document.getElementById("hideBtn").innerHTML;
-  if (x.style.display === "none") {
-    x.style.display = "block";
-	document.getElementById("hideBtn").innerHTML = "Hide";
-  } else {
-    x.style.display = "none";
-	document.getElementById("hideBtn").innerHTML = "Show";
-  }
+	var x = document.getElementById("patchNote");
+	if (x.style.display == "none") {
+		x.style.display = "block";
+		document.getElementById("hideBtn").innerHTML = "Hide";
+	} else {
+		x.style.display = "none";
+		document.getElementById("hideBtn").innerHTML = "Show";
+	}
 }
 
 function score() {

@@ -13,6 +13,10 @@ table {
 
 th {
 	white-space: nowrap;
+	background: white;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0;
 }
 
 th[onclick*="sortTable"] {
