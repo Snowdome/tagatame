@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-hant">
+
 <head>
 	<title>真理刻印簡介</title>
 	<meta charset="utf-8" />
@@ -26,912 +27,964 @@
 </head>
 
 <body>
-<p><b>Consolidated by 雪頂夢 @ PigPigChannel (last updated on 23/02/2020)</b></p>
-<div id="index">
-	<p><a href="#ch1">入門篇</a>
-	<br><a href="#ch2">強化篇</a>
-	<br><a href="#ch3">實踐篇</a>
-	<br><a href="#ch4">感想（稍後補上）</a></p>
-</div>
-<div id="main">
-	<p class="header" id="ch1">入門篇</p>
-	<p>一開始可以存50顆刻印（已裝備的刻印不計算在內），而每最大值+5盛惠100幻晶石（最大值為300）。<span class="important">請注意，當倉庫刻印多於最大值時，將無法開始戰鬥。</span>（PoK玩家會好熟悉）</p>
-	<p>整個刻印系統由三種元素組成：級別、大罪屬性（形狀）和組合（符文）。級別決定基礎值，形狀決定屬性，符文決定組合加成。</p>
-	<p>目前級別分為三級：3★(藍色<img class=thumbnail src=resources/it_rune_r_1_kongo.png>)、4★(黃色<img class=thumbnail src=resources/it_rune_sr_1_kongo.png>)及5★(紅色<img class=thumbnail src=resources/it_rune_ssr_1_kongo.png>)。就其餘兩項元素，可以先看一看表格一得一個概念：</p>
-	<div>
-		<p class="caption">表格一：全5★石概覽 <button id=hideBtn onclick="hide()">顯示未實裝刻印</button></p>
-		<table id="table1">
-			<tr>
-				<th>符文</th>
-				<th>嫉妬</th>
-				<th>怠惰</th>
-				<th>色欲</th>
-				<th>暴食</th>
-				<th>憤怒</th>
-				<th>強欲</th>
-				<th id="bonus">組合加成</th>
-				<th>數量<br>要求</th>
-				<th>備註</th>
-			</tr>
-			<tr>
-				<td>強攻<img src=resources/ui_Rune_3_icon_rune_taip00.png></td>
-				<td><img src=resources/it_rune_ssr_1_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_2_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_3_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_4_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_5_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_6_kongo.png></td>
-				<td>物攻 +10%</td>
-				<td>4</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>魔道<img src=resources/ui_Rune_3_icon_rune_taip01.png></td>
-				<td><img src=resources/it_rune_ssr_1_mado.png></td>
-				<td><img src=resources/it_rune_ssr_2_mado.png></td>
-				<td><img src=resources/it_rune_ssr_3_mado.png></td>
-				<td><img src=resources/it_rune_ssr_4_mado.png></td>
-				<td><img src=resources/it_rune_ssr_5_mado.png></td>
-				<td><img src=resources/it_rune_ssr_6_mado.png></td>
-				<td>魔攻 +10%</td>
-				<td>4</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>堅牢<img src=resources/ui_Rune_3_icon_rune_taip02.png></td>
-				<td><img src=resources/it_rune_ssr_1_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_2_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_3_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_4_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_5_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_6_kenro.png></td>
-				<td>物防 +10%</td>
-				<td>2</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>魔陣<img src=resources/ui_Rune_3_icon_rune_taip03.png></td>
-				<td><img src=resources/it_rune_ssr_1_majin.png></td>
-				<td><img src=resources/it_rune_ssr_2_majin.png></td>
-				<td><img src=resources/it_rune_ssr_3_majin.png></td>
-				<td><img src=resources/it_rune_ssr_4_majin.png></td>
-				<td><img src=resources/it_rune_ssr_5_majin.png></td>
-				<td><img src=resources/it_rune_ssr_6_majin.png></td>
-				<td>魔防 +10%</td>
-				<td>2</td>
-				<td></td>
-			</tr>
-			<tr class="unreleased">
-				<td>疾風<img src=resources/ui_Rune_3_icon_rune_taip04.png></td>
-				<td><img src=resources/it_rune_ssr_1_tyouku.png></td>
-				<td><img src=resources/it_rune_ssr_2_tyouku.png></td>
-				<td><img src=resources/it_rune_ssr_3_tyouku.png></td>
-				<td><img src=resources/it_rune_ssr_4_tyouku.png></td>
-				<td><img src=resources/it_rune_ssr_5_tyouku.png></td>
-				<td><img src=resources/it_rune_ssr_6_tyouku.png></td>
-				<td>Move +1</td>
-				<td>6</td>
-				<td>未實裝（代號長駆）</td>
-			</tr>
-			<tr class="unreleased">
-				<td>加護<img src=resources/ui_Rune_3_icon_rune_taip05.png></td>
-				<td><img src=resources/it_rune_ssr_1_kago.png></td>
-				<td><img src=resources/it_rune_ssr_2_kago.png></td>
-				<td><img src=resources/it_rune_ssr_3_kago.png></td>
-				<td><img src=resources/it_rune_ssr_4_kago.png></td>
-				<td><img src=resources/it_rune_ssr_5_kago.png></td>
-				<td><img src=resources/it_rune_ssr_6_kago.png></td>
-				<td>全狀態耐性 +15</td>
-				<td>4</td>
-				<td>未實裝</td>
-			</tr>
-			<tr class="unreleased">
-				<td>宝石<img src=resources/ui_Rune_3_icon_rune_taip06.png></td>
-				<td><img src=resources/it_rune_ssr_1_houseki.png></td>
-				<td><img src=resources/it_rune_ssr_2_houseki.png></td>
-				<td><img src=resources/it_rune_ssr_3_houseki.png></td>
-				<td><img src=resources/it_rune_ssr_4_houseki.png></td>
-				<td><img src=resources/it_rune_ssr_5_houseki.png></td>
-				<td><img src=resources/it_rune_ssr_6_houseki.png></td>
-				<td>起始MP +10</td>
-				<td>4</td>
-				<td>未實裝</td>
-			</tr>
-			<tr>
-				<td>命脈<img src=resources/ui_Rune_3_icon_rune_taip07.png></td>
-				<td><img src=resources/it_rune_ssr_1_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_2_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_3_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_4_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_5_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_6_meimyaku.png></td>
-				<td>HP +15%</td>
-				<td>4</td>
-				<td></td>
-			</tr>
-			<tr class="unreleased">
-				<td>飛躍<img src=resources/ui_Rune_3_icon_rune_taip08.png></td>
-				<td><img src=resources/it_rune_ssr_1_hiyaku.png></td>
-				<td><img src=resources/it_rune_ssr_2_hiyaku.png></td>
-				<td><img src=resources/it_rune_ssr_3_hiyaku.png></td>
-				<td><img src=resources/it_rune_ssr_4_hiyaku.png></td>
-				<td><img src=resources/it_rune_ssr_5_hiyaku.png></td>
-				<td><img src=resources/it_rune_ssr_6_hiyaku.png></td>
-				<td>Jump +1</td>
-				<td>2</td>
-				<td>未實裝</td>
-			</tr>
-			<tr class="unreleased">
-				<td>彗星<img src=resources/ui_Rune_3_icon_rune_taip09.png></td>
-				<td><img src=resources/it_rune_ssr_1_gikou.png></td>
-				<td><img src=resources/it_rune_ssr_2_gikou.png></td>
-				<td><img src=resources/it_rune_ssr_3_gikou.png></td>
-				<td><img src=resources/it_rune_ssr_4_gikou.png></td>
-				<td><img src=resources/it_rune_ssr_5_gikou.png></td>
-				<td><img src=resources/it_rune_ssr_6_gikou.png></td>
-				<td>命中 +10</td>
-				<td>2</td>
-				<td>未實裝（代號技巧）</td>
-			</tr>
-			<tr class="unreleased">
-				<td>疾駆<img src=resources/ui_Rune_3_icon_rune_taip10.png></td>
-				<td><img src=resources/it_rune_ssr_1_genzou.png></td>
-				<td><img src=resources/it_rune_ssr_2_genzou.png></td>
-				<td><img src=resources/it_rune_ssr_3_genzou.png></td>
-				<td><img src=resources/it_rune_ssr_4_genzou.png></td>
-				<td><img src=resources/it_rune_ssr_5_genzou.png></td>
-				<td><img src=resources/it_rune_ssr_6_genzou.png></td>
-				<td>回避 +10</td>
-				<td>4</td>
-				<td>未實裝（代號幻像）</td>
-			</tr>
-			<tr>
-				<td>一閃<img src=resources/ui_Rune_3_icon_rune_taip11.png></td>
-				<td><img src=resources/it_rune_sr_1_issen.png></td>
-				<td><img src=resources/it_rune_sr_2_issen.png></td>
-				<td><img src=resources/it_rune_sr_3_issen.png></td>
-				<td><img src=resources/it_rune_sr_4_issen.png></td>
-				<td><img src=resources/it_rune_sr_5_issen.png></td>
-				<td><img src=resources/it_rune_sr_6_issen.png></td>
-				<td>単体攻擊 +5</td>
-				<td>2</td>
-				<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
-			</tr>
-			<tr>
-				<td>一掃<img src=resources/ui_Rune_4_icon_rune_taip12.png></td>
-				<td><img src=resources/it_rune_sr_1_isso.png></td>
-				<td><img src=resources/it_rune_sr_2_isso.png></td>
-				<td><img src=resources/it_rune_sr_3_isso.png></td>
-				<td><img src=resources/it_rune_sr_4_isso.png></td>
-				<td><img src=resources/it_rune_sr_5_isso.png></td>
-				<td><img src=resources/it_rune_sr_6_isso.png></td>
-				<td>範囲攻擊 +5</td>
-				<td>2</td>
-				<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
-			</tr>
-			<tr class="unreleased">
-				<td>超盾<img src=resources/ui_Rune_4_icon_rune_taip13.png></td>
-				<td><img src=resources/it_rune_ssr_1_tyoujun.png></td>
-				<td><img src=resources/it_rune_ssr_2_tyoujun.png></td>
-				<td><img src=resources/it_rune_ssr_3_tyoujun.png></td>
-				<td><img src=resources/it_rune_ssr_4_tyoujun.png></td>
-				<td><img src=resources/it_rune_ssr_5_tyoujun.png></td>
-				<td><img src=resources/it_rune_ssr_6_tyoujun.png></td>
-				<td>範囲攻擊 +5</td>
-				<td>4</td>
-				<td>未實裝</td>
-			</tr>
-			<tr class="unreleased">
-				<td>猛攻<img src=resources/ui_Rune_4_icon_rune_taip14.png></td>
-				<td colspan=9>未有資料</td>
-			</tr>
-			<tr class="unreleased">
-				<td>集中<img src=resources/ui_Rune_4_icon_rune_taip15.png></td>
-				<td colspan=9>未有資料</td>
-			</tr>			
-		</table>
-		<p>每個角色每種形狀的刻印可以各裝備上一顆。當同一種符文達到指定數量後，會得到額外組合加成。<span class="important">組合加成是可以重複的。</span>由於符文並不影響基礎屬性，所以配置的大方向會是4+2或者2+2+2（目前6顆一套的組合尚未實裝）。</p>
+	<p><b>Consolidated by 雪頂夢 @ PigPigChannel (last updated on 26/02/2020)</b></p>
+	<div id="index">
+		<p>索引：<br>
+			<a href="#ch1">1. 入門篇</a><br>
+			<a href="#ch2">2. 強化篇</a><br>
+			<a href="#ch3">3. 實踐篇</a><br>
+			<a href="#ch4">4. 感想（稍後補上）</a><br>
+			<a href=table.html>資料表</a></p>
 	</div>
-	<p class="caption">表格二：各刻印屬性</p>
-	<table id="table2">
-		<tr>
-			<th></th>
-			<th>嫉妬</th>
-			<th>怠惰</th>
-			<th>色欲</th>
-			<th>暴食</th>
-			<th>憤怒</th>
-			<th>強欲</th>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<td>基礎屬性1</td>
-			<td class="pA1">物攻</td>
-			<td class="pA1">物防</td>
-			<td class="pB1" rowspan="2">HP</td>
-			<td class="pA1">魔攻</td>
-			<td class="pA1">魔防</td>
-			<td class="pC1" rowspan="2">素早</td>
-			<td colspan="3">基礎概率</td>
-		</tr>
-		<tr>
-			<td>基礎屬性2</td>
-			<td class="pA1">器用</td>
-			<td class="pA1">会心</td>
-			<td class="pA1">器用</td>
-			<td class="pA1">運</td>
-			<td class="pA1">A</td>
-			<td class="pB1">B</td>
-			<td class="pC1">C</td>
-		</tr>
-		<tr>
-			<td rowspan="3">3★</td>
-			<td class="pA1">1-15</td>
-			<td class="pA1">1-15</td>
-			<td class="pB1">101-150</td>
-			<td class="pA1">1-15</td>
-			<td class="pA1">1-15</td>
-			<td class="pC1">1</td>
-			<td class="pA1">70%</td>
-			<td class="pB1">60%</td>
-			<td class="pC1">83%</td>
-		</tr>
-		<tr>
-			<td class="pA1">16-20</td>
-			<td class="pA1">16-20</td>
-			<td class="pB1">151-175</td>
-			<td class="pA1">16-20</td>
-			<td class="pA1">16-20</td>
-			<td class="pC1">2</td>
-			<td class="pA1">20%</td>
-			<td class="pB1">25%</td>
-			<td class="pC1">15%</td>
-		</tr>
-		<tr>
-			<td class="pA1">21-25</td>
-			<td class="pA1">21-25</td>
-			<td class="pB1">176-200</td>
-			<td class="pA1">21-25</td>
-			<td class="pA1">21-25</td>
-			<td class="pC1">3</td>
-			<td class="pA1">10%</td>
-			<td class="pB1">15%</td>
-			<td class="pC1">2%</td>
-		</tr>
-		<tr>
-			<td rowspan="3">4★</td>
-			<td class="pA1">31-45</td>
-			<td class="pA1">31-45</td>
-			<td class="pB1">221-320</td>
-			<td class="pA1">31-45</td>
-			<td class="pA1">31-45</td>
-			<td class="pC1">4</td>
-			<td class="pA1">70%</td>
-			<td class="pB1">60%</td>
-			<td class="pC1">83%</td>
-		</tr>
-		<tr>
-			<td class="pA1">46-50</td>
-			<td class="pA1">46-50</td>
-			<td class="pB1">321-370</td>
-			<td class="pA1">46-50</td>
-			<td class="pA1">46-50</td>
-			<td class="pC1">5</td>
-			<td class="pA1">20%</td>
-			<td class="pB1">25%</td>
-			<td class="pC1">15%</td>
-		</tr>
-		<tr>
-			<td class="pA1">51-55</td>
-			<td class="pA1">51-55</td>
-			<td class="pB1">371-420</td>
-			<td class="pA1">51-55</td>
-			<td class="pA1">51-55</td>
-			<td class="pC1">6</td>
-			<td class="pA1">10%</td>
-			<td class="pB1">15%</td>
-			<td class="pC1">2%</td>
-		</tr>
-		<tr>
-			<td rowspan="3">5★</td>
-			<td class="pA1">76-90</td>
-			<td class="pA1">76-90</td>
-			<td class="pB1">501-600</td>
-			<td class="pA1">76-90</td>
-			<td class="pA1">76-90</td>
-			<td class="pC1">8</td>
-			<td class="pA1">70%</td>
-			<td class="pB1">60%</td>
-			<td class="pC1">83%</td>
-		</tr>
-		<tr>
-			<td class="pA1">91-95</td>
-			<td class="pA1">91-95</td>
-			<td class="pB1">601-650</td>
-			<td class="pA1">91-95</td>
-			<td class="pA1">91-95</td>
-			<td class="pC1">9</td>
-			<td class="pA1">20%</td>
-			<td class="pB1">25%</td>
-			<td class="pC1">15%</td>
-		</tr>
-		<tr>
-			<td class="pA1">96-100</td>
-			<td class="pA1">96-100</td>
-			<td class="pB1">651-700</td>
-			<td class="pA1">96-100</td>
-			<td class="pA1">96-100</td>
-			<td class="pC1">10</td>
-			<td class="pA1">10%</td>
-			<td class="pB1">15%</td>
-			<td class="pC1">2%</td>
-		</tr>
-		<tr>
-			<td rowspan="8">覺醒屬性</td>
-			<td class="pA2">斬擊攻擊</td>
-			<td class="pB2">斬擊耐性</td>
-			<td class="pB2">毒耐性</td>
-			<td class="pA2">MP回復</td>
-			<td class="pB2">物攻衰弱耐性</td>
-			<td class="pB2">暗闇耐性</td>
-			<td colspan="3" rowspan="8"></td>
-		</tr>
-		<tr>
-			<td class="pA2">打擊攻擊</td>
-			<td class="pB2">打擊耐性</td>
-			<td class="pB2">暈眩耐性</td>
-			<td class="pB2">最大MP</td>
-			<td class="pB2">物防衰弱耐性</td>
-			<td class="pB2">石化耐性</td>
-		</tr>
-		<tr>
-			<td class="pA2">刺突攻擊</td>
-			<td class="pB2">刺突耐性</td>
-			<td class="pB2">麻痺耐性</td>
-			<td class="pA2">治癒力</td>
-			<td class="pB2">魔攻衰弱耐性</td>
-			<td class="pB2">沈默耐性</td>
-		</tr>
-		<tr>
-			<td class="pA2">射撃攻擊</td>
-			<td class="pB2">射撃耐性</td>
-			<td class="pB2">睡眠耐性</td>
-			<td class="pC2">根性</td>
-			<td class="pB2">魔防衰弱耐性</td>
-			<td class="pB2">移動禁止耐性</td>
-		</tr>
-		<tr>
-			<td class="pA2">魔法攻擊</td>
-			<td class="pB2">魔法耐性</td>
-			<td class="pB2">魅了耐性</td>
-			<td class="pA2">暴擊率</td>
-			<td class="pB2">器用衰弱耐性</td>
-			<td class="pB2">攻擊禁止耐性</td>
-		</tr>
-		<tr>
-			<td class="pA2">跳躍攻擊</td>
-			<td class="pB2">跳躍耐性</td>
-			<td class="pB2">狂化耐性</td>
-			<td></td>
-			<td class="pB2">素早衰弱耐性</td>
-			<td class="pB2">死之宣告耐性</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td class="pB2">Clockdown耐性</td>
-			<td></td>
-			<td class="pB2">運衰弱耐性</td>
-			<td class="pB2">時停耐性</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td class="pB2">鈍足耐性</td>
-			<td></td>
-			<td></td>
-			<td class="pB2">回復無效耐性</td>
-		</tr>
-	</table>
-	<p>大罪屬性決定刻印提供的基礎屬性跟覺醒屬性的種類，而刻印的級別則決定基礎能力的範圍值，但對覺醒屬性並沒有影響。就目前的數據而言，基礎能力的範圍值並沒有重疊。因此，在不考慮成平時情況下，不存在歐洲清泉用低級刻印勝過非洲油王的情況。</p>
-	<p>除色欲及強欲外，其餘四屬均會隨機二選一出一種基礎屬性。基礎屬性可跟據加值分為三類：HP(數值大，<span class="pB1">B類</span>）、素早（數值小，<span class="pC1">C類</span>）、和其他（<span class="pA1">A類</span>），各種類會對應各自的概率。概率不受刻印級別影響（即物HP 3★刷出最高級別跟5★刷出最高級的概率是一樣的）。</p>
-	<p>在刻印覺醒後，會跟據大罪屬性隨機抽出一種覺醒屬性。同樣地，覺醒屬性跟據加值分為三類：+1至+5（<span class="pA2">A類</span>）、+1至+10（<span class="pB2">B類</span>）、及+1至+3（<span class="pC2">C類</span>）。每顆刻印最多可以覺醒三次，而覺醒屬性是可以重覆的。各自的加值概率分佈如下：</p>
-	<p class="caption">表格三：覺醒概率</p>
-	<table id="table3">
-		<tr>
-			<th>比重</th>
-			<th class="pA2">A</th>
-			<th class="pB2">B</th>
-			<th class="pC2">C</th>
-		</tr>
-		<tr>
-			<td>40</td>
-			<td class="pA2">1</td>
-			<td class="pB2">1-2</td>
-			<td class="pC2">1</td>
-		</tr>
-		<tr>
-			<td>30</td>
-			<td class="pA2">2</td>
-			<td class="pB2">3-4</td>
-			<td class="pC2">2</td>
-		</tr>
-		<tr>
-			<td>20</td>
-			<td class="pA2">3</td>
-			<td class="pB2">5-6</td>
-			<td class="pC2">3</td>
-		</tr>
-		<tr>
-			<td>8</td>
-			<td class="pA2">4</td>
-			<td class="pB2">7-8</td>
-			<td class="pC2" rowspan="2"></td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td class="pA2">5</td>
-			<td class="pB2">9-10</td>
-		</tr>
-	</table>
-	<p class="header" id="ch2">強化篇</p>
-	<p>以上簡單介紹了刻印系統的數值部份。單看數值的確很美好（每一顆刻印都媲美甚至超過一件武具的價值）。Zahar提升了125物攻 10%物攻 820HP 15素早 15斬 5單体？！理想很美好，除了......<br>
-	......<br>
-	...<br>
-	成本</p>
-	<p>刻印系統的素材包括：</p>
-	<ol>
-		<li>強化用的強化石（綠石）<img src=resources\it_runeenh.png>：關卡任務送不少的量，而且可以從刻印分解中獲得。</li>
-		<li>覺醒用的錬金鉱（碎石）：3★(藍石<img src=resources\it_runeevo_r.png>)、4★(黃石<img src=resources\it_runeevo_sr.png>)及5★(紅石<img src=resources\it_runeevo_ssr.png>）。三種石都可從各自的關卡低機率刷出；藍石可以從分解3★刻印中低機率出現；黃石可以從分解4★及5★刻印中低機率出現（你無看錯，分解刻印是<span class="important">不會</span>分解出紅石的。<span class="strthr">油王可以直接課金買。</span>）</li>
-		<li>天秤<img src=resources\it_rune_reset_item.png>：可以用作重刷一次覺醒的過路費
-		<li>錢，很多錢</li>
-		<li><span class="important">幻晶石</span></li>
-	</ol>
-	<p>強化的系數分類跟表格二的基礎屬性分類是相同的（除了素早5★升滿會多比3-4★一點），而費用則是根據級別調整。</p>
-	<p class="caption">表格四：強化數值及費用</p>
-	<table id="table4">
-		<tr>
-			<th>成功率(基本)</th>
-			<th class="pA1">A</th>
-			<th class="pB1">B</th>
-			<th class="pC1">C1</th>
-			<th class="pC1">C2</th>
-			<th>費用(3★)</th>
-			<th>素材(3★)</th>
-			<th>費用(4★)</th>
-			<th>素材(4★)</th>
-			<th>費用(5★)</th>
-			<th>素材(5★)</th>
-		</tr>
-		<tr>
-			<td>100%</td>
-			<td class="pA1">3</td>
-			<td class="pB1">10</td>
-			<td class="pC1">0</td>
-			<td class="pC1">0</td>
-			<td>30,000</td>
-			<td>3<img src=resources\it_runeenh.png></td>
-			<td>60,000</td>
-			<td>4<img src=resources\it_runeenh.png></td>
-			<td>90,000</td>
-			<td>5<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>100%</td>
-			<td class="pA1">5</td>
-			<td class="pB1">20</td>
-			<td class="pC1">0</td>
-			<td class="pC1">0</td>
-			<td>60,000</td>
-			<td>3<img src=resources\it_runeenh.png></td>
-			<td>120,000</td>
-			<td>4<img src=resources\it_runeenh.png></td>
-			<td>180,000</td>
-			<td>5<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>100%</td>
-			<td class="pA1">7</td>
-			<td class="pB1">30</td>
-			<td class="pC1">1</td>
-			<td class="pC1">1</td>
-			<td>90,000</td>
-			<td>3<img src=resources\it_runeenh.png></td>
-			<td>180,000</td>
-			<td>4<img src=resources\it_runeenh.png></td>
-			<td>270,000</td>
-			<td>5<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>100%</td>
-			<td colspan="4">覺醒</td>
-			<td>500,000</td>
-			<td>1<img src=resources\it_runeevo_r.png></td>
-			<td>1,000,000</td>
-			<td>1<img src=resources\it_runeevo_sr.png></td>
-			<td>1,500,000</td>
-			<td>1<img src=resources\it_runeevo_ssr.png></td>
-		</tr>
-		<tr>
-			<td>60%</td>
-			<td class="pA1">9</td>
-			<td class="pB1">40</td>
-			<td class="pC1">1</td>
-			<td class="pC1">1</td>
-			<td>120,000</td>
-			<td>3<img src=resources\it_runeenh.png></td>
-			<td>240,000</td>
-			<td>4<img src=resources\it_runeenh.png></td>
-			<td>360,000</td>
-			<td>5<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>60%</td>
-			<td class="pA1">11</td>
-			<td class="pB1">50</td>
-			<td class="pC1">1</td>
-			<td class="pC1">1</td>
-			<td>150,000</td>
-			<td>3<img src=resources\it_runeenh.png></td>
-			<td>300,000</td>
-			<td>4<img src=resources\it_runeenh.png></td>
-			<td>450,000</td>
-			<td>5<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>60%</td>
-			<td class="pA1">13</td>
-			<td class="pB1">60</td>
-			<td class="pC1">2</td>
-			<td class="pC1">2</td>
-			<td>180,000</td>
-			<td>3<img src=resources\it_runeenh.png></td>
-			<td>360,000</td>
-			<td>4<img src=resources\it_runeenh.png></td>
-			<td>540,000</td>
-			<td>5<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>100%</td>
-			<td colspan="4">覺醒</td>
-			<td>1,000,000</td>
-			<td>3<img src=resources\it_runeevo_r.png></td>
-			<td>2,000,000</td>
-			<td>3<img src=resources\it_runeevo_sr.png></td>
-			<td>3,000,000</td>
-			<td>3<img src=resources\it_runeevo_ssr.png></td>
-		</tr>
-		<tr>
-			<td>30%</td>
-			<td class="pA1">15</td>
-			<td class="pB1">70</td>
-			<td class="pC1">2</td>
-			<td class="pC1">2</td>
-			<td>210,000</td>
-			<td>6<img src=resources\it_runeenh.png></td>
-			<td>420,000</td>
-			<td>8<img src=resources\it_runeenh.png></td>
-			<td>630,000</td>
-			<td>10<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>30%</td>
-			<td class="pA1">17</td>
-			<td class="pB1">80</td>
-			<td class="pC1">2</td>
-			<td class="pC1">2</td>
-			<td>240,000</td>
-			<td>6<img src=resources\it_runeenh.png></td>
-			<td>480,000</td>
-			<td>8<img src=resources\it_runeenh.png></td>
-			<td>720,000</td>
-			<td>10<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>30%</td>
-			<td class="pA1">19</td>
-			<td class="pB1">90</td>
-			<td class="pC1">3</td>
-			<td class="pC1">3</td>
-			<td>270,000</td>
-			<td>6<img src=resources\it_runeenh.png></td>
-			<td>540,000</td>
-			<td>8<img src=resources\it_runeenh.png></td>
-			<td>810,000</td>
-			<td>10<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>100%</td>
-			<td colspan="4">覺醒</td>
-			<td>1,500,000</td>
-			<td>5<img src=resources\it_runeevo_r.png></td>
-			<td>3,000,000</td>
-			<td>5<img src=resources\it_runeevo_sr.png></td>
-			<td>4,500,000</td>
-			<td>5<img src=resources\it_runeevo_ssr.png></td>
-		</tr>
-		<tr>
-			<td>10%</td>
-			<td class="pA1">21</td>
-			<td class="pB1">100</td>
-			<td class="pC1">3</td>
-			<td class="pC1">3</td>
-			<td>300,000</td>
-			<td>9<img src=resources\it_runeenh.png></td>
-			<td>600,000</td>
-			<td>12<img src=resources\it_runeenh.png></td>
-			<td>900,000</td>
-			<td>15<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>10%</td>
-			<td class="pA1">23</td>
-			<td class="pB1">110</td>
-			<td class="pC1">3</td>
-			<td class="pC1">3</td>
-			<td>330,000</td>
-			<td>9<img src=resources\it_runeenh.png></td>
-			<td>660,000</td>
-			<td>12<img src=resources\it_runeenh.png></td>
-			<td>990,000</td>
-			<td>15<img src=resources\it_runeenh.png></td>
-		</tr>
-		<tr>
-			<td>10%</td>
-			<td class="pA1">25</td>
-			<td class="pB1">120</td>
-			<td class="pC1">4</td>
-			<td class="pC1">5</td>
-			<td>360,000</td>
-			<td>9<img src=resources\it_runeenh.png></td>
-			<td>720,000</td>
-			<td>12<img src=resources\it_runeenh.png></td>
-			<td>1,080,000</td>
-			<td>15<img src=resources\it_runeenh.png></td>
-		</tr>
-	</table>
-	<p>刻印每強化三次後可以覺醒一次，每次覺醒後會隨機獲得一個覺醒屬性（見表格2）。覺醒最多三次，所以強化最多共十二次。覺醒一次後，往後的強化不再是100%成功率；每次失敗後會有非洲加護，詳細見下表：
-	<p class="caption">表格五：成功率加成</p>
-	<table id="table5">
-		<tr>
-			<th>覺醒回數</th>
-			<th>3★</th>
-			<th>4★</th>
-			<th>5★</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>+3</td>
-			<td>+4</td>
-			<td>+5</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>+6</td>
-			<td>+8</td>
-			<td>+10</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>+9</td>
-			<td>+12</td>
-			<td>+15</td>
-		</tr>
-	</table>
-	<p>而追求盡善盡美既你，不論是對隨機刷出來的屬性還是數值不滿足，仁慈的今泉都為你準備好重刷的方案。只需要「少少」的代價，就可以獲得一次重生的機會：
-	<p class="caption">表格六：重刷成本</p>
-	<table id="table6">
-		<tr>
-			<th>刻印級別</th>
-			<th>費用 (重刷基礎屬性)</th>
-			<th>費用 (重刷覺醒屬性)</th>
-		</tr>
-		<tr>
-			<td>3★</td>
-			<td>300,000</td>
-			<td>500,000</td>
-		</tr>
-		<tr>
-			<td>4★</td>
-			<td>600,000</td>
-			<td>100幻晶石</td>
-		</tr>
-		<tr>
-			<td>5★</td>
-			<td>200幻晶石</td>
-			<td>200幻晶石</td>
-		</tr>
-	</table>
-	<p><span class="important">請注意，本機制並沒有任何保底或還原方案，實際效果亦會因血統而異。使用前請先徹查自己的血統，並與自己的荷包君商量，是否有足夠的實力去重刷到有不差於現狀的屬性。</span><br>
-	PoK的玩家可以想像一下，情況等同在沒有轉生記憶的情況下去轉生。</p>
-	<p class="header" id="ch3">實踐篇</p>
-	<p>整個刻印系統，其中最麻煩的一環便是其高昂的重刷費用。總結一下上述的概率及費用：</p>
-	<ul>
-		<li>滿覺醒的刻印需要12顆相對等級的碎石，而暫時紅石<img src=resources\it_runeevo_ssr.png>碎極其珍貴。</li>
-		<li>一顆滿突的3★刻印需要最少534萬 + 63綠石<img src=resources\it_runeenh.png>，且未計算重刷覺醒屬性。</li>
-		<li>滿突的3★刻印平均費用（預期值，下同）為955萬 + 173綠石<img src=resources\it_runeenh.png>。</li>
-		<li>雖然綠石<img src=resources\it_runeenh.png>相對容易入手，但每一顆完成體所需的過百顆綠石<img src=resources\it_runeenh.png>並不是可以忽視的存在（至少現階段還是這樣）。</li>
-		<li>同樣地，一顆滿突的4★刻印最少花費為1068萬 + 84綠石<img src=resources\it_runeenh.png>，平均費用為1830萬 + 217綠石<img src=resources\it_runeenh.png>。</li>
-		<li>一顆滿突的5★刻印最少花費為1602萬 + 105綠石<img src=resources\it_runeenh.png>，平均費用為2655萬 + 257綠石<img src=resources\it_runeenh.png>。</li>
-		<li>另一方面，視乎追求數值的程度，重刷開支可以出現天價（認真的）。</li>
-		<li>一顆嫉妬刻印想刷到三個斬擊攻擊加成，3★平均需要150萬；4★平均需要1500幻晶石；5★平均需要3000幻晶石。</li>
-		<li>如果改為目標要三個斬擊攻擊+3或以上，3★平均需要850萬；4★平均需要5700幻晶石；5★平均需要11400幻晶石。</li>
-		<li>就<span class="pA1">A組</span>數值而言，要刷到最高階數值，3★平均需要300萬；4★平均需要600萬；5★平均需要2000幻晶石。</li>
-		<li><span class="pB1">B組</span>：3★平均需要200萬；4★平均需要400萬；5★平均需要1333幻晶石。</li>
-		<li><span class="pC1">C組</span>：3★平均需要1500萬；4★平均需要3000萬；5★平均需要10000幻晶石。</li>
-	</ul>
-	<p>由於費用極其高昂，因此事先規劃變得非常重要，可以避免走上冤枉路及節省不必要的開支。首先，讓我們重溫一下表格一的內容：</p>
-	<p class="caption">表格七：全5★石概覽（改）</p>
-		<table id="table7">
+	<div id="main">
+		<p class="header" id="ch1">1. 入門篇</p>
+		<p>一開始可以存50顆刻印（已裝備的刻印不計算在內），而每最大值+5盛惠100幻晶石（最大值為300）。<span class="important">請注意，當倉庫刻印多於最大值時，將無法開始戰鬥。</span>（PoK玩家會好熟悉）</p>
+		<p><img src=img/runes_full.png alt="Runes overflow"></p>
+		<p>整個刻印系統由三種元素組成：級別、大罪屬性（形狀）和組合（符文）。級別決定基礎值，形狀決定屬性，符文決定組合加成。</p>
+		<p>目前級別分為三級：3★(藍色<img class=thumbnail src=resources/it_rune_r_1_kongo.png>)、4★(黃色<img class=thumbnail src=resources/it_rune_sr_1_kongo.png>)及5★(紅色<img class=thumbnail src=resources/it_rune_ssr_1_kongo.png>)。就其餘兩項元素，可以先看一看表格一得一個概念：</p>
+		<div>
+			<p class="caption">表格一：全5★石概覽 <button id=showBtn1 onclick="showUnreleased()">顯示未實裝刻印</button></p>
+			<table id="table1">
+				<tr>
+					<th>符文</th>
+					<th>嫉妬</th>
+					<th>怠惰</th>
+					<th>色欲</th>
+					<th>暴食</th>
+					<th>憤怒</th>
+					<th>強欲</th>
+					<th>組合加成</th>
+					<th>數量要求</th>
+					<th>備註</th>
+				</tr>
+				<tr>
+					<td>強攻<img src=resources/ui_Rune_3_icon_rune_taip00.png></td>
+					<td><img src=resources/it_rune_ssr_1_kongo.png></td>
+					<td><img src=resources/it_rune_ssr_2_kongo.png></td>
+					<td><img src=resources/it_rune_ssr_3_kongo.png></td>
+					<td><img src=resources/it_rune_ssr_4_kongo.png></td>
+					<td><img src=resources/it_rune_ssr_5_kongo.png></td>
+					<td><img src=resources/it_rune_ssr_6_kongo.png></td>
+					<td>物攻 +10%</td>
+					<td>4</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>魔道<img src=resources/ui_Rune_3_icon_rune_taip01.png></td>
+					<td><img src=resources/it_rune_ssr_1_mado.png></td>
+					<td><img src=resources/it_rune_ssr_2_mado.png></td>
+					<td><img src=resources/it_rune_ssr_3_mado.png></td>
+					<td><img src=resources/it_rune_ssr_4_mado.png></td>
+					<td><img src=resources/it_rune_ssr_5_mado.png></td>
+					<td><img src=resources/it_rune_ssr_6_mado.png></td>
+					<td>魔攻 +10%</td>
+					<td>4</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>堅牢<img src=resources/ui_Rune_3_icon_rune_taip02.png></td>
+					<td><img src=resources/it_rune_ssr_1_kenro.png></td>
+					<td><img src=resources/it_rune_ssr_2_kenro.png></td>
+					<td><img src=resources/it_rune_ssr_3_kenro.png></td>
+					<td><img src=resources/it_rune_ssr_4_kenro.png></td>
+					<td><img src=resources/it_rune_ssr_5_kenro.png></td>
+					<td><img src=resources/it_rune_ssr_6_kenro.png></td>
+					<td>物防 +10%</td>
+					<td>2</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>魔陣<img src=resources/ui_Rune_3_icon_rune_taip03.png></td>
+					<td><img src=resources/it_rune_ssr_1_majin.png></td>
+					<td><img src=resources/it_rune_ssr_2_majin.png></td>
+					<td><img src=resources/it_rune_ssr_3_majin.png></td>
+					<td><img src=resources/it_rune_ssr_4_majin.png></td>
+					<td><img src=resources/it_rune_ssr_5_majin.png></td>
+					<td><img src=resources/it_rune_ssr_6_majin.png></td>
+					<td>魔防 +10%</td>
+					<td>2</td>
+					<td></td>
+				</tr>
+				<tr class="unreleased">
+					<td>疾風<img src=resources/ui_Rune_3_icon_rune_taip04.png></td>
+					<td><img src=resources/it_rune_ssr_1_tyouku.png></td>
+					<td><img src=resources/it_rune_ssr_2_tyouku.png></td>
+					<td><img src=resources/it_rune_ssr_3_tyouku.png></td>
+					<td><img src=resources/it_rune_ssr_4_tyouku.png></td>
+					<td><img src=resources/it_rune_ssr_5_tyouku.png></td>
+					<td><img src=resources/it_rune_ssr_6_tyouku.png></td>
+					<td>Move +1</td>
+					<td>6</td>
+					<td>未實裝（代號長駆）</td>
+				</tr>
+				<tr class="unreleased">
+					<td>加護<img src=resources/ui_Rune_3_icon_rune_taip05.png></td>
+					<td><img src=resources/it_rune_ssr_1_kago.png></td>
+					<td><img src=resources/it_rune_ssr_2_kago.png></td>
+					<td><img src=resources/it_rune_ssr_3_kago.png></td>
+					<td><img src=resources/it_rune_ssr_4_kago.png></td>
+					<td><img src=resources/it_rune_ssr_5_kago.png></td>
+					<td><img src=resources/it_rune_ssr_6_kago.png></td>
+					<td>全狀態耐性 +15</td>
+					<td>4</td>
+					<td>未實裝</td>
+				</tr>
+				<tr class="unreleased">
+					<td>宝石<img src=resources/ui_Rune_3_icon_rune_taip06.png></td>
+					<td><img src=resources/it_rune_ssr_1_houseki.png></td>
+					<td><img src=resources/it_rune_ssr_2_houseki.png></td>
+					<td><img src=resources/it_rune_ssr_3_houseki.png></td>
+					<td><img src=resources/it_rune_ssr_4_houseki.png></td>
+					<td><img src=resources/it_rune_ssr_5_houseki.png></td>
+					<td><img src=resources/it_rune_ssr_6_houseki.png></td>
+					<td>起始MP +10</td>
+					<td>4</td>
+					<td>未實裝</td>
+				</tr>
+				<tr>
+					<td>命脈<img src=resources/ui_Rune_3_icon_rune_taip07.png></td>
+					<td><img src=resources/it_rune_ssr_1_meimyaku.png></td>
+					<td><img src=resources/it_rune_ssr_2_meimyaku.png></td>
+					<td><img src=resources/it_rune_ssr_3_meimyaku.png></td>
+					<td><img src=resources/it_rune_ssr_4_meimyaku.png></td>
+					<td><img src=resources/it_rune_ssr_5_meimyaku.png></td>
+					<td><img src=resources/it_rune_ssr_6_meimyaku.png></td>
+					<td>HP +15%</td>
+					<td>4</td>
+					<td></td>
+				</tr>
+				<tr class="unreleased">
+					<td>飛躍<img src=resources/ui_Rune_3_icon_rune_taip08.png></td>
+					<td><img src=resources/it_rune_ssr_1_hiyaku.png></td>
+					<td><img src=resources/it_rune_ssr_2_hiyaku.png></td>
+					<td><img src=resources/it_rune_ssr_3_hiyaku.png></td>
+					<td><img src=resources/it_rune_ssr_4_hiyaku.png></td>
+					<td><img src=resources/it_rune_ssr_5_hiyaku.png></td>
+					<td><img src=resources/it_rune_ssr_6_hiyaku.png></td>
+					<td>Jump +1</td>
+					<td>2</td>
+					<td>未實裝</td>
+				</tr>
+				<tr class="unreleased">
+					<td>彗星<img src=resources/ui_Rune_3_icon_rune_taip09.png></td>
+					<td><img src=resources/it_rune_ssr_1_gikou.png></td>
+					<td><img src=resources/it_rune_ssr_2_gikou.png></td>
+					<td><img src=resources/it_rune_ssr_3_gikou.png></td>
+					<td><img src=resources/it_rune_ssr_4_gikou.png></td>
+					<td><img src=resources/it_rune_ssr_5_gikou.png></td>
+					<td><img src=resources/it_rune_ssr_6_gikou.png></td>
+					<td>命中 +10</td>
+					<td>2</td>
+					<td>未實裝（代號技巧）</td>
+				</tr>
+				<tr class="unreleased">
+					<td>疾駆<img src=resources/ui_Rune_3_icon_rune_taip10.png></td>
+					<td><img src=resources/it_rune_ssr_1_genzou.png></td>
+					<td><img src=resources/it_rune_ssr_2_genzou.png></td>
+					<td><img src=resources/it_rune_ssr_3_genzou.png></td>
+					<td><img src=resources/it_rune_ssr_4_genzou.png></td>
+					<td><img src=resources/it_rune_ssr_5_genzou.png></td>
+					<td><img src=resources/it_rune_ssr_6_genzou.png></td>
+					<td>回避 +10</td>
+					<td>4</td>
+					<td>未實裝（代號幻像）</td>
+				</tr>
+				<tr>
+					<td>一閃<img src=resources/ui_Rune_3_icon_rune_taip11.png></td>
+					<td><img src=resources/it_rune_sr_1_issen.png></td>
+					<td><img src=resources/it_rune_sr_2_issen.png></td>
+					<td><img src=resources/it_rune_sr_3_issen.png></td>
+					<td><img src=resources/it_rune_sr_4_issen.png></td>
+					<td><img src=resources/it_rune_sr_5_issen.png></td>
+					<td><img src=resources/it_rune_sr_6_issen.png></td>
+					<td>単体攻擊 +5</td>
+					<td>2</td>
+					<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
+				</tr>
+				<tr>
+					<td>一掃<img src=resources/ui_Rune_4_icon_rune_taip12.png></td>
+					<td><img src=resources/it_rune_sr_1_isso.png></td>
+					<td><img src=resources/it_rune_sr_2_isso.png></td>
+					<td><img src=resources/it_rune_sr_3_isso.png></td>
+					<td><img src=resources/it_rune_sr_4_isso.png></td>
+					<td><img src=resources/it_rune_sr_5_isso.png></td>
+					<td><img src=resources/it_rune_sr_6_isso.png></td>
+					<td>範囲攻擊 +5</td>
+					<td>2</td>
+					<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
+				</tr>
+				<tr class="unreleased">
+					<td>超盾<img src=resources/ui_Rune_4_icon_rune_taip13.png></td>
+					<td><img src=resources/it_rune_ssr_1_tyoujun.png></td>
+					<td><img src=resources/it_rune_ssr_2_tyoujun.png></td>
+					<td><img src=resources/it_rune_ssr_3_tyoujun.png></td>
+					<td><img src=resources/it_rune_ssr_4_tyoujun.png></td>
+					<td><img src=resources/it_rune_ssr_5_tyoujun.png></td>
+					<td><img src=resources/it_rune_ssr_6_tyoujun.png></td>
+					<td>範囲攻擊 +5</td>
+					<td>4</td>
+					<td>未實裝</td>
+				</tr>
+				<tr class="unreleased">
+					<td>猛攻<img src=resources/ui_Rune_4_icon_rune_taip14.png></td>
+					<td colspan=9>未有資料</td>
+				</tr>
+				<tr class="unreleased">
+					<td>集中<img src=resources/ui_Rune_4_icon_rune_taip15.png></td>
+					<td colspan=9>未有資料</td>
+				</tr>
+			</table>
+			<p>每個角色每種形狀的刻印可以各裝備上一顆。當同一種符文達到指定數量後，會得到額外組合加成。<span class="important">組合加成是可以重複的。</span>由於符文並不影響基礎屬性，所以配置的大方向會是4+2或者2+2+2（目前6顆一套的組合尚未實裝）。</p>
+		</div>
+		<p class="caption">表格二：各刻印屬性</p>
+		<table id="table2">
 			<tr>
-				<th>符文</th>
+				<th></th>
 				<th>嫉妬</th>
 				<th>怠惰</th>
 				<th>色欲</th>
 				<th>暴食</th>
 				<th>憤怒</th>
 				<th>強欲</th>
-				<th id="bonus">組合加成</th>
-				<th>數量<br>要求</th>
-				<th>備註</th>
+				<th colspan="3"></th>
 			</tr>
 			<tr>
-				<td>強攻<img src=resources/ui_Rune_3_icon_rune_taip00.png></td>
-				<td class="good"><img src=resources/it_rune_ssr_1_kongo.png></td>
-				<td class="poor"><img src=resources/it_rune_r_2_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_3_kongo.png></td>
-				<td class="poor"><img src=resources/it_rune_r_4_kongo.png></td>
-				<td class="poor"><img src=resources/it_rune_r_5_kongo.png></td>
-				<td><img src=resources/it_rune_ssr_6_kongo.png></td>
-				<td>物攻 +10%</td>
-				<td>4</td>
+				<td>基礎屬性1</td>
+				<td class="pA1">物攻</td>
+				<td class="pA1">物防</td>
+				<td class="pB1" rowspan="2">HP</td>
+				<td class="pA1">魔攻</td>
+				<td class="pA1">魔防</td>
+				<td class="pC1" rowspan="2">素早</td>
+				<td colspan="3">基礎概率</td>
+			</tr>
+			<tr>
+				<td>基礎屬性2</td>
+				<td class="pA1">器用</td>
+				<td class="pA1">会心</td>
+				<td class="pA1">器用</td>
+				<td class="pA1">運</td>
+				<td class="pA1">A</td>
+				<td class="pB1">B</td>
+				<td class="pC1">C</td>
+			</tr>
+			<tr>
+				<td rowspan="3">3★</td>
+				<td class="pA1">1-15</td>
+				<td class="pA1">1-15</td>
+				<td class="pB1">101-150</td>
+				<td class="pA1">1-15</td>
+				<td class="pA1">1-15</td>
+				<td class="pC1">1</td>
+				<td class="pA1">70%</td>
+				<td class="pB1">60%</td>
+				<td class="pC1">83%</td>
+			</tr>
+			<tr>
+				<td class="pA1">16-20</td>
+				<td class="pA1">16-20</td>
+				<td class="pB1">151-175</td>
+				<td class="pA1">16-20</td>
+				<td class="pA1">16-20</td>
+				<td class="pC1">2</td>
+				<td class="pA1">20%</td>
+				<td class="pB1">25%</td>
+				<td class="pC1">15%</td>
+			</tr>
+			<tr>
+				<td class="pA1">21-25</td>
+				<td class="pA1">21-25</td>
+				<td class="pB1">176-200</td>
+				<td class="pA1">21-25</td>
+				<td class="pA1">21-25</td>
+				<td class="pC1">3</td>
+				<td class="pA1">10%</td>
+				<td class="pB1">15%</td>
+				<td class="pC1">2%</td>
+			</tr>
+			<tr>
+				<td rowspan="3">4★</td>
+				<td class="pA1">31-45</td>
+				<td class="pA1">31-45</td>
+				<td class="pB1">221-320</td>
+				<td class="pA1">31-45</td>
+				<td class="pA1">31-45</td>
+				<td class="pC1">4</td>
+				<td class="pA1">70%</td>
+				<td class="pB1">60%</td>
+				<td class="pC1">83%</td>
+			</tr>
+			<tr>
+				<td class="pA1">46-50</td>
+				<td class="pA1">46-50</td>
+				<td class="pB1">321-370</td>
+				<td class="pA1">46-50</td>
+				<td class="pA1">46-50</td>
+				<td class="pC1">5</td>
+				<td class="pA1">20%</td>
+				<td class="pB1">25%</td>
+				<td class="pC1">15%</td>
+			</tr>
+			<tr>
+				<td class="pA1">51-55</td>
+				<td class="pA1">51-55</td>
+				<td class="pB1">371-420</td>
+				<td class="pA1">51-55</td>
+				<td class="pA1">51-55</td>
+				<td class="pC1">6</td>
+				<td class="pA1">10%</td>
+				<td class="pB1">15%</td>
+				<td class="pC1">2%</td>
+			</tr>
+			<tr>
+				<td rowspan="3">5★</td>
+				<td class="pA1">76-90</td>
+				<td class="pA1">76-90</td>
+				<td class="pB1">501-600</td>
+				<td class="pA1">76-90</td>
+				<td class="pA1">76-90</td>
+				<td class="pC1">8</td>
+				<td class="pA1">70%</td>
+				<td class="pB1">60%</td>
+				<td class="pC1">83%</td>
+			</tr>
+			<tr>
+				<td class="pA1">91-95</td>
+				<td class="pA1">91-95</td>
+				<td class="pB1">601-650</td>
+				<td class="pA1">91-95</td>
+				<td class="pA1">91-95</td>
+				<td class="pC1">9</td>
+				<td class="pA1">20%</td>
+				<td class="pB1">25%</td>
+				<td class="pC1">15%</td>
+			</tr>
+			<tr>
+				<td class="pA1">96-100</td>
+				<td class="pA1">96-100</td>
+				<td class="pB1">651-700</td>
+				<td class="pA1">96-100</td>
+				<td class="pA1">96-100</td>
+				<td class="pC1">10</td>
+				<td class="pA1">10%</td>
+				<td class="pB1">15%</td>
+				<td class="pC1">2%</td>
+			</tr>
+			<tr>
+				<td rowspan="8">覺醒屬性</td>
+				<td class="pA2">斬擊攻擊</td>
+				<td class="pB2">斬擊耐性</td>
+				<td class="pB2">毒耐性</td>
+				<td class="pA2">MP回復</td>
+				<td class="pB2">物攻衰弱耐性</td>
+				<td class="pB2">暗闇耐性</td>
+				<td colspan="3" rowspan="8"></td>
+			</tr>
+			<tr>
+				<td class="pA2">打擊攻擊</td>
+				<td class="pB2">打擊耐性</td>
+				<td class="pB2">暈眩耐性</td>
+				<td class="pB2">最大MP</td>
+				<td class="pB2">物防衰弱耐性</td>
+				<td class="pB2">石化耐性</td>
+			</tr>
+			<tr>
+				<td class="pA2">刺突攻擊</td>
+				<td class="pB2">刺突耐性</td>
+				<td class="pB2">麻痺耐性</td>
+				<td class="pA2">治癒力</td>
+				<td class="pB2">魔攻衰弱耐性</td>
+				<td class="pB2">沈默耐性</td>
+			</tr>
+			<tr>
+				<td class="pA2">射撃攻擊</td>
+				<td class="pB2">射撃耐性</td>
+				<td class="pB2">睡眠耐性</td>
+				<td class="pC2">根性</td>
+				<td class="pB2">魔防衰弱耐性</td>
+				<td class="pB2">移動禁止耐性</td>
+			</tr>
+			<tr>
+				<td class="pA2">魔法攻擊</td>
+				<td class="pB2">魔法耐性</td>
+				<td class="pB2">魅了耐性</td>
+				<td class="pA2">暴擊率</td>
+				<td class="pB2">器用衰弱耐性</td>
+				<td class="pB2">攻擊禁止耐性</td>
+			</tr>
+			<tr>
+				<td class="pA2">跳躍攻擊</td>
+				<td class="pB2">跳躍耐性</td>
+				<td class="pB2">狂化耐性</td>
 				<td></td>
-			</tr>
-			<tr>
-				<td>魔道<img src=resources/ui_Rune_3_icon_rune_taip01.png></td>
-				<td class="poor"><img src=resources/it_rune_r_1_mado.png></td>
-				<td class="poor"><img src=resources/it_rune_r_2_mado.png></td>
-				<td><img src=resources/it_rune_ssr_3_mado.png></td>
-				<td class="good"><img src=resources/it_rune_ssr_4_mado.png></td>
-				<td class="poor"><img src=resources/it_rune_r_5_mado.png></td>
-				<td><img src=resources/it_rune_ssr_6_mado.png></td>
-				<td>魔攻 +10%</td>
-				<td>4</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>堅牢<img src=resources/ui_Rune_3_icon_rune_taip02.png></td>
-				<td><img src=resources/it_rune_ssr_1_kenro.png></td>
-				<td class="good"><img src=resources/it_rune_ssr_2_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_3_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_4_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_5_kenro.png></td>
-				<td><img src=resources/it_rune_ssr_6_kenro.png></td>
-				<td>物防 +10%</td>
-				<td>2</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>魔陣<img src=resources/ui_Rune_3_icon_rune_taip03.png></td>
-				<td><img src=resources/it_rune_ssr_1_majin.png></td>
-				<td><img src=resources/it_rune_ssr_2_majin.png></td>
-				<td><img src=resources/it_rune_ssr_3_majin.png></td>
-				<td><img src=resources/it_rune_ssr_4_majin.png></td>
-				<td class="good"><img src=resources/it_rune_ssr_5_majin.png></td>
-				<td><img src=resources/it_rune_ssr_6_majin.png></td>
-				<td>魔防 +10%</td>
-				<td>2</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>命脈<img src=resources/ui_Rune_3_icon_rune_taip07.png></td>
-				<td><img src=resources/it_rune_ssr_1_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_2_meimyaku.png></td>
-				<td class="good"><img src=resources/it_rune_ssr_3_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_4_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_5_meimyaku.png></td>
-				<td><img src=resources/it_rune_ssr_6_meimyaku.png></td>
-				<td>HP +15%</td>
-				<td>4</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>一閃<img src=resources/ui_Rune_3_icon_rune_taip11.png></td>
-				<td><img src=resources/it_rune_sr_1_issen.png></td>
-				<td><img src=resources/it_rune_sr_2_issen.png></td>
-				<td><img src=resources/it_rune_sr_3_issen.png></td>
-				<td><img src=resources/it_rune_sr_4_issen.png></td>
-				<td><img src=resources/it_rune_sr_5_issen.png></td>
-				<td><img src=resources/it_rune_sr_6_issen.png></td>
-				<td>単体攻擊 +5</td>
-				<td>2</td>
-				<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
-			</tr>
-			<tr>
-				<td>一掃<img src=resources/ui_Rune_4_icon_rune_taip12.png></td>
-				<td><img src=resources/it_rune_sr_1_isso.png></td>
-				<td><img src=resources/it_rune_sr_2_isso.png></td>
-				<td><img src=resources/it_rune_sr_3_isso.png></td>
-				<td><img src=resources/it_rune_sr_4_isso.png></td>
-				<td><img src=resources/it_rune_sr_5_isso.png></td>
-				<td><img src=resources/it_rune_sr_6_isso.png></td>
-				<td>範囲攻擊 +5</td>
-				<td>2</td>
-				<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
+				<td class="pB2">素早衰弱耐性</td>
+				<td class="pB2">死之宣告耐性</td>
 			</tr>
 			<tr>
 				<td></td>
-				<td>物攻<br>器用</td>
-				<td>物防<br>会心</td>
-				<td>HP</td>
-				<td>魔攻<br>器用</td>
-				<td>魔防<br>運</td>
-				<td>素早</td>
-				<td colspan="3"</td>
+				<td></td>
+				<td class="pB2">Clockdown耐性</td>
+				<td></td>
+				<td class="pB2">運衰弱耐性</td>
+				<td class="pB2">時停耐性</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td class="pB2">鈍足耐性</td>
+				<td></td>
+				<td></td>
+				<td class="pB2">回復無效耐性</td>
 			</tr>
 		</table>
-	<p>不難發現，有某幾種基礎能力跟組合加成的相性相對好（<span class="good">粉紅色背景</span>），例如物攻的嫉妬配合強攻。這些刻印可以多存一點無妨，方便以其作組合核心。</p>
-	<p>相反，有一些刻印與組合加成方向相反。這些（<span class="poor">藍色背景</span>）也值得存下，不過是存3-4★的（想要覺醒屬性便用3★；想要高基礎屬性便用4★。）</p>
-	<p>在開始前，不妨先問問自己以下問題：</p>
-	<ol>
-		<li>我今次想要哪些組合加成？</li>
-		<li>優先基礎屬性數值（用5★），還是優先覺醒屬性（用3★）？</li>
-		<li>有沒有足夠的素材覺醒？</li>
-	</ol>
-	<p>以下以親生仔Zahar作一個例子：
-		<br>組合方面，選[4]物攻 +10%及[2]単体攻擊 +5。
-		<br>基礎屬性方面，物攻優先，HP及素早為次，其他隨便。
-		<br>覺醒屬性方面，要<span class="keyword">斬擊攻擊</span><img src=resources/ui_rune_11.png>及<span class="keyword">MP回復</span><img src=resources/ui_rune_14.png>（總數11點或以上），物攻衰弱耐性為次，其他隨便。因此，我的選擇如下：</p>
-	<table id="table8">
-		<tr>
-			<th></th>
-			<th>嫉妬</th>
-			<th>怠惰</th>
-			<th>色欲</th>
-			<th>暴食</th>
-			<th>憤怒</th>
-			<th>強欲</th>
-			<th id="bonus">組合加成</th>
-		</tr>
-		<tr>
-			<td>刻印</td>
-			<td><div class="combined"><img src=resources/it_rune_ssr_1_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div></td>
-			<td><div class="combined"><img src=resources/it_rune_r_2_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div></td>
-			<td><div class="combined"><img src=resources/it_rune_ssr_3_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div></td>
-			<td><div class="combined"><img src=resources/it_rune_r_4_issen.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip11.png></div></td>
-			<td><div class="combined"><img src=resources/it_rune_r_5_issen.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip11.png></div></td>
-			<td><div class="combined"><img src=resources/it_rune_ssr_6_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div></td>
-			<td>物攻 +10%<br>単体攻擊 +5<br></td>
-		</tr>
-		<tr>
-			<td>基礎屬性</td>
-			<td>物攻</td>
-			<td>会心</td>
-			<td>HP</td>
-			<td>器用</td>
-			<td>魔防</td>
-			<td>素早</td>
-			<td rowspan="2"></td>
-		</tr>
-		<tr>
-			<td>覺醒屬性</td>
-			<td>斬擊攻擊</td>
-			<td class="idc">隨意</td>
-			<td class="idc">隨意</td>
-			<td>MP回復</td>
-			<td>物攻衰弱<br>耐性</td>
-			<td class="idc">隨意</td>
-		</tr>
-	</table>
-	<p>實際操作流程：</p>
-	<ol>
-		<li>為了減省成本，只有特殊的刻印，才會重刷基礎屬性，其餘均努力農出本體才完成第一步。目前特殊刻印只有<span class="keyword">一閃</span><img src=resources/ui_Rune_3_icon_rune_taip11.png>及<span class="keyword">一掃</span><img src=resources/ui_Rune_4_icon_rune_taip12.png>。（因為要用Draft coin換）</li>
-		<li>覺醒優先處理5★</span><img src=resources/ui_rune_11.png>及3★<img src=resources/ui_rune_14.png>。</li>
-		<li>重刷覺醒直至刷出可接受的<span class="keyword">斬擊攻擊</span>。所須的幻晶石數量因血統而異；<span class="keyword">MP回復</span>相對壓力少一點，只會扣錢。有餘力才重刷<span class="keyword">物攻衰弱耐性</span>。</li>
-		<li>由於素早的強化加成效果不顯注，視乎自身<span class="strthr">財力</span>情況可略過<img src=resources/ui_rune_16.png>覺醒。同樣地，HP只屬次要屬性，視乎自身情況可略過<img src=resources/ui_rune_13.png>覺醒。</li>
-		<li>完成一隻角的基本真理刻印。至少還要重複五次～</li>
-	</ol>
-	<p>流程大致上就是這樣。最後請謹記：<span class="important">要量力而為，Happy farming, happy gaming!</p>
-</div>
+		<p>大罪屬性決定刻印提供的基礎屬性跟覺醒屬性的種類，而刻印的級別則決定基礎能力的範圍值，但對覺醒屬性並沒有影響。就目前的數據而言，基礎能力的範圍值並沒有重疊。因此，在不考慮成平時情況下，不存在歐洲清泉用低級刻印勝過非洲油王的情況。</p>
+		<p>除色欲及強欲外，其餘四屬均會隨機二選一出一種基礎屬性。基礎屬性可跟據加值分為三類：HP(數值大，<span class="pB1">B類</span>）、素早（數值小，<span class="pC1">C類</span>）、和其他（<span class="pA1">A類</span>），各種類會對應各自的概率。概率不受刻印級別影響（即物HP 3★刷出最高級別跟5★刷出最高級的概率是一樣的）。</p>
+		<p>在刻印覺醒後，會跟據大罪屬性隨機抽出一種覺醒屬性。同樣地，覺醒屬性跟據加值分為三類：+1至+5（<span class="pA2">A類</span>）、+1至+10（<span class="pB2">B類</span>）、及+1至+3（<span class="pC2">C類</span>）。每顆刻印最多可以覺醒三次，而覺醒屬性是可以重覆的。各自的加值概率分佈如下：</p>
+		<p class="caption">表格三：覺醒屬性數值概率分佈</p>
+		<table id="table3">
+			<tr>
+				<th>比重</th>
+				<th class="pA2">A</th>
+				<th class="pB2">B</th>
+				<th class="pC2">C</th>
+			</tr>
+			<tr>
+				<td>40</td>
+				<td class="pA2">1</td>
+				<td class="pB2">1-2</td>
+				<td class="pC2">1</td>
+			</tr>
+			<tr>
+				<td>30</td>
+				<td class="pA2">2</td>
+				<td class="pB2">3-4</td>
+				<td class="pC2">2</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td class="pA2">3</td>
+				<td class="pB2">5-6</td>
+				<td class="pC2">3</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td class="pA2">4</td>
+				<td class="pB2">7-8</td>
+				<td class="pC2" rowspan="2"></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td class="pA2">5</td>
+				<td class="pB2">9-10</td>
+			</tr>
+		</table>
+		<p class="header" id="ch2">2. 強化篇</p>
+		<p>以上簡單介紹了刻印系統的數值部份。單看數值的確很美好（每一顆刻印都媲美甚至超過一件武具的價值）。Zahar提升了125物攻 10%物攻 820HP 15素早 15斬 5單体？！理想很美好，除了......<br>
+			......<br>
+			...<br>
+			成本</p>
+		<p>刻印系統的素材包括：</p>
+		<ol>
+			<li>強化用的強化石（綠石）<img src=resources/it_runeenh.png>：關卡任務送不少的量，而且可以從刻印分解中獲得。</li>
+			<li>覺醒用的錬金鉱（碎石）：3★(藍石<img src=resources/it_runeevo_r.png>)、4★(黃石<img src=resources/it_runeevo_sr.png>)及5★(紅石<img src=resources/it_runeevo_ssr.png>）。三種石都可從各自的關卡低機率刷出；藍石可以從分解3★刻印中低機率出現；黃石可以從分解4★及5★刻印中低機率出現（你無看錯，分解刻印是<span class="important">不會</span>分解出紅石的。<span class="strthr">油王可以直接課金買。</span>）</li>
+			<li>天秤<img src=resources/it_rune_reset_item.png>：可以用作重刷覺醒的過路費
+			<li>錢，很多錢</li>
+			<li><span class="important">幻晶石</span></li>
+		</ol>
+		<p>強化的系數分類跟表格二的基礎屬性分類是相同的（除了素早5★升滿會多比3-4★一點），而費用則是根據級別調整。</p>
+		<p class="caption">表格四：強化數值及費用</p>
+		<table id="table4">
+			<tr>
+				<th>基本成功率</th>
+				<th class="pA1">A</th>
+				<th class="pB1">B</th>
+				<th class="pC1">C</th>
+				<th class="pC1">C(5★)</th>
+				<th>費用(3★)</th>
+				<th>素材(3★)</th>
+				<th>費用(4★)</th>
+				<th>素材(4★)</th>
+				<th>費用(5★)</th>
+				<th>素材(5★)</th>
+			</tr>
+			<tr>
+				<td>100%</td>
+				<td class="pA1">3</td>
+				<td class="pB1">10</td>
+				<td class="pC1">0</td>
+				<td class="pC1">0</td>
+				<td>30,000</td>
+				<td>3<img src=resources/it_runeenh.png></td>
+				<td>60,000</td>
+				<td>4<img src=resources/it_runeenh.png></td>
+				<td>90,000</td>
+				<td>5<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>100%</td>
+				<td class="pA1">5</td>
+				<td class="pB1">20</td>
+				<td class="pC1">0</td>
+				<td class="pC1">0</td>
+				<td>60,000</td>
+				<td>3<img src=resources/it_runeenh.png></td>
+				<td>120,000</td>
+				<td>4<img src=resources/it_runeenh.png></td>
+				<td>180,000</td>
+				<td>5<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>100%</td>
+				<td class="pA1">7</td>
+				<td class="pB1">30</td>
+				<td class="pC1">1</td>
+				<td class="pC1">1</td>
+				<td>90,000</td>
+				<td>3<img src=resources/it_runeenh.png></td>
+				<td>180,000</td>
+				<td>4<img src=resources/it_runeenh.png></td>
+				<td>270,000</td>
+				<td>5<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>100%</td>
+				<td colspan="4">覺醒<img src=resources/ui_Rune_2_icon_stone01.png></td>
+				<td>500,000</td>
+				<td>1<img src=resources/it_runeevo_r.png></td>
+				<td>1,000,000</td>
+				<td>1<img src=resources/it_runeevo_sr.png></td>
+				<td>1,500,000</td>
+				<td>1<img src=resources/it_runeevo_ssr.png></td>
+			</tr>
+			<tr>
+				<td>60%</td>
+				<td class="pA1">9</td>
+				<td class="pB1">40</td>
+				<td class="pC1">1</td>
+				<td class="pC1">1</td>
+				<td>120,000</td>
+				<td>3<img src=resources/it_runeenh.png></td>
+				<td>240,000</td>
+				<td>4<img src=resources/it_runeenh.png></td>
+				<td>360,000</td>
+				<td>5<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>60%</td>
+				<td class="pA1">11</td>
+				<td class="pB1">50</td>
+				<td class="pC1">1</td>
+				<td class="pC1">1</td>
+				<td>150,000</td>
+				<td>3<img src=resources/it_runeenh.png></td>
+				<td>300,000</td>
+				<td>4<img src=resources/it_runeenh.png></td>
+				<td>450,000</td>
+				<td>5<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>60%</td>
+				<td class="pA1">13</td>
+				<td class="pB1">60</td>
+				<td class="pC1">2</td>
+				<td class="pC1">2</td>
+				<td>180,000</td>
+				<td>3<img src=resources/it_runeenh.png></td>
+				<td>360,000</td>
+				<td>4<img src=resources/it_runeenh.png></td>
+				<td>540,000</td>
+				<td>5<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>100%</td>
+				<td colspan="4">覺醒<img src=resources/ui_Rune_2_icon_stone02.png></td>
+				<td>1,000,000</td>
+				<td>3<img src=resources/it_runeevo_r.png></td>
+				<td>2,000,000</td>
+				<td>3<img src=resources/it_runeevo_sr.png></td>
+				<td>3,000,000</td>
+				<td>3<img src=resources/it_runeevo_ssr.png></td>
+			</tr>
+			<tr>
+				<td>30%</td>
+				<td class="pA1">15</td>
+				<td class="pB1">70</td>
+				<td class="pC1">2</td>
+				<td class="pC1">2</td>
+				<td>210,000</td>
+				<td>6<img src=resources/it_runeenh.png></td>
+				<td>420,000</td>
+				<td>8<img src=resources/it_runeenh.png></td>
+				<td>630,000</td>
+				<td>10<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>30%</td>
+				<td class="pA1">17</td>
+				<td class="pB1">80</td>
+				<td class="pC1">2</td>
+				<td class="pC1">2</td>
+				<td>240,000</td>
+				<td>6<img src=resources/it_runeenh.png></td>
+				<td>480,000</td>
+				<td>8<img src=resources/it_runeenh.png></td>
+				<td>720,000</td>
+				<td>10<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>30%</td>
+				<td class="pA1">19</td>
+				<td class="pB1">90</td>
+				<td class="pC1">3</td>
+				<td class="pC1">3</td>
+				<td>270,000</td>
+				<td>6<img src=resources/it_runeenh.png></td>
+				<td>540,000</td>
+				<td>8<img src=resources/it_runeenh.png></td>
+				<td>810,000</td>
+				<td>10<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>100%</td>
+				<td colspan="4">覺醒<img src=resources/ui_Rune_2_icon_stone03.png></td>
+				<td>1,500,000</td>
+				<td>5<img src=resources/it_runeevo_r.png></td>
+				<td>3,000,000</td>
+				<td>5<img src=resources/it_runeevo_sr.png></td>
+				<td>4,500,000</td>
+				<td>5<img src=resources/it_runeevo_ssr.png></td>
+			</tr>
+			<tr>
+				<td>10%</td>
+				<td class="pA1">21</td>
+				<td class="pB1">100</td>
+				<td class="pC1">3</td>
+				<td class="pC1">3</td>
+				<td>300,000</td>
+				<td>9<img src=resources/it_runeenh.png></td>
+				<td>600,000</td>
+				<td>12<img src=resources/it_runeenh.png></td>
+				<td>900,000</td>
+				<td>15<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>10%</td>
+				<td class="pA1">23</td>
+				<td class="pB1">110</td>
+				<td class="pC1">3</td>
+				<td class="pC1">3</td>
+				<td>330,000</td>
+				<td>9<img src=resources/it_runeenh.png></td>
+				<td>660,000</td>
+				<td>12<img src=resources/it_runeenh.png></td>
+				<td>990,000</td>
+				<td>15<img src=resources/it_runeenh.png></td>
+			</tr>
+			<tr>
+				<td>10%</td>
+				<td class="pA1">25</td>
+				<td class="pB1">120</td>
+				<td class="pC1">4</td>
+				<td class="pC1">5</td>
+				<td>360,000</td>
+				<td>9<img src=resources/it_runeenh.png></td>
+				<td>720,000</td>
+				<td>12<img src=resources/it_runeenh.png></td>
+				<td>1,080,000</td>
+				<td>15<img src=resources/it_runeenh.png></td>
+			</tr>
+		</table>
+		<p>刻印每強化三次後可以覺醒一次，每次覺醒後會隨機獲得一個覺醒屬性（見表格2）。覺醒最多三次，所以強化最多共十二次。覺醒一次後，往後的強化不再是100%成功率；每次失敗後會有非洲加護，詳細見下表：
+			<p class="caption">表格五：失敗後成功率加成</p>
+			<table id="table5">
+				<tr>
+					<th>覺醒回數</th>
+					<th>3★</th>
+					<th>4★</th>
+					<th>5★</th>
+				</tr>
+				<tr>
+					<td><img src=resources/ui_Rune_2_icon_stone01.png></td>
+					<td>+3</td>
+					<td>+4</td>
+					<td>+5</td>
+				</tr>
+				<tr>
+					<td><img src=resources/ui_Rune_2_icon_stone02.png></td>
+					<td>+6</td>
+					<td>+8</td>
+					<td>+10</td>
+				</tr>
+				<tr>
+					<td><img src=resources/ui_Rune_2_icon_stone03.png></td>
+					<td>+9</td>
+					<td>+12</td>
+					<td>+15</td>
+				</tr>
+			</table>
+			<p>而追求盡善盡美既你，不論是對隨機刷出來的屬性還是數值不滿足，仁慈的今泉都為你準備好重刷的方案。只需要「少少」的代價，就可以獲得一次重生的機會：
+				<p class="caption">表格六：重刷成本</p>
+				<table id="table6">
+					<tr>
+						<th>刻印級別</th>
+						<th>費用 (重刷基礎屬性)</th>
+						<th>費用 (重刷覺醒屬性)</th>
+					</tr>
+					<tr>
+						<td>3★</td>
+						<td>300,000</td>
+						<td>500,000</td>
+					</tr>
+					<tr>
+						<td>4★</td>
+						<td>600,000</td>
+						<td>100幻晶石</td>
+					</tr>
+					<tr>
+						<td>5★</td>
+						<td>200幻晶石</td>
+						<td>200幻晶石</td>
+					</tr>
+				</table>
+				<p><span class="important">請注意，本機制並沒有任何保底或還原方案，實際效果亦會因血統而異。使用前請先徹查自己的血統，並與自己的荷包君商量，是否有足夠的實力去重刷到有不差於現狀的屬性。</span><br>
+					PoK的玩家可以想像一下，情況等同在沒有轉生記憶的情況下去轉生。<br>
+					另外，基礎屬性的種類<span class="important">不會因重刷而轉變</span>。</p>
+				<p class="header" id="ch3">3. 實踐篇</p>
+				<p>整個刻印系統，其中最麻煩的一環便是其高昂的重刷費用。總結一下上述的概率及費用：</p>
+				<ul>
+					<li>滿覺醒的刻印需要12顆相對等級的碎石，而暫時紅石<img src=resources/it_runeevo_ssr.png>碎極其珍貴。</li>
+					<li>一顆滿突的3★刻印需要最少534萬 + 63綠石<img src=resources/it_runeenh.png>，且未計算重刷覺醒屬性。</li>
+					<li>滿突的3★刻印平均費用（預期值，下同）為955萬 + 173綠石<img src=resources/it_runeenh.png>。</li>
+					<li>雖然綠石<img src=resources/it_runeenh.png>相對容易入手，但每一顆完成體所需的過百顆綠石<img src=resources/it_runeenh.png>並不是可以忽視的存在（至少現階段還是這樣）。</li>
+					<li>同樣地，一顆滿突的4★刻印最少花費為1068萬 + 84綠石<img src=resources/it_runeenh.png>，平均費用為1830萬 + 217綠石<img src=resources/it_runeenh.png>。</li>
+					<li>一顆滿突的5★刻印最少花費為1602萬 + 105綠石<img src=resources/it_runeenh.png>，平均費用為2655萬 + 257綠石<img src=resources/it_runeenh.png>。</li>
+					<li>另一方面，視乎追求數值的程度，重刷開支可以出現天價（認真的）。</li>
+					<li>一顆嫉妬刻印想刷到三個斬擊攻擊加成，3★平均需要750萬；4★平均需要1500幻晶石；5★平均需要3000幻晶石。</li>
+					<li>如果改為目標要三個斬擊攻擊+3或以上，3★平均需要2850萬；4★平均需要5700幻晶石；5★平均需要11400幻晶石。</li>
+					<li>就<span class="pA1">A組</span>數值而言，要刷到最高階數值，3★平均需要300萬；4★平均需要600萬；5★平均需要2000幻晶石。</li>
+					<li><span class="pB1">B組</span>：3★平均需要200萬；4★平均需要400萬；5★平均需要1333幻晶石。</li>
+					<li><span class="pC1">C組</span>：3★平均需要1500萬；4★平均需要3000萬；5★平均需要10000幻晶石。</li>
+				</ul>
+				<p>由於費用極其高昂，因此事先規劃變得非常重要，可以避免走上冤枉路及節省不必要的開支。首先，讓我們重溫一下表格一的內容：</p>
+				<p class="caption">表格七：全5★石概覽（改）</p>
+				<table id="table7">
+					<tr>
+						<th>符文</th>
+						<th>嫉妬</th>
+						<th>怠惰</th>
+						<th>色欲</th>
+						<th>暴食</th>
+						<th>憤怒</th>
+						<th>強欲</th>
+						<th class="bonus">組合加成</th>
+						<th>數量要求</th>
+						<th>備註</th>
+					</tr>
+					<tr>
+						<td>強攻<img src=resources/ui_Rune_3_icon_rune_taip00.png alt="強攻"></td>
+						<td class="good"><img src=resources/it_rune_ssr_1_kongo.png></td>
+						<td class="poor"><img src=resources/it_rune_r_2_kongo.png></td>
+						<td><img src=resources/it_rune_ssr_3_kongo.png></td>
+						<td class="poor"><img src=resources/it_rune_r_4_kongo.png></td>
+						<td class="poor"><img src=resources/it_rune_r_5_kongo.png></td>
+						<td><img src=resources/it_rune_ssr_6_kongo.png></td>
+						<td>物攻 +10%</td>
+						<td>4</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>魔道<img src=resources/ui_Rune_3_icon_rune_taip01.png></td>
+						<td class="poor"><img src=resources/it_rune_r_1_mado.png></td>
+						<td class="poor"><img src=resources/it_rune_r_2_mado.png></td>
+						<td><img src=resources/it_rune_ssr_3_mado.png></td>
+						<td class="good"><img src=resources/it_rune_ssr_4_mado.png></td>
+						<td class="poor"><img src=resources/it_rune_r_5_mado.png></td>
+						<td><img src=resources/it_rune_ssr_6_mado.png></td>
+						<td>魔攻 +10%</td>
+						<td>4</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>堅牢<img src=resources/ui_Rune_3_icon_rune_taip02.png></td>
+						<td><img src=resources/it_rune_ssr_1_kenro.png></td>
+						<td class="good"><img src=resources/it_rune_ssr_2_kenro.png></td>
+						<td><img src=resources/it_rune_ssr_3_kenro.png></td>
+						<td><img src=resources/it_rune_ssr_4_kenro.png></td>
+						<td><img src=resources/it_rune_ssr_5_kenro.png></td>
+						<td><img src=resources/it_rune_ssr_6_kenro.png></td>
+						<td>物防 +10%</td>
+						<td>2</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>魔陣<img src=resources/ui_Rune_3_icon_rune_taip03.png></td>
+						<td><img src=resources/it_rune_ssr_1_majin.png></td>
+						<td><img src=resources/it_rune_ssr_2_majin.png></td>
+						<td><img src=resources/it_rune_ssr_3_majin.png></td>
+						<td><img src=resources/it_rune_ssr_4_majin.png></td>
+						<td class="good"><img src=resources/it_rune_ssr_5_majin.png></td>
+						<td><img src=resources/it_rune_ssr_6_majin.png></td>
+						<td>魔防 +10%</td>
+						<td>2</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>命脈<img src=resources/ui_Rune_3_icon_rune_taip07.png></td>
+						<td><img src=resources/it_rune_ssr_1_meimyaku.png></td>
+						<td><img src=resources/it_rune_ssr_2_meimyaku.png></td>
+						<td class="good"><img src=resources/it_rune_ssr_3_meimyaku.png></td>
+						<td><img src=resources/it_rune_ssr_4_meimyaku.png></td>
+						<td><img src=resources/it_rune_ssr_5_meimyaku.png></td>
+						<td><img src=resources/it_rune_ssr_6_meimyaku.png></td>
+						<td>HP +15%</td>
+						<td>4</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>一閃<img src=resources/ui_Rune_3_icon_rune_taip11.png></td>
+						<td><img src=resources/it_rune_sr_1_issen.png></td>
+						<td><img src=resources/it_rune_sr_2_issen.png></td>
+						<td><img src=resources/it_rune_sr_3_issen.png></td>
+						<td><img src=resources/it_rune_sr_4_issen.png></td>
+						<td><img src=resources/it_rune_sr_5_issen.png></td>
+						<td><img src=resources/it_rune_sr_6_issen.png></td>
+						<td>単体攻擊 +5</td>
+						<td>2</td>
+						<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
+					</tr>
+					<tr>
+						<td>一掃<img src=resources/ui_Rune_4_icon_rune_taip12.png></td>
+						<td><img src=resources/it_rune_sr_1_isso.png></td>
+						<td><img src=resources/it_rune_sr_2_isso.png></td>
+						<td><img src=resources/it_rune_sr_3_isso.png></td>
+						<td><img src=resources/it_rune_sr_4_isso.png></td>
+						<td><img src=resources/it_rune_sr_5_isso.png></td>
+						<td><img src=resources/it_rune_sr_6_isso.png></td>
+						<td>範囲攻擊 +5</td>
+						<td>2</td>
+						<td>PVP Draft coin換領, 目前只有3-4★<br>3★ 250coin / 4★ 500coin</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>物攻<br>器用</td>
+						<td>物防<br>会心</td>
+						<td>HP</td>
+						<td>魔攻<br>器用</td>
+						<td>魔防<br>運</td>
+						<td>素早</td>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+				<p>有某幾種基礎能力跟組合加成的相性相對好（<span class="good">粉紅色背景</span>），例如物攻的嫉妬配合強攻。這些刻印可以多存一點無妨，方便以其作組合核心。</p>
+				<p>相反，有一些刻印與組合加成方向相反。這些（<span class="poor">藍色背景</span>）也值得存下，不過是存3-4★的（想要覺醒屬性便用3★；想要高基礎屬性便用4★。）</p>
+				<p>在開始前，不妨先問問自己以下問題：</p>
+				<ol>
+					<li>六項基礎屬性分別選哪種？</li>
+					<li>今次想要哪些組合加成？</li>
+					<li>會不會有配搭方法可以使其中一些刻印於其他組合中重用？</li>
+					<li>優先基礎屬性數值（用5★），還是優先覺醒屬性（用3★）？</li>
+					<li>有沒有足夠的素材覺醒？</li>
+				</ol>
+				<p>以下以親生仔Zahar作一個例子：
+					<br>組合方面，選[4]物攻 +10%及[2]単体攻擊 +5。
+					<br>基礎屬性方面，物攻優先，HP及素早為次，其他隨便。
+					<br>覺醒屬性方面，要<span class="keyword">斬擊攻擊</span><img src=resources/ui_rune_11.png>及<span class="keyword">MP回復</span><img src=resources/ui_rune_14.png>（總數11點或以上），物攻衰弱耐性為次，其他隨便。因此，我的選擇如下：</p>
+				<p class="caption">表格八：例子</p>
+				<table id="table8">
+					<tr>
+						<th></th>
+						<th>嫉妬</th>
+						<th>怠惰</th>
+						<th>色欲</th>
+						<th>暴食</th>
+						<th>憤怒</th>
+						<th>強欲</th>
+						<th class="bonus">組合加成</th>
+					</tr>
+					<tr>
+						<td>刻印</td>
+						<td>
+							<div class="combined"><img src=resources/it_rune_ssr_1_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div>
+						</td>
+						<td>
+							<div class="combined"><img src=resources/it_rune_r_2_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div>
+						</td>
+						<td>
+							<div class="combined"><img src=resources/it_rune_ssr_3_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div>
+						</td>
+						<td>
+							<div class="combined"><img src=resources/it_rune_r_4_issen.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip11.png></div>
+						</td>
+						<td>
+							<div class="combined"><img src=resources/it_rune_r_5_issen.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip11.png></div>
+						</td>
+						<td>
+							<div class="combined"><img src=resources/it_rune_ssr_6_kongo.png><img class="icon" src=resources/ui_Rune_3_icon_rune_taip00.png></div>
+						</td>
+						<td>物攻 +10%<br>単体攻擊 +5<br></td>
+					</tr>
+					<tr>
+						<td>基礎屬性</td>
+						<td>物攻</td>
+						<td>会心</td>
+						<td>HP</td>
+						<td>器用</td>
+						<td>魔防</td>
+						<td>素早</td>
+						<td rowspan="2"></td>
+					</tr>
+					<tr>
+						<td>覺醒屬性</td>
+						<td>斬擊攻擊</td>
+						<td class="idc">隨意</td>
+						<td class="idc">隨意</td>
+						<td>MP回復</td>
+						<td>物攻衰弱<br>耐性</td>
+						<td class="idc">隨意</td>
+					</tr>
+				</table>
+				<p>實際操作流程：</p>
+				<ol>
+					<li>為了減省成本，只有特殊的刻印，才會重刷基礎屬性，其餘均努力農出本體才完成第一步。目前特殊刻印只有<span class="keyword">一閃</span><img src=resources/ui_Rune_3_icon_rune_taip11.png>及<span class="keyword">一掃</span><img src=resources/ui_Rune_4_icon_rune_taip12.png>。（因為要用Draft coin換）</li>
+					<li>覺醒優先處理5★<img src=resources/ui_rune_11.png>及3★<img src=resources/ui_rune_14.png>。</li>
+					<li>重刷覺醒直至刷出可接受的<span class="keyword">斬擊攻擊</span>。所須的幻晶石數量因血統而異；<span class="keyword">MP回復</span>相對壓力少一點，只會扣錢。有餘力才重刷<span class="keyword">物攻衰弱耐性</span>。</li>
+					<li>由於素早的強化加成效果不顯注，視乎自身<span class="strthr">財力</span>情況可略過<img src=resources/ui_rune_16.png>覺醒。同樣地，HP只屬次要屬性，視乎自身情況可略過<img src=resources/ui_rune_13.png>覺醒。</li>
+					<li>完成一隻角的基本真理刻印。至少還要重複五次～</li>
+				</ol>
+				<p>流程大致上就是這樣。最後請謹記：<span class="important">要量力而為，Happy farming, happy gaming!</span></p>
+				<p class="header" id="ch4">4. 感想 （放負，慎入）<button id=showBtn2 onclick="showComment()">顯示</button></p>
+				<div id="Comment" style="display: none">
+					<p>因為係發洩文，所以口語mode ON。<br>
+						要我簡單咁形容個新系統既話，我會用呢四個字：窮兇極惡。</p>
+
+					<p>窮 - 計完數之後發現就算你有系統上限10倍既錢都唔夠用<br>
+						一粒5★刻印淨係升lv已經預左要用2600萬，洗攻擊覺醒一粒，如果要對屬&+3點以上，3★要用2850萬，全+4點以上要8850萬，全+5點要4億4850萬；<br>
+						5★對屬&+3點以上要用11400石，+4點以上要35400石，完美+5石要179400石。呢到只係一粒A組的。<br>
+						如果要一粒完美+30衰弱耐性既5★刻印，理論平均值係要419400石！記住，呢到係一粒，一隊人係要36粒！<br>
+						然後，基本最多存50粒，然後要畀石買位又係咩玩法？當念裝都可以存750張既時候，50粒係咩概念？而且PoK 4周年死死氣升到免費1000隻姬位既教訓...完全無吸收到。<br>
+						順帶一提，大家應該都feel到蘋果貨源緊張，因為隻game既xp係要expotential上去。但Lv92個位...真係無做手腳？<br>
+						<img src=img/inflatedXP.png height=720></p>
+
+					<p>兇 - 感受到營運滿滿既惡意<br>
+						繼兩周年營運整左個無得step skip既抽念裝effect animation（有留意抽卡畫面既話應該唔難察覺出完念之後要等一陣先畀你去下一張），今次進化畫面又係咁！<br>
+						更甚既係，今次係無skip button！都唔知係呢ｄ位哂玩家時間對營運有咩得著...<br>
+						個排版依家用緊grid view，但係我點睇都應該要行list (detailed) view......<br>
+						然後，刷刻印既關...偏偏係玩高低差，仲要咁多波，最重要係個drop rate完全係有病！<br>
+						都唔緊要，如果佢有得skip既話...定係營運係唔係唔記得左自己仲鴿緊呢個功能<br>
+						<img src=img/missingFeature1.png>　（先唔好講GvG）<br>
+						仲有，<img src=img/ui_Rune_2_btn_continuous_reinforcement_on.png> 呢個又係有texture但係未實裝。真係搞唔清佢係成個系統根本未搞掂就急急腳推出黎，定係收收埋埋之後當大更新（都唔係第一次將ｄ好基本既feature當係重大發明咁推）<br>
+						成個系統根本唔應該配入角色畫面。6粒，你想點係出擊個版到僭建個位出黎換卞刻印？比較可行既係整幾set出黎，然後出擊之前選邊隻角用邊set...（不過睇死佢唔會，因為方便左＝農少左＝少左機會用石買位）
+
+						<p>惡 - 隻game行緊一個完全唔同既方向，至少係<br>
+							當世界既大趨勢係盡減RNG要素（尤其涉及PVP），連Pokemon都係上幾代加左後天個體值補完、今代直頭連性格都可以後天人工性格修正，係呢個moment竟然係能力值上面推多個RNG出黎<br>
+							聽講呢種系統係韓國game好common？無點玩過泡菜game，但係RNG裝備stat既Diablo我見到就風光不在（當然隻game本身都有其他問題），至少我覺得呢一步唔係一步好棋。<br>
+							最後，數值一下通脹咁多，日後只會更加容易出1傷（直至營運修正佢條formula為止）...<br>
+							明明隻game一開始係Pokemon既scale，打打下變左G Gen，依家直頭變埋SRW.....真係每次大更都變左隻新game</p>
+
+						<p>最後既最後，如果你認真咁睇完，先多謝你睇哂我成篇負能量，送粒彩蛋畀大家：<br>
+							<img src=img/easterEgg.png height=720> ＜———ex會長本身咁樣覆我🤣</p>
+				</div>
+	</div>
 </body>
+
 </html>

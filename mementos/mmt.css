@@ -1,4 +1,4 @@
-@charset "UTF-8"; 
+@charset "UTF-8";
 /*
 #mmtList {
 	border:1px solid black;
@@ -11,12 +11,104 @@ table {
 	width: auto;
 }
 
+td[headers="HP"],
+td[headers="luck"] {
+	text-align: right;
+}
+
+td[headers="icon"]>img {
+	height: 32px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+td[headers="name"],
+td[headers="origin"],
+td[headers="group"] {
+	white-space: nowrap;
+}
+
+td[headers="special"] {
+	width: 70px;
+}
+
 th {
 	white-space: nowrap;
 	background: white;
-	position: -webkit-sticky; /* Safari */
+	position: -webkit-sticky;
+	/* Safari */
 	position: sticky;
 	top: 0;
+}
+
+th,
+td {
+	text-align: left;
+	padding-left: 8px;
+	padding-right: 8px;
+	border: 1px dotted black;
+	vertical-align: middle;
+}
+
+th[id="HP"],
+th[id="luck"] {
+	width: 32px;
+	text-align: center;
+}
+
+th[id="a.type"],
+td[headers="a.type"] {
+	width: 100px;
+}
+
+th[id="a.type"],
+th[id="special"],
+td[headers="a.type"],
+td[headers="special"] {
+	text-align: center;
+}
+
+th[id="icon"],
+th[id="rank"],
+td[headers="icon"],
+td[headers="rank"] {
+	text-align: center;
+	white-space: nowrap;
+}
+
+th[id="others"],
+td[headers="others"] {
+	width: 120px;
+}
+
+th[id="remark"],
+td[headers="remark"] {
+	width: 32px;
+	text-align: center;
+}
+
+th[id="score"],
+th[id="patk"],
+th[id="matk"],
+th[id="pdef"],
+th[id="mdef"],
+th[id="dex"],
+th[id="agi"],
+th[id="a.bonus"],
+th[id="sp.bonus"],
+th[id*="sin"],
+td[headers="score"],
+td[headers="patk"],
+td[headers="matk"],
+td[headers="pdef"],
+td[headers="mdef"],
+td[headers="dex"],
+td[headers="agi"],
+td[headers="a.bonus"],
+td[headers="sp.bonus"],
+td[headers*="sin"] {
+	text-align: right;
+	white-space: nowrap;
 }
 
 th[onclick*="sortTable"] {
@@ -24,9 +116,8 @@ th[onclick*="sortTable"] {
 	color: blue;
 }
 
-.title {
-	color: blue;
-	font-weight: bold;
+tr:nth-child(even) {
+	background-color: #f2f2f2
 }
 
 .event {
@@ -37,76 +128,19 @@ th[onclick*="sortTable"] {
 	color: red;
 }
 
-th, td {
-	text-align: left;
-	padding-left: 8px;
-	padding-right: 8px;
-	border: 1px dotted black;
-	vertical-align: middle;
+.title {
+	color: blue;
+	font-weight: bold;
 }
 
-tr:nth-child(even) {
-	background-color: #f2f2f2
+#patchNote td p {
+	display: inline;
 }
-
-th[id="icon"], th[id="rank"], td[headers="icon"], td[headers="rank"] {
-	text-align: center;
-	white-space: nowrap;
-}
-
-td[headers="name"], td[headers="origin"], td[headers="group"] {
-	white-space: nowrap;
-}
-
-th[id="remark"], td[headers="remark"] {
-	width: 32px;
-	text-align: center;
-}
-
-th[id="a.type"], th[id="special"], td[headers="a.type"], td[headers="special"]{
-	text-align: center;
-}
-
-th[id="score"], th[id="patk"], th[id="matk"], th[id="pdef"], th[id="mdef"], th[id="dex"], th[id="agi"], th[id="a.bonus"], th[id="sp.bonus"], th[id*="sin"], td[headers="score"], td[headers="patk"], td[headers="matk"], td[headers="pdef"], td[headers="mdef"], td[headers="dex"], td[headers="agi"], td[headers="a.bonus"], td[headers="sp.bonus"], td[headers*="sin"] {
-	text-align: right;
-	white-space: nowrap;
-}
-
-th[id="HP"], th[id="luck"] {
-	width: 32px;
-	text-align: center;
-}
-
-td[headers="HP"], td[headers="luck"] {
-	text-align: right;
-}
-
-th[id="a.type"], td[headers="a.type"] {
-	width: 100px;
-}
-
-td[headers="special"] {
-	width: 70px;
-}
-
-th[id="others"], td[headers="others"] {
-	width: 120px;
-}
-
-td[headers="icon"] > img {
-	height: 32px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-#patchNote, #patchNote td {
+#patchNote,
+#patchNote td {
 	border-spacing: 0;
 	border: none;
 	width: auto;
 	text-align: left;
 	vertical-align: top;
-}
-
-#patchNote td p {
-	display: inline;
 }
