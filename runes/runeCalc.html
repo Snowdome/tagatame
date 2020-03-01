@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+	<title>真理刻印資料表</title>
+	<meta charset="utf-8" />
+	<meta property="og:url" content="https://snowdome.github.io/tagatame/index.html" />
+	<meta property="og:image" content="https://snowdome.github.io/tagatame/favicon.png" />
+	<link rel="stylesheet" href="runes.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#603cba">
+	<meta name="theme-color" content="#ffffff">
+	<script src=runes.js></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157948182-1">
+			</script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+
+				function gtag() {
+					dataLayer.push(arguments);
+				}
+
+				gtag('js', new Date());
+
+				gtag('config', 'UA-157948182-1');
+
+			</script>-->
+</head>
+
+<body>
+	<p><b>真理刻印模擬器<br>Created by 雪頂夢 @ PigPigChannel (last updated on 01/03/2020)</b></p>
+	<div id="inputValue">
+		<p>輸入系數：</p>
+		<form autocomplete="off">
+			<table id="inputTable">
+				<tr>
+					<th>大罪屬性</th>
+					<th>嫉妬</th>
+					<th>怠惰</th>
+					<th>色欲</th>
+					<th>暴食</th>
+					<th>憤怒</th>
+					<th>強欲</th>
+				</tr>
+				<tr>
+					<td>基礎屬性</td>
+					<td class="pA1"><input type="radio" id="stat1_patk" name="stat1" value="物攻" checked="checked"><label for="stat1_patk">物攻</label><br><input type="radio" id="stat1_dex" name="stat1" value="器用"><label for="stat1_dex">器用</label><br></td>
+					<td class="pA1"><input type="radio" id="stat2_pdef" name="stat2" value="物防" checked="checked"><label for="stat2_pdef">物防</label><br><input type="radio" id="stat2_crit" name="stat2" value="会心"><label for="stat2_crit">会心</label><br></td>
+					<td class="pB1" id="stat3">HP</td>
+					<td class="pA1"><input type="radio" id="stat4_matk" name="stat4" value="魔攻" checked="checked"><label for="stat4_matk">魔攻</label><br><input type="radio" id="stat4_dex" name="stat4" value="器用"><label for="stat4_dex">器用</label><br></td>
+					<td class="pA1"><input type="radio" id="stat5_mdef" name="stat5" value="魔防" checked="checked"><label for="stat5_mdef">魔防</label><br><input type="radio" id="stat5_luck" name="stat5" value="運"><label for="stat5_luck">運 </label><br></td>
+					<td class="pC1" id="stat6">素早</td>
+				</tr>
+				<tr>
+					<td>刻印級別</td>
+					<td><select id="rank1">
+							<option value="r">3★</option>
+							<option value="sr">4★</option>
+							<option value="ssr" selected="selected">5★</option>
+						</select>
+					</td>
+					<td><select id="rank2">
+							<option value="r">3★</option>
+							<option value="sr">4★</option>
+							<option value="ssr" selected="selected">5★</option>
+						</select>
+					</td>
+					<td><select id="rank3">
+							<option value="r">3★</option>
+							<option value="sr">4★</option>
+							<option value="ssr" selected="selected">5★</option>
+						</select>
+					</td>
+					<td><select id="rank4">
+							<option value="r">3★</option>
+							<option value="sr">4★</option>
+							<option value="ssr" selected="selected">5★</option>
+						</select>
+					</td>
+					<td><select id="rank5">
+							<option value="r">3★</option>
+							<option value="sr">4★</option>
+							<option value="ssr" selected="selected">5★</option>
+						</select>
+					</td>
+					<td><select id="rank6">
+							<option value="r">3★</option>
+							<option value="sr">4★</option>
+							<option value="ssr" selected="selected">5★</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>符文</td>
+					<td><select id="set1">
+							<option value="00kongo">強攻</option>
+							<option value="01mado">魔道</option>
+							<option value="02kenro">堅牢</option>
+							<option value="03majin">魔陣</option>
+							<option value="07meimyaku">命脈</option>
+							<option value="11issen">一閃</option>
+							<option value="12isso">一掃</option>
+						</select></td>
+					<td><select id="set2">
+							<option value="00kongo">強攻</option>
+							<option value="01mado">魔道</option>
+							<option value="02kenro">堅牢</option>
+							<option value="03majin">魔陣</option>
+							<option value="07meimyaku">命脈</option>
+							<option value="11issen">一閃</option>
+							<option value="12isso">一掃</option>
+						</select></td>
+					<td><select id="set3">
+							<option value="00kongo">強攻</option>
+							<option value="01mado">魔道</option>
+							<option value="02kenro">堅牢</option>
+							<option value="03majin">魔陣</option>
+							<option value="07meimyaku">命脈</option>
+							<option value="11issen">一閃</option>
+							<option value="12isso">一掃</option>
+						</select></td>
+					<td><select id="set4">
+							<option value="00kongo">強攻</option>
+							<option value="01mado">魔道</option>
+							<option value="02kenro">堅牢</option>
+							<option value="03majin">魔陣</option>
+							<option value="07meimyaku">命脈</option>
+							<option value="11issen">一閃</option>
+							<option value="12isso">一掃</option>
+						</select></td>
+					<td><select id="set5">
+							<option value="00kongo">強攻</option>
+							<option value="01mado">魔道</option>
+							<option value="02kenro">堅牢</option>
+							<option value="03majin">魔陣</option>
+							<option value="07meimyaku">命脈</option>
+							<option value="11issen">一閃</option>
+							<option value="12isso">一掃</option>
+						</select></td>
+					<td><select id="set6">
+							<option value="00kongo">強攻</option>
+							<option value="01mado">魔道</option>
+							<option value="02kenro">堅牢</option>
+							<option value="03majin">魔陣</option>
+							<option value="07meimyaku">命脈</option>
+							<option value="11issen">一閃</option>
+							<option value="12isso">一掃</option>
+						</select></td>
+				</tr>
+				<tr>
+					<td>覺醒屬性</td>
+					<td><select id="evo1">
+							<option value="idc">&nbsp;</option>
+							<option value="slashUp">斬擊攻擊</option>
+							<option value="blowUp">打擊攻擊</option>
+							<option value="pierceUp">刺突攻擊</option>
+							<option value="shootUp">射撃攻擊</option>
+							<option value="magicUp">魔法攻擊</option>
+							<option value="jumpUp">跳躍攻擊</option>
+						</select></td>
+					<td><select id="evo2">
+							<option value="idc">&nbsp;</option>
+							<option value="slashRes">斬擊耐性</option>
+							<option value="blowRes">打擊耐性</option>
+							<option value="pierceRes">刺突耐性</option>
+							<option value="shootRes">射撃耐性</option>
+							<option value="magicRes">魔法耐性</option>
+							<option value="jumpRes">跳躍耐性</option>
+						</select></td>
+					<td><select id="evo3">
+							<option value="idc">&nbsp;</option>
+							<option value="poisonRes">毒耐性</option>
+							<option value="stunRes">暈眩耐性</option>
+							<option value="paralyzeRes">麻痺耐性</option>
+							<option value="sleepRes">睡眠耐性</option>
+							<option value="charmRes">魅了耐性</option>
+							<option value="rageRes">狂化耐性</option>
+							<option value="delayRes">Clockdown耐性</option>
+							<option value="slowRes">鈍足耐性</option>
+						</select></td>
+					<td><select id="evo4">
+							<option value="idc">&nbsp;</option>
+							<option value="mpGainUp">MP回復</option>
+							<option value="mpMaxUp">最大MP</option>
+							<option value="healUp">治癒力</option>
+							<option value="gutsUp">根性</option>
+							<option value="critRateUp">暴擊率</option>
+						</select></td>
+					<td><select id="evo5">
+							<option value="idc">&nbsp;</option>
+							<option value="patkDownRes">物攻衰弱耐性</option>
+							<option value="pdefDownRes">物防衰弱耐性</option>
+							<option value="matkDownRes">魔攻衰弱耐性</option>
+							<option value="mdefDownRes">魔防衰弱耐性</option>
+							<option value="dexDownRes">器用衰弱耐性</option>
+							<option value="agiDownRes">素早衰弱耐性</option>
+							<option value="luckDownRes">運衰弱耐性</option>
+						</select></td>
+					<td><select id="evo6">
+							<option value="idc">&nbsp;</option>
+							<option value="blindRes">暗闇耐性</option>
+							<option value="petrifyRes">石化耐性</option>
+							<option value="silenceRes">沈默耐性</option>
+							<option value="bindRes">移動禁止耐性</option>
+							<option value="dazeRes">攻擊禁止耐性</option>
+							<option value="deathRes">死之宣告耐性</option>
+							<option value="stopRes">時停耐性</option>
+							<option value="disableHealRes">回復無效耐性</option>
+						</select></td>
+			</table>
+			<p><button type="button" onclick="lockInput()">確定</button></p>
+			<!-- <button type="button" onclick="resetInput()">重設</button> -->
+		</form>
+	</div>
+
+	<div id="outputTable">
+		<p>目標：</p>
+		<table id="table8">
+			<tr>
+				<th></th>
+				<th>嫉妬</th>
+				<th>怠惰</th>
+				<th>色欲</th>
+				<th>暴食</th>
+				<th>憤怒</th>
+				<th>強欲</th>
+				<th>組合加成</th>
+			</tr>
+			<tr>
+				<td>刻印</td>
+				<td>
+					<div class="combined" id="rune1"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune2"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune3"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune4"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune5"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune6"></div>
+				</td>
+				<td id="setBonus"></td>
+			</tr>
+			<tr>
+				<td>基礎屬性</td>
+				<td class="pA1" id="stat1"></td>
+				<td class="pA1" id="stat2"></td>
+				<td class="pB1">HP</td>
+				<td class="pA1" id="stat4"></td>
+				<td class="pA1" id="stat5"></td>
+				<td class="pC1">素早</td>
+				<td rowspan="2"></td>
+			</tr>
+			<tr>
+				<td>覺醒屬性</td>
+				<td id="evoStat1"></td>
+				<td id="evoStat2"></td>
+				<td id="evoStat3"></td>
+				<td id="evoStat4"></td>
+				<td id="evoStat5"></td>
+				<td id="evoStat6"></td>
+			</tr>
+		</table>
+
+		<p>模擬：</p>
+		<table id="table8b">
+			<tr>
+				<th></th>
+				<th>嫉妬</th>
+				<th>怠惰</th>
+				<th>色欲</th>
+				<th>暴食</th>
+				<th>憤怒</th>
+				<th>強欲</th>
+				<th>組合加成</th>
+			</tr>
+			<tr>
+				<td>刻印</td>
+				<td>
+					<div class="combined" id="rune1Em"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune2Em"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune3Em"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune4Em"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune5Em"></div>
+				</td>
+				<td>
+					<div class="combined" id="rune6Em"></div>
+				</td>
+				<td id="setBonusEm"></td>
+			</tr>
+			<tr>
+				<td>基礎屬性</td>
+				<td class="pA1" id="stat1Em"></td>
+				<td class="pA1" id="stat2Em"></td>
+				<td class="pB1">HP</td>
+				<td class="pA1" id="stat4Em"></td>
+				<td class="pA1" id="stat5Em"></td>
+				<td class="pC1">素早</td>
+				<td class="paid">共花費金幣</td>
+			</tr>
+			<tr>
+				<td>基礎數值</td>
+				<td class="pA1" id="statEm1"></td>
+				<td class="pA1" id="statEm2"></td>
+				<td class="pB1" id="statEm3"></td>
+				<td class="pA1" id="statEm4"></td>
+				<td class="pA1" id="statEm5"></td>
+				<td class="pC1" id="statEm6"></td>
+				<td class="paid" id="zeni">0</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="button" class="em" onclick="rerollBasic('A', '1')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasic('A', '2')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasic('B', '3')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasic('A', '4')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasic('A', '5')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasic('C', '6')">重刷</button></td>
+				<td class="paid">共花費幻晶石</td>
+			</tr>
+			<tr>
+				<td>強化數值</td>
+				<td class="pA1" id="statEn1">0</td>
+				<td class="pA1" id="statEn2">0</td>
+				<td class="pB1" id="statEn3">0</td>
+				<td class="pA1" id="statEn4">0</td>
+				<td class="pA1" id="statEn5">0</td>
+				<td class="pC1" id="statEn6">0</td>
+				<td class="paid" id="gem">0</td>
+			</tr>
+			<tr>
+				<td>總數值</td>
+				<td class="pA1" id="statTotal1"></td>
+				<td class="pA1" id="statTotal2"></td>
+				<td class="pB1" id="statTotal3"></td>
+				<td class="pA1" id="statTotal4"></td>
+				<td class="pA1" id="statTotal5"></td>
+				<td class="pC1" id="statTotal6"></td>
+				<td style="text-align: right;">Rolled: <span id="rolled"></span></td>
+			</tr>
+			<tr>
+				<td>覺醒屬性1</td>
+				<td class="idc" id="evoStatEm11">N/A</td>
+				<td class="idc" id="evoStatEm12">N/A</td>
+				<td class="idc" id="evoStatEm13">N/A</td>
+				<td class="idc" id="evoStatEm14">N/A</td>
+				<td class="idc" id="evoStatEm15">N/A</td>
+				<td class="idc" id="evoStatEm16">N/A</td>
+				<td style="text-align: right;"><span id="range"></span></td>
+			</tr>
+			<tr>
+				<td>覺醒數值1</td>
+				<td class="idc" id="evoStatIntEm11">N/A</td>
+				<td class="idc" id="evoStatIntEm12">N/A</td>
+				<td class="idc" id="evoStatIntEm13">N/A</td>
+				<td class="idc" id="evoStatIntEm14">N/A</td>
+				<td class="idc" id="evoStatIntEm15">N/A</td>
+				<td class="idc" id="evoStatIntEm16">N/A</td>
+				<td rowspan="11"></td>				
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="button" class="em" onclick="rerollEvo('1','1')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('1','2')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('1','3')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('1','4')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('1','5')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('1','6')">重刷</button></td>
+				
+			</tr>
+			<tr>
+				<td>覺醒屬性2</td>
+				<td class="idc" id="evoStatEm21">N/A</td>
+				<td class="idc" id="evoStatEm22">N/A</td>
+				<td class="idc" id="evoStatEm23">N/A</td>
+				<td class="idc" id="evoStatEm24">N/A</td>
+				<td class="idc" id="evoStatEm25">N/A</td>
+				<td class="idc" id="evoStatEm26">N/A</td>				
+			</tr>
+			<tr>
+				<td>覺醒數值2</td>
+				<td class="idc" id="evoStatIntEm21">N/A</td>
+				<td class="idc" id="evoStatIntEm22">N/A</td>
+				<td class="idc" id="evoStatIntEm23">N/A</td>
+				<td class="idc" id="evoStatIntEm24">N/A</td>
+				<td class="idc" id="evoStatIntEm25">N/A</td>
+				<td class="idc" id="evoStatIntEm26">N/A</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="button" class="em" onclick="rerollEvo('2','1')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('2','2')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('2','3')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('2','4')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('2','5')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('2','6')">重刷</button></td>
+			</tr>
+			<tr>
+				<td>覺醒屬性3</td>
+				<td class="idc" id="evoStatEm31">N/A</td>
+				<td class="idc" id="evoStatEm32">N/A</td>
+				<td class="idc" id="evoStatEm33">N/A</td>
+				<td class="idc" id="evoStatEm34">N/A</td>
+				<td class="idc" id="evoStatEm35">N/A</td>
+				<td class="idc" id="evoStatEm36">N/A</td>
+			</tr>
+			<tr>
+				<td>覺醒數值3</td>
+				<td class="idc" id="evoStatIntEm31">N/A</td>
+				<td class="idc" id="evoStatIntEm32">N/A</td>
+				<td class="idc" id="evoStatIntEm33">N/A</td>
+				<td class="idc" id="evoStatIntEm34">N/A</td>
+				<td class="idc" id="evoStatIntEm35">N/A</td>
+				<td class="idc" id="evoStatIntEm36">N/A</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="button" class="em" onclick="rerollEvo('3','1')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('3','2')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('3','3')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('3','4')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('3','5')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollEvo('3','6')">重刷</button></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="button" class="en" id="en1" onclick="upgrade('A', '1')">強化</button></td>
+				<td><button type="button" class="en" id="en2" onclick="upgrade('A', '2')">強化</button></td>
+				<td><button type="button" class="en" id="en3" onclick="upgrade('B', '3')">強化</button></td>
+				<td><button type="button" class="en" id="en4" onclick="upgrade('A', '4')">強化</button></td>
+				<td><button type="button" class="en" id="en5" onclick="upgrade('A', '5')">強化</button></td>
+				<td><button type="button" class="en" id="en6" onclick="upgrade('C', '6')">強化</button></td>
+			</tr>
+			<tr>
+				<td>等級</td>
+				<td id="lv1">覺醒0 強化0</td>
+				<td id="lv2">覺醒0 強化0</td>
+				<td id="lv3">覺醒0 強化0</td>
+				<td id="lv4">覺醒0 強化0</td>
+				<td id="lv5">覺醒0 強化0</td>
+				<td id="lv6">覺醒0 強化0</td>
+			</tr>
+			<tr>
+				<td>成功率</td>
+				<td id="enRate1">100%</td>
+				<td id="enRate2">100%</td>
+				<td id="enRate3">100%</td>
+				<td id="enRate4">100%</td>
+				<td id="enRate5">100%</td>
+				<td id="enRate6">100%</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
