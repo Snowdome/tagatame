@@ -1,220 +1,198 @@
 @charset "UTF-8";
 
+select {
+    width: 100px;
+}
+
 br,
 li {
-	line-height: 2;
+    line-height: 2;
 }
 
 img[src*="it_rune_"] {
-	height: 64px;
-	text-align: center;
-	vertical-align: middle;
+    height: 64px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 img[src*="it_runee"],
-img[src*="it_rune_reset_item.png"] {
-	height: 32px;
-	vertical-align: middle;
+img[src*="it_rune_reset_item."] {
+    height: 32px;
+    vertical-align: middle;
 }
 
 img[src*="ui_Rune"] {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 img[src*="ui_rune"] {
-	vertical-align: middle;
-	height: 30px;
+    vertical-align: middle;
+    height: 30px;
 }
 
 p {
-	line-height: 2;
+    line-height: 2;
 }
 
 p>img.thumbnail {
-	height: 30px;
+    height: 30px;
 }
-
-table tr td br {
-	line-height: normal;
-}
-
 
 table {
-	border-spacing: 1px;
-	border: 1px solid #ddd;
-	width: auto;
+    border-spacing: 1px;
+    border: 1px solid #ddd;
+    width: auto;
 }
+
+td br {
+    line-height: normal;
+}
+
 
 th,
 td {
-	border: 1px solid #ddd;
-	vertical-align: middle;
-	height: 32px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    height: 20px;
+    width: 120px;
 }
 
-table tr td:first-child,
-#table3 tr th:first-child,
-#table5 tr th:first-child {
-	width: 80px;
-	text-align: center;
+th:first-child,
+td:first-child {
+    width: 80px;
 }
 
+.em, .en, .ev {
+	width: 120px;
+}
 
-#table1 tr th:nth-child(8),
-#table7 tr th:nth-child(8),
-#table8 tr th:nth-child(8) {
-	text-align: left;
-	width: 130px;
+.en {
+	background-color: orange;
+	border-style: solid;
+	border-color: peru;
+}
+
+.ev {
+	background-color: yellow;
+	border-style: solid;
+	border-color: lightgray;
 }
 
 .caption {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .combined {
-	position: relative;
+    position: relative;
 }
 
 .good {
-	background: pink;
+    background: pink;
 }
 
 .header {
-	font-size: large;
-	font-weight: bold;
-	text-decoration: underline;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.highlight {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .icon {
-	position: absolute;
-	height: 24px;
-	top: 0px;
-	right: 0px;
+    position: absolute;
+    height: 24px;
+    top: 5px;
+    right: 30px;
 }
 
 .idc {
-	/* I don't care */
-	color: lightgrey;
-}
-
-.important {
-	font-weight: bold;
-	text-decoration: underline;
+    /* I don\'t care */
+    color: lightgrey;
 }
 
 .keyword {
-	font-weight: bold;
-	background-color: lightgrey;
+    font-weight: bold;
+    background-color: lightgrey;
 }
 
 .pA1,
 .pA2 {
-	/*proability of set A, group 1 = basic stat, group 2 = evo bonus*/
-	color: red;
+    color: red;
 }
 
 .pB1,
 .pB2 {
-	/*proability of set B, group 1 = basic stat, group 2 = evo bonus*/
-	color: blue;
+    color: blue;
 }
 
 .pC1,
 .pC2 {
-	/*proability of set C, group 1 = basic stat, group 2 = evo bonus*/
-	color: lime;
+    color: darkgreen;
 }
 
 .poor {
-	background: lightblue;
+    background: lightblue;
 }
 
 .strthr {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 .unreleased {
-	display: none;
-	background: #f2f2f2;
+    display: none;
+    background: #f2f2f2;
 }
 
-#table1 td:nth-child(8) {
-	text-align: left;
+#outputTable {
+    display: none;
 }
 
-#table1 tr th:last-child {
-	text-align: left;
+/* Set bonus */
+#table1 tr :nth-child(8),
+#table7 tr :nth-child(8),
+#table8 tr :nth-child(8),
+#table8b tr :nth-child(8):not(.paid) {
+    text-align: left;
+    width: 130px;
 }
 
 #table1 td:nth-child(9),
 #table7 td:nth-child(9) {
-	width: 34px;
-	text-align: center;
+    width: 34px;
 }
 
-#table1 td[colspan],
-#table7 td[colspan] {
-	text-align: center;
+#table1 tr :nth-child(10),
+#table7 tr :nth-child(10) {
+    text-align: left;
+    width: auto;
 }
 
-#table2 tr:first-child th:nth-child(2),
-#table2 tr:first-child th:nth-child(3),
-#table2 tr:first-child th:nth-child(4),
-#table2 tr:first-child th:nth-child(5),
-#table2 tr:first-child th:nth-child(6),
-#table2 tr:first-child th:nth-child(7) {
-	width: 120px;
+#table2 .pA1,
+#table2 .pB1,
+#table2 .pC1 {
+    width: auto;
 }
 
 #table2 tr:nth-child(6) td:last-child,
 #table2 tr:nth-child(9) td:last-child,
-#table2 tr:nth-child(12) td:last-child {
-	text-align: right;
-}
-
-#table2 {
-	text-align: center;
-}
-
-
-#table3 th,
-#table5 th {
-	width: 120px;
-}
-
-#table3 {
-	text-align: center;
-}
-
-#table4 td[colspan] {
-	text-align: center;
-}
-
-#table4 th {
-	width: 75px;
-}
-
-#table4 tr th:first-child {
-	text-align: center;
-	font-size: smaller;
-}
-
+#table2 tr:nth-child(12) td:last-child,
 #table4 {
+    text-align: right;
+}
+
+#table4 th,
+#table4 td {
+    width: 75px;
+}
+
+#table4 th:first-child {
+    font-size: smaller;
+}
+
+.paid {
 	text-align: right;
-}
-
-#table5 tr th:first-child {
-	text-align: center;
-}
-
-#table5 {
-	text-align: center;
-}
-
-#table6 {
-	text-align: center;
-}
-
-#table7 tr:last-child {
-	text-align: center;
 }
