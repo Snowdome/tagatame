@@ -9,6 +9,7 @@
         <File name="Sikuli\tagatame.sikuli\tagatame.py" />
         <File name="Sikuli\tower.sikuli\tower.py" />
         <File name="index.html" />
+        <File name="index_noredir.html" />
         <File name="mementos\mmt.html" />
         <File name="mementos\mmt.css" />
         <File name="mementos\mmt.js" />
@@ -16,7 +17,7 @@
         <File name="runes\runes.css" />
         <File name="runes\runes.js" />
         <File name="runes\table.html" />
-        <File name="runes\calc.html" />
+        <File name="runes\runeCalc.html" />
     </Project>
     <Project name="PoK">
         <File name="Sikuli\PoK.sikuli\PoK.py" />
