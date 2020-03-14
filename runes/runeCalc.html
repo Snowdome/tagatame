@@ -33,7 +33,29 @@
 </head>
 
 <body>
-	<p><b>真理刻印模擬器<br>Created by 雪頂夢 @ PigPigChannel (last updated on 01/03/2020)</b></p>
+	<p><b>真理刻印模擬器<br>Created by 雪頂夢 @ PigPigChannel (last updated on 14/03/2020)</b></p>
+	<div id=message>
+		<p>Change log: <button id=showBtn onclick="showNote()">Show update history</button></p>
+		<table id="changeLog">
+			<tbody id="latest">
+			</tbody>
+			<tbody id="history" style="display: none;">
+				<tr>
+					<td>14/03/2020</td>
+					<td>
+						<p><u>Added:</u><br>1. Change log<br>2. Manual input basic stat<br>3. Include materials in cost calculation<br>
+						<p><u>Modified:</u><br>Major bug fixed (Gauge-related items)<br>
+					</td>
+				</tr>
+				<tr>
+					<td>01/03/2020</td>
+					<td>
+						<p>Released</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<div id="inputValue">
 		<p>輸入系數：</p>
 		<form autocomplete="off">
@@ -57,38 +79,47 @@
 					<td class="pC1" id="stat6">素早</td>
 				</tr>
 				<tr>
+					<td>基礎數值</td>
+					<td class="pA1"><input type="number" id="givenStat1" name="givenStat1" value="0" min="76" max="100"></td>
+					<td class="pA1"><input type="number" id="givenStat2" name="givenStat2" value="0" min="76" max="100"></td>
+					<td class="pB1"><input type="number" id="givenStat3" name="givenStat3" value="0" min="501" max="700"></td>
+					<td class="pA1"><input type="number" id="givenStat4" name="givenStat4" value="0" min="76" max="100"></td>
+					<td class="pA1"><input type="number" id="givenStat5" name="givenStat5" value="0" min="76" max="100"></td>
+					<td class="pC1"><input type="number" id="givenStat6" name="givenStat6" value="0" min="8" max="10"></td>
+				</tr>
+				<tr>
 					<td>刻印級別</td>
-					<td><select id="rank1">
+					<td><select id="rank1" oninput="refreshMinMax('A', '1')">
 							<option value="r">3★</option>
 							<option value="sr">4★</option>
 							<option value="ssr" selected="selected">5★</option>
 						</select>
 					</td>
-					<td><select id="rank2">
+					<td><select id="rank2" oninput="refreshMinMax('A', '2')">
 							<option value="r">3★</option>
 							<option value="sr">4★</option>
 							<option value="ssr" selected="selected">5★</option>
 						</select>
 					</td>
-					<td><select id="rank3">
+					<td><select id="rank3" oninput="refreshMinMax('B', '3')">
 							<option value="r">3★</option>
 							<option value="sr">4★</option>
 							<option value="ssr" selected="selected">5★</option>
 						</select>
 					</td>
-					<td><select id="rank4">
+					<td><select id="rank4" oninput="refreshMinMax('A', '4')">
 							<option value="r">3★</option>
 							<option value="sr">4★</option>
 							<option value="ssr" selected="selected">5★</option>
 						</select>
 					</td>
-					<td><select id="rank5">
+					<td><select id="rank5" oninput="refreshMinMax('A', '5')">
 							<option value="r">3★</option>
 							<option value="sr">4★</option>
 							<option value="ssr" selected="selected">5★</option>
 						</select>
 					</td>
-					<td><select id="rank6">
+					<td><select id="rank6" oninput="refreshMinMax('C', '6')">
 							<option value="r">3★</option>
 							<option value="sr">4★</option>
 							<option value="ssr" selected="selected">5★</option>
@@ -185,7 +216,7 @@
 						</select></td>
 					<td><select id="evo4">
 							<option value="idc">&nbsp;</option>
-							<option value="mpGainUp">MP回復</option>
+							<option value="mpGainUp">MP獲得量</option>
 							<option value="mpMaxUp">最大MP</option>
 							<option value="healUp">治癒力</option>
 							<option value="gutsUp">根性</option>
@@ -316,7 +347,7 @@
 				<td class="pA1" id="stat4Em"></td>
 				<td class="pA1" id="stat5Em"></td>
 				<td class="pC1">素早</td>
-				<td class="paid">共花費金幣</td>
+				<td class="paid">共花費</td>
 			</tr>
 			<tr>
 				<td>基礎數值</td>
@@ -326,7 +357,7 @@
 				<td class="pA1" id="statEm4"></td>
 				<td class="pA1" id="statEm5"></td>
 				<td class="pC1" id="statEm6"></td>
-				<td class="paid" id="zeni">0</td>
+				<td class="paid"> <span id="zeni">0</span> 金幣</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -336,7 +367,7 @@
 				<td><button type="button" class="em" onclick="rerollBasic('A', '4')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollBasic('A', '5')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollBasic('C', '6')">重刷</button></td>
-				<td class="paid">共花費幻晶石</td>
+				<td class="paid"><span id="gem">0</span> 幻晶石</td>
 			</tr>
 			<tr>
 				<td>強化數值</td>
@@ -346,7 +377,7 @@
 				<td class="pA1" id="statEn4">0</td>
 				<td class="pA1" id="statEn5">0</td>
 				<td class="pC1" id="statEn6">0</td>
-				<td class="paid" id="gem">0</td>
+				<td class="paid" ><span id="stoneGreen">0</span><img src=resources/it_runeenh.png></td>
 			</tr>
 			<tr>
 				<td>總數值</td>
@@ -356,7 +387,7 @@
 				<td class="pA1" id="statTotal4"></td>
 				<td class="pA1" id="statTotal5"></td>
 				<td class="pC1" id="statTotal6"></td>
-				<td style="text-align: right;">Rolled: <span id="rolled"></span></td>
+				<td class="paid"><span id="stoneBlue">0</span><img src=resources/it_runeevo_r.png></td>
 			</tr>
 			<tr>
 				<td>覺醒屬性1</td>
@@ -366,7 +397,7 @@
 				<td class="idc" id="evoStatEm14">N/A</td>
 				<td class="idc" id="evoStatEm15">N/A</td>
 				<td class="idc" id="evoStatEm16">N/A</td>
-				<td style="text-align: right;"><span id="range"></span></td>
+				<td class="paid"><span id="stoneYellow">0</span><img src=resources/it_runeevo_sr.png></td>
 			</tr>
 			<tr>
 				<td>覺醒數值1</td>
@@ -376,7 +407,7 @@
 				<td class="idc" id="evoStatIntEm14">N/A</td>
 				<td class="idc" id="evoStatIntEm15">N/A</td>
 				<td class="idc" id="evoStatIntEm16">N/A</td>
-				<td rowspan="11"></td>				
+				<td class="paid"><span id="stoneRed">0</span><img src=resources/it_runeevo_ssr.png></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -386,7 +417,7 @@
 				<td><button type="button" class="em" onclick="rerollEvo('1','4')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('1','5')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('1','6')">重刷</button></td>
-				
+				<td rowspan="6"></td>
 			</tr>
 			<tr>
 				<td>覺醒屬性2</td>
@@ -441,6 +472,7 @@
 				<td><button type="button" class="em" onclick="rerollEvo('3','4')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('3','5')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('3','6')">重刷</button></td>
+				<td class="paid">累積ゲージ <span id="gauge">0%</span></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -450,6 +482,7 @@
 				<td><button type="button" class="en" id="en4" onclick="upgrade('A', '4')">強化</button></td>
 				<td><button type="button" class="en" id="en5" onclick="upgrade('A', '5')">強化</button></td>
 				<td><button type="button" class="en" id="en6" onclick="upgrade('C', '6')">強化</button></td>
+				<td><button type="button" class="useGauge" id="useGauge" onclick="useGauge()">成功確定</button><span id="usingGauge">成功確定中</span></td>
 			</tr>
 			<tr>
 				<td>等級</td>
@@ -459,6 +492,7 @@
 				<td id="lv4">覺醒0 強化0</td>
 				<td id="lv5">覺醒0 強化0</td>
 				<td id="lv6">覺醒0 強化0</td>
+				<td style="text-align: right;">Rolled: <span id="rolled"></span></td>
 			</tr>
 			<tr>
 				<td>成功率</td>
@@ -468,6 +502,7 @@
 				<td id="enRate4">100%</td>
 				<td id="enRate5">100%</td>
 				<td id="enRate6">100%</td>
+				<td style="text-align: right;"><span id="range"></span></td>
 			</tr>
 		</table>
 	</div>

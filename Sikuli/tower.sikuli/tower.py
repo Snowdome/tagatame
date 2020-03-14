@@ -1,4 +1,4 @@
-# tower.py last updated 20/11/2019
+# tower.py last updated 06/03/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -13,15 +13,16 @@ class tEvent():
 
 #  -------------------------Assets-------------------------
 #Interface
-challenge = "challenge.png"
 tower = "tower.png"
+towerTitle = "towerTitle.png"
 veda = tEvent("vedaLogo.png", "vedaStage.png")
 extra = tEvent("extraLogo.png", "dummy")
-thunder = tEvent("thunderLogo.png", "dummy")
-water = tEvent("waterLogo.png", "waterStage.png")
 fire = tEvent("fireLogo.png", "fireStage.png")
-dark = tEvent("darkLogo.png", "darkStage.png")
+water = tEvent("waterLogo.png", "waterStage.png")
+thunder = tEvent("thunderLogo.png", "thunderStage.png")
+wind = tEvent("windLogo.png", "windStage.png")
 light = tEvent("lightLogo.png", "lightStage.png")
+dark = tEvent("darkLogo.png", "darkStage.png")
 mobius = tEvent("mobiusLogo.png", "dummy")
 towerStart = "towerStart.png"
 restore = Pattern("restore.png").similar(0.95)
@@ -50,17 +51,20 @@ team10 = team("team10.png", 2)
 # Go to tower menu
 def gotoTower(tEvent):
 	if not exists(towerStart, short):
-		sysMsg("Going to selected tower (floor selection menu)")
-		if not exists(tEvent.logo, short):
-			if exists(home, short):
-				clkObj(home)
-			clkObj(quest, 0, 1)
-			clkObj(challenge, 0, 1)
-			clkObj(tower, 0, 1)
-		# In case there are more towers
-		# while not exists(tEvent.logo, short):
-			# click(questArrow)
-			# sysMsg("Turning page: tower")
+		if not exists(towerTitle):
+			sysMsg("Going to selected tower.")
+			if not exists(tEvent.logo, short):
+				if exists(home, short):
+					clkObj(home)
+				clkObj(quest, 0, challenge)
+				clkObj(challenge, 0, tower)
+				clkObj(tower, 0, 1)
+				wait(towerTitle)
+			else:
+				sysMsg("Tower title menu found. Choosing selected tower.")
+		while not exists(tEvent.logo, short):
+			click(questArrow)
+			sysMsg("Turning page: tower")
 		clkObj(tEvent.logo)
 	else:
 		sysMsg("Challenge button found. Checking tower type.")

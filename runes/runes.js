@@ -1,3 +1,15 @@
+function showNote() {
+	var x = document.getElementById("history");
+
+	if (x.style.display == "none") {
+		x.style.display = "table-row-group";
+		document.getElementById("showBtn").innerHTML = "Hide update history";
+	} else {
+		x.style.display = "none";
+		document.getElementById("showBtn").innerHTML = "Show update history";
+	}
+}
+
 function showUnreleased() {
 	var x = document.getElementsByClassName("unreleased");
 	var y = document.getElementById("showBtn1");
@@ -37,9 +49,8 @@ function randomInt(min, max) {
 	return x;
 }
 
-/* Assign random stats to runes */
-function randomStat(set, rank, statEmId) { // proabilitySet, runeRank, td#statEmId
-	var el = document.getElementById(statEmId);
+/* Assign random stats to runes */	// proabilitySet, runeRank, td#statEmId
+function randomStat(set, rank, statEmId) { 
 	var p = parseInt(randomInt(1, 100));
 	document.getElementById("rolled").innerHTML = (p + " / 100");
 	var output = 0;
@@ -197,7 +208,65 @@ function randomStat(set, rank, statEmId) { // proabilitySet, runeRank, td#statEm
 		default:
 			console.log("Error in randomStat(" + set + ", " + rank + ", " + statEmId + "), please check.");
 	}
-	el.innerHTML = output;
+	document.getElementById(statEmId).innerHTML = output;
+}
+
+function refreshMinMax(set, slot) {
+	var rankId = "rank" + slot;
+	var givenStatId = "givenStat" + slot;
+	var quality = document.getElementById(rankId).options[document.getElementById(rankId).selectedIndex].value;
+	switch (set) {
+		case "A":
+			switch (quality) {
+				case "ssr":
+					document.getElementById(givenStatId).min = "76";
+					document.getElementById(givenStatId).max = "100";
+					break;
+				case "sr":
+					document.getElementById(givenStatId).min = "31";
+					document.getElementById(givenStatId).max = "55";
+					break;
+				case "r":
+					document.getElementById(givenStatId).min = "1";
+					document.getElementById(givenStatId).max = "25";
+					break;
+			}
+			break;
+		case "B":
+			switch (quality) {
+				case "ssr":
+					document.getElementById(givenStatId).min = "501";
+					document.getElementById(givenStatId).max = "700";
+					break;
+				case "sr":
+					document.getElementById(givenStatId).min = "221";
+					document.getElementById(givenStatId).max = "420";
+					break;
+				case "r":
+					document.getElementById(givenStatId).min = "101";
+					document.getElementById(givenStatId).max = "200";
+					break;
+			}
+			break;
+		case "C":
+			switch (quality) {
+				case "ssr":
+					document.getElementById(givenStatId).min = "8";
+					document.getElementById(givenStatId).max = "10";
+					break;
+				case "sr":
+					document.getElementById(givenStatId).min = "4";
+					document.getElementById(givenStatId).max = "6";
+					break;
+				case "r":
+					document.getElementById(givenStatId).min = "1";
+					document.getElementById(givenStatId).max = "3";
+					break;
+			}
+			break;
+		default:
+			console.log("Error in refreshMinMax(" + set + ", " + slot + "), please check.");
+	}
 }
 
 function refreshStats() {
@@ -427,13 +496,37 @@ function lockInput() {
 	document.getElementById("inputValue").style.display = "none";
 	document.getElementById("outputTable").style.display = "block";
 
-	/* Assign random basic stats */
-	randomStat("A", rank1, "statEm1");
-	randomStat("A", rank2, "statEm2");
-	randomStat("B", rank3, "statEm3");
-	randomStat("A", rank4, "statEm4");
-	randomStat("A", rank5, "statEm5");
-	randomStat("C", rank6, "statEm6");
+	/* For all without given value, assign random basic stats */
+	if (document.getElementById("givenStat1").value == "0") {
+		randomStat("A", rank1, "statEm1");
+	} else {
+		document.getElementById("statEm1").innerHTML = document.getElementById("givenStat1").value
+	}
+	if (document.getElementById("givenStat2").value == "0") {
+		randomStat("A", rank2, "statEm2");
+	} else {
+		document.getElementById("statEm2").innerHTML = document.getElementById("givenStat2").value
+	}
+	if (document.getElementById("givenStat3").value == "0") {
+		randomStat("B", rank3, "statEm3");
+	} else {
+		document.getElementById("statEm3").innerHTML = document.getElementById("givenStat3").value
+	}
+	if (document.getElementById("givenStat4").value == "0") {
+		randomStat("A", rank4, "statEm4");
+	} else {
+		document.getElementById("statEm4").innerHTML = document.getElementById("givenStat4").value
+	}
+	if (document.getElementById("givenStat5").value == "0") {
+		randomStat("A", rank5, "statEm5");
+	} else {
+		document.getElementById("statEm5").innerHTML = document.getElementById("givenStat5").value
+	}
+	if (document.getElementById("givenStat6").value == "0") {
+		randomStat("C", rank6, "statEm6");
+	} else {
+		document.getElementById("statEm6").innerHTML = document.getElementById("givenStat6").value
+	}
 	refreshStats();
 }
 
@@ -699,10 +792,24 @@ function evoStat(slot, evoStatEmId, evoStatIntEmId) { // slot, tdId(#evoStat), t
 	}
 }
 
+function useGauge() {
+	document.getElementById("useGauge").style.display = "none";
+	document.getElementById("usingGauge").style.display = "block";
+	console.log("Using gauge.")
+}
+
 function enchance(enRate, lv, quality) {
 	var roll = randomInt(1, 100);
 	document.getElementById("rolled").innerHTML = (roll + " / 100");
-	var baseRate = parseInt(document.getElementById(enRate).innerHTML);
+	if (document.getElementById("usingGauge").style.display == "block") {
+		var baseRate = 100;
+		document.getElementById("gauge").innerHTML = "0%";
+		document.getElementById("usingGauge").style.display = "none";
+		console.log("Forced base rate to be 100%")
+	} else {
+		var baseRate = parseInt(document.getElementById(enRate).innerHTML);
+		console.log("Base rate is " + baseRate + ".")
+	}
 	if (roll > (100 - baseRate)) {
 		document.getElementById("range").innerHTML = "成功";
 		return true;
@@ -752,8 +859,12 @@ function enchance(enRate, lv, quality) {
 			default:
 				console.log("Error in enchance(" + enRate + ", " + lv + ", " + quality + "), please check.");
 		}
-		newBaseRate = parseInt(baseRate) + parseInt(failedBonus);
-		document.getElementById(enRate).innerHTML = (newBaseRate + "%");
+		console.log("Gauge increased by " + failedBonus + "%, capped at 100%.");
+		newGauge = Math.min(100, parseInt(document.getElementById("gauge").innerHTML) + parseInt(failedBonus));
+		if (newGauge == 100) {
+			document.getElementById("useGauge").style.display = "block";
+		}
+		document.getElementById("gauge").innerHTML = (newGauge + "%");
 		document.getElementById("range").innerHTML = "失敗";
 		return false;
 	}
@@ -767,22 +878,33 @@ function upgrade(set, slot) {
 	var btn = document.getElementById("en" + slot);
 	var zeni = parseInt(document.getElementById("zeni").innerHTML.replace(/\,/g, ''));
 	var gem = parseInt(document.getElementById("gem").innerHTML.replace(/\,/g, ''));
+	var stoneGreen = parseInt(document.getElementById("stoneGreen").innerHTML.replace(/\,/g, ''));
+	var stoneBlue = parseInt(document.getElementById("stoneBlue").innerHTML.replace(/\,/g, ''));
+	var stoneYellow = parseInt(document.getElementById("stoneYellow").innerHTML.replace(/\,/g, ''));
+	var stoneRed = parseInt(document.getElementById("stoneRed").innerHTML.replace(/\,/g, ''));
 	var roll = randomInt(1, 100);
 	document.getElementById("rolled").innerHTML = (roll + " / 100");
 	var output = statEnId.innerHTML;
 	var cost = 0;
+	var costGreen = 0;
+	var costBlue = 0;
+	var costYellow = 0;
+	var costRed = 0;
 
 	switch (level.innerHTML) {
 		case "覺醒0 強化0":
 			switch (quality) {
 				case "ssr":
 					cost = 90000;
+					costGreen = 5;
 					break;
 				case "sr":
 					cost = 60000;
+					costGreen = 4;
 					break;
 				case "r":
 					cost = 30000;
+					costGreen = 3;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -804,12 +926,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 180000;
+					costGreen = 5;
 					break;
 				case "sr":
 					cost = 120000;
+					costGreen = 4;
 					break;
 				case "r":
 					cost = 60000;
+					costGreen = 3;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -831,12 +956,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 270000;
+					costGreen = 5;
 					break;
 				case "sr":
 					cost = 180000;
+					costGreen = 4;
 					break;
 				case "r":
 					cost = 90000;
+					costGreen = 3;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -860,12 +988,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 1500000;
+					costRed = 1;
 					break;
 				case "sr":
 					cost = 1000000;
+					costYellow = 1;
 					break;
 				case "r":
 					cost = 500000;
+					costBlue = 1;
 					break;
 			}
 			level.innerHTML = "覺醒1 強化0";
@@ -878,12 +1009,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 360000;
+					costGreen = 5;
 					break;
 				case "sr":
 					cost = 240000;
+					costGreen = 4;
 					break;
 				case "r":
 					cost = 120000;
+					costGreen = 3;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -906,12 +1040,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 450000;
+					costGreen = 5;
 					break;
 				case "sr":
 					cost = 300000;
+					costGreen = 4;
 					break;
 				case "r":
 					cost = 150000;
+					costGreen = 3;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -934,12 +1071,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 540000;
+					costGreen = 5;
 					break;
 				case "sr":
 					cost = 360000;
+					costGreen = 4;
 					break;
 				case "r":
 					cost = 180000;
+					costGreen = 3;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -964,12 +1104,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 3000000;
+					costRed = 3;
 					break;
 				case "sr":
 					cost = 2000000;
+					costYellow = 3;
 					break;
 				case "r":
 					cost = 1000000;
+					costBlue = 3;
 					break;
 			}
 			level.innerHTML = "覺醒2 強化0";
@@ -981,12 +1124,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 630000;
+					costGreen = 10;
 					break;
 				case "sr":
 					cost = 420000;
+					costGreen = 8;
 					break;
 				case "r":
 					cost = 210000;
+					costGreen = 6;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -1009,12 +1155,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 720000;
+					costGreen = 10;
 					break;
 				case "sr":
 					cost = 480000;
+					costGreen = 8;
 					break;
 				case "r":
 					cost = 240000;
+					costGreen = 6;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -1037,12 +1186,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 810000;
+					costGreen = 10;
 					break;
 				case "sr":
 					cost = 540000;
+					costGreen = 8;
 					break;
 				case "r":
 					cost = 270000;
+					costGreen = 6;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -1067,12 +1219,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 4500000;
+					costRed = 5;
 					break;
 				case "sr":
 					cost = 3000000;
+					costYellow = 5;
 					break;
 				case "r":
 					cost = 1500000;
+					costBlue = 5;
 					break;
 			}
 			level.innerHTML = "覺醒3 強化0";
@@ -1085,12 +1240,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 900000;
+					costGreen = 15;
 					break;
 				case "sr":
 					cost = 600000;
+					costGreen = 12;
 					break;
 				case "r":
 					cost = 300000;
+					costGreen = 9;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -1113,12 +1271,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 990000;
+					costGreen = 15;
 					break;
 				case "sr":
 					cost = 660000;
+					costGreen = 12;
 					break;
 				case "r":
 					cost = 330000;
+					costGreen = 9;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -1141,12 +1302,15 @@ function upgrade(set, slot) {
 			switch (quality) {
 				case "ssr":
 					cost = 1080000;
+					costGreen = 15;
 					break;
 				case "sr":
 					cost = 720000;
+					costGreen = 12;
 					break;
 				case "r":
 					cost = 360000;
+					costGreen = 9;
 					break;
 			}
 			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
@@ -1179,6 +1343,10 @@ function upgrade(set, slot) {
 	}
 	statEnId.innerHTML = output
 	document.getElementById("zeni").innerHTML = Intl.NumberFormat('en-US').format(zeni + cost);
+	document.getElementById("stoneGreen").innerHTML = Intl.NumberFormat('en-US').format(stoneGreen + costGreen);
+	document.getElementById("stoneBlue").innerHTML = Intl.NumberFormat('en-US').format(stoneBlue + costBlue);
+	document.getElementById("stoneYellow").innerHTML = Intl.NumberFormat('en-US').format(stoneYellow + costYellow);
+	document.getElementById("stoneRed").innerHTML = Intl.NumberFormat('en-US').format(stoneRed + costRed);
 	refreshStats();
 }
 

@@ -1,4 +1,4 @@
-# tagatame.py last updated 12/02/2020
+# tagatame.py last updated 07/03/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -38,10 +38,15 @@ fiddler = "fiddler.png"
 home = "home.png"
 settings = "settings.png"
 mainMenu = "mainMenu.png"
+questLoc = Pattern("openedMenu.png").targetOffset(-85,460)	# Location of quest button in respec to the opened menu button
 quest = "quest.png"
-SP = Pattern("mainMenu.png").targetOffset(-270,350)	# Location of Special Quest in respect to main men button
-SPX = Pattern("mainMenu.png").targetOffset(-365,470)	# Location of Special Quest (type 2) in respect to main men button
+story = "story.png"
+event = "event.png"
+eventTitle = "eventTitle.png"
+challenge = "challenge.png"
 questArrow = Pattern("mainMenu.png").targetOffset(-180,495)	# Location of down arrow in respect to main menu button
+unit = "unit.png"
+
 missionNew = "missionNew.png"
 rewardGet = "rewardGet.png"
 
@@ -53,11 +58,15 @@ noAP = "noAP.png"
 leaf60 = "leaf60.png"
 leaf120 = "leaf120.png"
 leaf614 = "leaf614.png"
+leafAdd = "leafAdd.png"
 okAP = "okAP.png"
 restoredAP = Pattern("restoredAP.png").targetOffset(0,215)	# Location of OK button in respect to the message
 teamArrow = "teamArrow.png"
 btStart = "btStart.png"
+btAgain = "btAgain.png"
 back = "back.png"
+runeFull = Pattern("runeFull.png").targetOffset(5,227) # Location of OK button in respect to the message
+disassembly = "disassembly.png"
 
 
 # Team slot (slot 8 not applicable to tower)
@@ -89,7 +98,7 @@ questMission = "questMission.png"
 visionMax = Pattern("visionMax.png").targetOffset(0,440)	# Location of OK button in respect to the title bar
 btEnd = "btEnd.png"
 
-shop = Pattern("shop.png").targetOffset(-85,210)
+peddlerShop = "peddlerShop.png"
 
 
 
@@ -105,7 +114,7 @@ def sysMsg(text, popType=0):
 			exit(1)
 		print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "Yes button has been pressed")
 
-# Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use customized message on log)
+# Click object (optional: delay = length(sec), loop = 0/1/nextObject, remark = use customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
 	if remark == 0:
 		subject = repr(object)
@@ -122,11 +131,22 @@ def clkObj(object, delay=0, loop=0, remark=0):
 			click(object)
 			sysMsg("Clicked on " + subject)
 		else:
-			while exists(object):
+			if loop == 1:
+				while exists(object):
+					click(object)
+					sleep(normal)
+					mouseMove(10,0)
+					sysMsg("Repeat clicking on " + subject)
+			else:
 				click(object)
 				sleep(normal)
-				mouseMove(10,0)
-				sysMsg("Repeat clicking on " + subject)
+				while not exists(loop):
+					sysMsg("Cannot find " + repr(loop))
+					mouseMove(10,0)
+					mouseMove(-10,0)
+					click(atMouse())
+					sysMsg("Repeat clicking on " + subject)
+					sleep(normal)
 	except FindFailed:
 		sysMsg("Cannot find " + subject + "\nPress Yes to start the next step", "FindFailed Error")
 
@@ -158,40 +178,69 @@ def esc(object, delay=0, loop=0, remark=0):
 			sysMsg("Cannot find object")
 
 
-# Restore AP (optional: object = leaf type)
-def resAP(object=leaf120):
-	if exists(noAP):
-		clkObj(object)
+# AP Check (object = lastAction, optional: item = leaf type, quantity)
+def apCheck(object, item=leaf120, q=1):
+	if exists(noAP, normal):
+		clkObj(item)
+		while q != 1:
+			clkObj(leafAdd)
+			q = q - 1
 		clkObj(okAP)
 		clkObj(restoredAP)
+		clkObj(object)
 	else:
-		sysMsg("Invalid command - no insufficient AP message")
+		sysMsg("Sufficient AP. Proceed to next step.")
+
+
+# Rune check. If full, go to rune disassembly page.
+def runeCheck():
+	if exists(runeFull):
+		sysMsg("Rune storage fulled. Going to rune disassembly page.")
+		clkObj(runeFull, remark="OK button - rune full message")
+		clkObj(back)
+		sleep(changePage)
+		clkObj(mainMenu)
+		sleep(normal)
+		clkObj(unit, 0, 1)
+		sleep(changePage)
+		clkObj(disassembly)
+		exit()
+	else:
+		sysMsg("Rune check passed")
 
 # After entering battle, toggle Auto if not On, and complete.
-def btAction():
+def btAction(loop=0):
 	wait(btMenu, long)
 	if exists(toggleAuto, normal):
-		click(toggleAuto)
+		clkObj(toggleAuto)
 		sysMsg("Toggled auto")
 		sleep(short)
 	else:
 		sysMsg("Auto already on")
+	wait(questMission, battle)
 	clkObj(questMission)
 	sysMsg("Quest completed")
 	while exists(visionMax):
 		sysMsg("Vision achieved")
 		sleep(normal)
-		esc(visionMax)
-	else:	
+		clkObj(visionMax, remaark = "visionMax")
+	if exists(peddlerShop, normal):
+		sysMsg("Travelling merchant appeared.")
+		clkObj(peddlerShop)
+	if loop == 0:
+		sysMsg("Repeat battle disabled. Returning to stage selection page.")
 		sleep(changePage)
-		type(Key.ESC)
+		clkObj(btEnd, 0, 1)
+	else:
+		sysMsg("Restarting battle.")
+		#Incomplete script
 
 
 # After entering battle, quit.
 def btQuit():
-	click(btMenu)
-	click(quitQuest)
-	click(confirm)
+	clkObj(btMenu)
+	clkObj(quitQuest)
+	clkObj(confirm)
 
 
 # Select team
@@ -221,3 +270,5 @@ def getReward():
 	sysMsg("Claimed reward")
 
 sysMsg("Imported tagatame.sikuli")
+
+runeCheck()

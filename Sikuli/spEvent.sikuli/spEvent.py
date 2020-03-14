@@ -1,4 +1,4 @@
-# spEvent.py last updated 11/12/2019
+# spEvent.py last updated 07/03/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -17,8 +17,7 @@ class spQ():
 
 
 #  -------------------------Assets-------------------------
-story = "story.png"
-event = "event.png"
+
 bbq = "bbq.png"
 bossHard = "bossHard.png"
 bossHardX = "bossHardX.png"

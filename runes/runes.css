@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-select {
+select, input[type="number"] {
     width: 100px;
 }
 
@@ -54,7 +54,7 @@ td {
     border: 1px solid #ddd;
     text-align: center;
     vertical-align: middle;
-    height: 20px;
+    height: 21px;
     width: 120px;
 }
 
@@ -195,4 +195,41 @@ td:first-child {
 
 .paid {
 	text-align: right;
+}
+
+.paid img {
+	height: 20px;
+}
+
+#useGauge {
+	width: 130px;
+	display: none;
+}
+
+#usingGauge {
+	text-align: right;
+	display: none;
+}
+
+#changeLog tr :first-child {
+	padding-left: 0px;
+	width: 85px;
+}
+
+#changeLog td p {
+	display: inline;
+	line-height: 18px;
+}
+
+#changeLog,
+#changeLog td {
+	border-spacing: 0;
+	border: none;
+	width: auto;
+	text-align: left;
+	vertical-align: top;	
+}
+
+#history tr:nth-child(odd) {
+	background-color: #f2f2f2
 }

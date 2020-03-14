@@ -249,10 +249,7 @@ def multiSingle(multiQ, script, n=0):
 		gotoMulti(multiQ)
 	while i < n:
 		clkObj(multiStart)
-		wait(normal)
-		if exists(noAP, short):
-			resAP()
-			clkObj(multiStart)
+		apCheck(multiStart)
 		clkObj(confirm)
 		sysMsg("Quest started")
 		wait(btMenu, 30)
