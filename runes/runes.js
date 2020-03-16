@@ -41,6 +41,110 @@ function showComment() {
 	}
 }
 
+function selectedText(selectId) {
+	return selectId.options[selectId.selectedIndex].text
+}
+
+/* function saveAs(uri, filename) {
+	var link = document.createElement('a');
+	if (typeof link.download === 'string') {
+		document.body.appendChild(link);	//Firefox requires the link to be in the body
+		link.download = filename;
+		link.href = uri;
+		link.click();
+		document.body.removeChild(link);	// remove the link when done
+	} else {
+		location.replace(uri);
+	}
+} */
+
+function convertToPNG() {
+	document.getElementById("convertToPNG").style.display = "none";
+	html2canvas(document.getElementById("table8")).then(function(canvas) {
+		document.getElementById("message").appendChild(canvas);
+		document.getElementsByTagName("canvas")[0].setAttribute("id", "runeBlob");
+	});
+	document.getElementById("table8").style.display = "none";
+}
+
+function convertToCSV() {
+	var universalBOM = "\uFEFF";
+	var data = [
+		// 1st row - set
+		["set",
+		selectedText(set1),
+		selectedText(set2),
+		selectedText(set3),
+		selectedText(set4),
+		selectedText(set5),
+		selectedText(set6)],
+		// 2nd row - quality
+		["quality",
+		document.getElementById("rank1").value,
+		document.getElementById("rank2").value,
+		document.getElementById("rank3").value,
+		document.getElementById("rank4").value,
+		document.getElementById("rank5").value,
+		document.getElementById("rank6").value],
+		// 3rd row - stat type
+		["type",
+		document.getElementById('stat1').innerText,
+		document.getElementById('stat2').innerText,
+		"HP",
+		document.getElementById('stat4').innerText,
+		document.getElementById('stat5').innerText,
+		"素早"],
+		// 4th row - stat value
+		["value",
+		document.getElementById('stat1G').innerText,
+		document.getElementById('stat2G').innerText,
+		document.getElementById('stat3G').innerText,
+		document.getElementById('stat4G').innerText,
+		document.getElementById('stat5G').innerText,
+		document.getElementById('stat6G').innerText],
+		// 5th row - evo stat
+		["evo",
+		document.getElementById('evoStat1').innerText,
+		document.getElementById('evoStat2').innerText,
+		document.getElementById('evoStat3').innerText,
+		document.getElementById('evoStat4').innerText,
+		document.getElementById('evoStat5').innerText,
+		document.getElementById('evoStat6').innerText],
+	];
+	// Building the CSV from the Data two-dimensional array
+	// Each column is separated by ";" and new line "\n" for next row
+	var csvContent = '';
+	data.forEach(function(infoArray, index) {
+		dataString = infoArray.join(';');
+		csvContent += index < data.length ? dataString + '\n' : dataString;
+	});
+
+	// The download function takes a CSV string, the filename and mimeType as parameters
+	// Scroll/look down at the bottom of this snippet to see how download is called
+	var download = function(content, fileName, mimeType) {
+		var a = document.createElement('a');
+		mimeType = mimeType || 'application/octet-stream';
+
+		if (navigator.msSaveBlob) { // IE10
+			navigator.msSaveBlob(new Blob([content], {
+				type: mimeType
+			}), fileName);
+		} else if (URL && 'download' in a) { //html5 A[download]
+			a.href = URL.createObjectURL(new Blob([content], {
+				type: mimeType
+			}));
+			a.setAttribute('download', fileName);
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		} else {
+			location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
+		}
+	}
+
+	download(universalBOM + csvContent, 'rune.csv', 'text/csv;encoding:utf-8');
+}
+
 function randomInt(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
@@ -49,11 +153,11 @@ function randomInt(min, max) {
 	return x;
 }
 
-/* Assign random stats to runes */	// proabilitySet, runeRank, td#statEmId
-function randomStat(set, rank, statEmId) { 
+/* Assign random stats to runes */	// proabilitySet, runeRank, td#statIdEm
+function randomStat(set, rank, statIdEm) { 
 	var p = parseInt(randomInt(1, 100));
 	document.getElementById("rolled").innerHTML = (p + " / 100");
-	var output = 0;
+	var output;
 	switch (set) {
 		case "A":
 			if (p > 90) {
@@ -102,7 +206,7 @@ function randomStat(set, rank, statEmId) {
 						break;
 				}
 			} else {
-				console.log("Error in randomStat(" + set + ", " + rank + ", " + statEmId + ") case A, please check.");
+				console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + ") case A, please check.");
 			}
 			break;
 		case "B":
@@ -152,7 +256,7 @@ function randomStat(set, rank, statEmId) {
 						break;
 				}
 			} else {
-				console.log("Error in randomStat(" + set + ", " + rank + ", " + statEmId + ") case B, please check.");
+				console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + ") case B, please check.");
 			}
 			break;
 		case "C":
@@ -202,65 +306,65 @@ function randomStat(set, rank, statEmId) {
 						break;
 				}
 			} else {
-				console.log("Error in randomStat(" + set + ", " + rank + ", " + statEmId + ") case C, please check.");
+				console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + ") case C, please check.");
 			}
 			break;
 		default:
-			console.log("Error in randomStat(" + set + ", " + rank + ", " + statEmId + "), please check.");
+			console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + "), please check.");
 	}
-	document.getElementById(statEmId).innerHTML = output;
+	document.getElementById(statIdEm).innerHTML = output;
 }
 
 function refreshMinMax(set, slot) {
 	var rankId = "rank" + slot;
-	var givenStatId = "givenStat" + slot;
+	var statIdGiven = "stat" + slot + "Given";
 	var quality = document.getElementById(rankId).options[document.getElementById(rankId).selectedIndex].value;
 	switch (set) {
 		case "A":
 			switch (quality) {
 				case "ssr":
-					document.getElementById(givenStatId).min = "76";
-					document.getElementById(givenStatId).max = "100";
+					document.getElementById(statIdGiven).min = "76";
+					document.getElementById(statIdGiven).max = "100";
 					break;
 				case "sr":
-					document.getElementById(givenStatId).min = "31";
-					document.getElementById(givenStatId).max = "55";
+					document.getElementById(statIdGiven).min = "31";
+					document.getElementById(statIdGiven).max = "55";
 					break;
 				case "r":
-					document.getElementById(givenStatId).min = "1";
-					document.getElementById(givenStatId).max = "25";
+					document.getElementById(statIdGiven).min = "1";
+					document.getElementById(statIdGiven).max = "25";
 					break;
 			}
 			break;
 		case "B":
 			switch (quality) {
 				case "ssr":
-					document.getElementById(givenStatId).min = "501";
-					document.getElementById(givenStatId).max = "700";
+					document.getElementById(statIdGiven).min = "501";
+					document.getElementById(statIdGiven).max = "700";
 					break;
 				case "sr":
-					document.getElementById(givenStatId).min = "221";
-					document.getElementById(givenStatId).max = "420";
+					document.getElementById(statIdGiven).min = "221";
+					document.getElementById(statIdGiven).max = "420";
 					break;
 				case "r":
-					document.getElementById(givenStatId).min = "101";
-					document.getElementById(givenStatId).max = "200";
+					document.getElementById(statIdGiven).min = "101";
+					document.getElementById(statIdGiven).max = "200";
 					break;
 			}
 			break;
 		case "C":
 			switch (quality) {
 				case "ssr":
-					document.getElementById(givenStatId).min = "8";
-					document.getElementById(givenStatId).max = "10";
+					document.getElementById(statIdGiven).min = "8";
+					document.getElementById(statIdGiven).max = "10";
 					break;
 				case "sr":
-					document.getElementById(givenStatId).min = "4";
-					document.getElementById(givenStatId).max = "6";
+					document.getElementById(statIdGiven).min = "4";
+					document.getElementById(statIdGiven).max = "6";
 					break;
 				case "r":
-					document.getElementById(givenStatId).min = "1";
-					document.getElementById(givenStatId).max = "3";
+					document.getElementById(statIdGiven).min = "1";
+					document.getElementById(statIdGiven).max = "3";
 					break;
 			}
 			break;
@@ -270,74 +374,47 @@ function refreshMinMax(set, slot) {
 }
 
 function refreshStats() {
-	var x1 = +document.getElementById("statEm1").innerHTML;
-	var y1 = +document.getElementById("statEn1").innerHTML;
-	document.getElementById("statTotal1").innerHTML = x1 + y1;
-	var x2 = +document.getElementById("statEm2").innerHTML;
-	var y2 = +document.getElementById("statEn2").innerHTML;
-	document.getElementById("statTotal2").innerHTML = x2 + y2;
-	var x3 = +document.getElementById("statEm3").innerHTML;
-	var y3 = +document.getElementById("statEn3").innerHTML;
-	document.getElementById("statTotal3").innerHTML = x3 + y3;
-	var x4 = +document.getElementById("statEm4").innerHTML;
-	var y4 = +document.getElementById("statEn4").innerHTML;
-	document.getElementById("statTotal4").innerHTML = x4 + y4;
-	var x5 = +document.getElementById("statEm5").innerHTML;
-	var y5 = +document.getElementById("statEn5").innerHTML;
-	document.getElementById("statTotal5").innerHTML = x5 + y5;
-	var x6 = +document.getElementById("statEm6").innerHTML;
-	var y6 = +document.getElementById("statEn6").innerHTML;
-	document.getElementById("statTotal6").innerHTML = x6 + y6;
+	document.getElementById("statTotal1").innerHTML = parseInt(document.getElementById("stat1Em").innerHTML) + parseInt(document.getElementById("statEn1").innerHTML);
+	document.getElementById("statTotal2").innerHTML = parseInt(document.getElementById("stat2Em").innerHTML) + parseInt(document.getElementById("statEn2").innerHTML);
+	document.getElementById("statTotal3").innerHTML = parseInt(document.getElementById("stat3Em").innerHTML) + parseInt(document.getElementById("statEn3").innerHTML);
+	document.getElementById("statTotal4").innerHTML = parseInt(document.getElementById("stat4Em").innerHTML) + parseInt(document.getElementById("statEn4").innerHTML);
+	document.getElementById("statTotal5").innerHTML = parseInt(document.getElementById("stat5Em").innerHTML) + parseInt(document.getElementById("statEn5").innerHTML);
+	document.getElementById("statTotal6").innerHTML = parseInt(document.getElementById("stat6Em").innerHTML) + parseInt(document.getElementById("statEn6").innerHTML);
 }
+
+
 
 function lockInput() {
 	/* Insert Rune images */
-	var rank1 = document.getElementById("rank1").value;
-	var set1 = document.getElementById("set1").value.substring(2);
-	var ico1 = document.getElementById("set1").value.substring(0, 2);
-	document.getElementById("rune1").innerHTML = "<img src='resources/it_rune_" + rank1 + "_1_" + set1 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico1 + ".png>";
-	document.getElementById("rune1Em").innerHTML = "<img src='resources/it_rune_" + rank1 + "_1_" + set1 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico1 + ".png>";
-	var rank2 = document.getElementById("rank2").value;
-	var set2 = document.getElementById("set2").value.substring(2);
-	var ico2 = document.getElementById("set2").value.substring(0, 2);
-	document.getElementById("rune2").innerHTML = "<img src='resources/it_rune_" + rank2 + "_2_" + set2 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico2 + ".png>";
-	document.getElementById("rune2Em").innerHTML = "<img src='resources/it_rune_" + rank2 + "_2_" + set2 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico2 + ".png>";
-	var rank3 = document.getElementById("rank3").value;
-	var set3 = document.getElementById("set3").value.substring(2);
-	var ico3 = document.getElementById("set3").value.substring(0, 2);
-	document.getElementById("rune3").innerHTML = "<img src='resources/it_rune_" + rank3 + "_3_" + set3 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico3 + ".png>";
-	document.getElementById("rune3Em").innerHTML = "<img src='resources/it_rune_" + rank3 + "_3_" + set3 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico3 + ".png>";
-	var rank4 = document.getElementById("rank4").value;
-	var set4 = document.getElementById("set4").value.substring(2);
-	var ico4 = document.getElementById("set4").value.substring(0, 2);
-	document.getElementById("rune4").innerHTML = "<img src='resources/it_rune_" + rank4 + "_4_" + set4 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico4 + ".png>";
-	document.getElementById("rune4Em").innerHTML = "<img src='resources/it_rune_" + rank4 + "_4_" + set4 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico4 + ".png>";
-	var rank5 = document.getElementById("rank5").value;
-	var set5 = document.getElementById("set5").value.substring(2);
-	var ico5 = document.getElementById("set5").value.substring(0, 2);
-	document.getElementById("rune5").innerHTML = "<img src='resources/it_rune_" + rank5 + "_5_" + set5 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico5 + ".png>";
-	document.getElementById("rune5Em").innerHTML = "<img src='resources/it_rune_" + rank5 + "_5_" + set5 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico5 + ".png>";
-	var rank6 = document.getElementById("rank6").value;
-	var set6 = document.getElementById("set6").value.substring(2);
-	var ico6 = document.getElementById("set6").value.substring(0, 2);
-	document.getElementById("rune6").innerHTML = "<img src='resources/it_rune_" + rank6 + "_6_" + set6 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico6 + ".png>";
-	document.getElementById("rune6Em").innerHTML = "<img src='resources/it_rune_" + rank6 + "_6_" + set6 + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico6 + ".png>";
-
+	function runeImage(slot) {
+		var rank = document.getElementById("rank" + slot).value;
+		var set = document.getElementById("set" + slot).value.substring(2);
+		var ico = document.getElementById("set" + slot).value.substring(0, 2);
+		document.getElementById("rune" + slot).innerHTML = "<img src='resources/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico + ".png>";
+		document.getElementById("rune" + slot + "Em").innerHTML = "<img src='resources/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico + ".png>";
+	}
+	runeImage(1);
+	runeImage(2);
+	runeImage(3);
+	runeImage(4);
+	runeImage(5);
+	runeImage(6);
+	
 	/* Insert Basic Stat type */
 	document.getElementById("stat1").innerHTML = document.querySelector('input[name = "stat1"]:checked').value;
-	document.getElementById("stat1Em").innerHTML = document.querySelector('input[name = "stat1"]:checked').value;
+	document.getElementById("statType1").innerHTML = document.querySelector('input[name = "stat1"]:checked').value;
 	document.getElementById("stat2").innerHTML = document.querySelector('input[name = "stat2"]:checked').value;
-	document.getElementById("stat2Em").innerHTML = document.querySelector('input[name = "stat2"]:checked').value;
+	document.getElementById("statType2").innerHTML = document.querySelector('input[name = "stat2"]:checked').value;
 	document.getElementById("stat4").innerHTML = document.querySelector('input[name = "stat4"]:checked').value;
-	document.getElementById("stat4Em").innerHTML = document.querySelector('input[name = "stat4"]:checked').value;
+	document.getElementById("statType4").innerHTML = document.querySelector('input[name = "stat4"]:checked').value;
 	document.getElementById("stat5").innerHTML = document.querySelector('input[name = "stat5"]:checked').value;
-	document.getElementById("stat5Em").innerHTML = document.querySelector('input[name = "stat5"]:checked').value;
+	document.getElementById("statType5").innerHTML = document.querySelector('input[name = "stat5"]:checked').value;
 
 	/* Insert Evo Stat type */
 	// 嫉妬
 	var evo1 = document.getElementById("evo1")
 	if (evo1.options[evo1.selectedIndex].value == "idc") {
-		document.getElementById("evoStat1").innerHTML = "隨意";
+		document.getElementById("evoStat1").innerHTML = "隨機";
 		document.getElementById("evoStat1").className = "idc";
 	} else {
 		document.getElementById("evoStat1").innerHTML = evo1.options[evo1.selectedIndex].text;
@@ -346,7 +423,7 @@ function lockInput() {
 	// 怠惰
 	var evo2 = document.getElementById("evo2")
 	if (evo2.options[evo2.selectedIndex].value == "idc") {
-		document.getElementById("evoStat2").innerHTML = "隨意";
+		document.getElementById("evoStat2").innerHTML = "隨機";
 		document.getElementById("evoStat2").className = "idc";
 	} else {
 		document.getElementById("evoStat2").innerHTML = evo2.options[evo2.selectedIndex].text;
@@ -355,7 +432,7 @@ function lockInput() {
 	// 色欲
 	var evo3 = document.getElementById("evo3")
 	if (evo3.options[evo3.selectedIndex].value == "idc") {
-		document.getElementById("evoStat3").innerHTML = "隨意";
+		document.getElementById("evoStat3").innerHTML = "隨機";
 		document.getElementById("evoStat3").className = "idc";
 	} else {
 		document.getElementById("evoStat3").innerHTML = evo3.options[evo3.selectedIndex].text;
@@ -364,7 +441,7 @@ function lockInput() {
 	// 暴食
 	var evo4 = document.getElementById("evo4")
 	if (evo4.options[evo4.selectedIndex].value == "idc") {
-		document.getElementById("evoStat4").innerHTML = "隨意";
+		document.getElementById("evoStat4").innerHTML = "隨機";
 		document.getElementById("evoStat4").className = "idc";
 	} else {
 		if (evo4.options[evo4.selectedIndex].value == "mpGainUp") {
@@ -379,7 +456,7 @@ function lockInput() {
 	// 憤怒
 	var evo5 = document.getElementById("evo5")
 	if (evo5.options[evo5.selectedIndex].value == "idc") {
-		document.getElementById("evoStat5").innerHTML = "隨意";
+		document.getElementById("evoStat5").innerHTML = "隨機";
 		document.getElementById("evoStat5").className = "idc";
 	} else {
 		document.getElementById("evoStat5").innerHTML = evo5.options[evo5.selectedIndex].text;
@@ -388,15 +465,18 @@ function lockInput() {
 	// 強欲
 	var evo6 = document.getElementById("evo6")
 	if (evo6.options[evo6.selectedIndex].value == "idc") {
-		document.getElementById("evoStat6").innerHTML = "隨意";
+		document.getElementById("evoStat6").innerHTML = "隨機";
 		document.getElementById("evoStat6").className = "idc";
 	} else {
 		document.getElementById("evoStat6").innerHTML = evo6.options[evo6.selectedIndex].text;
 		document.getElementById("evoStat6").className = "pB2";
 	}
-
+	
 	/* Calculate Set Bonus */
-	var setCount = [ico1, ico2, ico3, ico4, ico5, ico6];
+	function ico(slot) {
+		return document.getElementById("set" + slot).value.substring(0, 2);
+	}
+	var setCount = [ico(1), ico(2), ico(3), ico(4), ico(5), ico(6)];
 	// 強攻
 	var kongo = 0;
 	for (var i = 0; i < setCount.length; ++i) {
@@ -497,37 +577,34 @@ function lockInput() {
 	document.getElementById("outputTable").style.display = "block";
 
 	/* For all without given value, assign random basic stats */
-	if (document.getElementById("givenStat1").value == "0") {
-		randomStat("A", rank1, "statEm1");
-	} else {
-		document.getElementById("statEm1").innerHTML = document.getElementById("givenStat1").value
+	function basicStat(set, slot) {
+		if (document.getElementById("stat" + slot + "Given").value == "0") {
+			randomStat(set, document.getElementById("rank" + slot).value, "stat" + slot + "Em");
+			document.getElementById("stat" + slot + "G").innerHTML = "隨機";
+		} else {
+			document.getElementById("stat" + slot + "Em").innerHTML = document.getElementById("stat" + slot + "Given").value
+			document.getElementById("stat" + slot + "G").innerHTML = document.getElementById("stat" + slot + "Given").value
+			document.getElementById("statGiven").style.display = "table-row";
+		}
 	}
-	if (document.getElementById("givenStat2").value == "0") {
-		randomStat("A", rank2, "statEm2");
-	} else {
-		document.getElementById("statEm2").innerHTML = document.getElementById("givenStat2").value
-	}
-	if (document.getElementById("givenStat3").value == "0") {
-		randomStat("B", rank3, "statEm3");
-	} else {
-		document.getElementById("statEm3").innerHTML = document.getElementById("givenStat3").value
-	}
-	if (document.getElementById("givenStat4").value == "0") {
-		randomStat("A", rank4, "statEm4");
-	} else {
-		document.getElementById("statEm4").innerHTML = document.getElementById("givenStat4").value
-	}
-	if (document.getElementById("givenStat5").value == "0") {
-		randomStat("A", rank5, "statEm5");
-	} else {
-		document.getElementById("statEm5").innerHTML = document.getElementById("givenStat5").value
-	}
-	if (document.getElementById("givenStat6").value == "0") {
-		randomStat("C", rank6, "statEm6");
-	} else {
-		document.getElementById("statEm6").innerHTML = document.getElementById("givenStat6").value
-	}
+	basicStat("A", 1);
+	basicStat("A", 2);
+	basicStat("B", 3);
+	basicStat("A", 4);
+	basicStat("A", 5);
+	basicStat("C", 6);
 	refreshStats();
+	
+	var statGivenSum = 0;
+	for (var i = 1; i < 7; i++) {
+		statGivenSum += document.getElementById("stat" + i + "Given").value
+	}
+	if (statGivenSum > 0) {
+		console.log("Given basic stat available. Visualizing the corresponding table row.")
+		document.getElementById("statGiven").style.display = "table-row";
+	} else {
+		console.log("No given basic stat.")
+	}
 }
 
 function evoStatInt(set, evoStatIntEmId) {
@@ -885,11 +962,7 @@ function upgrade(set, slot) {
 	var roll = randomInt(1, 100);
 	document.getElementById("rolled").innerHTML = (roll + " / 100");
 	var output = statEnId.innerHTML;
-	var cost = 0;
-	var costGreen = 0;
-	var costBlue = 0;
-	var costYellow = 0;
-	var costRed = 0;
+	var cost ,costGreen ,costBlue, costYellow, costRed;
 
 	switch (level.innerHTML) {
 		case "覺醒0 強化0":
@@ -1350,10 +1423,8 @@ function upgrade(set, slot) {
 	refreshStats();
 }
 
-function rerollBasic(set, slot) {
-	var quality = document.getElementById("rank" + slot).value;
-	var statEmId = ("statEm" + slot);
-	randomStat(set, quality, statEmId);
+function rerollBasicStat(set, slot) {
+	randomStat(set, document.getElementById("rank" + slot).value, "stat" + slot + "Em");
 	refreshStats();
 
 	var zeni = parseInt(document.getElementById("zeni").innerHTML.replace(/\,/g, ''));

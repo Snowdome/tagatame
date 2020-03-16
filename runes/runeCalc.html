@@ -14,7 +14,9 @@
 	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#603cba">
 	<meta name="theme-color" content="#ffffff">
-	<script src=runes.js></script>
+	<script src="runes.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="html2canvas.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157948182-1">
 			</script>
@@ -40,6 +42,13 @@
 			<tbody id="latest">
 			</tbody>
 			<tbody id="history" style="display: none;">
+				<tr>
+					<td>16/03/2020</td>
+					<td>
+						<p><u>Added:</u><br>1. 轉換成圖片 (方便另存圖片) & 匯出CSV button<br>
+						<p><u>Modified:</u><br>Refined part of javascript<br>
+					</td>
+				</tr>
 				<tr>
 					<td>14/03/2020</td>
 					<td>
@@ -80,12 +89,12 @@
 				</tr>
 				<tr>
 					<td>基礎數值</td>
-					<td class="pA1"><input type="number" id="givenStat1" name="givenStat1" value="0" min="76" max="100"></td>
-					<td class="pA1"><input type="number" id="givenStat2" name="givenStat2" value="0" min="76" max="100"></td>
-					<td class="pB1"><input type="number" id="givenStat3" name="givenStat3" value="0" min="501" max="700"></td>
-					<td class="pA1"><input type="number" id="givenStat4" name="givenStat4" value="0" min="76" max="100"></td>
-					<td class="pA1"><input type="number" id="givenStat5" name="givenStat5" value="0" min="76" max="100"></td>
-					<td class="pC1"><input type="number" id="givenStat6" name="givenStat6" value="0" min="8" max="10"></td>
+					<td class="pA1"><input type="number" id="stat1Given" name="stat1Given" value="0" min="76" max="100"></td>
+					<td class="pA1"><input type="number" id="stat2Given" name="stat2Given" value="0" min="76" max="100"></td>
+					<td class="pB1"><input type="number" id="stat3Given" name="stat3Given" value="0" min="501" max="700"></td>
+					<td class="pA1"><input type="number" id="stat4Given" name="stat4Given" value="0" min="76" max="100"></td>
+					<td class="pA1"><input type="number" id="stat5Given" name="stat5Given" value="0" min="76" max="100"></td>
+					<td class="pC1"><input type="number" id="stat6Given" name="stat6Given" value="0" min="8" max="10"></td>
 				</tr>
 				<tr>
 					<td>刻印級別</td>
@@ -245,7 +254,6 @@
 						</select></td>
 			</table>
 			<p><button type="button" onclick="lockInput()">確定</button></p>
-			<!-- <button type="button" onclick="resetInput()">重設</button> -->
 		</form>
 	</div>
 
@@ -292,7 +300,16 @@
 				<td class="pA1" id="stat4"></td>
 				<td class="pA1" id="stat5"></td>
 				<td class="pC1">素早</td>
-				<td rowspan="2"></td>
+				<td rowspan="3"></td>
+			</tr>
+			<tr id="statGiven" style="display: none;">
+				<td>基礎數值</td>
+				<td class="pA1" id="stat1G">0</td>
+				<td class="pA1" id="stat2G">0</td>
+				<td class="pB1" id="stat3G">0</td>
+				<td class="pA1" id="stat4G">0</td>
+				<td class="pA1" id="stat5G">0</td>
+				<td class="pC1" id="stat6G">0</td>
 			</tr>
 			<tr>
 				<td>覺醒屬性</td>
@@ -304,6 +321,7 @@
 				<td id="evoStat6"></td>
 			</tr>
 		</table>
+		<p><button id="convertToPNG" onClick="convertToPNG()">轉換成圖片</button> <button id="convertToCSV" onClick="convertToCSV()">匯出CSV</button></p>
 
 		<p>模擬：</p>
 		<table id="table8b">
@@ -341,32 +359,32 @@
 			</tr>
 			<tr>
 				<td>基礎屬性</td>
-				<td class="pA1" id="stat1Em"></td>
-				<td class="pA1" id="stat2Em"></td>
+				<td class="pA1" id="statType1"></td>
+				<td class="pA1" id="statType2"></td>
 				<td class="pB1">HP</td>
-				<td class="pA1" id="stat4Em"></td>
-				<td class="pA1" id="stat5Em"></td>
+				<td class="pA1" id="statType4"></td>
+				<td class="pA1" id="statType5"></td>
 				<td class="pC1">素早</td>
 				<td class="paid">共花費</td>
 			</tr>
 			<tr>
 				<td>基礎數值</td>
-				<td class="pA1" id="statEm1"></td>
-				<td class="pA1" id="statEm2"></td>
-				<td class="pB1" id="statEm3"></td>
-				<td class="pA1" id="statEm4"></td>
-				<td class="pA1" id="statEm5"></td>
-				<td class="pC1" id="statEm6"></td>
+				<td class="pA1" id="stat1Em"></td>
+				<td class="pA1" id="stat2Em"></td>
+				<td class="pB1" id="stat3Em"></td>
+				<td class="pA1" id="stat4Em"></td>
+				<td class="pA1" id="stat5Em"></td>
+				<td class="pC1" id="stat6Em"></td>
 				<td class="paid"> <span id="zeni">0</span> 金幣</td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><button type="button" class="em" onclick="rerollBasic('A', '1')">重刷</button></td>
-				<td><button type="button" class="em" onclick="rerollBasic('A', '2')">重刷</button></td>
-				<td><button type="button" class="em" onclick="rerollBasic('B', '3')">重刷</button></td>
-				<td><button type="button" class="em" onclick="rerollBasic('A', '4')">重刷</button></td>
-				<td><button type="button" class="em" onclick="rerollBasic('A', '5')">重刷</button></td>
-				<td><button type="button" class="em" onclick="rerollBasic('C', '6')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasicStat('A', '1')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasicStat('A', '2')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasicStat('B', '3')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasicStat('A', '4')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasicStat('A', '5')">重刷</button></td>
+				<td><button type="button" class="em" onclick="rerollBasicStat('C', '6')">重刷</button></td>
 				<td class="paid"><span id="gem">0</span> 幻晶石</td>
 			</tr>
 			<tr>
