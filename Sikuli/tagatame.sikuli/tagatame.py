@@ -1,4 +1,4 @@
-# tagatame.py last updated 07/03/2020
+# tagatame.py last updated 17/03/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -23,6 +23,7 @@ normal = 1
 double = 2
 changePage = 5
 extend = 7
+refresh = 10
 long = 180
 battle = 300
 wTime = 10
@@ -266,9 +267,7 @@ def getReward():
 	while exists(rewardGet):
 		clkObj(rewardGet, None, True)
 		sleep(normal)
-		type(key.ESC)
+		type(Key.ESC)
 	sysMsg("Claimed reward")
 
 sysMsg("Imported tagatame.sikuli")
-
-runeCheck()

@@ -97,6 +97,10 @@ td:first-child {
     text-decoration: underline;
 }
 
+.new {
+	color: red;
+}
+
 .highlight {
     font-weight: bold;
     text-decoration: underline;
@@ -157,7 +161,7 @@ td:first-child {
 #table8 tr :nth-child(8),
 #table8b tr :nth-child(8):not(.paid) {
     text-align: left;
-    width: 130px;
+    width: 140px;
 }
 
 #table1 td:nth-child(9),
@@ -202,7 +206,7 @@ td:first-child {
 }
 
 #useGauge {
-	width: 130px;
+	width: 140px;
 	display: none;
 }
 

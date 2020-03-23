@@ -2,7 +2,7 @@
 <html lang="zh-hant">
 
 <head>
-	<title>真理刻印資料表</title>
+	<title>真理刻印模擬器</title>
 	<meta charset="utf-8" />
 	<meta property="og:url" content="https://snowdome.github.io/tagatame/index.html" />
 	<meta property="og:image" content="https://snowdome.github.io/tagatame/favicon.png" />
@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<p><b>真理刻印模擬器<br>Created by 雪頂夢 @ PigPigChannel (last updated on 14/03/2020)</b></p>
+	<p><b>真理刻印模擬器<br>Created by 雪頂夢 @ PigPigChannel (last updated on 22/03/2020)</b></p>
 	<div id=message>
 		<p>Change log: <button id=showBtn onclick="showNote()">Show update history</button></p>
 		<table id="changeLog">
@@ -43,17 +43,23 @@
 			</tbody>
 			<tbody id="history" style="display: none;">
 				<tr>
+					<td>22/03/2020</td>
+					<td>
+						<p><u>Modified:</u><br>1. <span class="new">加謢</span>刻印實裝<br>2.Added gold coin & stone icon<br>3. Refined part of HTML script</p>
+					</td>
+				</tr>
+				<tr>
 					<td>16/03/2020</td>
 					<td>
-						<p><u>Added:</u><br>1. 轉換成圖片 (方便另存圖片) & 匯出CSV button<br>
-						<p><u>Modified:</u><br>Refined part of javascript<br>
+						<p><u>Added:</u><br>1. 轉換成圖片 (方便另存圖片) & 匯出CSV button<br></p>
+						<p><u>Modified:</u><br>Refined part of javascript<br></p>
 					</td>
 				</tr>
 				<tr>
 					<td>14/03/2020</td>
 					<td>
-						<p><u>Added:</u><br>1. Change log<br>2. Manual input basic stat<br>3. Include materials in cost calculation<br>
-						<p><u>Modified:</u><br>Major bug fixed (Gauge-related items)<br>
+						<p><u>Added:</u><br>1. Change log<br>2. Manual input basic stat<br>3. Include materials in cost calculation<br></p>
+						<p><u>Modified:</u><br>Major bug fixed (Gauge-related items)<br></p>
 					</td>
 				</tr>
 				<tr>
@@ -142,6 +148,7 @@
 							<option value="01mado">魔道</option>
 							<option value="02kenro">堅牢</option>
 							<option value="03majin">魔陣</option>
+							<option value="05kago">加護</option>
 							<option value="07meimyaku">命脈</option>
 							<option value="11issen">一閃</option>
 							<option value="12isso">一掃</option>
@@ -151,6 +158,7 @@
 							<option value="01mado">魔道</option>
 							<option value="02kenro">堅牢</option>
 							<option value="03majin">魔陣</option>
+							<option value="05kago">加護</option>
 							<option value="07meimyaku">命脈</option>
 							<option value="11issen">一閃</option>
 							<option value="12isso">一掃</option>
@@ -160,6 +168,7 @@
 							<option value="01mado">魔道</option>
 							<option value="02kenro">堅牢</option>
 							<option value="03majin">魔陣</option>
+							<option value="05kago">加護</option>
 							<option value="07meimyaku">命脈</option>
 							<option value="11issen">一閃</option>
 							<option value="12isso">一掃</option>
@@ -169,6 +178,7 @@
 							<option value="01mado">魔道</option>
 							<option value="02kenro">堅牢</option>
 							<option value="03majin">魔陣</option>
+							<option value="05kago">加護</option>
 							<option value="07meimyaku">命脈</option>
 							<option value="11issen">一閃</option>
 							<option value="12isso">一掃</option>
@@ -178,6 +188,7 @@
 							<option value="01mado">魔道</option>
 							<option value="02kenro">堅牢</option>
 							<option value="03majin">魔陣</option>
+							<option value="05kago">加護</option>
 							<option value="07meimyaku">命脈</option>
 							<option value="11issen">一閃</option>
 							<option value="12isso">一掃</option>
@@ -187,6 +198,7 @@
 							<option value="01mado">魔道</option>
 							<option value="02kenro">堅牢</option>
 							<option value="03majin">魔陣</option>
+							<option value="05kago">加護</option>
 							<option value="07meimyaku">命脈</option>
 							<option value="11issen">一閃</option>
 							<option value="12isso">一掃</option>
@@ -375,7 +387,7 @@
 				<td class="pA1" id="stat4Em"></td>
 				<td class="pA1" id="stat5Em"></td>
 				<td class="pC1" id="stat6Em"></td>
-				<td class="paid"> <span id="zeni">0</span> 金幣</td>
+				<td class="paid"> <span id="zeni">0</span> <img src="resources/ui_Rune_2_icon_zeney.png"></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -385,7 +397,7 @@
 				<td><button type="button" class="em" onclick="rerollBasicStat('A', '4')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollBasicStat('A', '5')">重刷</button></td>
 				<td><button type="button" class="em" onclick="rerollBasicStat('C', '6')">重刷</button></td>
-				<td class="paid"><span id="gem">0</span> 幻晶石</td>
+				<td class="paid"><span id="gem">0</span> <img src="resources/ui_Rune_2_icon_stone.png"></td>
 			</tr>
 			<tr>
 				<td>強化數值</td>
@@ -395,7 +407,7 @@
 				<td class="pA1" id="statEn4">0</td>
 				<td class="pA1" id="statEn5">0</td>
 				<td class="pC1" id="statEn6">0</td>
-				<td class="paid" ><span id="stoneGreen">0</span><img src=resources/it_runeenh.png></td>
+				<td class="paid" ><span id="stoneGreen">0</span> <img src="resources/it_runeenh.png"></td>
 			</tr>
 			<tr>
 				<td>總數值</td>
@@ -405,7 +417,7 @@
 				<td class="pA1" id="statTotal4"></td>
 				<td class="pA1" id="statTotal5"></td>
 				<td class="pC1" id="statTotal6"></td>
-				<td class="paid"><span id="stoneBlue">0</span><img src=resources/it_runeevo_r.png></td>
+				<td class="paid"><span id="stoneBlue">0</span> <img src="resources/it_runeevo_r.png"></td>
 			</tr>
 			<tr>
 				<td>覺醒屬性1</td>
@@ -415,7 +427,7 @@
 				<td class="idc" id="evoStatEm14">N/A</td>
 				<td class="idc" id="evoStatEm15">N/A</td>
 				<td class="idc" id="evoStatEm16">N/A</td>
-				<td class="paid"><span id="stoneYellow">0</span><img src=resources/it_runeevo_sr.png></td>
+				<td class="paid"><span id="stoneYellow">0</span> <img src="resources/it_runeevo_sr.png"></td>
 			</tr>
 			<tr>
 				<td>覺醒數值1</td>
@@ -425,7 +437,7 @@
 				<td class="idc" id="evoStatIntEm14">N/A</td>
 				<td class="idc" id="evoStatIntEm15">N/A</td>
 				<td class="idc" id="evoStatIntEm16">N/A</td>
-				<td class="paid"><span id="stoneRed">0</span><img src=resources/it_runeevo_ssr.png></td>
+				<td class="paid"><span id="stoneRed">0</span> <img src="resources/it_runeevo_ssr.png"></td>
 			</tr>
 			<tr>
 				<td></td>

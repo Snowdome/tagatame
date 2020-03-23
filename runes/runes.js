@@ -72,44 +72,49 @@ function convertToCSV() {
 	var data = [
 		// 1st row - set
 		["set",
-		selectedText(set1),
-		selectedText(set2),
-		selectedText(set3),
-		selectedText(set4),
-		selectedText(set5),
-		selectedText(set6)],
+			selectedText(set1),
+			selectedText(set2),
+			selectedText(set3),
+			selectedText(set4),
+			selectedText(set5),
+			selectedText(set6)
+		],
 		// 2nd row - quality
 		["quality",
-		document.getElementById("rank1").value,
-		document.getElementById("rank2").value,
-		document.getElementById("rank3").value,
-		document.getElementById("rank4").value,
-		document.getElementById("rank5").value,
-		document.getElementById("rank6").value],
+			document.getElementById("rank1").value,
+			document.getElementById("rank2").value,
+			document.getElementById("rank3").value,
+			document.getElementById("rank4").value,
+			document.getElementById("rank5").value,
+			document.getElementById("rank6").value
+		],
 		// 3rd row - stat type
 		["type",
-		document.getElementById('stat1').innerText,
-		document.getElementById('stat2').innerText,
-		"HP",
-		document.getElementById('stat4').innerText,
-		document.getElementById('stat5').innerText,
-		"素早"],
+			document.getElementById('stat1').innerText,
+			document.getElementById('stat2').innerText,
+			"HP",
+			document.getElementById('stat4').innerText,
+			document.getElementById('stat5').innerText,
+			"素早"
+		],
 		// 4th row - stat value
 		["value",
-		document.getElementById('stat1G').innerText,
-		document.getElementById('stat2G').innerText,
-		document.getElementById('stat3G').innerText,
-		document.getElementById('stat4G').innerText,
-		document.getElementById('stat5G').innerText,
-		document.getElementById('stat6G').innerText],
+			document.getElementById('stat1G').innerText,
+			document.getElementById('stat2G').innerText,
+			document.getElementById('stat3G').innerText,
+			document.getElementById('stat4G').innerText,
+			document.getElementById('stat5G').innerText,
+			document.getElementById('stat6G').innerText
+		],
 		// 5th row - evo stat
 		["evo",
-		document.getElementById('evoStat1').innerText,
-		document.getElementById('evoStat2').innerText,
-		document.getElementById('evoStat3').innerText,
-		document.getElementById('evoStat4').innerText,
-		document.getElementById('evoStat5').innerText,
-		document.getElementById('evoStat6').innerText],
+			document.getElementById('evoStat1').innerText,
+			document.getElementById('evoStat2').innerText,
+			document.getElementById('evoStat3').innerText,
+			document.getElementById('evoStat4').innerText,
+			document.getElementById('evoStat5').innerText,
+			document.getElementById('evoStat6').innerText
+		],
 	];
 	// Building the CSV from the Data two-dimensional array
 	// Each column is separated by ";" and new line "\n" for next row
@@ -153,8 +158,8 @@ function randomInt(min, max) {
 	return x;
 }
 
-/* Assign random stats to runes */	// proabilitySet, runeRank, td#statIdEm
-function randomStat(set, rank, statIdEm) { 
+/* Assign random stats to runes */ // proabilitySet, runeRank, td#statIdEm
+function randomStat(set, rank, statIdEm) {
 	var p = parseInt(randomInt(1, 100));
 	document.getElementById("rolled").innerHTML = (p + " / 100");
 	var output;
@@ -399,7 +404,7 @@ function lockInput() {
 	runeImage(4);
 	runeImage(5);
 	runeImage(6);
-	
+
 	/* Insert Basic Stat type */
 	document.getElementById("stat1").innerHTML = document.querySelector('input[name = "stat1"]:checked').value;
 	document.getElementById("statType1").innerHTML = document.querySelector('input[name = "stat1"]:checked').value;
@@ -471,7 +476,7 @@ function lockInput() {
 		document.getElementById("evoStat6").innerHTML = evo6.options[evo6.selectedIndex].text;
 		document.getElementById("evoStat6").className = "pB2";
 	}
-	
+
 	/* Calculate Set Bonus */
 	function ico(slot) {
 		return document.getElementById("set" + slot).value.substring(0, 2);
@@ -529,6 +534,22 @@ function lockInput() {
 		document.getElementById("setBonus").innerHTML += "魔防+10%<br>";
 		document.getElementById("setBonusEm").innerHTML += "魔防+10%<br>";
 	}
+	// 加護
+	var kago = 0;
+	for (var i = 0; i < setCount.length; ++i) {
+		if (setCount[i] == "05")
+			kago++;
+	}
+	if (kago > 5) {
+		document.getElementById("setBonus").innerHTML += "全狀態異常耐性+15<br>";
+		document.getElementById("setBonusEm").innerHTML += "全狀態異常耐性+15<br>";
+	} else if (kago > 3) {
+		document.getElementById("setBonus").innerHTML += "全狀態異常耐性+10<br>";
+		document.getElementById("setBonusEm").innerHTML += "全狀態異常耐性+10<br>";
+	} else if (kago > 1) {
+		document.getElementById("setBonus").innerHTML += "全狀態異常耐性+5<br>";
+		document.getElementById("setBonusEm").innerHTML += "全狀態異常耐性+5<br>";
+	}
 	// 命脈
 	var meimyaku = 0;
 	for (var i = 0; i < setCount.length; ++i) {
@@ -539,6 +560,7 @@ function lockInput() {
 		document.getElementById("setBonus").innerHTML += "HP+15%<br>";
 		document.getElementById("setBonusEm").innerHTML += "HP+15%<br>";
 	}
+
 	// 一閃
 	var issen = 0;
 	for (var i = 0; i < setCount.length; ++i) {
@@ -594,7 +616,7 @@ function lockInput() {
 	basicStat("A", 5);
 	basicStat("C", 6);
 	refreshStats();
-	
+
 	var statGivenSum = 0;
 	for (var i = 1; i < 7; i++) {
 		statGivenSum += document.getElementById("stat" + i + "Given").value
@@ -936,7 +958,7 @@ function enchance(enRate, lv, quality) {
 			default:
 				console.log("Error in enchance(" + enRate + ", " + lv + ", " + quality + "), please check.");
 		}
-		console.log("Gauge increased by " + failedBonus + "%, capped at 100%.");
+		console.log("Gauge increased by " + failedBonus + "%, cap at 100%.");
 		newGauge = Math.min(100, parseInt(document.getElementById("gauge").innerHTML) + parseInt(failedBonus));
 		if (newGauge == 100) {
 			document.getElementById("useGauge").style.display = "block";
@@ -962,7 +984,7 @@ function upgrade(set, slot) {
 	var roll = randomInt(1, 100);
 	document.getElementById("rolled").innerHTML = (roll + " / 100");
 	var output = statEnId.innerHTML;
-	var cost ,costGreen ,costBlue, costYellow, costRed;
+	var cost = costGreen = costBlue = costYellow = costRed = 0
 
 	switch (level.innerHTML) {
 		case "覺醒0 強化0":
@@ -1251,8 +1273,8 @@ function upgrade(set, slot) {
 						output = 2;
 						break;
 				}
-			level.innerHTML = "覺醒2 強化2";
-			document.getElementById(enRate).innerHTML = "30%";
+				level.innerHTML = "覺醒2 強化2";
+				document.getElementById(enRate).innerHTML = "30%";
 			}
 			break;
 		case "覺醒2 強化2":

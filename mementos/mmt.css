@@ -71,11 +71,6 @@ tr :nth-child(n+21):nth-child(-n+27) {
 	background-color: #f2f2f2
 }
 
-
-#patchNote tr :first-child {
-	padding-left: 0px;
-}
-
 .ev,
 .ltd {
 	display: table-row;
@@ -102,12 +97,16 @@ tr :nth-child(n+21):nth-child(-n+27) {
 	text-align: center;
 }
 
-#patchNote td p {
+#changeLog tr :first-child {
+	padding-left: 0px;
+}
+
+#changeLog td p {
 	display: inline;
 }
 
-#patchNote,
-#patchNote td {
+#changeLog,
+#changeLog td {
 	border-spacing: 0;
 	border: none;
 	width: auto;

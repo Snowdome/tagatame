@@ -1,4 +1,4 @@
-# tower.py last updated 06/03/2020
+# tower.py last updated 17/03/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -127,9 +127,9 @@ def autoTower(tEvent, team):
 						clkObj(towerStart)
 						t = -1
 					else:
-						t = t + 10	
-						sleep(10)
-						sysMsg("Completion message not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
+						t = t + refresh
+						sleep(refresh)
+						sysMsg("Completion message not found. Waiting for " + str(refresh) + " more sec. Total waiting time: " + str(t) + " sec.")
 		sysMsg("End of command")
 
 
@@ -149,9 +149,49 @@ def resTower():
 
 #  -------------------------Command-------------------------
 # Seasonal Tower
-#autoTower(light, team9)
-#resTower()
-#autoTower(light, team10)
+autoTower(fire, team10)
+autoTower(fire, team1)
+autoTower(fire, team2)
+autoTower(fire, team3)
+autoTower(fire, team4)
+autoTower(fire, team5)
+autoTower(fire, team6)
+autoTower(fire, team7)
+autoTower(fire, team8)
+autoTower(fire, team9)
+resTower()
+autoTower(fire, team10)
+autoTower(fire, team1)
+autoTower(fire, team2)
+autoTower(fire, team3)
+autoTower(fire, team4)
+autoTower(fire, team5)
+autoTower(fire, team6)
+autoTower(fire, team7)
+autoTower(fire, team8)
+autoTower(fire, team9)
+clkobj(home)
+autoTower(water, team10)
+autoTower(water, team1)
+autoTower(water, team2)
+autoTower(water, team3)
+autoTower(water, team4)
+autoTower(water, team5)
+autoTower(water, team6)
+autoTower(water, team7)
+autoTower(water, team8)
+autoTower(water, team9)
+resTower()
+autoTower(water, team10)
+autoTower(water, team1)
+autoTower(water, team2)
+autoTower(water, team3)
+autoTower(water, team4)
+autoTower(water, team5)
+autoTower(water, team6)
+autoTower(water, team7)
+autoTower(water, team8)
+autoTower(water, team9)
 
 # Ordinary Tower
 autoTower(veda, team10)
