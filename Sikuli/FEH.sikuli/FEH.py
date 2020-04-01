@@ -50,6 +50,17 @@ d3 = "d3.png"
 d2 = "d2.png"
 d1 = "d1.png"
 
+war = "war.png"
+warTitle = Pattern("warTitle.png").exact()
+# Recommend - Location of recommended stage in respect to the title
+r1 = Pattern("warTitle.png").targetOffset(0,125)
+r2 = Pattern("warTitle.png").targetOffset(0,285)
+r3 = Pattern("warTitle.png").targetOffset(0,450)
+r4 = Pattern("warTitle.png").targetOffset(0,600)
+btStartConfirm = Pattern("btStartConfirm.png").targetOffset(0,30)
+result = "result.png"
+confirm = "confirm.png"
+
 refillAP = "refillAP.png"
 
 btStart = "btStart.png"
@@ -58,6 +69,7 @@ toggleAuto = "toggleAuto.png"
 toggleAutoOn = "toggleAutoOn.png"
 stageCleared = "stageCleared.png"
 gameover = "gameover.png"
+lose = Pattern("lose.png").similar(0.90)
 surrender = "surrender.png"
 done = "done.png"
 bondSkip = "bondSkip.png"
@@ -124,16 +136,25 @@ def apCheck(option):
 		sysMsg("AP check passed")
 
 
-def btAction(loop=0):
+def btAction(outcomeA=stageCleared, outcomeB=gameover):
 	wait(btMenu, long)
-	clkObj(toggleAuto)
+	while not exists(toggleAutoOn, 0):
+		clkObj(toggleAuto)
+		sleep(normal)
 	clkObj(toggleAutoOn)
 	sysMsg("Toggled auto")
-	if exists(stageCleared, stage) or exists(gameover, stage):
-		if exists(stageCleared, 0):
-			sysMsg("Stage cleared")
-		if exists(gameover, 0):
-			sysMsg("Gameover")
+	t = 0
+	while t != -1:
+		if not exists(outcomeA, 0) and not exists(outcomeB, 0):
+			t = t + wTime
+			sysMsg("Completion message not found. Waiting for " + str(wTime) + " more sec. Total waiting time: " + str(t) + " sec.")
+			sleep(wTime)
+		else:
+			t = -1
+			if exists(outcomeA, 0):
+				sysMsg("Stage cleared")
+			if exists(outcomeB, 0):
+				sysMsg("Defeated")
 
 
 def bondQ(d=d3, n=1, reAp=1):
@@ -153,9 +174,9 @@ def bondQ(d=d3, n=1, reAp=1):
 			sysMsg("Yes button has been pressed. Re-engaging battle.")
 	else:
 		if exists(bondsTitle, 0):
-			sysMsg("Already in Forging Bonds quest menu.")
+			sysMsg("Already in Forging Bonds menu.")
 		else:
-			sysMsg("Going to Forging Bonds quest menu.")
+			sysMsg("Going to Forging Bonds menu.")
 			clkObj(battle)
 			clkObj(event)
 			clkObj(bonds)
@@ -196,7 +217,7 @@ def trainQ(floor, n=1, reAp=0):
 	i = 0
 	c = 0
 	if exists(trainingTitle, 0):
-		sysMsg("Training Tower title found")
+		sysMsg("Already in Training Tower menu.")
 	else:
 		while not exists(battle, normal):
 			clkObj(back)
@@ -227,6 +248,83 @@ def trainQ(floor, n=1, reAp=0):
 		sysMsg("Error: n must be empty or positive")
 	else:
 		exit()
+
+def warQ(r, n=1, reAp=1):
+	i = 0
+	if exists(stageCleared, 0):
+		decision = popAsk("Stage Cleared message found. Press yes to use current setup, \nOr press No to terminate the command.", "Waiting for decision")
+		if not decision:
+			exit(1)
+		else:
+			sysMsg("Yes button has been pressed. Re-engaging battle.")
+			m = 0
+			while not exists(result, 0):
+				if exists(stageCleared, 0):
+					clkObj(stageCleared)
+					sleep(changePage)
+					m = m + 1
+					sysMsg("***************" + str(m) + " map(s) cleared***************")
+					if exists(result, 0):
+						i = i + 1
+					else:
+						btAction(outcomeB=lose)
+				if exists(lose, 0):
+					clkObj(lose)
+					sysMsg("***************Chosen team has been defeated. Proceeding with next team.***************")
+					clkObj(btStart)
+					clkObj(btStartConfirm)
+					btAction(outcomeB=lose)
+			else:
+				clkObj(confirm)
+				sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
+				sleep(changePage)
+				while exists(done, 0):
+					clkObj(done)
+					sleep(normal)
+	else:
+		if exists(warTitle, 0):
+			sysMsg("Already in War Vortex menu.")
+		else:
+			sysMsg("Going to War Vortex menu.")
+			clkObj(battle)
+			clkObj(event)
+			clkObj(war)
+			clkObj(chooseStg)
+	while i < n:
+		clkObj(r)
+		clkObj(btStart)
+		apCheck(reAp)
+		sleep(changePage)
+		btAction(outcomeB=lose)
+		m = 0
+		while not exists(result, 0):
+			if exists(stageCleared, 0):
+				clkObj(stageCleared)
+				sleep(changePage)
+				m = m + 1
+				sysMsg("***************" + str(m) + " map(s) cleared***************")
+				if exists(result, 0):
+					i = i + 1
+				else:
+					btAction(outcomeB=lose)
+			if exists(lose, 0):
+				clkObj(lose)
+				sysMsg("***************Chosen team has been defeated. Proceeding with next team.***************")
+				clkObj(btStart)
+				clkObj(btStartConfirm)
+				btAction(outcomeB=lose)
+		else:
+			clkObj(confirm)
+			sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
+			sleep(changePage)
+			while exists(done, 0):
+				clkObj(done)
+				sleep(normal)
+	if n < 0:
+		sysMsg("Error: n must be empty or positive")
+	else:
+		exit()
 #  -------------------------Body-------------------------
 #bondQ(n=50)
-trainQ(floor4, n=5)
+#trainQ(floor4, n=5)
+warQ(r1, n=6000/300)
