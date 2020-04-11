@@ -99,6 +99,7 @@ tr :nth-child(n+21):nth-child(-n+27) {
 
 #changeLog tr :first-child {
 	padding-left: 0px;
+	width: 90px;
 }
 
 #changeLog td p {

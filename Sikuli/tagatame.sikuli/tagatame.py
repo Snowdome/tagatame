@@ -1,4 +1,4 @@
-# tagatame.py last updated 17/03/2020
+# tagatame.py last updated 03/04/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -9,10 +9,12 @@ import os
 
 # Define class for team and page number
 class team():
-	def __init__(self, position, page):
+	def __init__(self, name, position, page):
+		self.name = name
 		self.position = position
 		self.page = page
-
+	def __repr__(self):
+		return self.name
 
 #  -------------------------Settings-------------------------
 # Settings.MinSimilarity = 0.8
@@ -132,22 +134,26 @@ def clkObj(object, delay=0, loop=0, remark=0):
 			click(object)
 			sysMsg("Clicked on " + subject)
 		else:
-			if loop == 1:
-				while exists(object):
-					click(object)
-					sleep(normal)
-					mouseMove(10,0)
-					sysMsg("Repeat clicking on " + subject)
-			else:
+			t = 0
+			while t != -1:
 				click(object)
-				sleep(normal)
-				while not exists(loop):
-					sysMsg("Cannot find " + repr(loop))
-					mouseMove(10,0)
-					mouseMove(-10,0)
-					click(atMouse())
-					sysMsg("Repeat clicking on " + subject)
-					sleep(normal)
+				sysMsg("Clicked on " + subject)
+				mouseMove(10,0)
+				sleep(1)
+				if loop == 1:
+					if exists(object, 0):
+						t = t + 1
+						sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+					else:	
+						t = -1
+						sysMsg("Current object passed, loop completed.")
+				else:
+					if not exists(loop, 0):
+						t = t + 1
+						sysMsg("Cannot find " + repr(loop) + "; repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+					else:
+						t = -1
+						sysMsg(repr(loop) + " found, loop completed.")
 	except FindFailed:
 		sysMsg("Cannot find " + subject + "\nPress Yes to start the next step", "FindFailed Error")
 

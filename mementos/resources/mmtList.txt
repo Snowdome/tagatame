@@ -155,6 +155,7 @@ TS_ST_KASUMI_01.png
 TS_TS_01.png
 TS_TS_02.png
 TS_TS_03.png
+TS_TS_04.png
 TS_TSP_01.png
 TS_TSP_02.png
 TS_UNDOKAI_2018_01.png

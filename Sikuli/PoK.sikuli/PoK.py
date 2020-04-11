@@ -101,10 +101,7 @@ def clkObj(object, delay=0, loop=0, remark=0):
 	if remark == 0:
 		subject = repr(object)
 	else:
-		if remark == 1:	# Not yet implemented
-			subject = object.remark
-		else:
-			subject = remark
+		subject = remark
 	try:
 		if not exists(object):
 			sysMsg("Waiting for " + subject)
@@ -116,11 +113,26 @@ def clkObj(object, delay=0, loop=0, remark=0):
 			click(object)
 			sysMsg("Clicked on " + subject)
 		else:
-			while exists(object):
+			t = 0
+			while t != -1:
 				click(object)
-				sleep(normal)
+				sysMsg("Clicked on " + subject)
 				mouseMove(10,0)
-				sysMsg("Repeat clicking on " + subject)
+				sleep(1)
+				if loop == 1:
+					if exists(object, 0):
+						t = t + 1
+						sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+					else:	
+						t = -1
+						sysMsg("Current object passed, loop completed.")
+				else:
+					if not exists(loop, 0):
+						t = t + 1
+						sysMsg("Cannot find " + repr(loop) + "; repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+					else:
+						t = -1
+						sysMsg(repr(loop) + " found, loop completed.")
 	except FindFailed:
 		sysMsg("Cannot find " + subject + "\nPress Yes to start the next step", "FindFailed Error")
 
@@ -253,7 +265,7 @@ def btAction(n=1):
 			sysMsg(msgEnd)
 
 # Start battle for unit quest
-def btPt Quest(n=1):
+def btPtQuest(n=1):
 	sysMsg("Initializing UnitQuest command")
 	i = 0
 	while i < n:
@@ -419,11 +431,11 @@ def autoTower():
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
-btPtQuest(20)
-#btUnitQuest(4)
+#btPtQuest(20)
+#btUnitQuest(999)
 #btQuest(4)
 #forge(50-7)
 #enhance(dollWhite, 23)
-#drawTicket("all")
+drawTicket("all")
 #drawDoll(100)
 #autoTower()
