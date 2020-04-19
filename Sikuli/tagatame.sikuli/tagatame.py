@@ -1,4 +1,4 @@
-# tagatame.py last updated 03/04/2020
+# tagatame.py last updated 13/04/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -41,8 +41,8 @@ fiddler = "fiddler.png"
 home = "home.png"
 settings = "settings.png"
 mainMenu = "mainMenu.png"
-questLoc = Pattern("openedMenu.png").targetOffset(-85,460)	# Location of quest button in respec to the opened menu button
-quest = "quest.png"
+questLoc = Pattern("openedMenu.png").targetOffset(-85,460)	# Location of quest button in respect to the opened menu button
+quest = Pattern("mainMenu.png").targetOffset(-90,460)	# Location of quest button in respect to the menu button
 story = "story.png"
 event = "event.png"
 eventTitle = "eventTitle.png"

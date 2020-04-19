@@ -1,4 +1,4 @@
-# multi.py last updated 12/02/2020
+# multi.py last updated 13/04/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -26,7 +26,7 @@ dc = Pattern("dc.png").targetOffset(0,240)	# Location of OK button in respect to
 finished = "finished.png"
 
 subHome = "subHome.png"
-subQuest = "subQuest.png"
+subQuest = Pattern("1581461703200.png").targetOffset(-65,360)	# Location of quest button in respect to the menu in sub-window
 subMulti = "subMulti.png"
 subMultiMenu = "subMultiMenu.png"
 subMyUnit = "subMyUnit.png"
@@ -57,7 +57,7 @@ mRec = "mRec.png"
 mRecBtn = "mRecBtn.png"
 s105 = Pattern("s105.png").targetOffset(150,0)
 sS2b = Pattern("sS2b.png").targetOffset(150,0)
-s102 = Pattern("s102.png").targetOffset(150,0)
+s102 = Pattern("s102.png").similar(0.80).targetOffset(147,0)
 	
 
 # -------------------------Multi Action-------------------------
@@ -218,7 +218,7 @@ def gotoSubMulti(multiQ):
 			if not exists(subMultiMenu, short):		
 				if exists(subHome, short):
 					clkObj(subHome)
-				clkObj(subQuest)
+				clkObj(subQuest, 0, subMulti, "suQuest Loc")
 				clkObj(subMulti)
 				wait(subMultiMenu, FOREVER)
 			while not exists(multiQ.chapter, double):
@@ -266,6 +266,7 @@ def multiSingle(multiQ, script, n=0):
 def multiDouble(multiQ, script, n=1):
 	sysMsg("Initializing MultiDouble command")
 	i = 0
+	t = 0
 	if not exists(mRec, 0):
 		sysMsg("Cannot find Macro Recorder.\nPress Yes after the window has been opened.", "Setup error")
 	gotoSubMulti(multiQ)
@@ -294,7 +295,7 @@ def multiDouble(multiQ, script, n=1):
 				clkObj(subConfirmInvite, 0, True)
 			clkObj(mainInvite)
 		else:
-			clkObj(mainInviteSlot1)
+			clkObj(mainInviteSlot1, 0, 0, "mainInviteSlot1 Loc")
 			clkObj(ready)
 			sleep(double)
 		# Sub start multi quest and retreat
@@ -336,7 +337,14 @@ def multiDouble(multiQ, script, n=1):
 				while not exists(subAdded):
 					clkObj(subIniteSlot1)
 					clkObj(subConfirmInvite, 0, True)
-		wait(finished, FOREVER)
+		while t != -1:
+			if exists(finished, 0):
+				sysMsg("Main-window finish button found.")
+				t = -1
+			else:
+				sleep(10)
+				t = t + 10
+				sysMsg("Main-window finish button not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
 		sleep(extend)
 		clkObj(finished)
 		mouseMove(10,0)
@@ -357,4 +365,4 @@ def multiDouble(multiQ, script, n=1):
 #multiSingle(solo105, actm105, 1000)
 #multiDouble(sub205, acts105, 1000)
 #multiDouble(subS2b, actsS2b, 1000)
-multiDouble(sub102, acts102, 1000)
+multiDouble(sub102, acts102, 500)

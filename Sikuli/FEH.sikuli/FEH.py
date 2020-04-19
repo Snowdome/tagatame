@@ -1,4 +1,4 @@
-# feh.py last updated 08/03/2020
+# feh.py last updated 19/04/2020
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -43,6 +43,7 @@ back = "back.png"
 
 bonds = "bonds.png"
 bondsTitle = "bondsTitle.png"
+bonsFull = "bonsFull.png"
 autoEq = "autoEq.png"
 chooseStg = "chooseStg.png"
 
@@ -183,31 +184,37 @@ def bondQ(d=d3, n=1, reAp=1):
 		clkObj(chooseStg)
 	while i < n:
 		clkObj(d)
-		clkObj(btStart)
-		apCheck(reAp)
-		if exists(autoEq, normal):
-			clkObj(autoEq)
-		sleep(changePage)
-		btAction()
-		if exists(stageCleared):
-			clkObj(stageCleared)
-			clkObj(done)
-			while exists(bondSkip, normal):
-				clkObj(bondSkip)
-				sleep(normal)
-				while exists(done, normal):
+		sleep(1)
+		if exists(bondsFull, 0):
+			i = n
+			sysMsg("All bonds have been maximized.")
+		else:
+			clkObj(btStart)
+			apCheck(reAp)
+			if exists(autoEq, normal):
+				clkObj(autoEq)
+			sleep(changePage)
+			btAction()
+			if exists(stageCleared):
+				clkObj(stageCleared)
+				clkObj(done)
+				while exists(bondSkip, normal):
+					clkObj(bondSkip)
+					sleep(normal)
+					while exists(done, normal):
+						clkObj(done)
+						sleep(normal)
+				while exists(done, 0):
 					clkObj(done)
 					sleep(normal)
-			while exists(done, 0):
-				clkObj(done)
-				sleep(normal)
-			i = i + 1
-			c = c + 1
-			sysMsg("***************Successfully executed " + str(i) + " time(s); stage cleared " + str(c) + " time(s)***************")
-		if exists(gameover):
-			clkObj(surrender)
-			i = i + 1
-			sysMsg("***************Successfully executed " + str(i) + " time(s); stage cleared " + str(c) + " time(s)***************")
+				i = i + 1
+				c = c + 1
+				sysMsg("***************Successfully executed " + str(i) + " time(s); stage cleared " + str(c) + " time(s)***************")
+			if exists(gameover):
+				clkObj(gameover, 0, surrender)
+				clkObj(surrender)
+				i = i + 1
+				sysMsg("***************Successfully executed " + str(i) + " time(s); stage cleared " + str(c) + " time(s)***************")
 	if n < 0:
 		sysMsg("Error: n must be empty or positive")
 	else:
@@ -325,6 +332,6 @@ def warQ(r, n=1, reAp=1):
 	else:
 		exit()
 #  -------------------------Body-------------------------
-#bondQ(n=50)
+bondQ(n=50)
 #trainQ(floor4, n=5)
-warQ(r1, n=6000/300)
+#warQ(r1, n=6000/300)
