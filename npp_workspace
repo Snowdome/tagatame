@@ -27,4 +27,11 @@
     <Project name="FEH">
         <File name="Sikuli\FEH.sikuli\FEH.py" />
     </Project>
+    <Project name="AnotherEden">
+        <File name="another_picker\en.html" />
+        <File name="another_picker\index.html" />
+        <File name="another_picker\collection.html" />
+        <File name="another_picker\js\collection.js" />
+        <File name="another_picker\css\collection.css" />
+    </Project>
 </NotepadPlus>

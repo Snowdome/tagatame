@@ -305,13 +305,21 @@ def warQ(r, n=1, reAp=1):
 		btAction(outcomeB=lose)
 		m = 0
 		while not exists(result, 0):
+			while exists(done, 0):
+				clkObj(done)
+				sleep(normal)
 			if exists(stageCleared, 0):
 				clkObj(stageCleared)
 				sleep(changePage)
 				m = m + 1
 				sysMsg("***************" + str(m) + " map(s) cleared***************")
+				sleep(changePage)
+				while exists(done, 0):
+					clkObj(done)
+					sleep(double)
 				if exists(result, 0):
 					i = i + 1
+					sleep(normal)
 				else:
 					btAction(outcomeB=lose)
 			if exists(lose, 0):
@@ -332,6 +340,6 @@ def warQ(r, n=1, reAp=1):
 	else:
 		exit()
 #  -------------------------Body-------------------------
-bondQ(n=50)
+#bondQ(n=50)
 #trainQ(floor4, n=5)
-#warQ(r1, n=6000/300)
+warQ(r1, n=30)
