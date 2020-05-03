@@ -63,7 +63,7 @@ function convertToPNG() {
 	html2canvas(document.getElementById("table8")).then(function(canvas) {
 		document.getElementById("canvasOutput").appendChild(canvas);
 		document.getElementsByTagName("canvas")[0].setAttribute("id", "canvasRune");
-		var image = canvasRune.toDataURL("image/jpg", 0.5);
+		var image = canvasRune.toDataURL("image/png");
 		document.getElementById("canvasOutput").href = image;
 	});
 	document.getElementById("outputTable").style.display = "none";
