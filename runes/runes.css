@@ -1,70 +1,186 @@
 @charset "UTF-8";
 
-select, input[type="number"] {
-    width: 100px;
+select,
+input[type="number"] {
+	width: 100px;
 }
 
 br,
 li {
-    line-height: 2;
+	line-height: 2;
+}
+
+button[disabled] {
+	color: white;
+}
+
+button[id^="useGauge"] {
+	font-size: small;
+}
+
+button#unlock,
+button#downloadJSON,
+button#convertToPNG,
+div#outputTable,
+div#unlockInput,
+div#emulator {
+	display: none;
 }
 
 img[src*="it_rune_"] {
-    height: 64px;
-    text-align: center;
-    vertical-align: middle;
+	height: 64px;
+	text-align: center;
+	vertical-align: middle;
 }
 
 img[src*="it_runee"],
-img[src*="it_rune_reset_item."] {
-    height: 32px;
-    vertical-align: middle;
+img[src*="it_rune_reset_item"],
+img[src*="IT_RUNE_STATUS_HUMMER_ITEM"] {
+	height: 32px;
+	vertical-align: middle;
 }
 
 img[src*="ui_Rune"] {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 img[src*="ui_rune"] {
-    vertical-align: middle;
-    height: 30px;
+	vertical-align: middle;
+	height: 30px;
+}
+
+input#title {
+	width: 207px;
+	border: 1px solid #ddd;
 }
 
 p {
-    line-height: 2;
+	line-height: 2;
 }
 
 p>img.thumbnail {
-    height: 30px;
+	height: 30px;
 }
 
 table {
-    border-spacing: 1px;
-    border: 1px solid #ddd;
-    width: auto;
+	border-spacing: 1px;
+	border: 1px solid #ddd;
+	width: auto;
+}
+
+table#changeLog td p {
+	display: inline;
+	line-height: 18px;
+}
+
+table#changeLog tr :first-child {
+	padding-left: 0px;
+	width: 85px;
+}
+
+table#changeLog,
+table#changeLog td {
+	border-spacing: 0;
+	border: none;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+}
+
+table#table1 td:nth-child(9),
+table#table7 td:nth-child(9) {
+	width: 34px;
+}
+
+table#table1 tr :nth-child(10),
+table#table7 tr :nth-child(10) {
+	text-align: left;
+	width: auto;
+}
+
+/* Set bonus */
+table#table1 tr :nth-child(8),
+table#table7 tr :nth-child(8),
+table#table8 tr :nth-child(8),
+table#table8b tr :nth-child(8):not(.paid) {
+	text-align: left;
+	width: 140px;
+}
+
+table#table2 .pA1,
+table#table2 .pB1,
+table#table2 .pC1 {
+	width: auto;
+}
+
+table#table2 tr:nth-child(6) td:last-child,
+table#table2 tr:nth-child(9) td:last-child,
+table#table2 tr:nth-child(12) td:last-child,
+table#table4 {
+	text-align: right;
+}
+
+table#table4 th,
+table#table4 td {
+	width: 75px;
+}
+
+table#table4 th:first-child {
+	font-size: smaller;
+}
+
+tbody#history td:nth-child(2) {
+	width: 400px;
+}
+
+tbody#history tr:nth-child(odd) {
+	background-color: #f2f2f2
 }
 
 td br {
-    line-height: normal;
+	line-height: normal;
 }
 
 
+textarea#jsonOutput {
+	font-family: sans-serif;
+	font-size: smaller;
+	width: 832px;
+	border: 1px solid #ddd;
+	resize: none;
+}
+
 th,
 td {
-    border: 1px solid #ddd;
-    text-align: center;
-    vertical-align: middle;
-    height: 21px;
-    width: 120px;
+	border: 1px solid #ddd;
+	text-align: center;
+	vertical-align: middle;
+	height: 21px;
+	width: 120px;
 }
 
 th:first-child,
 td:first-child {
-    width: 80px;
+	width: 80px;
 }
 
-.em, .en, .ev {
-	width: 120px;
+.any {
+	color: lightgrey;
+}
+
+.caption {
+	font-weight: bold;
+}
+
+.combined {
+	position: relative;
+}
+
+.em,
+.en,
+button[id^="useGauge"] {
+	width: 60px;
+	float: left;
 }
 
 .en {
@@ -79,165 +195,74 @@ td:first-child {
 	border-color: lightgray;
 }
 
-.caption {
-    font-weight: bold;
-}
-
-.combined {
-    position: relative;
+.ev,
+.rr {
+	width: 120px;
 }
 
 .good {
-    background: pink;
+	background: pink;
 }
 
 .header {
-    font-size: large;
-    font-weight: bold;
-    text-decoration: underline;
+	font-size: large;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.highlight {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.icon {
+	position: absolute;
+	height: 24px;
+	top: 5px;
+	right: 30px;
+}
+
+.keyword {
+	font-weight: bold;
+	background-color: lightgrey;
 }
 
 .new {
 	color: red;
 }
 
-.highlight {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.icon {
-    position: absolute;
-    height: 24px;
-    top: 5px;
-    right: 30px;
-}
-
-.idc {
-    /* I don\'t care */
-    color: lightgrey;
-}
-
-.keyword {
-    font-weight: bold;
-    background-color: lightgrey;
-}
-
 .pA1,
 .pA2 {
-    color: red;
+	color: red;
 }
 
 .pB1,
 .pB2 {
-    color: blue;
+	color: blue;
 }
 
 .pC1,
 .pC2 {
-    color: darkgreen;
-}
-
-.poor {
-    background: lightblue;
-}
-
-.strthr {
-    text-decoration: line-through;
-}
-
-.unreleased {
-    display: none;
-    background: #f2f2f2;
-}
-
-#outputTable {
-    display: none;
-}
-
-/* Set bonus */
-#table1 tr :nth-child(8),
-#table7 tr :nth-child(8),
-#table8 tr :nth-child(8),
-#table8b tr :nth-child(8):not(.paid) {
-    text-align: left;
-    width: 140px;
-}
-
-#table1 td:nth-child(9),
-#table7 td:nth-child(9) {
-    width: 34px;
-}
-
-#table1 tr :nth-child(10),
-#table7 tr :nth-child(10) {
-    text-align: left;
-    width: auto;
-}
-
-#table2 .pA1,
-#table2 .pB1,
-#table2 .pC1 {
-    width: auto;
-}
-
-#table2 tr:nth-child(6) td:last-child,
-#table2 tr:nth-child(9) td:last-child,
-#table2 tr:nth-child(12) td:last-child,
-#table4 {
-    text-align: right;
-}
-
-#table4 th,
-#table4 td {
-    width: 75px;
-}
-
-#table4 th:first-child {
-    font-size: smaller;
-}
-
-.paid {
-	text-align: right;
+	color: darkgreen;
 }
 
 .paid img {
 	height: 20px;
 }
 
-#useGauge {
-	width: 140px;
-	display: none;
-}
-
-#usingGauge {
+.paid {
 	text-align: right;
+}
+
+.poor {
+	background: lightblue;
+}
+
+.strthr {
+	text-decoration: line-through;
+}
+
+.unreleased {
 	display: none;
-}
-
-#changeLog tr :first-child {
-	padding-left: 0px;
-	width: 85px;
-}
-
-#changeLog td p {
-	display: inline;
-	line-height: 18px;
-}
-
-#changeLog,
-#changeLog td {
-	border-spacing: 0;
-	border: none;
-	width: auto;
-	text-align: left;
-	vertical-align: top;	
-}
-
-#history tr:nth-child(odd) {
-	background-color: #f2f2f2
-}
-
-#history td:nth-child(2) {
-	width: 400px;
+	background: #f2f2f2;
 }

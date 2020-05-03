@@ -59,70 +59,184 @@ function selectedText(selectId) {
 } */
 
 function convertToPNG() {
-	document.getElementById("convertToPNG").style.display = "none";
+	document.getElementById("convertToPNG").disabled = true;
 	html2canvas(document.getElementById("table8")).then(function(canvas) {
-		document.getElementById("message").appendChild(canvas);
-		document.getElementsByTagName("canvas")[0].setAttribute("id", "runeBlob");
+		document.getElementById("canvasOutput").appendChild(canvas);
+		document.getElementsByTagName("canvas")[0].setAttribute("id", "canvasRune");
+		var image = canvasRune.toDataURL("image/jpg", 0.5);
+		document.getElementById("canvasOutput").href = image;
 	});
-	document.getElementById("table8").style.display = "none";
+	document.getElementById("outputTable").style.display = "none";
 }
 
-function convertToCSV() {
-	var universalBOM = "\uFEFF";
-	var data = [
-		// 1st row - set
-		["set",
-			selectedText(set1),
-			selectedText(set2),
-			selectedText(set3),
-			selectedText(set4),
-			selectedText(set5),
-			selectedText(set6)
-		],
-		// 2nd row - quality
-		["quality",
+function createJSON() {
+	var data = {
+		"title": document.getElementById("title").value,
+		"rune1": [
+			set1.options[set1.selectedIndex].text,
 			document.getElementById("rank1").value,
+			document.getElementById("stat1").innerText,
+			document.getElementById("stat1Given").value,
+			document.getElementById("evo1").value
+		],
+		"rune2": [
+			set2.options[set2.selectedIndex].text,
 			document.getElementById("rank2").value,
+			document.getElementById("stat2").innerText,
+			document.getElementById("stat2Given").value,
+			document.getElementById("evo2").value
+		],
+		"rune3": [
+			set3.options[set3.selectedIndex].text,
 			document.getElementById("rank3").value,
+			document.getElementById("stat3").innerText,
+			document.getElementById("stat3Given").value,
+			document.getElementById("evo3").value
+		],
+		"rune4": [
+			set4.options[set4.selectedIndex].text,
 			document.getElementById("rank4").value,
+			document.getElementById("stat4").innerText,
+			document.getElementById("stat4Given").value,
+			document.getElementById("evo4").value
+		],
+		"rune5": [
+			set5.options[set5.selectedIndex].text,
 			document.getElementById("rank5").value,
-			document.getElementById("rank6").value
+			document.getElementById("stat5").innerText,
+			document.getElementById("stat5Given").value,
+			document.getElementById("evo5").value
 		],
-		// 3rd row - stat type
-		["type",
-			document.getElementById('stat1').innerText,
-			document.getElementById('stat2').innerText,
-			"HP",
-			document.getElementById('stat4').innerText,
-			document.getElementById('stat5').innerText,
-			"素早"
-		],
-		// 4th row - stat value
-		["value",
-			document.getElementById('stat1G').innerText,
-			document.getElementById('stat2G').innerText,
-			document.getElementById('stat3G').innerText,
-			document.getElementById('stat4G').innerText,
-			document.getElementById('stat5G').innerText,
-			document.getElementById('stat6G').innerText
-		],
-		// 5th row - evo stat
-		["evo",
-			document.getElementById('evoStat1').innerText,
-			document.getElementById('evoStat2').innerText,
-			document.getElementById('evoStat3').innerText,
-			document.getElementById('evoStat4').innerText,
-			document.getElementById('evoStat5').innerText,
-			document.getElementById('evoStat6').innerText
-		],
-	];
-	// Building the CSV from the Data two-dimensional array
-	// Each column is separated by ";" and new line "\n" for next row
-	var csvContent = '';
-	data.forEach(function(infoArray, index) {
-		dataString = infoArray.join(';');
-		csvContent += index < data.length ? dataString + '\n' : dataString;
-	});
+		"rune6": [
+			set6.options[set6.selectedIndex].text,
+			document.getElementById("rank6").value,
+			document.getElementById("stat6").innerText,
+			document.getElementById("stat6Given").value,
+			document.getElementById("evo6").value
+		]
+	}
+	return data;
+}
+
+function importJSON() {
+	var runeSet = JSON.parse(document.getElementById("jsonOutput").value);
+	document.getElementById("title").value = runeSet.title;
+	for (r = 1; r < 7; r++) {
+		/* Import title */
+		var runeSlot = "rune" + r;
+		var stat = "stat" + r;
+		/* Array[0] - 符文 */
+		switch (runeSet[runeSlot][0]) {
+			case "強攻":
+				document.getElementById("set" + r).value = "00kongo";
+				break;
+			case "魔道":
+				document.getElementById("set" + r).value = "01mado";
+				break;
+			case "堅牢":
+				document.getElementById("set" + r).value = "02kenro";
+				break;
+			case "魔陣":
+				document.getElementById("set" + r).value = "03majin";
+				break;
+			case "加護":
+				document.getElementById("set" + r).value = "05kago";
+				break;
+			case "命脈":
+				document.getElementById("set" + r).value = "07meimyaku";
+				break;
+			case "一閃":
+				document.getElementById("set" + r).value = "11issen";
+				break;
+			case "一掃":
+				document.getElementById("set" + r).value = "12isso";
+				break;
+			default:
+				alert("Given data is corrupted - " + runeSlot + "$符文");
+				console.log(runeSet[runeSlot][0]);
+		}
+		/* Array[1] - 刻印級別 */
+		switch (runeSet[runeSlot][1]) {
+			case "ssr":
+			case "sr":
+			case "r":
+				document.getElementById("rank" + r).value = runeSet[runeSlot][1];
+				break;
+			default:
+				alert("Given data is corrupted - " + runeSlot + "$刻印級別");
+				console.log(runeSet[runeSlot][1]);
+		}
+		/* Array[2] - 基礎屬性 */
+		switch (r) {
+			case 1:
+				if (runeSet[runeSlot][2] == "物攻") {
+					document.getElementById(stat + "_patk").checked = true;
+				} else if (runeSet[runeSlot][2] == "器用") {
+					document.getElementById(stat + "_dex").checked = true;
+				} else {
+					alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+					console.log(runeSet[runeSlot][2]);
+				}
+				break;
+			case 2:
+				if (runeSet[runeSlot][2] == "物防") {
+					document.getElementById(stat + "_pdef").checked = true;
+				} else if (runeSet[runeSlot][2] == "会心") {
+					document.getElementById(stat + "_crit").checked = true;
+				} else {
+					alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+					console.log(runeSet[runeSlot][2]);
+				}
+				break;
+			case 3:
+				if (runeSet[runeSlot][2] != "HP") {
+					alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+					console.log(runeSet[runeSlot][2]);
+				}
+				break;
+			case 4:
+				if (runeSet[runeSlot][2] == "魔攻") {
+					document.getElementById(stat + "_matk").checked = true;
+				} else if (runeSet[runeSlot][2] == "器用") {
+					document.getElementById(stat + "_dex").checked = true;
+				} else {
+					alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+					console.log(runeSet[runeSlot][2]);
+				}
+				break;
+			case 5:
+				if (runeSet[runeSlot][2] == "魔防") {
+					document.getElementById(stat + "_mdef").checked = true;
+				} else if (runeSet[runeSlot][2] == "運") {
+					document.getElementById(stat + "_luck").checked = true;
+				} else {
+					alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+					console.log(runeSet[runeSlot][2]);
+				}
+				break;
+			case 6:
+				if (runeSet[runeSlot][2] != "素早") {
+					alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+					console.log(runeSet[runeSlot][2]);
+				}
+				break;
+			default:
+				alert("Given data is corrupted - " + runeSlot + "$基礎屬性");
+				console.log(runeSet[runeSlot][2]);
+		}
+		/* Array[3] - 基礎數值 */
+		document.getElementById(stat + "Given").value = runeSet[runeSlot][3];
+		/* Array[4] - 覺醒屬性 */
+		document.getElementById("evo" + r).value = runeSet[runeSlot][4];
+	}
+	console.log("Imported JSON");
+}
+
+function downloadJSON() {
+	var universalBOM = "\uFEFF";
+	var data = createJSON();
+	document.getElementById("jsonOutput").value = JSON.stringify(data);
+	document.getElementById("jsonOutput").setAttribute("data-export", JSON.stringify(data));
 
 	// The download function takes a CSV string, the filename and mimeType as parameters
 	// Scroll/look down at the bottom of this snippet to see how download is called
@@ -146,8 +260,8 @@ function convertToCSV() {
 			location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
 		}
 	}
-
-	download(universalBOM + csvContent, 'rune.csv', 'text/csv;encoding:utf-8');
+	document.getElementById("jsonOutput").value = JSON.stringify(data);
+	download(universalBOM + JSON.stringify(data), 'rune.json', 'application/json;encoding:utf-8');
 }
 
 function randomInt(min, max) {
@@ -158,8 +272,9 @@ function randomInt(min, max) {
 	return x;
 }
 
-/* Assign random stats to runes */ // proabilitySet, runeRank, td#statIdEm
-function randomStat(set, rank, statIdEm) {
+/* Assign random stats to runes */ // proabilitySet, runeRank, slot
+function randomStat(set, rank, slot) {
+	console.log("Assigning random stat for rune" + slot + ".");
 	var p = parseInt(randomInt(1, 100));
 	document.getElementById("rolled").innerHTML = (p + " / 100");
 	var output;
@@ -211,7 +326,7 @@ function randomStat(set, rank, statIdEm) {
 						break;
 				}
 			} else {
-				console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + ") case A, please check.");
+				console.log("Error in randomStat(" + set + ", " + rank + ", " + slot + ") case A, please check.");
 			}
 			break;
 		case "B":
@@ -261,7 +376,7 @@ function randomStat(set, rank, statIdEm) {
 						break;
 				}
 			} else {
-				console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + ") case B, please check.");
+				console.log("Error in randomStat(" + set + ", " + rank + ", " + slot + ") case B, please check.");
 			}
 			break;
 		case "C":
@@ -311,63 +426,62 @@ function randomStat(set, rank, statIdEm) {
 						break;
 				}
 			} else {
-				console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + ") case C, please check.");
+				console.log("Error in randomStat(" + set + ", " + rank + ", " + slot + ") case C, please check.");
 			}
 			break;
 		default:
-			console.log("Error in randomStat(" + set + ", " + rank + ", " + statIdEm + "), please check.");
+			console.log("Error in randomStat(" + set + ", " + rank + ", " + slot + "), please check.");
 	}
-	document.getElementById(statIdEm).innerHTML = output;
+	document.getElementById("stat" + slot + "Em").innerHTML = output;
 }
 
 function refreshMinMax(set, slot) {
-	var rankId = "rank" + slot;
+	var rank = document.getElementById("rank" + slot).value;
 	var statIdGiven = "stat" + slot + "Given";
-	var quality = document.getElementById(rankId).options[document.getElementById(rankId).selectedIndex].value;
-	switch (set) {
-		case "A":
-			switch (quality) {
-				case "ssr":
+	switch (rank) {
+		case "ssr":
+			switch (set) {
+				case "A":
 					document.getElementById(statIdGiven).min = "76";
 					document.getElementById(statIdGiven).max = "100";
 					break;
-				case "sr":
-					document.getElementById(statIdGiven).min = "31";
-					document.getElementById(statIdGiven).max = "55";
-					break;
-				case "r":
-					document.getElementById(statIdGiven).min = "1";
-					document.getElementById(statIdGiven).max = "25";
-					break;
-			}
-			break;
-		case "B":
-			switch (quality) {
-				case "ssr":
+				case "B":
 					document.getElementById(statIdGiven).min = "501";
 					document.getElementById(statIdGiven).max = "700";
 					break;
-				case "sr":
-					document.getElementById(statIdGiven).min = "221";
-					document.getElementById(statIdGiven).max = "420";
-					break;
-				case "r":
-					document.getElementById(statIdGiven).min = "101";
-					document.getElementById(statIdGiven).max = "200";
-					break;
-			}
-			break;
-		case "C":
-			switch (quality) {
-				case "ssr":
+				case "C":
 					document.getElementById(statIdGiven).min = "8";
 					document.getElementById(statIdGiven).max = "10";
 					break;
-				case "sr":
+			}
+			break;
+		case "sr":
+			switch (set) {
+				case "A":
+					document.getElementById(statIdGiven).min = "31";
+					document.getElementById(statIdGiven).max = "55";
+					break;
+				case "B":
+					document.getElementById(statIdGiven).min = "221";
+					document.getElementById(statIdGiven).max = "420";
+					break;
+				case "C":
 					document.getElementById(statIdGiven).min = "4";
 					document.getElementById(statIdGiven).max = "6";
 					break;
-				case "r":
+			}
+			break;
+		case "r":
+			switch (set) {
+				case "A":
+					document.getElementById(statIdGiven).min = "1";
+					document.getElementById(statIdGiven).max = "25";
+					break;
+				case "B":
+					document.getElementById(statIdGiven).min = "101";
+					document.getElementById(statIdGiven).max = "200";
+					break;
+				case "C":
 					document.getElementById(statIdGiven).min = "1";
 					document.getElementById(statIdGiven).max = "3";
 					break;
@@ -379,31 +493,80 @@ function refreshMinMax(set, slot) {
 }
 
 function refreshStats() {
-	document.getElementById("statTotal1").innerHTML = parseInt(document.getElementById("stat1Em").innerHTML) + parseInt(document.getElementById("statEn1").innerHTML);
-	document.getElementById("statTotal2").innerHTML = parseInt(document.getElementById("stat2Em").innerHTML) + parseInt(document.getElementById("statEn2").innerHTML);
-	document.getElementById("statTotal3").innerHTML = parseInt(document.getElementById("stat3Em").innerHTML) + parseInt(document.getElementById("statEn3").innerHTML);
-	document.getElementById("statTotal4").innerHTML = parseInt(document.getElementById("stat4Em").innerHTML) + parseInt(document.getElementById("statEn4").innerHTML);
-	document.getElementById("statTotal5").innerHTML = parseInt(document.getElementById("stat5Em").innerHTML) + parseInt(document.getElementById("statEn5").innerHTML);
-	document.getElementById("statTotal6").innerHTML = parseInt(document.getElementById("stat6Em").innerHTML) + parseInt(document.getElementById("statEn6").innerHTML);
+	for (slot = 1; slot <= 6; slot++) {
+		var statEm = parseInt(document.getElementById("stat" + slot + "Em").innerHTML);
+		var statEn = parseInt(document.getElementById("statEn" + slot).innerHTML);
+		document.getElementById("statTotal" + slot).innerHTML = statEm + statEn;
+	}
 }
 
+function unlockInput() {
+	// Switch display style parameter
+	document.getElementById("inputValue").style.display = "block";
+	document.getElementById("outputTable").style.display = "none";
+	document.getElementById("emulator").style.display = "none";
+	document.getElementById("lock").style.display = "inline-block";
+	document.getElementById("unlock").style.display = "none";
+	document.getElementById("importJSON").style.display = "inline-block";
+	document.getElementById("downloadJSON").style.display = "none";
+	document.getElementById("setBonus").innerHTML = "";
+	
+	// Remove of existing canvas, if any
+	if (document.getElementsByTagName("canvas")[0] != null) {
+		document.getElementsByTagName("canvas")[0].remove();
+		document.getElementById("convertToPNG").style.display = "none";
+	}
 
+	// Revert outputTable to default values
+	for (i = 1; i <= 3; i++) {
+		for (j = 1; j <= 6; j++) {
+			var evoStatEm = "evoStatEm" + i + j;
+			var evoStatIntEm = "evoStatIntEm" + i + j;
+			document.getElementById(evoStatEm).innerHTML = "N/A";
+			document.getElementById(evoStatIntEm).innerHTML = "N/A";
+		}
+	}
+}
 
 function lockInput() {
+	/* Switch display style parameter */
+	document.getElementById("inputValue").style.display = "none";
+	document.getElementById("outputTable").style.display = "block";
+	document.getElementById("emulator").style.display = "block";
+	document.getElementById("lock").style.display = "none";
+	document.getElementById("unlock").style.display = "inline-block";
+	document.getElementById("importJSON").style.display = "none";
+	document.getElementById("downloadJSON").style.display = "inline-block";
+	document.getElementById("convertToPNG").disabled = false;
+	document.getElementById("convertToPNG").style.display = "inline-block";
+
+	/* If title is available, insert title, else cleanup template */
+	if (document.getElementById("title").value == "標題") {
+		document.getElementById("title").value = "";
+		console.log("No title has been input.")
+	} else {
+		document.getElementById("outputTitle").innerHTML = document.getElementById("title").value;
+	}
+
 	/* Insert Rune images */
-	function runeImage(slot) {
+	for (slot = 1; slot <= 6; slot++) {
 		var rank = document.getElementById("rank" + slot).value;
+		switch (rank) {
+			case "ssr":
+				document.getElementById("useGauge" + slot).className = "useGauge5";
+				break;
+			case "sr":
+				document.getElementById("useGauge" + slot).className = "useGauge4";
+				break;
+			case "r":
+				document.getElementById("useGauge" + slot).className = "useGauge3";
+				break;
+		}
 		var set = document.getElementById("set" + slot).value.substring(2);
 		var ico = document.getElementById("set" + slot).value.substring(0, 2);
 		document.getElementById("rune" + slot).innerHTML = "<img src='resources/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico + ".png>";
 		document.getElementById("rune" + slot + "Em").innerHTML = "<img src='resources/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico + ".png>";
 	}
-	runeImage(1);
-	runeImage(2);
-	runeImage(3);
-	runeImage(4);
-	runeImage(5);
-	runeImage(6);
 
 	/* Insert Basic Stat type */
 	document.getElementById("stat1").innerHTML = document.querySelector('input[name = "stat1"]:checked').value;
@@ -418,36 +581,36 @@ function lockInput() {
 	/* Insert Evo Stat type */
 	// 嫉妬
 	var evo1 = document.getElementById("evo1")
-	if (evo1.options[evo1.selectedIndex].value == "idc") {
+	if (evo1.options[evo1.selectedIndex].value == "any") {
 		document.getElementById("evoStat1").innerHTML = "隨機";
-		document.getElementById("evoStat1").className = "idc";
+		document.getElementById("evoStat1").className = "any";
 	} else {
 		document.getElementById("evoStat1").innerHTML = evo1.options[evo1.selectedIndex].text;
 		document.getElementById("evoStat1").className = "pA2";
 	}
 	// 怠惰
 	var evo2 = document.getElementById("evo2")
-	if (evo2.options[evo2.selectedIndex].value == "idc") {
+	if (evo2.options[evo2.selectedIndex].value == "any") {
 		document.getElementById("evoStat2").innerHTML = "隨機";
-		document.getElementById("evoStat2").className = "idc";
+		document.getElementById("evoStat2").className = "any";
 	} else {
 		document.getElementById("evoStat2").innerHTML = evo2.options[evo2.selectedIndex].text;
 		document.getElementById("evoStat2").className = "pB2";
 	}
 	// 色欲
 	var evo3 = document.getElementById("evo3")
-	if (evo3.options[evo3.selectedIndex].value == "idc") {
+	if (evo3.options[evo3.selectedIndex].value == "any") {
 		document.getElementById("evoStat3").innerHTML = "隨機";
-		document.getElementById("evoStat3").className = "idc";
+		document.getElementById("evoStat3").className = "any";
 	} else {
 		document.getElementById("evoStat3").innerHTML = evo3.options[evo3.selectedIndex].text;
 		document.getElementById("evoStat3").className = "pB2";
 	}
 	// 暴食
 	var evo4 = document.getElementById("evo4")
-	if (evo4.options[evo4.selectedIndex].value == "idc") {
+	if (evo4.options[evo4.selectedIndex].value == "any") {
 		document.getElementById("evoStat4").innerHTML = "隨機";
-		document.getElementById("evoStat4").className = "idc";
+		document.getElementById("evoStat4").className = "any";
 	} else {
 		if (evo4.options[evo4.selectedIndex].value == "mpGainUp") {
 			document.getElementById("evoStat4").className = "pB2";
@@ -460,28 +623,28 @@ function lockInput() {
 	}
 	// 憤怒
 	var evo5 = document.getElementById("evo5")
-	if (evo5.options[evo5.selectedIndex].value == "idc") {
+	if (evo5.options[evo5.selectedIndex].value == "any") {
 		document.getElementById("evoStat5").innerHTML = "隨機";
-		document.getElementById("evoStat5").className = "idc";
+		document.getElementById("evoStat5").className = "any";
 	} else {
 		document.getElementById("evoStat5").innerHTML = evo5.options[evo5.selectedIndex].text;
 		document.getElementById("evoStat5").className = "pB2";
 	}
 	// 強欲
 	var evo6 = document.getElementById("evo6")
-	if (evo6.options[evo6.selectedIndex].value == "idc") {
+	if (evo6.options[evo6.selectedIndex].value == "any") {
 		document.getElementById("evoStat6").innerHTML = "隨機";
-		document.getElementById("evoStat6").className = "idc";
+		document.getElementById("evoStat6").className = "any";
 	} else {
 		document.getElementById("evoStat6").innerHTML = evo6.options[evo6.selectedIndex].text;
 		document.getElementById("evoStat6").className = "pB2";
 	}
 
 	/* Calculate Set Bonus */
-	function ico(slot) {
+	function runeIco(slot) {
 		return document.getElementById("set" + slot).value.substring(0, 2);
 	}
-	var setCount = [ico(1), ico(2), ico(3), ico(4), ico(5), ico(6)];
+	var setCount = [runeIco(1), runeIco(2), runeIco(3), runeIco(4), runeIco(5), runeIco(6)];
 	// 強攻
 	var kongo = 0;
 	for (var i = 0; i < setCount.length; ++i) {
@@ -594,39 +757,109 @@ function lockInput() {
 		document.getElementById("setBonusEm").innerHTML += "範囲攻擊+5<br>";
 	}
 
-	/* Switch display style parameter */
-	document.getElementById("inputValue").style.display = "none";
-	document.getElementById("outputTable").style.display = "block";
-
-	/* For all without given value, assign random basic stats */
-	function basicStat(set, slot) {
-		if (document.getElementById("stat" + slot + "Given").value == "0") {
-			randomStat(set, document.getElementById("rank" + slot).value, "stat" + slot + "Em");
+	function sumUpGivenStat(slot, min, max) {
+		var statGiven = "stat" + slot + "Given";
+		if (document.getElementById(statGiven).value == 0) {
+			console.log("No given basic stat for rune" + slot + ".")
 			document.getElementById("stat" + slot + "G").innerHTML = "隨機";
-		} else {
+			switch (slot) {
+				case 1:
+				case 2:
+				case 4:
+				case 5:
+					randomStat("A", document.getElementById("rank" + slot).value, slot);
+					break;
+				case 3:
+					randomStat("B", document.getElementById("rank" + slot).value, slot);
+					break;
+				case 6:
+					randomStat("C", document.getElementById("rank" + slot).value, slot);
+					break;
+			}
+		} else if (document.getElementById(statGiven).value >= min && document.getElementById(statGiven).value <= max) {
+			statGivenSum += document.getElementById("stat" + slot + "Given").value;
 			document.getElementById("stat" + slot + "Em").innerHTML = document.getElementById("stat" + slot + "Given").value
 			document.getElementById("stat" + slot + "G").innerHTML = document.getElementById("stat" + slot + "Given").value
 			document.getElementById("statGiven").style.display = "table-row";
+		} else {
+			console.log("Given basic stat for rune" + slot + " is " + document.getElementById("stat" + slot + "Given").value + "; should be within " + min + " and " + max + ".");
+			alert("Given data is corrupted - rune" + slot + "$基礎屬性\nProceeding while ignoring the given data.");
+			document.getElementById("stat" + slot + "G").innerHTML = "隨機";
+			switch (slot) {
+				case 1:
+				case 2:
+				case 4:
+				case 5:
+					randomStat("A", document.getElementById("rank" + slot).value, slot);
+					break;
+				case 3:
+					randomStat("B", document.getElementById("rank" + slot).value, slot);
+					break;
+				case 6:
+					randomStat("C", document.getElementById("rank" + slot).value, slot);
+					break;
+			}
 		}
 	}
-	basicStat("A", 1);
-	basicStat("A", 2);
-	basicStat("B", 3);
-	basicStat("A", 4);
-	basicStat("A", 5);
-	basicStat("C", 6);
-	refreshStats();
 
 	var statGivenSum = 0;
-	for (var i = 1; i < 7; i++) {
-		statGivenSum += document.getElementById("stat" + i + "Given").value
+	for (var slot = 1; slot <= 6; slot++) {
+		switch (slot) {
+			case 1:
+			case 2:
+			case 4:
+			case 5:
+				switch (document.getElementById("rank" + slot).value) {
+					case "ssr":
+						sumUpGivenStat(slot, 76, 100);
+						break;
+					case "sr":
+						sumUpGivenStat(slot, 31, 55);
+						break;
+					case "r":
+						sumUpGivenStat(slot, 1, 25);
+						break;
+				}
+				break;
+			case 3:
+				switch (document.getElementById("rank" + slot).value) {
+					case "ssr":
+						sumUpGivenStat(slot, 501, 700);
+						break;
+					case "sr":
+						sumUpGivenStat(slot, 221, 420);
+						break;
+					case "r":
+						sumUpGivenStat(slot, 101, 200);
+						break;
+				}
+				break;
+			case 6:
+				switch (document.getElementById("rank" + slot).value) {
+					case "ssr":
+						sumUpGivenStat(slot, 8, 10);
+						break;
+					case "sr":
+						sumUpGivenStat(slot, 4, 6);
+						break;
+					case "r":
+						sumUpGivenStat(slot, 1, 3);
+						break;
+				}
+				break;
+		}
 	}
 	if (statGivenSum > 0) {
 		console.log("Given basic stat available. Visualizing the corresponding table row.")
 		document.getElementById("statGiven").style.display = "table-row";
 	} else {
-		console.log("No given basic stat.")
+		console.log("No given basic stat for the rune set.")
 	}
+	refreshStats();
+
+	/* Convert input values to JSON and paste to textarea#jsonOutput */
+	var data = createJSON();
+	document.getElementById("jsonOutput").value = JSON.stringify(data);
 }
 
 function evoStatInt(set, evoStatIntEmId) {
@@ -701,7 +934,8 @@ function evoStatInt(set, evoStatIntEmId) {
 	}
 }
 
-function evoStat(slot, evoStatEmId, evoStatIntEmId) { // slot, tdId(#evoStat), tdId(#evoStatIntEm)
+function evoStat(slot, evoStatEmId, evoStatIntEmId) {
+	// slot, tdId(#evoStat), tdId(#evoStatIntEm)
 	var evoType = document.getElementById(evoStatEmId);
 	switch (slot) { //slot is string
 		case "1": //嫉妬
@@ -891,31 +1125,52 @@ function evoStat(slot, evoStatEmId, evoStatIntEmId) { // slot, tdId(#evoStat), t
 	}
 }
 
-function useGauge() {
-	document.getElementById("useGauge").style.display = "none";
-	document.getElementById("usingGauge").style.display = "block";
-	console.log("Using gauge.")
+function gauge(slot) {
+	console.log("Gauging rune" + slot + ".");
+	var baseRate = parseInt(document.getElementById("enRate" + slot).innerHTML);
+	if (baseRate == "N/A") {
+		console.log("Invalid base rate.");
+	} else {
+		var rank = document.getElementById("rank" + slot).value;
+		switch (rank) {
+			case "ssr":
+				var q = 5;
+				break;
+			case "sr":
+				var q = 4;
+				break;
+			case "r":
+				var q = 3;
+				break;
+		}
+		var btnGauge = document.getElementsByClassName("useGauge" + q);
+		for (i = 0; i < btnGauge.length; i++) {
+			btnGauge[i].disabled = true;
+		}
+		document.getElementById("enRate" + slot).innerHTML = "100%";
+		document.getElementById("gauge" + q).innerHTML = (baseRate + "%");
+		console.log("Enhance success rate for rune" + slot + " has been forced to 100%. New gauge(" + q + ") is " + baseRate + "%.");
+	}
 }
 
-function enchance(enRate, lv, quality) {
+function enhance(slot, rank) {
+	enRate = "enRate" + slot;
+	useGauge = "useGauge" + slot;
+	gauging = "gauging" + slot;
+	lv = "lv" + slot;
+	console.log("Enhancing rune" + slot + ".");
 	var roll = randomInt(1, 100);
 	document.getElementById("rolled").innerHTML = (roll + " / 100");
-	if (document.getElementById("usingGauge").style.display == "block") {
-		var baseRate = 100;
-		document.getElementById("gauge").innerHTML = "0%";
-		document.getElementById("usingGauge").style.display = "none";
-		console.log("Forced base rate to be 100%")
-	} else {
-		var baseRate = parseInt(document.getElementById(enRate).innerHTML);
-		console.log("Base rate is " + baseRate + ".")
-	}
+	var baseRate = parseInt(document.getElementById(enRate).innerHTML);
+	console.log("Base rate is " + baseRate + ".")
+
 	if (roll > (100 - baseRate)) {
-		document.getElementById("range").innerHTML = "成功";
+		document.getElementById("range").innerHTML = "強化成功";
 		return true;
 	} else {
 		var failedBonus = 0;
 		var evo = document.getElementById(lv).innerHTML.substring(2, 3);
-		switch (quality) {
+		switch (rank) {
 			case "ssr":
 				switch (evo) {
 					case "1":
@@ -928,6 +1183,8 @@ function enchance(enRate, lv, quality) {
 						failedBonus = 15;
 						break;
 				}
+				gaugeOld = "gauge5";
+				useGauge = "useGauge5";
 				break;
 			case "sr":
 				switch (evo) {
@@ -941,6 +1198,8 @@ function enchance(enRate, lv, quality) {
 						failedBonus = 12;
 						break;
 				}
+				gaugeOld = "gauge4";
+				useGauge = "useGauge4";
 				break;
 			case "r":
 				switch (evo) {
@@ -954,17 +1213,23 @@ function enchance(enRate, lv, quality) {
 						failedBonus = 9;
 						break;
 				}
+				gaugeOld = "gauge3";
+				useGauge = "useGauge3";
 				break;
 			default:
-				console.log("Error in enchance(" + enRate + ", " + lv + ", " + quality + "), please check.");
+				console.log("Error in enhance(" + slot + ", " + rank + "), please check.");
 		}
 		console.log("Gauge increased by " + failedBonus + "%, cap at 100%.");
-		newGauge = Math.min(100, parseInt(document.getElementById("gauge").innerHTML) + parseInt(failedBonus));
-		if (newGauge == 100) {
-			document.getElementById("useGauge").style.display = "block";
+		gaugeNew = Math.min(100, parseInt(document.getElementById(gaugeOld).innerHTML) + parseInt(failedBonus));
+		if (gaugeNew == 100) {
+			console.log("Gauge has been filled.");
+			var btnGauge = document.getElementsByClassName(useGauge);
+			for (i = 0; i < btnGauge.length; i++) {
+				btnGauge[i].disabled = false;
+			}
 		}
-		document.getElementById("gauge").innerHTML = (newGauge + "%");
-		document.getElementById("range").innerHTML = "失敗";
+		document.getElementById(gaugeOld).innerHTML = (gaugeNew + "%");
+		document.getElementById("range").innerHTML = "強化失敗";
 		return false;
 	}
 }
@@ -972,8 +1237,9 @@ function enchance(enRate, lv, quality) {
 function upgrade(set, slot) {
 	var statEnId = document.getElementById("statEn" + slot);
 	var level = document.getElementById("lv" + slot);
-	var quality = document.getElementById("rank" + slot).value;
+	var rank = document.getElementById("rank" + slot).value;
 	var enRate = "enRate" + slot;
+	var useGauge = "useGauge" + slot;
 	var btn = document.getElementById("en" + slot);
 	var zeni = parseInt(document.getElementById("zeni").innerHTML.replace(/\,/g, ''));
 	var gem = parseInt(document.getElementById("gem").innerHTML.replace(/\,/g, ''));
@@ -988,7 +1254,7 @@ function upgrade(set, slot) {
 
 	switch (level.innerHTML) {
 		case "覺醒0 強化0":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 90000;
 					costGreen = 5;
@@ -1002,7 +1268,7 @@ function upgrade(set, slot) {
 					costGreen = 3;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 3;
@@ -1015,10 +1281,11 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒0 強化1";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒0 強化1":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 180000;
 					costGreen = 5;
@@ -1032,7 +1299,7 @@ function upgrade(set, slot) {
 					costGreen = 3;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 5;
@@ -1045,10 +1312,11 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒0 強化2";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒0 強化2":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 270000;
 					costGreen = 5;
@@ -1062,7 +1330,7 @@ function upgrade(set, slot) {
 					costGreen = 3;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 7;
@@ -1077,10 +1345,12 @@ function upgrade(set, slot) {
 				level.innerHTML = "覺醒0 強化3";
 				btn.innerHTML = "覺醒";
 				btn.className = "ev";
+				document.getElementById(useGauge).style.display = "none";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒0 強化3": //覺醒
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 1500000;
 					costRed = 1;
@@ -1096,12 +1366,13 @@ function upgrade(set, slot) {
 			}
 			level.innerHTML = "覺醒1 強化0";
 			btn.innerHTML = "強化";
-			document.getElementById(enRate).innerHTML = "60%";
 			btn.className = "en";
+			document.getElementById(useGauge).style.display = "inline-block";
+			document.getElementById(enRate).innerHTML = "60%";
 			evoStat(slot, "evoStatEm" + "1" + slot, "evoStatIntEm" + "1" + slot);
 			break;
 		case "覺醒1 強化0":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 360000;
 					costGreen = 5;
@@ -1115,7 +1386,7 @@ function upgrade(set, slot) {
 					costGreen = 3;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 9;
@@ -1132,7 +1403,7 @@ function upgrade(set, slot) {
 			}
 			break;
 		case "覺醒1 強化1":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 450000;
 					costGreen = 5;
@@ -1146,7 +1417,7 @@ function upgrade(set, slot) {
 					costGreen = 3;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 11;
@@ -1163,7 +1434,7 @@ function upgrade(set, slot) {
 			}
 			break;
 		case "覺醒1 強化2":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 540000;
 					costGreen = 5;
@@ -1177,7 +1448,7 @@ function upgrade(set, slot) {
 					costGreen = 3;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 13;
@@ -1192,11 +1463,12 @@ function upgrade(set, slot) {
 				level.innerHTML = "覺醒1 強化3";
 				btn.innerHTML = "覺醒";
 				btn.className = "ev";
+				document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒1 強化3": //覺醒
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 3000000;
 					costRed = 3;
@@ -1212,11 +1484,13 @@ function upgrade(set, slot) {
 			}
 			level.innerHTML = "覺醒2 強化0";
 			btn.innerHTML = "強化";
+			document.getElementById(useGauge).style.display = "inline-block";
 			document.getElementById(enRate).innerHTML = "30%";
 			btn.className = "en";
 			evoStat(slot, "evoStatEm" + "2" + slot, "evoStatIntEm" + "2" + slot);
+			break;
 		case "覺醒2 強化0":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 630000;
 					costGreen = 10;
@@ -1230,7 +1504,7 @@ function upgrade(set, slot) {
 					costGreen = 6;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 15;
@@ -1247,7 +1521,7 @@ function upgrade(set, slot) {
 			}
 			break;
 		case "覺醒2 強化1":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 720000;
 					costGreen = 10;
@@ -1261,7 +1535,7 @@ function upgrade(set, slot) {
 					costGreen = 6;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 17;
@@ -1278,7 +1552,7 @@ function upgrade(set, slot) {
 			}
 			break;
 		case "覺醒2 強化2":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 810000;
 					costGreen = 10;
@@ -1292,7 +1566,7 @@ function upgrade(set, slot) {
 					costGreen = 6;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 19;
@@ -1307,11 +1581,12 @@ function upgrade(set, slot) {
 				level.innerHTML = "覺醒2 強化3";
 				btn.innerHTML = "覺醒";
 				btn.className = "ev";
+				document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒2 強化3": //覺醒
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 4500000;
 					costRed = 5;
@@ -1327,12 +1602,13 @@ function upgrade(set, slot) {
 			}
 			level.innerHTML = "覺醒3 強化0";
 			btn.innerHTML = "強化";
+			document.getElementById(useGauge).style.display = "inline-block";
 			document.getElementById(enRate).innerHTML = "10%";
 			btn.className = "en";
 			evoStat(slot, "evoStatEm" + "3" + slot, "evoStatIntEm" + "3" + slot);
 			break;
 		case "覺醒3 強化0":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 900000;
 					costGreen = 15;
@@ -1346,7 +1622,7 @@ function upgrade(set, slot) {
 					costGreen = 9;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 21;
@@ -1363,7 +1639,7 @@ function upgrade(set, slot) {
 			}
 			break;
 		case "覺醒3 強化1":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 990000;
 					costGreen = 15;
@@ -1377,7 +1653,7 @@ function upgrade(set, slot) {
 					costGreen = 9;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 23;
@@ -1394,7 +1670,7 @@ function upgrade(set, slot) {
 			}
 			break;
 		case "覺醒3 強化2":
-			switch (quality) {
+			switch (rank) {
 				case "ssr":
 					cost = 1080000;
 					costGreen = 15;
@@ -1408,7 +1684,7 @@ function upgrade(set, slot) {
 					costGreen = 9;
 					break;
 			}
-			if (enchance("enRate" + slot, "lv" + slot, quality) == true) {
+			if (enhance(slot, rank) == true) {
 				switch (set) {
 					case "A":
 						output = 25;
@@ -1417,7 +1693,7 @@ function upgrade(set, slot) {
 						output = 120;
 						break;
 					case "C":
-						switch (quality) {
+						switch (rank) {
 							case "ssr":
 								output = 5;
 								break;
@@ -1430,6 +1706,7 @@ function upgrade(set, slot) {
 				}
 				level.innerHTML = "覺醒3 強化3";
 				btn.style.display = "none";
+				document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "N/A";
 			}
 			break;
@@ -1446,12 +1723,13 @@ function upgrade(set, slot) {
 }
 
 function rerollBasicStat(set, slot) {
-	randomStat(set, document.getElementById("rank" + slot).value, "stat" + slot + "Em");
+	var rank = document.getElementById("rank" + slot).value
+	randomStat(set, rank, slot);
 	refreshStats();
 
 	var zeni = parseInt(document.getElementById("zeni").innerHTML.replace(/\,/g, ''));
 	var gem = parseInt(document.getElementById("gem").innerHTML.replace(/\,/g, ''));
-	switch (quality) {
+	switch (rank) {
 		case "ssr":
 			document.getElementById("gem").innerHTML = Intl.NumberFormat('en-US').format(gem + 200);
 			break;
@@ -1470,13 +1748,13 @@ function rerollEvo(row, slot) {
 	if (document.getElementById(evoStatEmId).innerHTML == "N/A") {
 		console.log("Invalid level");
 	} else {
-		var quality = document.getElementById("rank" + slot).value;
 		evoStat(slot, evoStatEmId, evoStatIntEmId);
 		refreshStats();
 
+		var rank = document.getElementById("rank" + slot).value;
 		var zeni = parseInt(document.getElementById("zeni").innerHTML.replace(/\,/g, ''));
 		var gem = parseInt(document.getElementById("gem").innerHTML.replace(/\,/g, ''));
-		switch (quality) {
+		switch (rank) {
 			case "ssr":
 				document.getElementById("gem").innerHTML = Intl.NumberFormat('en-US').format(gem + 200);
 				break;
@@ -1487,5 +1765,73 @@ function rerollEvo(row, slot) {
 				document.getElementById("zeni").innerHTML = Intl.NumberFormat('en-US').format(zeni + 500000);
 				break;
 		}
+	}
+}
+
+function enhanceEvo(row, slot) {
+	var evoStatEmId = "evoStatEm" + row + slot;
+	var evoStatIntEmId = "evoStatIntEm" + row + slot;
+	var evoStatSet;
+	if (document.getElementById(evoStatEmId).innerHTML == "N/A") {
+		console.log("Invalid level");
+	} else {
+		function hammer() {
+			var p = parseInt(randomInt(1, 100));
+			document.getElementById("rolled").innerHTML = (p + " / 100");
+			if (p > 66) {
+				document.getElementById(evoStatIntEmId).innerHTML = parseInt(document.getElementById(evoStatIntEmId).innerHTML) + 1;
+				document.getElementById("range").innerHTML = "效果強化成功";
+			} else {
+				document.getElementById("range").innerHTML = "效果強化失敗";
+			}
+			var rank = document.getElementById("rank" + slot).value;
+			var hammer = parseInt(document.getElementById("hammer").innerHTML.replace(/\,/g, ''));
+			switch (rank) {
+				case "ssr":
+					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 5);
+					break;
+				case "sr":
+					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 3);
+					break;
+				case "r":
+					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 1);
+					break;
+			}
+		}
+		if (document.getElementById(evoStatEmId).innerHTML == "根性") {
+			if (document.getElementById(evoStatIntEmId).innerHTML = 3) {
+				console.log("Already maximum (set C)");
+				document.getElementById("range").innerHTML = "已達到最大值";
+			} else {
+				hammer();
+			}
+		} else {
+			switch (document.getElementById(evoStatEmId).innerHTML) {
+				case "斬擊攻擊":
+				case "打擊攻擊":
+				case "刺突攻擊":
+				case "射撃攻擊":
+				case "魔法攻擊":
+				case "跳躍攻擊":
+				case "MP獲得量":
+				case "治癒力":
+				case "暴擊率":
+					if (document.getElementById(evoStatIntEmId).innerHTML == 5) {
+						console.log("Already maximum (set A)");
+						document.getElementById("range").innerHTML = "已達到最大值";
+					} else {
+						hammer();
+					}
+					break;
+				default:
+					if (document.getElementById(evoStatIntEmId).innerHTML == 10) {
+						console.log("Already maximum (set B)");
+						document.getElementById("range").innerHTML = "已達到最大值";
+					} else {
+						hammer();
+					}
+			}
+		}
+		refreshStats();
 	}
 }
