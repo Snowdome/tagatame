@@ -1,4 +1,4 @@
-# tagatame.py last updated 13/04/2020
+# tagatame.py last updated 11/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -45,6 +45,8 @@ questLoc = Pattern("openedMenu.png").targetOffset(-85,460)	# Location of quest b
 quest = Pattern("mainMenu.png").targetOffset(-90,460)	# Location of quest button in respect to the menu button
 story = "story.png"
 event = "event.png"
+eventQ = "eventQ.png"
+daily = "daily.png"
 eventTitle = "eventTitle.png"
 challenge = "challenge.png"
 questArrow = Pattern("mainMenu.png").targetOffset(-180,495)	# Location of down arrow in respect to main menu button
@@ -52,7 +54,16 @@ unit = "unit.png"
 
 missionNew = "missionNew.png"
 rewardGet = "rewardGet.png"
-
+autoRepeat = "autoRepeat.png"
+arComplete = "arComplete.png"
+arReward = "arReward.png"
+arEnd = "arEnd.png"
+okAR = "okAR.png"
+arMenu = "arMenu.png"
+arMax = Pattern("arMax.png").targetOffset(-200,0)
+arRefillAP = Pattern("arRefillAP.png").targetOffset(-65,0)
+arStart = Pattern("arStart.png").targetOffset(-100,0)
+playerReward = Pattern("playerReward.png").targetOffset(0,450)	# Loc of OK button in respect to the title bar
 
 # Battle menu
 
@@ -136,24 +147,28 @@ def clkObj(object, delay=0, loop=0, remark=0):
 		else:
 			t = 0
 			while t != -1:
-				click(object)
-				sysMsg("Clicked on " + subject)
-				mouseMove(10,0)
-				sleep(1)
-				if loop == 1:
-					if exists(object, 0):
-						t = t + 1
-						sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
-					else:	
-						t = -1
-						sysMsg("Current object passed, loop completed.")
-				else:
-					if not exists(loop, 0):
-						t = t + 1
-						sysMsg("Cannot find " + repr(loop) + "; repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+				if exists(object, 0):
+					click(object)
+					mouseMove(10,0)
+					sleep(1)
+					sysMsg("Clicked on " + subject)
+					if loop == 1:
+						if exists(object, 0):
+							t = t + 1
+							sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+						else:	
+							t = -1
+							sysMsg("Current object passed, loop completed.")
 					else:
-						t = -1
-						sysMsg(repr(loop) + " found, loop completed.")
+						if not exists(loop, 0):
+							t = t + 1
+							sysMsg("Cannot find " + repr(loop) + "; repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+						else:
+							t = -1
+							sysMsg(repr(loop) + " found, loop completed.")
+				else:
+					sysMsg(subject + " no longer exists.")
+					t = -1
 	except FindFailed:
 		sysMsg("Cannot find " + subject + "\nPress Yes to start the next step", "FindFailed Error")
 
@@ -220,17 +235,17 @@ def btAction(loop=0):
 	wait(btMenu, long)
 	if exists(toggleAuto, normal):
 		clkObj(toggleAuto)
-		sysMsg("Toggled auto")
+		sysMsg("Toggled auto.")
 		sleep(short)
 	else:
-		sysMsg("Auto already on")
+		sysMsg("Auto already on.")
 	wait(questMission, battle)
 	clkObj(questMission)
-	sysMsg("Quest completed")
+	sysMsg("Quest completed.")
 	while exists(visionMax):
-		sysMsg("Vision achieved")
+		sysMsg("Vision achieved.")
 		sleep(normal)
-		clkObj(visionMax, remaark = "visionMax")
+		clkObj(visionMax, remark = "visionMax")
 	if exists(peddlerShop, normal):
 		sysMsg("Travelling merchant appeared.")
 		clkObj(peddlerShop)
@@ -264,7 +279,16 @@ def teamSelect(position, page=1):
 	clkObj(position)
 	sysMsg("Team changed to " + str(position))
 
-
+def merchantCheck(m=1):
+	if m == "1":
+		sysMsg("Checking if travelling merchant arrives.")
+		if exists(peddlerShop, 15):
+			sysMsg("Travelling merchant appears.")
+			clkObj(peddlerShop)
+		else:
+			sysMsg("Travelling merchant not found.")
+	else:
+		sysMsg("Travelling merchant check is disabled.")
 
 # Get reward from completed mission
 def getReward():
@@ -275,5 +299,34 @@ def getReward():
 		sleep(normal)
 		type(Key.ESC)
 	sysMsg("Claimed reward")
+
+def enableAR():
+	clkObj(arMenu)
+	clkObj(arMax)
+	clkObj(arRefillAP)
+	clkObj(arStart, 0, okAR)
+	clkObj(okAR)
+
+# Check whether auto repeat has completed, and claim reward
+def arCheck():
+	sysMsg("Checking status for auto repeat.")
+	if not exists(autoRepeat, 0):
+		sysMsg("Auto repeat has not activated.")
+	else:
+		t = 0
+		while not exists(arComplete, 0):
+			sysMsg("Auto repeat has not completed yet. Total waiting time: " + str(t) + " min.")					
+			mouseMove(10,0)
+			sleep(60)
+			t = t + 1
+		else:
+			sysMsg("Auto repeat has completed. Total waiting time: " + str(t) + " min.")
+		clkObj(autoRepeat)
+		clkObj(arReward)
+		clkObj(arEnd)
+		clkObj(confirm)
+		sleep(double)
+		clkObj(okAR)
+		clkObj(playerReward, 0, settings, "2nd OK button")
 
 sysMsg("Imported tagatame.sikuli")

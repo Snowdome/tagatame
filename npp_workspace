@@ -3,15 +3,16 @@
         <File name="Sikuli\event.sikuli\event.py" />
         <File name="Sikuli\inspSkill.sikuli\inspSkill.py" />
         <File name="Sikuli\multi.sikuli\multi.py" />
-        <File name="Sikuli\raid.sikuli\raid.py" />
         <File name="Sikuli\rune.sikuli\rune.py" />
         <File name="Sikuli\spEvent.sikuli\spEvent.py" />
         <File name="Sikuli\story.sikuli\story.py" />
         <File name="Sikuli\tagatame.sikuli\tagatame.py" />
         <File name="Sikuli\tower.sikuli\tower.py" />
+        <File name="Sikuli\video.sikuli\video.py" />
         <File name="index.html" />
         <File name="index_tinyurl.html" />
         <File name="mementos\mmt.html" />
+        <File name="mementos\mmtList.html" />
         <File name="mementos\mmt.css" />
         <File name="mementos\mmt.js" />
         <File name="runes\runes.html" />
@@ -33,5 +34,6 @@
         <File name="another_picker\collection.html" />
         <File name="another_picker\js\collection.js" />
         <File name="another_picker\css\collection.css" />
+        <File name="collection.csv" />
     </Project>
 </NotepadPlus>

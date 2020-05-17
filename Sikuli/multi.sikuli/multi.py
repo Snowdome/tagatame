@@ -1,4 +1,4 @@
-# multi.py last updated 13/04/2020
+# multi.py last updated 13/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -7,9 +7,10 @@ from tagatame import *
 
 # Define class for multi quest
 class multiQ(object):
-	def __init__(self, chapter, stage):
+	def __init__(self, chapter, stage, title):
 		self.chapter = chapter
 		self.stage = stage
+		self.title = title
 
 #  -------------------------Assets-------------------------
 multi = "multi.png"
@@ -58,6 +59,7 @@ mRecBtn = "mRecBtn.png"
 s105 = Pattern("s105.png").targetOffset(150,0)
 sS2b = Pattern("sS2b.png").targetOffset(150,0)
 s102 = Pattern("s102.png").similar(0.80).targetOffset(147,0)
+nero = Pattern("nero.png").targetOffset(150,0)
 	
 
 # -------------------------Multi Action-------------------------
@@ -144,6 +146,10 @@ def acts102():
 	subRetreat()
 	clkObj(s102)
 
+def neroSolo():
+	sysMsg("Executing neroSolo macro.")
+	clkObj(nero)
+
 #  -------------------------Variables-------------------------
 gain = "gain.png"
 zin = "zin.png"
@@ -152,22 +158,21 @@ zin = "zin.png"
 sin = "sin.png"
 sin2a = Pattern("stg1.png").exact()
 mainCh1 = "mainCh1.png"
-mainStg105 = Pattern("mainStg05.png").similar(0.95)
-solo105 = multiQ(mainCh1, mainStg105)
+solo105 = multiQ(mainCh1, "main105Stage.png", "main105Title.png")
+
+soloXmas = multiQ("mainXmasCh.png", "mainXmasStage.png", "mainXmasTitle.png")
 
 # Ch1: double team seiseki
 # Ch2: normal seiseki
 subCh1 = "subCh1.png"	# 2-player quest
-subStg102 = "subStg102.png"
-subStg105 = "subStg105.png"
+sub102 = multiQ(subCh1, "subStg102.png", "dummy")
+sub105 = multiQ(subCh1, "subStg105.png", "dummy")
+
 subCh2 = "subCh2.png"	# 4-player quest
-subStg205 = "subStg205.png"
-sub102 = multiQ(subCh1, subStg102)
-sub105 = multiQ(subCh1, subStg105)
-sub205 = multiQ(subCh2, subStg205)
+sub205 = multiQ(subCh2, "subStg205.png", "dummy")
+
 subSin = "subSin.png"
-subSin2b = Pattern("subSin2b.png").similar(0.95)
-subS2b = multiQ(subSin, subSin2b)
+subS2b = multiQ(subSin, Pattern("subSin2b.png").similar(0.95), "dummy")
 
 #  -------------------------Define Function-------------------------
 # Choose unit
@@ -182,33 +187,31 @@ def myUnit(object):
 # Go to multi quest
 def gotoMulti(multiQ):
 	sysMsg("Going to selected multiplayer quest")
-	if exists(multiStart):
-		sysMsg("Battle Start button found. Double check location.")
-	else:			
-		if not exists(multiList, short):
-			if not exists(settings, short):
-				click(home)
-				wait(quest, 20)
-				sleep(double)
-			click(quest)
-			clkObj(multi)
-			wait(multiList, FOREVER)
-		else:
-			sysMsg("Already in Multi Quest selection menu")
-		while not exists(multiQ.chapter, double):
-			click(questArrow)
-			sysMsg("Turning page: chapter")
-		click(multiQ.chapter)
-		while not exists(multiQ.stage, double):
-			click(questArrow)
-			sysMsg("Turning page: stage")
+	if exists(multiQ.title, 0):
+		sysMsg("Already in selected multi quest preparation menu.")
+	else:
+		if not exists(multiQ.stage):
+			if not exists(multiList, 0):
+				if not exists(settings, 0):
+					clkObj(home, 0, quest)
+				clkObj(quest)
+				clkObj(multi, 0, multiList)
+			else:
+				sysMsg("Already in Multi Quest selection menu")
+			while not exists(multiQ.chapter, double):
+				clkObj(questArrow)
+				sysMsg("Turning page: chapter")
+			clkObj(multiQ.chapter)
+			while not exists(multiQ.stage, double):
+				clkObj(questArrow)
+				sysMsg("Turning page: stage")
 		clkObj(multiQ.stage)
-		click(createRoom)
+		clkObj(createRoom)
 		if exists(private, double):
 			clkObj(private)
 		else:
 			sysMsg("Room is already private")
-		click(confirmCreate)
+		clkObj(confirmCreate)
 
 
 def gotoSubMulti(multiQ):
@@ -254,7 +257,8 @@ def multiSingle(multiQ, script, n=0):
 		sysMsg("Quest started")
 		wait(btMenu, 30)
 		script()
-		sleep(changePage)
+		wait(finished, 120)
+		clkObj(finished, 0, multiStart)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
 	if n < 0:
@@ -346,11 +350,16 @@ def multiDouble(multiQ, script, n=1):
 				t = t + 10
 				sysMsg("Main-window finish button not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
 		sleep(extend)
+		if exists(OK, 0):
+			clkObj(OK)
+			sysMsg("Main-window timeout.")
+			sleep(normal)
 		clkObj(finished)
 		mouseMove(10,0)
 		click(atMouse())
-		wait(OK, 30)
-		clkObj(OK)
+		#wait(OK, 30)
+		#clkObj(OK)
+		wait(home, 30)
 		clkObj(home, double)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
@@ -365,4 +374,7 @@ def multiDouble(multiQ, script, n=1):
 #multiSingle(solo105, actm105, 1000)
 #multiDouble(sub205, acts105, 1000)
 #multiDouble(subS2b, actsS2b, 1000)
-multiDouble(sub102, acts102, 500)
+
+
+#multiDouble(sub102, acts102, 500)
+multiSingle(soloXmas, neroSolo, 50)

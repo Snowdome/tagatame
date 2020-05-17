@@ -1,4 +1,4 @@
-# rune.py last updated 07/03/2020
+# rune.py last updated 10/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -7,7 +7,6 @@ from tagatame import *
 
 
 #  -------------------------Assets-------------------------
-enhance = "enhance.png"
 set1 = "set1.png"	# 物攻+10%
 set2 = "set2.png"	# 魔攻+10%
 set3 = "set3.png"	# 物防+10%
@@ -22,6 +21,21 @@ slot6 = "slot6.png"	# 素早
 d1 = "d1.png"
 d2 = "d2.png"
 d3 = "d3.png"
+enhance = "enhance.png"
+evolve = "evolve.png"
+enhanceTitle = Pattern("enhanceTitle.png").targetOffset(85,380)	# Loc of enhance button in respect to the title bar
+evolveTitle = Pattern("evolveTitle.png").targetOffset(85,380)	# Loc of enhance button in respect to the title bar
+enSuccess = "enSuccess.png"
+enFail = "enFail.png"
+done = "done.png"
+gaugeRdy = Pattern("gaugeRdy.png").similar(0.90)
+gaugeUse = "gaugeUse.png"
+statChange = "statChange.png"
+statChangeTitle = Pattern("statChangeTitle.png").targetOffset(0,182)	# Loc of enhance button in respect to the title bar
+statChangeConfirm  = "1589088541580.png"
+stat25 = Pattern("stat25.png").exact()
+evoB10 = Pattern("evoB10.png").exact()
+evoC10 = Pattern("evoC10.png").exact()
 
 # Go to special event (set, slot, d=difficulty)
 def gotoRuneQ(set, slot, d):
@@ -33,7 +47,7 @@ def gotoRuneQ(set, slot, d):
 		else:
 			clkObj(quest)
 		clkObj(event)
-		clkObj(enhance, 0, eventTitle)
+		clkObj(daily, 0, eventTitle)
 	while not exists(set, double):
 		clkObj(questArrow)
 		sysMsg("Turning page: enhance quest")
@@ -84,7 +98,89 @@ def runeQ(set, slot, d=d3, n=1):
 	else:
 		exit()
 
+def gaugeCheck():
+	if exists(gaugeRdy, 0):
+		sysMsg("Gauge bar has been filled. Proceed using gauge for next enhancement.")
+		clkObj(gaugeUse)
+	else:
+		sysMsg("Gauge bar is not full yet.")
+
+def runeEnh():
+	n = int(input("Number of successful enhancement:", "3"))
+	#evo = int(input("Current rune's evolve level:", "0"))
+	enh = int(input("Current rune's enhancement level:", "0"))
+	sysMsg("Initializing runeEnhance. Given rune input: evo = " + str(evo) + ", enh = " + str(enh))
+	i = 0
+	f = 0
+	if not exists(enhanceTitle, 0):
+		if exists(enhance):
+			clkObj(enhance)
+		else:
+			sysMsg("Not in rune menu.")
+			exit()
+	clkObj(enhanceTitle)
+	clkObj(confirm)
+	while i < n:
+		if enh != 3:
+			t = 0
+			while not exists(enSuccess, 0) and not exists(enFail, 0):
+				sysMsg("Waiting for enhance result. Total waiting time: " + str(t) + " sec.")
+				wait(1)
+				t = t + 1
+			else:
+				if exists(enSuccess, 0):
+					enh = enh + 1
+					i = i + 1
+					sysMsg("Enhance succeed.")
+					if enh != 3:
+						clkObj(enhance)
+						clkObj(confirm)
+						while exists(enSuccess, 0):
+							sleep(1)
+					else:
+						clkObj(done)
+				if exists(enFail, 0):
+					f = f + 1
+					sysMsg("Enhance failed. Total failed attempt: " + str(f) + " times.")
+					wait(enhance)
+					gaugeCheck()
+					clkObj(enhance)
+					clkObj(confirm)
+					while exists(enFail, 0):
+						sleep(1)
+		else:
+			clkObj(evolve)
+			clkObj(evolveTitle)
+			clkObj(confirm)
+			clkObj(done)
+			#evo = evo + 1
+			enh = 0
+			sysMsg("Rune evolved.")
+
+def runeRe3():
+	i = 0
+	if not exists(statChangeTitle, 0):
+		if exists(statChange):
+			clkObj(statChange)
+		else:
+			sysMsg("Not in rune menu.")
+	clkObj(statChangeTitle)
+	sleep(0.5)
+	while not exists(stat25, 0):
+		clkObj(statChangeConfirm)
+		clkObj(confirm)
+		i = 1 + 1
+		if not exists(stat25):
+			sysMsg("Total attempts: " + str(i) + " times")
+			sysMsg("Refreshed but not at maximum, continue?", "Waiting for decision")
+	else:
+		sysMsg("Error - basic stat already at maximum.")
+		exit()
+
+
 #  -------------------------Body-------------------------
 #set:	1 物攻 / 2 魔攻 / 3 物防 / 4 魔防 / 5 HP
 #slot:	1 物攻器用 / 2 物防物防 / 3 HP / 4 魔攻器用 / 5 魔防運 / 6 素早
-runeQ(set3, slot5, d3, 20)
+#runeQ(set3, slot5, d3, 20)
+#runeEnh()
+runeRe3()

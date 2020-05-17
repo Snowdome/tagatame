@@ -10,18 +10,171 @@ function showNote() {
 	}
 }
 
-function showMmt(name) {
-	var x = document.getElementById(name);
-	var y = document.getElementsByClassName(x.value);
+function refreshMmt() {
+	// Show or hide all memento rows according to normal pool option
+	var x = document.getElementsByClassName("mmt");
+	if (document.getElementById("d0").checked == true) {
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "table-row";
+		}
+	} else {
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+	}
 
-	if (x.checked == true) {
-		for (i = 0; i < y.length; i++) {
-			y[i].style.display = "table-row";
+	// then show rows per event / limited options
+	for (i = 1; i <= 2; i++) {
+		var y = document.getElementById("d" + i);
+		var z = document.getElementsByClassName(y.value);
+		if (y.checked == true) {
+			console.log("Option [d" + i + "]" + document.getElementById("labelD" + i).innerText + " is shown.")
+			for (j = 0; j < z.length; j++) {
+				z[j].style.display = "table-row";
+			}
+		} else {
+			console.log("Option [d" + i + "]" + document.getElementById("labelD" + i).innerText + " is hidden.")
+			for (j = 0; j < z.length; j++) {
+				z[j].style.display = "none";
+			}
+		}
+	}
+
+	// finally hide rows if show groupless is not checked
+	var groupless = document.getElementsByClassName("groupless");
+	if (document.getElementById("d3").checked == true) {
+		console.log("Option [d3]" + document.getElementById("labelD" + i).innerText + " is shown.")
+	} else {
+		console.log("Option [d3]" + document.getElementById("labelD" + i).innerText + " is hidden.")
+		for (j = 0; j < groupless.length; j++) {
+			groupless[j].style.display = "none";
+		}
+	}
+
+	$('tr:visible').removeClass('odd').filter(':odd').addClass('odd');
+
+}
+
+function sortTableByString(n) {
+	var table,
+		rows,
+		switching,
+		i,
+		x,
+		y,
+		shouldSwitch,
+		dir,
+		switchcount = 0;
+	table = document.getElementById("mementos");
+	switching = true;
+	//Set the sorting direction to descending:
+	dir = "desc";
+
+	/*Make a loop that will continue until no switching has been done:*/
+	while (switching) {
+		//start by saying: no switching is done:
+		switching = false;
+		rows = table.rows;
+
+		/*Loop through all table rows (except the first, which contains table headers):*/
+		for (i = 1; i < (rows.length - 1); i++) {
+			//start by saying there should be no switching:
+			shouldSwitch = false;
+			/*Get the two elements you want to compare, one from current row and one from the next:*/
+			x = rows[i].getElementsByTagName("TD")[n];
+			y = rows[i + 1].getElementsByTagName("TD")[n];
+
+			/*check if the two rows should switch place, based on the direction, asc or desc:*/
+			if (dir == "asc") {
+				if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					//if so, mark as a switch and break the loop:
+					shouldSwitch = true;
+					break;
+				}
+			} else if (dir == "desc") {
+				if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+					//if so, mark as a switch and break the loop:
+					shouldSwitch = true;
+					break;
+				}
+			}
 		}
 
-	} else {
-		for (i = 0; i < y.length; i++) {
-			y[i].style.display = "none";
+		if (shouldSwitch) {
+			/*If a switch has been marked, make the switch and mark that a switch has been done:*/
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;
+			//Each time a switch is done, increase this count by 1:
+			switchcount++;
+		} else {
+
+			/*If no switching has been done AND the direction is "desc", set the direction to "asc" and run the while loop again.*/
+			if (switchcount == 0 && dir == "desc") {
+				dir = "asc";
+				switching = true;
+			}
+		}
+	}
+}
+
+function sortTableByNumber(n) {
+	var table,
+		rows,
+		switching,
+		i,
+		x,
+		y,
+		shouldSwitch,
+		dir,
+		switchcount = 0;
+	table = document.getElementById("mementos");
+	switching = true;
+	//Set the sorting direction to descending:
+	dir = "desc";
+
+	/*Make a loop that will continue until no switching has been done:*/
+	while (switching) {
+		//start by saying: no switching is done:
+		switching = false;
+		rows = table.rows;
+
+		/*Loop through all table rows (except the first, which contains table headers):*/
+		for (i = 1; i < (rows.length - 1); i++) {
+			//start by saying there should be no switching:
+			shouldSwitch = false;
+			/*Get the two elements you want to compare, one from current row and one from the next:*/
+			x = rows[i].getElementsByTagName("TD")[n];
+			y = rows[i + 1].getElementsByTagName("TD")[n];
+
+			/*check if the two rows should switch place, based on the direction, asc or desc:*/
+			if (dir == "asc") {
+				if (Number(x.innerHTML) > Number(y.innerHTML)) {
+					//if so, mark as a switch and break the loop:
+					shouldSwitch = true;
+					break;
+				}
+			} else if (dir == "desc") {
+				if (Number(x.innerHTML) < Number(y.innerHTML)) {
+					//if so, mark as a switch and break the loop:
+					shouldSwitch = true;
+					break;
+				}
+			}
+		}
+
+		if (shouldSwitch) {
+			/*If a switch has been marked, make the switch and mark that a switch has been done:*/
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;
+			//Each time a switch is done, increase this count by 1:
+			switchcount++;
+		} else {
+
+			/*If no switching has been done AND the direction is "desc", set the direction to "asc" and run the while loop again.*/
+			if (switchcount == 0 && dir == "desc") {
+				dir = "asc";
+				switching = true;
+			}
 		}
 	}
 }
@@ -268,147 +421,26 @@ function score() {
 	document.getElementById('m181').innerHTML = (b1 * 30 + b2 * 0 + b0 * 30) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 30 + s5 * 0 + s6 * 30 + s7 * 0 + s0 * 30) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 20 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 	document.getElementById('m182').innerHTML = (b1 * 30 + b2 * 0 + b0 * 30) + (s1 * 30 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 30 + e02 * 0 + e03 * 0 + e04 * 30 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 	document.getElementById('m183').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m184').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m185').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m184').innerHTML = (b1 * 20 + b2 * 0 + b0 * 20) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m185').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 40 + s6 * 0 + s7 * 20 + s0 * 40) + (e01 * 30 + e02 * 0 + e03 * 0 + e04 * 30 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 20 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 	document.getElementById('m186').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m187').innerHTML = (b1 * 60 + b2 * 0 + b0 * 60) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 20 + s6 * 40 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m188').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 15 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 15 + s6 * 0 + s7 * 0 + s0 * 15) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m189').innerHTML = (b1 * 20 + b2 * 0 + b0 * 20) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 40 + s5 * 20 + s6 * 0 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 20 + e03 * 0 + e04 * 20 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m190').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m187').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m188').innerHTML = (b1 * 60 + b2 * 0 + b0 * 60) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 20 + s6 * 40 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m189').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 15 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 15 + s6 * 0 + s7 * 0 + s0 * 15) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m190').innerHTML = (b1 * 20 + b2 * 0 + b0 * 20) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 40 + s5 * 20 + s6 * 0 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 20 + e03 * 0 + e04 * 20 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 	document.getElementById('m191').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m192').innerHTML = (b1 * 0 + b2 * 30 + b0 * 30) + (s1 * 30 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m193').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 15 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 15 + s6 * 0 + s7 * 0 + s0 * 15) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m194').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m195').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m192').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m193').innerHTML = (b1 * 0 + b2 * 30 + b0 * 30) + (s1 * 30 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m194').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 15 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 15 + s6 * 0 + s7 * 0 + s0 * 15) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m195').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 40 + s5 * 20 + s6 * 0 + s7 * 0 + s0 * 40) + (e01 * 20 + e02 * 0 + e03 * 0 + e04 * 20 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 	document.getElementById('m196').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m197').innerHTML = (b1 * 15 + b2 * 0 + b0 * 15) + (s1 * 40 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 20 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m198').innerHTML = (b1 * 30 + b2 * 0 + b0 * 30) + (s1 * 0 + s2 * 30 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 30 + s7 * 0 + s0 * 30) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 20 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m199').innerHTML = (b1 * 30 + b2 * 0 + b0 * 30) + (s1 * 20 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 40 + s6 * 0 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 10 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m200').innerHTML = (b1 * 20 + b2 * 0 + b0 * 20) + (s1 * 60 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 60) + (e01 * 20 + e02 * 0 + e03 * 0 + e04 * 20 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
-	document.getElementById('m201').innerHTML = (b1 * 30 + b2 * 30 + b0 * 30) + (s1 * 0 + s2 * 30 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 40 + e02 * 0 + e03 * 0 + e04 * 40 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m197').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m198').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m199').innerHTML = (b1 * 15 + b2 * 0 + b0 * 15) + (s1 * 40 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 20 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m200').innerHTML = (b1 * 30 + b2 * 0 + b0 * 30) + (s1 * 0 + s2 * 30 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 30 + s7 * 0 + s0 * 30) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 20 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m201').innerHTML = (b1 * 30 + b2 * 0 + b0 * 30) + (s1 * 20 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 40 + s6 * 0 + s7 * 0 + s0 * 40) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 10 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m202').innerHTML = (b1 * 20 + b2 * 0 + b0 * 20) + (s1 * 60 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 60) + (e01 * 20 + e02 * 0 + e03 * 0 + e04 * 20 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+	document.getElementById('m203').innerHTML = (b1 * 30 + b2 * 30 + b0 * 30) + (s1 * 0 + s2 * 30 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 40 + e02 * 0 + e03 * 0 + e04 * 40 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
+
 	/* Excel output ends here */
-}
-
-function sortTableByString(n) {
-	var table,
-		rows,
-		switching,
-		i,
-		x,
-		y,
-		shouldSwitch,
-		dir,
-		switchcount = 0;
-	table = document.getElementById("mementos");
-	switching = true;
-	//Set the sorting direction to descending:
-	dir = "desc";
-
-	/*Make a loop that will continue until no switching has been done:*/
-	while (switching) {
-		//start by saying: no switching is done:
-		switching = false;
-		rows = table.rows;
-
-		/*Loop through all table rows (except the first, which contains table headers):*/
-		for (i = 1; i < (rows.length - 1); i++) {
-			//start by saying there should be no switching:
-			shouldSwitch = false;
-			/*Get the two elements you want to compare, one from current row and one from the next:*/
-			x = rows[i].getElementsByTagName("TD")[n];
-			y = rows[i + 1].getElementsByTagName("TD")[n];
-
-			/*check if the two rows should switch place, based on the direction, asc or desc:*/
-			if (dir == "asc") {
-				if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-					//if so, mark as a switch and break the loop:
-					shouldSwitch = true;
-					break;
-				}
-			} else if (dir == "desc") {
-				if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-					//if so, mark as a switch and break the loop:
-					shouldSwitch = true;
-					break;
-				}
-			}
-		}
-
-		if (shouldSwitch) {
-			/*If a switch has been marked, make the switch and mark that a switch has been done:*/
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-			switching = true;
-			//Each time a switch is done, increase this count by 1:
-			switchcount++;
-		} else {
-
-			/*If no switching has been done AND the direction is "desc", set the direction to "asc" and run the while loop again.*/
-			if (switchcount == 0 && dir == "desc") {
-				dir = "asc";
-				switching = true;
-			}
-		}
-	}
-}
-
-function sortTableByNumber(n) {
-	var table,
-		rows,
-		switching,
-		i,
-		x,
-		y,
-		shouldSwitch,
-		dir,
-		switchcount = 0;
-	table = document.getElementById("mementos");
-	switching = true;
-	//Set the sorting direction to descending:
-	dir = "desc";
-
-	/*Make a loop that will continue until no switching has been done:*/
-	while (switching) {
-		//start by saying: no switching is done:
-		switching = false;
-		rows = table.rows;
-
-		/*Loop through all table rows (except the first, which contains table headers):*/
-		for (i = 1; i < (rows.length - 1); i++) {
-			//start by saying there should be no switching:
-			shouldSwitch = false;
-			/*Get the two elements you want to compare, one from current row and one from the next:*/
-			x = rows[i].getElementsByTagName("TD")[n];
-			y = rows[i + 1].getElementsByTagName("TD")[n];
-
-			/*check if the two rows should switch place, based on the direction, asc or desc:*/
-			if (dir == "asc") {
-				if (Number(x.innerHTML) > Number(y.innerHTML)) {
-					//if so, mark as a switch and break the loop:
-					shouldSwitch = true;
-					break;
-				}
-			} else if (dir == "desc") {
-				if (Number(x.innerHTML) < Number(y.innerHTML)) {
-					//if so, mark as a switch and break the loop:
-					shouldSwitch = true;
-					break;
-				}
-			}
-		}
-
-		if (shouldSwitch) {
-			/*If a switch has been marked, make the switch and mark that a switch has been done:*/
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-			switching = true;
-			//Each time a switch is done, increase this count by 1:
-			switchcount++;
-		} else {
-
-			/*If no switching has been done AND the direction is "desc", set the direction to "asc" and run the while loop again.*/
-			if (switchcount == 0 && dir == "desc") {
-				dir = "asc";
-				switching = true;
-			}
-		}
-	}
 }

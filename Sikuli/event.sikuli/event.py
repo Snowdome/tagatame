@@ -1,4 +1,4 @@
-# event.py last updated 20/10/2019
+# event.py last updated 13/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -6,180 +6,84 @@ reload(tagatame)
 from tagatame import *
 
 
+# Define class for special event
+class evQ():
+	def __init__(self, event, stat, stage, title):
+		self.event = event
+		self.stat = stat	# Current or Archive event
+		self.stage = stage
+		self.title = title
 
 #  -------------------------Assets-------------------------
-# Homepage
-event = "event.png"
-eventQuest = "eventQuest.png"
-eventDaily = "eventDaily.png"
-
-
-# Team
-# s = selected team
-# eT1s = Pattern("").similar(0.98)
-# eT2s = Pattern("").similar(0.98)
-# eT3s = Pattern("").similar(0.98)
-# eT4s = Pattern("").similar(0.98)
-# eT5s = Pattern("").similar(0.98)
-# eT6s = Pattern("").similar(0.98)
-eT7s = Pattern("eT7s.png").similar(0.98)
-eT8s = Pattern("eT8s.png").similar(0.98)
-
-
-# eT = event Team
-# eT1 = team(eT1s, slot1)
-# eT2 = team(eT2s, slot2)
-# eT3 = team(eT3s, slot3)
-# eT4 = team(eT4s, slot4)
-# eT5 = team(eT5s, slot5)
-# eT6 = team(eT6s, slot6)
-eT7 = team(eT7s, slot7)
-eT8 = team(eT8s, slot8)
-
-
-# Wanted		#Currently not working
-TS_VISION = "TS_VISION.png"
-
+evArchive = "evArchive.png"
 
 #  -------------------------Variables-------------------------
-# Define class for event quest
-class eventQ(object):
-	def __init__(self, category, chapter, subChapter, stage):
-		self.category = category	#seasonal, daily
-		self.chapter = chapter
-		self.subChapter = subChapter	#applicable to some daily quest only
-		self.stage = stage
-
-vision1CH = vc_cp_08
-vision2CH = vc_cp_06
-vision1 = eventQ("seasonal", vision1CH, 0, visionQ)
-vision2 = eventQ("seasonal", vision2CH, 0, visionQ)
-
-
-# Vision clear quest
-vc_cp_06 = "vc_cp_06.png"
-vc_cp_08 = "vc_cp_08.png"
-visionQ =  "visionQ.png"
+halloween = evQ("halloweenEv.png", "Archive", "halloweenStage.png", "1589093890927.png")
+wVday = evQ("whiteVdayEv.png", "Archive", "whiteVdayStage.png", "whiteVdayTitle.png")
+vDay = evQ("vDayEv.png", "Archive", "vDayStage.png", "vDayTitle.png")
+xmas = evQ("xmasEv.png", "Archive", "xmasStage.png", "xmasTitle.png")
+harvestMoon = evQ("harvestMoonEv.png", "Archive", "harvestMoonStage.png", "harvestMoonTitle.png")
+pirate = evQ("pirateEv.png", "Archive", "pirateStage.png", "pirateTitle.png")
+easter = evQ("easterEv.png", "Archive", "easterStage.png", "easterTitle.png")
+shieldBallon = evQ("1589098452707.png", "Current", "shieldBallonStage.png", "shieldBallonTitle.png")
+xmas2018 = evQ("xmas2018Ev.png", "Archive", "xmas2018Stage.png", "xmas2018Title.png")
+vDay2018 = evQ("1589384278969.png", "Archive", "1589384295853.png", "1589384308783.png")
+halloween2018 = evQ("1589385170119.png", "Archive", "1589385194586.png", "1589385204403.png")
 
 
-# Daily quest
-dailyQuest = "dailyQuest.png"
-goldQuest = "goldQuest.png"
-goldQuestL4 = "goldQuestL4.png" # 0AP
-goldQuestL3 = Pattern("goldQuestL4.png").targetOffset(0,106) # 0AP
-goldQuestL2 = Pattern("goldQuestL4.png").targetOffset(0,212) # 0AP
-goldQuestL1 = Pattern("goldQuestL4.png").targetOffset(0,288) # 0AP
-gearQuest = "gearQuest.png"
-gearQuestStg = "gearQuestStg.png"
-gearQuestHard = "gearQuestHard.png"
-gearQuestHardStg = "gearQuestHardStg.png"
-
-goldL4 = eventQ("daily", goldQuest, 0, goldQuestL4)
-goldL3 = eventQ("daily", goldQuest, 0, goldQuestL3)
-goldL2 = eventQ("daily", goldQuest, 0, goldQuestL2)
-goldL1 = eventQ("daily", goldQuest, 0, goldQuestL1)
-gearL2 = eventQ("daily", gearQuestHard, 0, gearQuestHardStg)
-gearL1 = eventQ("daily", gearQuest, 0, gearQuestStg)
-
-# Weekly quest
-weeklyVision = "weeklyVision.png"
-weeklyVisionQ = "weeklyVisionQ.png"
-weeklyGear = "weeklyGear.png"
-weeklyGearQ = "weeklyGearQ.png"
-weeklyItem = "weeklyItem.png"
-weeklyItemQ = "weeklyItemQ.png"
-weeklyMaterial = "weeklyMaterial.png"
-weeklyMaterialQ = "weeklyMaterialQ.png"
-weeklyGold = "weeklyGold.png"
-weeklyGoldQ = "weeklyGoldQ.png"
-
-
-
-#  -------------------------Define Function-------------------------
-# Go to event quest
-#def gotoEvent(eventQ):
-#	if not exists(eventQ.title)
-	
-	
-	if not exists(settings, short):
-		click(home)
-		wait(quest, 20)
-		sleep(double)
-	clkObj(quest)
-	click(event)
-	# For seasonal event
-	if eventQ.category == "seasonal":
-		sysMsg("Going to selected event quest stage")
-		click(eventQuest)
-		while not exists(eventQ.chapter, double):
-			click(questArrow)
-			sysMsg("Turning page: chapter")
-		click(eventQ.chapter)
-		while not exists(eventQ.stage, double):
-			click(questArrow)
-			sysMsg("Turning page: stage")
-		click(eventQ.stage)
-	# For daily quest
-	if getattr(eventQ, "category") == "daily":
-		sysMsg("Going to selected daily quest stage")
-		click(eventDaily)
-		while not exists(eventQ.chapter, double):
-			click(questArrow)
-			sysMsg("Turning page: chapter")
-		click(eventQ.chapter)
-		if not eventQ.subChapter == 0:	#untested
-			while not exists(eventQ.subChapter, double):
-				click(questArrow)
-				sysMsg("Turning page: sub-chapter")
-		click(chapter)
-		while not exists(eventQ.stage, double):
-			click(questArrow)
-			sysMsg("Turning page: stage")
-		click(eventQ.stage)		
-
-
-# Auto restart until TS_VISION is found and used all quota
-def tsVision(eventQ, team):
-	sysMsg("Initializing tsVision command")
-	if not exists(eventQ.stage, short):
-		gotoEvent(eventQ)
+def gotoEv(evQ):
+	if not exists(evQ.title, 0):
+		sysMsg("Going to selected event")
+		if not exists(evQ.stage, 0):
+			if not exists(evQ.event, 0):
+				if exists(home, 0):
+					clkObj(mainMenu)
+					clkObj(questLoc, remark="questLoc")
+				else:
+					clkObj(quest)
+				clkObj(event)
+				clkObj(eventQ, 0, eventTitle)
+				sleep(15)
+				if evQ.stat == "Archive":
+					while not exists(evArchive, double):
+						clkObj(questArrow)
+						sysMsg("Turning page: main quest")
+					clkObj(evArchive)
+				while not exists(evQ.event, double):
+					clkObj(questArrow)
+					if evQ.stat == "Current":
+						sysMsg("Turning page: main quest")
+					if evQ.stat == "Archive":
+						sysMsg("Turning page: archive quest")
+			clkObj(evQ.event, 0, evQ.stage)
+		clkObj(evQ.stage, 0, evQ.title)
 	else:
-		click(eventQ.stage)
-	wait(teamArrow, changePage)
-	teamSelect(team)
-	clkObj(btStart)
-	while not exists(noQuota, normal):
-		if not exists(fiddler):
-			sysMsg("Fiddler window not found!")
-			popup("Fiddler window not found!")
-			wait(fiddler, 60)
-		wait(btMenu, 60)
-		if exists(TS_VISION, normal):
-			sysMsg("Target found")
-			btAction()
-		else:
-			sysMsg("Target not found")
-			btQuit()
-		clkObj(eventQ.stage)
-		clkObj(btStart)
+		sysMsg("Already in selected event")
+
+def autoAR(evQ, n=10):
+	i = 0
+	m = input("Enable merchantCheck? (1: Enable)", "1")
+	sysMsg("m = " + str(m))
+	if exists(arMenu):
+		sysMsg("Ongoing auto repat found. Waiting for completion.")
+		arCheck()
+		merchantCheck(m)
+		sleep(10)
+		i = 1 + 1
+	while i < n:
+		gotoEv(evQ)
+		enableAR()
+		wait(settings, 30)
+		arCheck()
+		merchantCheck(m)
+		i = i + 1
+		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
+		sleep(10)
+	if n < 0:
+		sysMsg("Error: n must be empty or positive")
 	else:
-		sysMsg("No more quota")
-		type(Key.ESC) #return to Battle Preparation
-		sleep(normal)
-		type(Key.ESC) #return to Quest List
-		sleep(double)
-		clkObj(home) #return to Home page
-		sleep(double)
+		exit()
 
-
-#def dailyGold():
-#	sysMsg("dailyGold started")
-#	if not exists(goldQuestL4)
-#		gotoEvent(goldL4. 
-
-
-
-
-#  -------------------------Body-------------------------
-# tsVision(vision1, eT7)
-# tsVision(vision2, eT8)
+#  -------------------------Command-------------------------
+#arCheck()
+autoAR(halloween2018, 100)

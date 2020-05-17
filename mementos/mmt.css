@@ -6,7 +6,31 @@ table {
 	width: auto;
 }
 
-td[headers="icon"]>img {
+table#changeLog tr :first-child {
+	padding-left: 0px;
+	width: 90px;
+}
+
+table#changeLog td p {
+	display: inline;
+}
+
+table#changeLog,
+table#changeLog td {
+	border-spacing: 0;
+	border: none;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+}
+
+table#mementos tr.odd,
+tbody#history tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+td[headers="icon"]>img,
+td[headers="group"]>img {
 	height: 32px;
 	text-align: center;
 	vertical-align: middle;
@@ -36,12 +60,6 @@ td {
 	vertical-align: middle;
 }
 
-th[id="others"],
-td[headers="others"] {
-	width: 120px;
-}
-
-
 th[onclick*="sortTable"] {
 	cursor: pointer;
 	color: blue;
@@ -50,6 +68,15 @@ th[onclick*="sortTable"] {
 tr :nth-child(16),
 tr :nth-child(18) {
 	width: 80px;
+	text-align: center;
+}
+
+th#others,
+td[headers="others"] {
+	width: 120px;
+}
+
+th#luck {
 	text-align: center;
 }
 
@@ -66,17 +93,7 @@ tr :nth-child(n+21):nth-child(-n+27) {
 	white-space: nowrap;
 }
 
-#mementos tr:nth-child(odd),
-#history tr:nth-child(odd) {
-	background-color: #f2f2f2;
-}
-
-.ev,
-.ltd {
-	display: table-row;
-}
-
-.groupless {
+.groupName {
 	display: none;
 }
 
@@ -91,26 +108,4 @@ tr :nth-child(n+21):nth-child(-n+27) {
 .title {
 	color: blue;
 	font-weight: bold;
-}
-
-#luck {
-	text-align: center;
-}
-
-#changeLog tr :first-child {
-	padding-left: 0px;
-	width: 90px;
-}
-
-#changeLog td p {
-	display: inline;
-}
-
-#changeLog,
-#changeLog td {
-	border-spacing: 0;
-	border: none;
-	width: auto;
-	text-align: left;
-	vertical-align: top;
 }

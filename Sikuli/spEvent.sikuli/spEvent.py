@@ -1,4 +1,4 @@
-# spEvent.py last updated 07/03/2020
+# spEvent.py last updated 10/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -10,7 +10,7 @@ from tagatame import *
 class spQ():
 	def __init__(self, event, menuLoc, logo, stage, reward):
 		self.event = event
-		self.menuLoc = menuLoc	# up: Above news banner	left: On the left of news banner
+		self.menuLoc = menuLoc	# advance or genesis
 		self.logo = logo
 		self.stage = stage
 		self.reward = reward
@@ -64,6 +64,9 @@ sevenSin = spQ("7sinEv.png", "adv", "7sinLogo.png", "7sinStage.png", "7sinCoin.p
 # Advance Boss Crossover - 捻じれ時空のスカベンジャー
 slime = spQ("slimeEv.png", "adv", "slimeLogo.png", "slimeStage.png", "slimeCoin.png")
 
+# Advance Boss Crossover - 波打ち際モラトリアム
+shield = spQ("shieldEv.png", "adv", "shieldLogo.png", "shieldStage.png", "shieldCoin.png")
+
 
 # Genesis Boss 1 - 「創る、この世界を」（前編）
 gen1 = spQ("gen1Ev.png", "gen", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
@@ -91,8 +94,8 @@ def gotoSP(spQ):
 		if not exists(spQ.logo, 0):
 			if not exists(spQ.event, 0):
 				if exists(home, 0):
-					click(mainMenu)
-				clkObj(quest)
+					clkObj(mainMenu)
+				clkObj(questLoc)
 				if spQ.menuLoc == "gen":
 					clkObj(story)
 					clkObj("1578161614894.png", 0, 1)
@@ -101,7 +104,7 @@ def gotoSP(spQ):
 					clkObj(bbq, 0, 1)
 				sleep(changePage)
 			while not exists(spQ.event, double):
-				click(questArrow)
+				clkObj(questArrow)
 			clkObj(spQ.event)
 		if spQ.menuLoc == "gen":
 			clkObj(bossHard)
