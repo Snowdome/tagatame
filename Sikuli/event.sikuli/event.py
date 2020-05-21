@@ -29,6 +29,7 @@ shieldBallon = evQ("1589098452707.png", "Current", "shieldBallonStage.png", "shi
 xmas2018 = evQ("xmas2018Ev.png", "Archive", "xmas2018Stage.png", "xmas2018Title.png")
 vDay2018 = evQ("1589384278969.png", "Archive", "1589384295853.png", "1589384308783.png")
 halloween2018 = evQ("1589385170119.png", "Archive", "1589385194586.png", "1589385204403.png")
+wrathArmorF = evQ("1589760714702.png", "Current", "1589760731470.png", "1589760751279.png")
 
 
 def gotoEv(evQ):
@@ -86,4 +87,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(halloween2018, 100)
+autoAR(wrathArmorF, 100)

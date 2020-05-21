@@ -43,7 +43,7 @@ back = "back.png"
 
 bonds = "bonds.png"
 bondsTitle = "bondsTitle.png"
-bonsFull = "bonsFull.png"
+bondsFull = "bonsFull.png"
 autoEq = "autoEq.png"
 chooseStg = "chooseStg.png"
 
@@ -340,6 +340,6 @@ def warQ(r, n=1, reAp=1):
 	else:
 		exit()
 #  -------------------------Body-------------------------
-#bondQ(n=50)
+bondQ(n=50)
 #trainQ(floor4, n=5)
-warQ(r1, n=30)
+#warQ(r1, n=30)

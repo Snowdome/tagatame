@@ -723,7 +723,16 @@ function lockInput() {
 		document.getElementById("setBonus").innerHTML += "HP+15%<br>";
 		document.getElementById("setBonusEm").innerHTML += "HP+15%<br>";
 	}
-
+	//疾駆
+	var genzou = 0;
+	for (var i = 0; i < setCount.length; ++i) {
+		if (setCount[i] == "10")
+			genzou++;
+	}
+	if (genzou > 3) {
+		document.getElementById("setBonus").innerHTML += "回避+10";
+		document.getElementById("setBonusEm").innerHTML += "回避+10";
+	}
 	// 一閃
 	var issen = 0;
 	for (var i = 0; i < setCount.length; ++i) {

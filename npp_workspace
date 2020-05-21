@@ -34,6 +34,6 @@
         <File name="another_picker\collection.html" />
         <File name="another_picker\js\collection.js" />
         <File name="another_picker\css\collection.css" />
-        <File name="collection.csv" />
+        <File name="another_picker\collection.csv" />
     </Project>
 </NotepadPlus>
