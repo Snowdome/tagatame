@@ -1,4 +1,4 @@
-# event.py last updated 13/05/2020
+# event.py last updated 23/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -27,9 +27,10 @@ pirate = evQ("pirateEv.png", "Archive", "pirateStage.png", "pirateTitle.png")
 easter = evQ("easterEv.png", "Archive", "easterStage.png", "easterTitle.png")
 shieldBallon = evQ("1589098452707.png", "Current", "shieldBallonStage.png", "shieldBallonTitle.png")
 xmas2018 = evQ("xmas2018Ev.png", "Archive", "xmas2018Stage.png", "xmas2018Title.png")
-vDay2018 = evQ("1589384278969.png", "Archive", "1589384295853.png", "1589384308783.png")
-halloween2018 = evQ("1589385170119.png", "Archive", "1589385194586.png", "1589385204403.png")
-wrathArmorF = evQ("1589760714702.png", "Current", "1589760731470.png", "1589760751279.png")
+vDay2018 = evQ("vDay2018Ev.png", "Archive", "vDay2018Stage.png", "vDay2018Title.png")
+halloween2018 = evQ("halloween2018Ev.png", "Archive", "halloween2018Stage.png", "halloween2018Title.png")
+wrathArmorF = evQ("wrathArmorFEv.png", "Current", "wrathArmorFStage.png", "wrathArmorFTitle.png")
+dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
 
 
 def gotoEv(evQ):
@@ -87,4 +88,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(wrathArmorF, 100)
+autoAR(dWorld, 100)

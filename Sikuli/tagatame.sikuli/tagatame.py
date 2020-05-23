@@ -1,4 +1,4 @@
-# tagatame.py last updated 11/05/2020
+# tagatame.py last updated 22/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -285,6 +285,7 @@ def merchantCheck(m=1):
 		if exists(peddlerShop, 15):
 			sysMsg("Travelling merchant appears.")
 			clkObj(peddlerShop)
+			clkObj(okAR)
 		else:
 			sysMsg("Travelling merchant not found.")
 	else:
