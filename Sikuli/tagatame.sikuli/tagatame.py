@@ -1,4 +1,4 @@
-# tagatame.py last updated 22/05/2020
+# tagatame.py last updated 24/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -47,6 +47,8 @@ story = "story.png"
 event = "event.png"
 eventQ = "eventQ.png"
 daily = "daily.png"
+archive = "archive.png"
+archivePageDown = Pattern("mainMenu.png").targetOffset(-127,435)	# Location of quest button in respect to the menu button
 eventTitle = "eventTitle.png"
 challenge = "challenge.png"
 questArrow = Pattern("mainMenu.png").targetOffset(-180,495)	# Location of down arrow in respect to main menu button

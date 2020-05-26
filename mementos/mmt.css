@@ -87,6 +87,8 @@ tr :nth-child(4) {
 }
 
 tr :nth-child(n+7):nth-child(-n+15),
+tr :nth-child(17),
+tr :nth-child(19),
 tr :nth-child(n+21):nth-child(-n+27) {
 	width: 30px;
 	text-align: right;

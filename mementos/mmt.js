@@ -443,5 +443,6 @@ function score() {
 	document.getElementById('m203').innerHTML = (b1 * 20 + b2 * 0 + b0 * 20) + (s1 * 60 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 60) + (e01 * 20 + e02 * 0 + e03 * 0 + e04 * 20 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 	document.getElementById('m204').innerHTML = (b1 * 30 + b2 * 30 + b0 * 30) + (s1 * 0 + s2 * 30 + s3 * 0 + s4 * 0 + s5 * 30 + s6 * 0 + s7 * 0 + s0 * 30) + (e01 * 40 + e02 * 0 + e03 * 0 + e04 * 40 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0);
 
+
 	/* Excel output ends here */
 }

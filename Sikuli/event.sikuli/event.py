@@ -1,4 +1,4 @@
-# event.py last updated 23/05/2020
+# event.py last updated 24/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -10,12 +10,13 @@ from tagatame import *
 class evQ():
 	def __init__(self, event, stat, stage, title):
 		self.event = event
-		self.stat = stat	# Current or Archive event
+		self.stat = stat	# Current or Archive or Key event
 		self.stage = stage
 		self.title = title
 
 #  -------------------------Assets-------------------------
 evArchive = "evArchive.png"
+access = "access.png"
 
 #  -------------------------Variables-------------------------
 halloween = evQ("halloweenEv.png", "Archive", "halloweenStage.png", "1589093890927.png")
@@ -31,6 +32,8 @@ vDay2018 = evQ("vDay2018Ev.png", "Archive", "vDay2018Stage.png", "vDay2018Title.
 halloween2018 = evQ("halloween2018Ev.png", "Archive", "halloween2018Stage.png", "halloween2018Title.png")
 wrathArmorF = evQ("wrathArmorFEv.png", "Current", "wrathArmorFStage.png", "wrathArmorFTitle.png")
 dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
+pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
+starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png")
 
 
 def gotoEv(evQ):
@@ -44,19 +47,25 @@ def gotoEv(evQ):
 				else:
 					clkObj(quest)
 				clkObj(event)
-				clkObj(eventQ, 0, eventTitle)
-				sleep(15)
-				if evQ.stat == "Archive":
-					while not exists(evArchive, double):
-						clkObj(questArrow)
-						sysMsg("Turning page: main quest")
-					clkObj(evArchive)
-				while not exists(evQ.event, double):
-					clkObj(questArrow)
-					if evQ.stat == "Current":
-						sysMsg("Turning page: main quest")
+				if evQ.stat == "Key":
+					clkObj(archive, 0, access)
+					while not exists(evQ.event, double):
+						clkObj(archivePageDown)
+						sysMsg("Turning page: event archives")
+				else:
+					clkObj(eventQ, 0, eventTitle)
+					sleep(15)
 					if evQ.stat == "Archive":
-						sysMsg("Turning page: archive quest")
+						while not exists(evArchive, double):
+							clkObj(questArrow)
+							sysMsg("Turning page: main quest")
+						clkObj(evArchive)
+					while not exists(evQ.event, double):
+						clkObj(questArrow)
+						if evQ.stat == "Current":
+							sysMsg("Turning page: main quest")
+						if evQ.stat == "Archive":
+							sysMsg("Turning page: archive quest")
 			clkObj(evQ.event, 0, evQ.stage)
 		clkObj(evQ.stage, 0, evQ.title)
 	else:
@@ -88,4 +97,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(dWorld, 100)
+autoAR(pipa, 100)
