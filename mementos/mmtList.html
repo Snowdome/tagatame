@@ -2,46 +2,45 @@
 	refreshMmt();
 
 </script>
-<table id="mementos">
+<table id='mementos'>
 	<thead>
 		<tr>
-			<th id="icon">圖示</th>
-			<th id="name" onclick="sortTableByString(1)">真理念裝</th>
-			<th id="rank" onclick="sortTableByString(2)">★</th>
-			<th id="remark" onclick="sortTableByString(3)">註</th>
-			<th id="origin" onclick="sortTableByString(4)">起源地</th>
-			<th id="group" onclick="sortTableByString(5)">團隊</th>
-			<th id="score" onclick="sortTableByNumber(6)">分數</th>
-			<th id="HP" onclick="sortTableByNumber(7)">HP</th>
-			<th id="patk" onclick="sortTableByNumber(8)">物攻</th>
-			<th id="matk" onclick="sortTableByNumber(9)">魔攻</th>
-			<th id="pdef" onclick="sortTableByNumber(10)">物防</th>
-			<th id="mdef" onclick="sortTableByNumber(11)">魔防</th>
-			<th id="dex" onclick="sortTableByNumber(12)">器用</th>
-			<th id="agi" onclick="sortTableByNumber(13)">素早</th>
-			<th id="luck" onclick="sortTableByNumber(14)">運</th>
-			<th id="a.type" onclick="sortTableByString(15)">攻屬</th>
-			<th id="a.bonus" onclick="sortTableByNumber(16)">補正</th>
-			<th id="special" onclick="sortTableByString(17)">特效</th>
-			<th id="sp.bonus" onclick="sortTableByNumber(18)">補正</th>
-			<th id="others">其他</th>
-			<th id="sinA" onclick="sortTableByNumber(20)">嫉妬</th>
-			<th id="sinB" onclick="sortTableByNumber(21)">怠惰</th>
-			<th id="sinC" onclick="sortTableByNumber(22)">色欲</th>
-			<th id="sinD" onclick="sortTableByNumber(23)">暴食</th>
-			<th id="sinE" onclick="sortTableByNumber(24)">憤怒</th>
-			<th id="sinF" onclick="sortTableByNumber(25)">強欲</th>
-			<th id="sinG" onclick="sortTableByNumber(26)">傲慢</th>
+			<th id='icon'>圖示</th>
+			<th id='name' headers='name' onclick='sortTableByString(1)'>真理念裝</th>
+			<th id='rank' headers='rank' onclick='sortTableByString(2)'>★</th>
+			<th id='remark' headers='remark' onclick='sortTableByString(3)'>註</th>
+			<th id='origin' headers='origin' onclick='sortTableByString(4)'>起源地</th>
+			<th id='group' headers='group' onclick='sortTableByString(5)'>團隊</th>
+			<th id='score' headers='score' onclick='sortTableByNumber(6)'>分數</th>
+			<th id='HP' headers='HP' onclick='sortTableByNumber(7)'>HP</th>
+			<th id='patk' headers='patk' onclick='sortTableByNumber(8)'>物攻</th>
+			<th id='matk' headers='matk' onclick='sortTableByNumber(9)'>魔攻</th>
+			<th id='pdef' headers='pdef' onclick='sortTableByNumber(10)'>物防</th>
+			<th id='mdef' headers='mdef' onclick='sortTableByNumber(11)'>魔防</th>
+			<th id='dex' headers='dex' onclick='sortTableByNumber(12)'>器用</th>
+			<th id='agi' headers='agi' onclick='sortTableByNumber(13)'>素早</th>
+			<th id='luck' headers='luck' onclick='sortTableByNumber(14)'>運</th>
+			<th id='a.type' headers='a.type' onclick='sortTableByString(15)'>攻屬</th>
+			<th id='a.bonus' headers='a.bonus' onclick='sortTableByNumber(16)'>補正</th>
+			<th id='special' headers='special' onclick='sortTableByString(17)'>特效</th>
+			<th id='sp.bonus' headers='sp.bonus' onclick='sortTableByNumber(18)'>補正</th>
+			<th id='others' headers='others'>其他</th>
+			<th id='sinA' headers='sinA' onclick='sortTableByNumber(20)'>嫉妬</th>
+			<th id='sinB' headers='sinB' onclick='sortTableByNumber(21)'>怠惰</th>
+			<th id='sinC' headers='sinC' onclick='sortTableByNumber(22)'>色欲</th>
+			<th id='sinD' headers='sinD' onclick='sortTableByNumber(23)'>暴食</th>
+			<th id='sinE' headers='sinE' onclick='sortTableByNumber(24)'>憤怒</th>
+			<th id='sinF' headers='sinF' onclick='sortTableByNumber(25)'>強欲</th>
+			<th id='sinG' headers='sinG' onclick='sortTableByNumber(26)'>傲慢</th>
 		</tr>
 	</thead>
 	<tbody>
-		<!-- Insert Excel output here -->
 		<tr class='mmt ev groupless'>
 			<td headers='icon'><img src='resources/TS_AOT_01.png' title='勝利への紅き一矢' /></td>
 			<td headers='name'>勝利への紅き一矢</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m001'>0</td>
 			<td headers='HP'></td>
@@ -70,7 +69,7 @@
 			<td headers='name'>反攻の炎に捧げん</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m002'>0</td>
 			<td headers='HP'></td>
@@ -99,8 +98,8 @@
 			<td headers='name'>その夢。ぬくもりの中に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>蒼炎騎士団</span><img src='resources/ui/subgroup_souenkishi.png' title='蒼炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>蒼炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_souenkishi.png' title='蒼炎騎士団' /></td>
 			<td headers='score' id='m003'>45</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -128,7 +127,7 @@
 			<td headers='name'>伝説の塔の下で</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m004'>0</td>
 			<td headers='HP'></td>
@@ -157,8 +156,8 @@
 			<td headers='name'>フロンティアレジェンズ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>ブレフロ</span><img src='resources/ui/group_bf.png' title='ブレフロ' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>ブレフロ</span><img class='groupLogo' src='resources/ui/group_bf.png' title='ブレフロ' /></td>
 			<td headers='score' id='m005'>100</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>30</td>
@@ -186,8 +185,8 @@
 			<td headers='name'>グランガイアサマナーズ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>ブレフロ</span><img src='resources/ui/group_bf.png' title='ブレフロ' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>ブレフロ</span><img class='groupLogo' src='resources/ui/group_bf.png' title='ブレフロ' /></td>
 			<td headers='score' id='m006'>60</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -215,7 +214,7 @@
 			<td headers='name'>キャラメルイェーガー</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m007'>0</td>
 			<td headers='HP'></td>
@@ -244,7 +243,7 @@
 			<td headers='name'>クノイチの青春</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m008'>0</td>
 			<td headers='HP'></td>
@@ -273,8 +272,8 @@
 			<td headers='name'>猛き者の本懐</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>クリユニ</span><img src='resources/ui/group_cry.png' title='クリユニ' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>クリユニ</span><img class='groupLogo' src='resources/ui/group_cry.png' title='クリユニ' /></td>
 			<td headers='score' id='m009'>130</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -302,8 +301,8 @@
 			<td headers='name'>尊き者の名は</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>クリユニ</span><img src='resources/ui/group_cry.png' title='クリユニ' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>クリユニ</span><img class='groupLogo' src='resources/ui/group_cry.png' title='クリユニ' /></td>
 			<td headers='score' id='m010'>60</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -331,8 +330,8 @@
 			<td headers='name'>敏腕参謀の多忙な一日</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m011'>30</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>30</td>
@@ -360,8 +359,8 @@
 			<td headers='name'>折れることなき翼</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m012'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -389,8 +388,8 @@
 			<td headers='name'>おもてなしの心</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m013'>110</td>
 			<td headers='HP'></td>
 			<td headers='patk'>20</td>
@@ -418,8 +417,8 @@
 			<td headers='name'>テイクリワード</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m014'>10</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'></td>
@@ -447,8 +446,8 @@
 			<td headers='name'>闇と雲に潜みし刃</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m015'>60</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -476,8 +475,8 @@
 			<td headers='name'>砂上での熱き誓い</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m016'>80</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>50</td>
@@ -505,8 +504,8 @@
 			<td headers='name'>次代の大陸の正義</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m017'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -534,8 +533,8 @@
 			<td headers='name'>春来たりなば</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m018'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>20</td>
@@ -563,8 +562,8 @@
 			<td headers='name'>近くて遠いふれあい</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m019'>45</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'>15</td>
@@ -592,8 +591,8 @@
 			<td headers='name'>風に舞う時の砂</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m020'>60</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'></td>
@@ -621,8 +620,8 @@
 			<td headers='name'>愛しき家族</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m021'>20</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'></td>
@@ -650,8 +649,8 @@
 			<td headers='name'>憧れと目標</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m022'>50</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>20</td>
@@ -679,8 +678,8 @@
 			<td headers='name'>この白砂は俺の領域だ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m023'>70</td>
 			<td headers='HP'></td>
 			<td headers='patk'>50</td>
@@ -708,8 +707,8 @@
 			<td headers='name'>特別な日</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m024'>40</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -737,8 +736,8 @@
 			<td headers='name'>絵から出てきたみたい</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>砂漠地帯<br />Desert Zone</td>
-			<td headers='group'><span class='groupName'>砂漠の民</span><img src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
+			<td headers='origin'><span class='originName'>砂漠地帯<br>Desert Zone</span><img class='originLogo' src='resources/ui/group_desert.png' title='砂漠地帯 Desert Zone' /></td>
+			<td headers='group'><span class='groupName'>砂漠の民</span><img class='groupLogo' src='resources/ui/subgroup_people_of_desert.png' title='砂漠の民' /></td>
 			<td headers='score' id='m025'>60</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -766,8 +765,8 @@
 			<td headers='name'>「甘き追想」</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>蒼炎騎士団</span><img src='resources/ui/subgroup_souenkishi.png' title='蒼炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>蒼炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_souenkishi.png' title='蒼炎騎士団' /></td>
 			<td headers='score' id='m026'>0</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -795,7 +794,7 @@
 			<td headers='name'>積み重ね、結晶</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m027'>0</td>
 			<td headers='HP'></td>
@@ -824,8 +823,8 @@
 			<td headers='name'>シェイナファンの証明</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m028'>40</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>20</td>
@@ -853,7 +852,7 @@
 			<td headers='name'>「ある日の大発見」</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m029'>0</td>
 			<td headers='HP'></td>
@@ -882,7 +881,7 @@
 			<td headers='name'>特式お手入れの成果は</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m030'>0</td>
 			<td headers='HP'></td>
@@ -911,7 +910,7 @@
 			<td headers='name'>打ち上げる夏の思い出</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m031'>0</td>
 			<td headers='HP'></td>
@@ -940,8 +939,8 @@
 			<td headers='name'>継承されし大陸の正義</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m032'>90</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'></td>
@@ -969,8 +968,8 @@
 			<td headers='name'>託されし世界を導く光</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m033'>60</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'>20</td>
@@ -998,8 +997,8 @@
 			<td headers='name'>圧倒的敗北</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m034'>40</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -1027,8 +1026,8 @@
 			<td headers='name'>肉は完全食！</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m035'>0</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -1056,7 +1055,7 @@
 			<td headers='name'>ささやかな休息</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m036'>0</td>
 			<td headers='HP'></td>
@@ -1085,8 +1084,8 @@
 			<td headers='name'>戦士の休息</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img class='groupLogo' src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
 			<td headers='score' id='m037'>20</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -1114,7 +1113,7 @@
 			<td headers='name'>お気に入りの帽子</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m038'>0</td>
 			<td headers='HP'></td>
@@ -1143,7 +1142,7 @@
 			<td headers='name'>お姉様の為ならば</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m039'>0</td>
 			<td headers='HP'></td>
@@ -1172,7 +1171,7 @@
 			<td headers='name'>ようこそ我らが植物園</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m040'>0</td>
 			<td headers='HP'></td>
@@ -1201,7 +1200,7 @@
 			<td headers='name'>未来への展望</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m041'>0</td>
 			<td headers='HP'></td>
@@ -1230,8 +1229,8 @@
 			<td headers='name'>受け継がれた鋼の意志</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m042'>60</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -1259,8 +1258,8 @@
 			<td headers='name'>優しき反抗期</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img class='groupLogo' src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
 			<td headers='score' id='m043'>40</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>30</td>
@@ -1288,8 +1287,8 @@
 			<td headers='name'>嗚呼、麗しき純白の獅子</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m044'>70</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'>20</td>
@@ -1317,8 +1316,8 @@
 			<td headers='name'>胸を焦がす輝き</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>蒼炎騎士団</span><img src='resources/ui/subgroup_souenkishi.png' title='蒼炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>蒼炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_souenkishi.png' title='蒼炎騎士団' /></td>
 			<td headers='score' id='m045'>30</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'></td>
@@ -1346,8 +1345,8 @@
 			<td headers='name'>姫騎士という高嶺の花</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img class='groupLogo' src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
 			<td headers='score' id='m046'>0</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -1375,8 +1374,8 @@
 			<td headers='name'>幸せってこと♪</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img class='groupLogo' src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
 			<td headers='score' id='m047'>50</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>20</td>
@@ -1404,7 +1403,7 @@
 			<td headers='name'>お姉様の為ならば</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m048'>0</td>
 			<td headers='HP'></td>
@@ -1433,8 +1432,8 @@
 			<td headers='name'>いつかまた昼食を</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m049'>0</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -1462,8 +1461,8 @@
 			<td headers='name'>正義を賭して</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m050'>35</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'>15</td>
@@ -1491,8 +1490,8 @@
 			<td headers='name'>淡い想い、紅鏡に照らして</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m051'>55</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'>15</td>
@@ -1520,8 +1519,8 @@
 			<td headers='name'>戦場の手向けの花</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>エンヴィリア王国騎士団</span><img class='groupLogo' src='resources/ui/subgroup_envyria_knight.png' title='エンヴィリア王国騎士団' /></td>
 			<td headers='score' id='m052'>0</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -1549,7 +1548,7 @@
 			<td headers='name'>「買い物のススメ」</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m053'>0</td>
 			<td headers='HP'></td>
@@ -1578,7 +1577,7 @@
 			<td headers='name'>「自由な傭兵の背中」</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m054'>0</td>
 			<td headers='HP'></td>
@@ -1607,8 +1606,8 @@
 			<td headers='name'>女子力の探求</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m055'>40</td>
 			<td headers='HP'>10</td>
 			<td headers='patk'></td>
@@ -1636,7 +1635,7 @@
 			<td headers='name'>溢れる夏の音色</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m056'>0</td>
 			<td headers='HP'></td>
@@ -1665,8 +1664,8 @@
 			<td headers='name'>在りし日の緋炎</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m057'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -1694,8 +1693,8 @@
 			<td headers='name'>スタディオーダー</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m058'>60</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>30</td>
@@ -1723,8 +1722,8 @@
 			<td headers='name'>大陸の正義、ここに在り</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m059'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -1752,8 +1751,8 @@
 			<td headers='name'>笑顔の先に望む世界</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>エンヴィリア<br />Envylia</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>エンヴィリア<br>Envylia</span><img class='originLogo' src='resources/ui/group_envyria.png' title='エンヴィリア Envylia' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m060'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>50</td>
@@ -1781,7 +1780,7 @@
 			<td headers='name'>迫り来る約束の日</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m061'>0</td>
 			<td headers='HP'></td>
@@ -1810,7 +1809,7 @@
 			<td headers='name'>真理を追い求めて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m062'>0</td>
 			<td headers='HP'></td>
@@ -1839,7 +1838,7 @@
 			<td headers='name'>手向け、願いを乗せて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m063'>0</td>
 			<td headers='HP'></td>
@@ -1868,7 +1867,7 @@
 			<td headers='name'>穢れなき生者を喰らい</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m064'>0</td>
 			<td headers='HP'></td>
@@ -1897,7 +1896,7 @@
 			<td headers='name'>甘い宝石たち</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m065'>0</td>
 			<td headers='HP'></td>
@@ -1926,7 +1925,7 @@
 			<td headers='name'>パニックイースター</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m066'>0</td>
 			<td headers='HP'></td>
@@ -1955,8 +1954,8 @@
 			<td headers='name'>雷光よりも鮮烈な</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m067'>90</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -1984,7 +1983,7 @@
 			<td headers='name'>栄光の欠片、煌めき</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m068'>0</td>
 			<td headers='HP'></td>
@@ -2013,7 +2012,7 @@
 			<td headers='name'>慈しむ愛、ゆえに</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m069'>0</td>
 			<td headers='HP'></td>
@@ -2042,7 +2041,7 @@
 			<td headers='name'>願い、光の風に吹かれて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グラトニー＝フォス<br />Glttony Foss</td>
+			<td headers='origin'><span class='originName'>グラトニー＝フォス<br>Glttony Foss</span><img class='originLogo' src='resources/ui/group_gluttony.png' title='グラトニー＝フォス Glttony Foss' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m070'>0</td>
 			<td headers='HP'></td>
@@ -2071,7 +2070,7 @@
 			<td headers='name'>練磨、創造、その果て</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m071'>0</td>
 			<td headers='HP'></td>
@@ -2100,7 +2099,7 @@
 			<td headers='name'>将軍の誇りチョコ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m072'>0</td>
 			<td headers='HP'></td>
@@ -2129,7 +2128,7 @@
 			<td headers='name'>尽きる、その日まで</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m073'>0</td>
 			<td headers='HP'></td>
@@ -2158,7 +2157,7 @@
 			<td headers='name'>パニックハロウィン</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m074'>0</td>
 			<td headers='HP'></td>
@@ -2187,7 +2186,7 @@
 			<td headers='name'>覇道を征く者</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m075'>0</td>
 			<td headers='HP'></td>
@@ -2216,8 +2215,8 @@
 			<td headers='name'>船上の厄膳料理</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
-			<td headers='group'><span class='groupName'>海賊団</span><img src='resources/ui/subgroup_pirate.png' title='海賊団' /></td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
+			<td headers='group'><span class='groupName'>海賊団</span><img class='groupLogo' src='resources/ui/subgroup_pirate.png' title='海賊団' /></td>
 			<td headers='score' id='m076'>50</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>20</td>
@@ -2245,8 +2244,8 @@
 			<td headers='name'>お宝は海図のその先に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>グリードダイク<br />Greed Dike</td>
-			<td headers='group'><span class='groupName'>海賊団</span><img src='resources/ui/subgroup_pirate.png' title='海賊団' /></td>
+			<td headers='origin'><span class='originName'>グリードダイク<br>Greed Dike</span><img class='originLogo' src='resources/ui/group_greed.png' title='グリードダイク Greed Dike' /></td>
+			<td headers='group'><span class='groupName'>海賊団</span><img class='groupLogo' src='resources/ui/subgroup_pirate.png' title='海賊団' /></td>
 			<td headers='score' id='m077'>110</td>
 			<td headers='HP'></td>
 			<td headers='patk'>40</td>
@@ -2274,7 +2273,7 @@
 			<td headers='name'>雪上に刻まれた希望</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m078'>0</td>
 			<td headers='HP'></td>
@@ -2303,8 +2302,8 @@
 			<td headers='name'>私が見つけた太陽</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m079'>50</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -2332,8 +2331,8 @@
 			<td headers='name'>戒めなき青に包まれて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m080'>90</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>50</td>
@@ -2361,8 +2360,8 @@
 			<td headers='name'>ひとり、じゃなくて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m081'>70</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'>20</td>
@@ -2390,8 +2389,8 @@
 			<td headers='name'>剪定、収穫、その開花</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m082'>90</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'></td>
@@ -2419,8 +2418,8 @@
 			<td headers='name'>世界を壊す、先駆けに</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m083'>100</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -2448,8 +2447,8 @@
 			<td headers='name'>理想の行き着いた果て</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m084'>90</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -2477,8 +2476,8 @@
 			<td headers='name'>一夜の生き血を喰らい</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m085'>60</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'></td>
@@ -2506,8 +2505,8 @@
 			<td headers='name'>真理への戒めと記録</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m086'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -2535,8 +2534,8 @@
 			<td headers='name'>追いかけるは好奇心</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m087'>110</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -2564,8 +2563,8 @@
 			<td headers='name'>空腹アンサンブル</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m088'>90</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -2593,8 +2592,8 @@
 			<td headers='name'>鏡に映る隔絶の灯火</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m089'>70</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>20</td>
@@ -2622,8 +2621,8 @@
 			<td headers='name'>九杯分の命</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m090'>80</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'></td>
@@ -2651,8 +2650,8 @@
 			<td headers='name'>白き花、黒き花</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ロストブルー<br />Lost Blue</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>ロストブルー<br>Lost Blue</span><img class='originLogo' src='resources/ui/group_lost.png' title='ロストブルー Lost Blue' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m091'>90</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -2680,7 +2679,7 @@
 			<td headers='name'>アルマは楽しそう、でも…</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m092'>0</td>
 			<td headers='HP'></td>
@@ -2709,7 +2708,7 @@
 			<td headers='name'>特訓サマービーチ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m093'>0</td>
 			<td headers='HP'></td>
@@ -2738,7 +2737,7 @@
 			<td headers='name'>罪、その地に積もりて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m094'>0</td>
 			<td headers='HP'></td>
@@ -2767,7 +2766,7 @@
 			<td headers='name'>魔法少女のランチタイム</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m095'>0</td>
 			<td headers='HP'></td>
@@ -2796,7 +2795,7 @@
 			<td headers='name'>幸運な春の一片</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m096'>0</td>
 			<td headers='HP'></td>
@@ -2825,7 +2824,7 @@
 			<td headers='name'>甘くて、あたたかくて。</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m097'>0</td>
 			<td headers='HP'></td>
@@ -2854,7 +2853,7 @@
 			<td headers='name'>パーティは雪解けの後に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m098'>0</td>
 			<td headers='HP'></td>
@@ -2883,7 +2882,7 @@
 			<td headers='name'>出撃、狂気のキューピッド</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m099'>0</td>
 			<td headers='HP'></td>
@@ -2912,7 +2911,7 @@
 			<td headers='name'>雪上に刻まれた希望</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m100'>0</td>
 			<td headers='HP'></td>
@@ -2941,8 +2940,8 @@
 			<td headers='name'>終わりない宴</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m101'>60</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'></td>
@@ -2970,7 +2969,7 @@
 			<td headers='name'>レベッカは完璧、でも…</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m102'>0</td>
 			<td headers='HP'></td>
@@ -2999,7 +2998,7 @@
 			<td headers='name'>特訓サマーシュート</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m103'>0</td>
 			<td headers='HP'></td>
@@ -3028,7 +3027,7 @@
 			<td headers='name'>凍れる決意で手を伸ばし</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m104'>0</td>
 			<td headers='HP'></td>
@@ -3057,7 +3056,7 @@
 			<td headers='name'>とあるエルフの素顔</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m105'>0</td>
 			<td headers='HP'></td>
@@ -3086,7 +3085,7 @@
 			<td headers='name'>刻の架け橋</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m106'>0</td>
 			<td headers='HP'></td>
@@ -3115,7 +3114,7 @@
 			<td headers='name'>無限の罪、その身に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m107'>0</td>
 			<td headers='HP'></td>
@@ -3144,7 +3143,7 @@
 			<td headers='name'>歪な刻は氷の檻に沈んで</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m108'>0</td>
 			<td headers='HP'></td>
@@ -3173,8 +3172,8 @@
 			<td headers='name'>華麗じゃない剣</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ルストブルグ<br />Lustburg</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ルストブルグ<br>Lustburg</span><img class='originLogo' src='resources/ui/group_lust.png' title='ルストブルグ Lustburg' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m109'>90</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -3202,8 +3201,8 @@
 			<td headers='name'>トライアングラー</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>マクロスフロンティア</span><img src='resources/ui/group_mcf.png' title='マクロスフロンティア' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>マクロスフロンティア</span><img class='groupLogo' src='resources/ui/group_mcf.png' title='マクロスフロンティア' /></td>
 			<td headers='score' id='m110'>50</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>30</td>
@@ -3231,8 +3230,8 @@
 			<td headers='name'>夢追う歌姫</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>マクロスフロンティア</span><img src='resources/ui/group_mcf.png' title='マクロスフロンティア' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>マクロスフロンティア</span><img class='groupLogo' src='resources/ui/group_mcf.png' title='マクロスフロンティア' /></td>
 			<td headers='score' id='m111'>130</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -3260,8 +3259,8 @@
 			<td headers='name'>銀河舞う妖精</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>マクロスフロンティア</span><img src='resources/ui/group_mcf.png' title='マクロスフロンティア' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>マクロスフロンティア</span><img class='groupLogo' src='resources/ui/group_mcf.png' title='マクロスフロンティア' /></td>
 			<td headers='score' id='m112'>140</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>40</td>
@@ -3289,8 +3288,8 @@
 			<td headers='name'>在りし日の二人と憧れと</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ノーザンブライドレリーフ<br />Northern Pride</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ノーザンブライドレリーフ<br>Northern Pride</span><img class='originLogo' src='resources/ui/group_north.png' title='ノーザンブライドレリーフ Northern Pride' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m113'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>40</td>
@@ -3318,8 +3317,8 @@
 			<td headers='name'>落涙なき慟哭</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ノーザンブライドレリーフ<br />Northern Pride</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ノーザンブライドレリーフ<br>Northern Pride</span><img class='originLogo' src='resources/ui/group_north.png' title='ノーザンブライドレリーフ Northern Pride' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m114'>110</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>50</td>
@@ -3347,7 +3346,7 @@
 			<td headers='name'>異端なき秩序の徒</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ノーザンブライドレリーフ<br />Northern Pride</td>
+			<td headers='origin'><span class='originName'>ノーザンブライドレリーフ<br>Northern Pride</span><img class='originLogo' src='resources/ui/group_north.png' title='ノーザンブライドレリーフ Northern Pride' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m115'>0</td>
 			<td headers='HP'></td>
@@ -3376,8 +3375,8 @@
 			<td headers='name'>“傲慢”への祈り</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ノーザンブライドレリーフ<br />Northern Pride</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ノーザンブライドレリーフ<br>Northern Pride</span><img class='originLogo' src='resources/ui/group_north.png' title='ノーザンブライドレリーフ Northern Pride' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m116'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>20</td>
@@ -3405,7 +3404,7 @@
 			<td headers='name'>叶わぬ過去、叶える未来</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ノーザンブライドレリーフ<br />Northern Pride</td>
+			<td headers='origin'><span class='originName'>ノーザンブライドレリーフ<br>Northern Pride</span><img class='originLogo' src='resources/ui/group_north.png' title='ノーザンブライドレリーフ Northern Pride' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m117'>0</td>
 			<td headers='HP'></td>
@@ -3434,8 +3433,8 @@
 			<td headers='name'>黒という記憶</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>十戒衆</span><img src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>十戒衆</span><img class='groupLogo' src='resources/ui/subgroup_jikkaisyu.png' title='十戒衆' /></td>
 			<td headers='score' id='m118'>50</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'>20</td>
@@ -3463,7 +3462,7 @@
 			<td headers='name'>隔たりを破る純心</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m119'>0</td>
 			<td headers='HP'></td>
@@ -3492,8 +3491,8 @@
 			<td headers='name'>理を破る者たちの休息</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m120'>90</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>20</td>
@@ -3521,8 +3520,8 @@
 			<td headers='name'>決して折れない不屈の剣</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m121'>50</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>30</td>
@@ -3550,8 +3549,8 @@
 			<td headers='name'>円環の瞳</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m122'>90</td>
 			<td headers='HP'></td>
 			<td headers='patk'>60</td>
@@ -3565,7 +3564,8 @@
 			<td headers='a.bonus'></td>
 			<td headers='special'></td>
 			<td headers='sp.bonus'></td>
-			<td headers='others'>暴擊率+20, <br />命中率+10</td>
+			<td headers='others'>暴擊率+20,
+				命中率+10</td>
 			<td headers='sinA'>30</td>
 			<td headers='sinB'></td>
 			<td headers='sinC'></td>
@@ -3579,8 +3579,8 @@
 			<td headers='name'>闇に浮かぶ優しき笑み</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m123'>60</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -3608,8 +3608,8 @@
 			<td headers='name'>主君に捧げし刃</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m124'>110</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>50</td>
@@ -3637,8 +3637,8 @@
 			<td headers='name'>確定事象の砂時計</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m125'>30</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'></td>
@@ -3666,8 +3666,8 @@
 			<td headers='name'>導き、その光とともに</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m126'>100</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -3695,7 +3695,7 @@
 			<td headers='name'>タガタメは次の次元へ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m127'>0</td>
 			<td headers='HP'></td>
@@ -3724,8 +3724,8 @@
 			<td headers='name'>穢れなき乙女たち</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m128'>90</td>
 			<td headers='HP'></td>
 			<td headers='patk'>40</td>
@@ -3753,8 +3753,8 @@
 			<td headers='name'>華紋は桜色に染まり</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>FgG</span><img src='resources/ui/group_FgG.png' title='FgG' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>FgG</span><img class='groupLogo' src='resources/ui/group_FgG.png' title='FgG' /></td>
 			<td headers='score' id='m129'>70</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -3782,7 +3782,7 @@
 			<td headers='name'>ファーストクリスマス</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m130'>0</td>
 			<td headers='HP'></td>
@@ -3811,7 +3811,7 @@
 			<td headers='name'>大森林の唱和</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m131'>0</td>
 			<td headers='HP'></td>
@@ -3840,8 +3840,8 @@
 			<td headers='name'>降臨ブラックキールズ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
-			<td headers='group'><span class='groupName'>海賊団</span><img src='resources/ui/subgroup_pirate.png' title='海賊団' /></td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
+			<td headers='group'><span class='groupName'>海賊団</span><img class='groupLogo' src='resources/ui/subgroup_pirate.png' title='海賊団' /></td>
 			<td headers='score' id='m132'>80</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'></td>
@@ -3869,7 +3869,7 @@
 			<td headers='name'>仕事終わりのもふもふ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m133'>0</td>
 			<td headers='HP'></td>
@@ -3898,7 +3898,7 @@
 			<td headers='name'>優しき風を纏いて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m134'>0</td>
 			<td headers='HP'></td>
@@ -3927,8 +3927,8 @@
 			<td headers='name'>スタディアニマルズ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m135'>90</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'></td>
@@ -3956,8 +3956,8 @@
 			<td headers='name'>手作りクリスマス</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
-			<td headers='group'><span class='groupName'>緋炎騎士団</span><img src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
+			<td headers='group'><span class='groupName'>緋炎騎士団</span><img class='groupLogo' src='resources/ui/subgroup_hienkishi.png' title='緋炎騎士団' /></td>
 			<td headers='score' id='m136'>120</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -3985,7 +3985,7 @@
 			<td headers='name'>雪解けを告げた風</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m137'>0</td>
 			<td headers='HP'></td>
@@ -4014,8 +4014,8 @@
 			<td headers='name'>熱き魂を乗せて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m138'>60</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>30</td>
@@ -4043,7 +4043,7 @@
 			<td headers='name'>緑は奇跡の色となりて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>サガ地方<br />Saga Region</td>
+			<td headers='origin'><span class='originName'>サガ地方<br>Saga Region</span><img class='originLogo' src='resources/ui/group_saga.png' title='サガ地方 Saga Region' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m139'>0</td>
 			<td headers='HP'></td>
@@ -4072,8 +4072,8 @@
 			<td headers='name'>盾の勇者に差し込む光</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>盾の勇者の成り上がり</span><img src='resources/ui/subgroup_sb.png' title='盾の勇者の成り上がり' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>盾の勇者の成り上がり</span><img class='groupLogo' src='resources/ui/subgroup_sb.png' title='盾の勇者の成り上がり' /></td>
 			<td headers='score' id='m140'>80</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'>20</td>
@@ -4101,8 +4101,8 @@
 			<td headers='name'>第二王女の願いごと</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>盾の勇者の成り上がり</span><img src='resources/ui/subgroup_sb.png' title='盾の勇者の成り上がり' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>盾の勇者の成り上がり</span><img class='groupLogo' src='resources/ui/subgroup_sb.png' title='盾の勇者の成り上がり' /></td>
 			<td headers='score' id='m141'>50</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -4130,7 +4130,7 @@
 			<td headers='name'>運命の交差</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m142'>0</td>
 			<td headers='HP'></td>
@@ -4159,7 +4159,7 @@
 			<td headers='name'>伸ばした指先に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m143'>0</td>
 			<td headers='HP'></td>
@@ -4188,7 +4188,7 @@
 			<td headers='name'>悩殺パフォーマンス</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m144'>0</td>
 			<td headers='HP'></td>
@@ -4217,7 +4217,7 @@
 			<td headers='name'>追えない背中を抱いて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m145'>0</td>
 			<td headers='HP'></td>
@@ -4246,7 +4246,7 @@
 			<td headers='name'>悪戯の祭典、その裏に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m146'>0</td>
 			<td headers='HP'></td>
@@ -4275,7 +4275,7 @@
 			<td headers='name'>期待の新星、現る！</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m147'>0</td>
 			<td headers='HP'></td>
@@ -4304,7 +4304,7 @@
 			<td headers='name'>ライトトラック</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m148'>0</td>
 			<td headers='HP'></td>
@@ -4333,7 +4333,7 @@
 			<td headers='name'>二人の未来</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m149'>0</td>
 			<td headers='HP'></td>
@@ -4362,7 +4362,7 @@
 			<td headers='name'>花嫁に涙は似合わない</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m150'>0</td>
 			<td headers='HP'></td>
@@ -4391,7 +4391,7 @@
 			<td headers='name'>想いを映す銀の月</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m151'>0</td>
 			<td headers='HP'></td>
@@ -4420,7 +4420,7 @@
 			<td headers='name'>色違いの涙</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m152'>0</td>
 			<td headers='HP'></td>
@@ -4449,8 +4449,8 @@
 			<td headers='name'>シーサイドライブラリー</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m153'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -4478,7 +4478,7 @@
 			<td headers='name'>憧れの射撃手</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m154'>0</td>
 			<td headers='HP'></td>
@@ -4507,7 +4507,7 @@
 			<td headers='name'>交差する覚悟の銃身</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m155'>0</td>
 			<td headers='HP'></td>
@@ -4536,8 +4536,8 @@
 			<td headers='name'>完全なる闇の遊戯</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m156'>70</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -4565,7 +4565,7 @@
 			<td headers='name'>スモーキングブルース</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m157'>0</td>
 			<td headers='HP'></td>
@@ -4594,7 +4594,7 @@
 			<td headers='name'>弱さもみんな抱きしめて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>その他<br />Other</td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m158'>0</td>
 			<td headers='HP'></td>
@@ -4623,8 +4623,8 @@
 			<td headers='name'>伝説の騎士団</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img class='groupLogo' src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
 			<td headers='score' id='m159'>30</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -4652,8 +4652,8 @@
 			<td headers='name'>大罪人の聖戦</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img class='groupLogo' src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
 			<td headers='score' id='m160'>50</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'>20</td>
@@ -4681,8 +4681,8 @@
 			<td headers='name'>リオネスの英雄、久遠に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img class='groupLogo' src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
 			<td headers='score' id='m161'>100</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -4712,8 +4712,8 @@
 			</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>〈七つの大罪〉</span><img class='groupLogo' src='resources/ui/group_ts.png' title='〈七つの大罪〉' /></td>
 			<td headers='score' id='m162'>140</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'></td>
@@ -4741,8 +4741,8 @@
 			<td headers='name'>異世界ピクニックの衝撃</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>転スラ</span><img src='resources/ui/group_tsp.png' title='転スラ' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>転スラ</span><img class='groupLogo' src='resources/ui/group_tsp.png' title='転スラ' /></td>
 			<td headers='score' id='m163'>60</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'>20</td>
@@ -4770,8 +4770,8 @@
 			<td headers='name'>斬り開く、仲間とともに</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>その他<br />Other</td>
-			<td headers='group'><span class='groupName'>転スラ</span><img src='resources/ui/group_tsp.png' title='転スラ' /></td>
+			<td headers='origin'><span class='originName'>その他<br>Other</span><img class='originLogo' src='resources/ui/IT_CONCEPTCARD_COMMON_COLLABO.png' title='その他 Other' /></td>
+			<td headers='group'><span class='groupName'>転スラ</span><img class='groupLogo' src='resources/ui/group_tsp.png' title='転スラ' /></td>
 			<td headers='score' id='m164'>70</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -4799,7 +4799,7 @@
 			<td headers='name'>一番眩しい笑顔</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>スロウスシュタイン<br />Slothstein</td>
+			<td headers='origin'><span class='originName'>スロウスシュタイン<br>Slothstein</span><img class='originLogo' src='resources/ui/group_sloth.png' title='スロウスシュタイン Slothstein' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m165'>0</td>
 			<td headers='HP'></td>
@@ -4828,7 +4828,7 @@
 			<td headers='name'>神童と呼ばれた友</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m166'>0</td>
 			<td headers='HP'></td>
@@ -4857,8 +4857,8 @@
 			<td headers='name'>未来は両の手の中に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m167'>60</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'></td>
@@ -4886,7 +4886,7 @@
 			<td headers='name'>甘くない、それも個性</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m168'>0</td>
 			<td headers='HP'></td>
@@ -4915,7 +4915,7 @@
 			<td headers='name'>空駆ける夜狐</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m169'>0</td>
 			<td headers='HP'></td>
@@ -4944,8 +4944,8 @@
 			<td headers='name'>雪解け。故郷にて</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m170'>20</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'></td>
@@ -4973,8 +4973,8 @@
 			<td headers='name'>閃光、交わりし瞬間</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m171'>60</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>40</td>
@@ -5002,8 +5002,8 @@
 			<td headers='name'>誓いの刃</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m172'>80</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'>20</td>
@@ -5031,8 +5031,8 @@
 			<td headers='name'>古の装い</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m173'>100</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -5060,8 +5060,8 @@
 			<td headers='name'>甘き血刃</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m174'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -5075,7 +5075,8 @@
 			<td headers='a.bonus'>40</td>
 			<td headers='special'></td>
 			<td headers='sp.bonus'></td>
-			<td headers='others'>斬撃耐性+10,<br />命中率+5</td>
+			<td headers='others'>斬撃耐性+10,
+				命中率+5</td>
 			<td headers='sinA'></td>
 			<td headers='sinB'></td>
 			<td headers='sinC'></td>
@@ -5089,8 +5090,8 @@
 			<td headers='name'>私のすべて、灰に還る</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m175'>130</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -5118,8 +5119,8 @@
 			<td headers='name'>懐旧は、あたたかく</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m176'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>20</td>
@@ -5147,8 +5148,8 @@
 			<td headers='name'>砂塵、ひと雫の笑み</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m177'>60</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -5176,8 +5177,8 @@
 			<td headers='name'>調理場、その初陣は</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m178'>60</td>
 			<td headers='HP'>20</td>
 			<td headers='patk'>30</td>
@@ -5205,7 +5206,7 @@
 			<td headers='name'>咲いて散るは憧憬の花</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m179'>0</td>
 			<td headers='HP'></td>
@@ -5234,7 +5235,7 @@
 			<td headers='name'>約束の時、幸福の味</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m180'>0</td>
 			<td headers='HP'></td>
@@ -5263,8 +5264,8 @@
 			<td headers='name'>誓い、彼岸の花に</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m181'>70</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -5292,8 +5293,8 @@
 			<td headers='name'>流星に願った頃</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ワダツミ<br />Wadatsumi</td>
-			<td headers='group'><span class='groupName'>ワダツミ武門</span><img src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
+			<td headers='origin'><span class='originName'>ワダツミ<br>Wadatsumi</span><img class='originLogo' src='resources/ui/group_wada.png' title='ワダツミ Wadatsumi' /></td>
+			<td headers='group'><span class='groupName'>ワダツミ武門</span><img class='groupLogo' src='resources/ui/subgroup_wadatusmi_samurai_family.png' title='ワダツミ武門' /></td>
 			<td headers='score' id='m182'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -5321,8 +5322,8 @@
 			<td headers='name'>薔薇はただ赤く</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m183'>90</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>30</td>
@@ -5350,7 +5351,7 @@
 			<td headers='name'>断崖ディスティニー</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m184'>0</td>
 			<td headers='HP'></td>
@@ -5379,8 +5380,8 @@
 			<td headers='name'>シークレットヒーロー</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m185'>50</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'>20</td>
@@ -5408,8 +5409,8 @@
 			<td headers='name'>消えない汚れ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m186'>90</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'></td>
@@ -5437,7 +5438,7 @@
 			<td headers='name'>感謝を込めた花束を</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m187'>0</td>
 			<td headers='HP'></td>
@@ -5466,7 +5467,7 @@
 			<td headers='name'>雪あそびより</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m188'>0</td>
 			<td headers='HP'></td>
@@ -5495,8 +5496,8 @@
 			<td headers='name'>漆黒に揺蕩いしは</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>聖教騎士団</span><img src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>聖教騎士団</span><img class='groupLogo' src='resources/ui/subgroup_seikyoukishi.png' title='聖教騎士団' /></td>
 			<td headers='score' id='m189'>100</td>
 			<td headers='HP'></td>
 			<td headers='patk'>60</td>
@@ -5524,8 +5525,8 @@
 			<td headers='name'>花は優しく揺れて</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m190'>15</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -5553,8 +5554,8 @@
 			<td headers='name'>千日の雛芥子</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m191'>80</td>
 			<td headers='HP'>50</td>
 			<td headers='patk'>20</td>
@@ -5582,7 +5583,7 @@
 			<td headers='name'>アンフェア・ルール</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m192'>0</td>
 			<td headers='HP'></td>
@@ -5611,7 +5612,7 @@
 			<td headers='name'>二人のジョーカー</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m193'>0</td>
 			<td headers='HP'></td>
@@ -5640,8 +5641,8 @@
 			<td headers='name'>私だって守れる！</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m194'>60</td>
 			<td headers='HP'>30</td>
 			<td headers='patk'></td>
@@ -5669,8 +5670,8 @@
 			<td headers='name'>皆様に花マルを</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='event'>活動</span></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m195'>15</td>
 			<td headers='HP'></td>
 			<td headers='patk'></td>
@@ -5698,8 +5699,8 @@
 			<td headers='name'>白黒の熊を照らす火灯</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m196'>60</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'></td>
@@ -5727,7 +5728,7 @@
 			<td headers='name'>魂に刻まれし本能</td>
 			<td headers='rank'>4</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m197'>0</td>
 			<td headers='HP'></td>
@@ -5756,7 +5757,7 @@
 			<td headers='name'>あの日見た堕天使</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m198'>0</td>
 			<td headers='HP'></td>
@@ -5785,7 +5786,7 @@
 			<td headers='name'>いずれ燃え尽きるほど</td>
 			<td headers='rank'>3</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
 			<td headers='group'></td>
 			<td headers='score' id='m199'>0</td>
 			<td headers='HP'></td>
@@ -5814,8 +5815,8 @@
 			<td headers='name'>双星の想いは募り</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m200'>55</td>
 			<td headers='HP'>70</td>
 			<td headers='patk'>15</td>
@@ -5843,8 +5844,8 @@
 			<td headers='name'>珠星、決戦の地へ</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m201'>80</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>30</td>
@@ -5872,8 +5873,8 @@
 			<td headers='name'>可能性は広き海の如く</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'><span class='limited'>限定</span></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>ラーストリス騎士団</span><img class='groupLogo' src='resources/ui/subgroup_wrathtriz.png' title='ラーストリス騎士団' /></td>
 			<td headers='score' id='m202'>80</td>
 			<td headers='HP'>60</td>
 			<td headers='patk'>30</td>
@@ -5901,8 +5902,8 @@
 			<td headers='name'>漆黒の野望、未だ叶わず</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m203'>100</td>
 			<td headers='HP'>40</td>
 			<td headers='patk'>20</td>
@@ -5930,8 +5931,8 @@
 			<td headers='name'>白銀の野望、ここに降り立ち</td>
 			<td headers='rank'>5</td>
 			<td headers='remark'></td>
-			<td headers='origin'>ラーストリス<br />Wratharis</td>
-			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
+			<td headers='origin'><span class='originName'>ラーストリス<br>Wratharis</span><img class='originLogo' src='resources/ui/group_wrath.png' title='ラーストリス Wratharis' /></td>
+			<td headers='group'><span class='groupName'>シャドウメサイヤ</span><img class='groupLogo' src='resources/ui/group_messiah.png' title='シャドウメサイヤ' /></td>
 			<td headers='score' id='m204'>100</td>
 			<td headers='HP'></td>
 			<td headers='patk'>30</td>
@@ -5954,6 +5955,6 @@
 			<td headers='sinF'></td>
 			<td headers='sinG'></td>
 		</tr>
-		<!-- Excel output ends here -->
+
 	</tbody>
 </table>

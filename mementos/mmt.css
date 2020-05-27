@@ -30,15 +30,20 @@ tbody#history tr:nth-child(odd) {
 }
 
 td[headers="icon"]>img,
+td[headers="origin"]>img,
 td[headers="group"]>img {
 	height: 32px;
 	text-align: center;
 	vertical-align: middle;
 }
 
-td[headers="name"],
+td[headers="name"] {
+	white-space: nowrap;
+}
+
 td[headers="origin"],
 td[headers="group"] {
+	text-align: center;
 	white-space: nowrap;
 }
 
@@ -95,7 +100,8 @@ tr :nth-child(n+21):nth-child(-n+27) {
 	white-space: nowrap;
 }
 
-.groupName {
+.groupName,
+.originName {
 	display: none;
 }
 

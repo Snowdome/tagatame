@@ -15,6 +15,7 @@
 	<meta name="msapplication-TileColor" content="#603cba">
 	<meta name="theme-color" content="#ffffff">
 	<script src=mmt.js></script>
+	<script src=score.js></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$(function(){
@@ -40,7 +41,7 @@
 <body>
 	<p><b>Consolidated by 雪頂夢 @ PigPigChannel</b></p>
 	<p>❃真理念裝レリーフ只即用於非<span class="event">活動</span>的5★念裝
-		<br>❃暫時只有聖誕レリーフ可以突破<span class="event">活動</span>／非5★念裝
+		<br>❃暫時只有節日レリーフ可以突破<span class="event">活動</span>／非5★念裝
 		<br>❃每日主題境界值關卡未必能增加<span class="event">活動</span>念裝的境界值 (以關卡公告為準)
 		<br>❃本清單不包括2★念裝 / 純紀念品 (通常為最大Level為1的念裝)
 		<br>❃<span class="title">藍字</span>的標題為可排序</p>
@@ -49,19 +50,18 @@
 		<form autocomplete="off">
 			<p><b><u>Parameters</u></b></p>
 			<p>基本:
-				<input type="radio" id="pm1" name="pm" value="phy">物攻
-				<input type="radio" id="pm2" name="pm" value="mag">魔攻
-				<input type="radio" id="pm0" name="pm" value="either" checked>最大值
-			</p>
-			<p>大罪:
-				<input type="radio" id="sin1" name="sin" value="envy">嫉妬
-				<input type="radio" id="sin2" name="sin" value="sloth">怠惰
-				<input type="radio" id="sin3" name="sin" value="lust">色欲
-				<input type="radio" id="sin4" name="sin" value="gluttony">暴食
-				<input type="radio" id="sin5" name="sin" value="wrath">憤怒
-				<input type="radio" id="sin6" name="sin" value="greed">強欲
-				<input type="radio" id="sin7" name="sin" value="pride">傲慢
-				<input type="radio" id="sin0" name="sin" value="any" checked>最大值
+				<label><input type="radio" id="pm1" name="pm" value="phy">物攻</label>
+				<label><input type="radio" id="pm2" name="pm" value="mag">魔攻</label>
+				<label><input type="radio" id="pm0" name="pm" value="either" checked>最大值</label><br>
+			大罪:
+				<label><input type="radio" id="sin1" name="sin" value="envy">嫉妬</label>
+				<label><input type="radio" id="sin2" name="sin" value="sloth">怠惰</label>
+				<label><input type="radio" id="sin3" name="sin" value="lust">色欲</label>
+				<label><input type="radio" id="sin4" name="sin" value="gluttony">暴食</label>
+				<label><input type="radio" id="sin5" name="sin" value="wrath">憤怒</label>
+				<label><input type="radio" id="sin6" name="sin" value="greed">強欲</label>
+				<label><input type="radio" id="sin7" name="sin" value="pride">傲慢</label>
+				<label><input type="radio" id="sin0" name="sin" value="any" checked>最大值</label>
 			</p>
 			<p>額外:
 				<br>
@@ -86,11 +86,17 @@
 			</p>
 		</form>
 		<form autocomplete="off" oninput="refreshMmt()">
-			<p>顯示：
-				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked="checked">普池</label>
-				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked="checked">活動</label>
-                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked="checked">限定</label>
-				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">無團隊</label>
+			<p>顯示選項：<br>
+				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked>普池</label>
+				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>活動</label>
+                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label>
+				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">無團隊</label><br>
+				副數值：<label><input type="radio" id="secInfo1" name="secInfo" value="show">顯示</label>
+				<label><input type="radio" id="secInfo0" name="secInfo" value="hide" checked>隱藏</label><br>
+				起源地：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">文字</label>
+				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>圖片</label><br>
+				團隊：　<label><input type="radio" id="optGroup0" name="optGroup" value="text">文字</label>
+				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>圖片</label><br>
 			</p>
 		</form>
 	</div>
@@ -99,13 +105,19 @@
 		<table id="changeLog">
 			<tbody id="latest">
 				<tr>
+					<td>27/05/2020</td>
+					<td>
+						<p><u>Modified:</u><br>1. Origin display options<br>2. Details display options</p>
+					</td>
+				</tr>
+			</tbody>
+			<tbody id="history" style="display: none;">
+				<tr>
 					<td>22/05/2020</td>
 					<td>
 						<p><u>Added:</u><br>1. 託されし世界を導く光<br></p>
 					</td>
 				</tr>
-			</tbody>
-			<tbody id="history" style="display: none;">
 				<tr>
 					<td>17/05/2020</td>
 					<td>
