@@ -97,4 +97,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(pipa, 100)
+autoAR(dWorld, 100)

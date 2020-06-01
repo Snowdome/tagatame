@@ -1,4 +1,4 @@
-# multi.py last updated 13/05/2020
+# multi.py last updated 29/05/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -351,16 +351,29 @@ def multiDouble(multiQ, script, n=1):
 				sysMsg("Main-window finish button not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
 		sleep(extend)
 		if exists(OK, 0):
+			sysMsg("Main-window timeout (Mode 2).")
 			clkObj(OK)
-			sysMsg("Main-window timeout.")
 			sleep(normal)
-		clkObj(finished)
-		mouseMove(10,0)
-		click(atMouse())
-		#wait(OK, 30)
-		#clkObj(OK)
-		wait(home, 30)
-		clkObj(home, double)
+			clkObj(finished)
+			mouseMove(10,0)
+			click(atMouse())
+		else:
+			sysMsg("Main-window timeout. (Mode 1)")
+			clkObj(finished)
+			mouseMove(10,0)
+			click(atMouse())
+			sleep(5)
+			clkObj(OK)
+			sleep(normal)
+		t = 0
+		while t != -1:
+			if exists(home):
+				clkObj(home, double)
+				t = -1
+			else:
+				sleep(5)
+				t = t + 5
+				sysMsg("Home button not found. Waiting for 5 more sec. Total waiting time: " + str(t) + " sec.")
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
 	if n < 0:
@@ -376,5 +389,5 @@ def multiDouble(multiQ, script, n=1):
 #multiDouble(subS2b, actsS2b, 1000)
 
 
-#multiDouble(sub102, acts102, 500)
-multiSingle(soloXmas, neroSolo, 50)
+multiDouble(sub102, acts102, 500)
+#multiSingle(soloXmas, neroSolo, 50)

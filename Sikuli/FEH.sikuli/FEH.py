@@ -1,4 +1,4 @@
-# feh.py last updated 19/04/2020
+# feh.py last updated 30/05/2020
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -138,6 +138,7 @@ def apCheck(option):
 
 
 def btAction(outcomeA=stageCleared, outcomeB=gameover):
+	sysMsg("Entering battle.")
 	wait(btMenu, long)
 	while not exists(toggleAutoOn, 0):
 		clkObj(toggleAuto)
@@ -198,6 +199,7 @@ def bondQ(d=d3, n=1, reAp=1):
 			if exists(stageCleared):
 				clkObj(stageCleared)
 				clkObj(done)
+				sleep(2)
 				while exists(bondSkip, normal):
 					clkObj(bondSkip)
 					sleep(normal)
@@ -340,6 +342,6 @@ def warQ(r, n=1, reAp=1):
 	else:
 		exit()
 #  -------------------------Body-------------------------
-#bondQ(n=50)
+bondQ(n=50)
 #trainQ(floor4, n=5)
-warQ(r1, n=30)
+#warQ(r1, n=100)
