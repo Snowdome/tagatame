@@ -1,4 +1,4 @@
-# spEvent.py last updated 10/05/2020
+# spEvent.py last updated 14/06/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -57,6 +57,9 @@ as2 = spQ("as2Ev.png", "adv", "as2Logo.png", "as2Stage.png", "asCoin.png")
 
 # Advnace Boss Templar - うるさいよ五月雨
 as3 = spQ("as3Ev.png", "adv", "as3Logo.png", "as3Stage.png", "asCoin2.png")
+
+# Advnace Boss Templar - 四辻夢幻によろしく
+as4 = spQ("as4Ev.png", "adv", "as4Logo.png", "as4Stage.png", "asCoin.png")
 
 # Advance Boss Crossover - 夜明けに奏でるクレーデレ
 sevenSin = spQ("7sinEv.png", "adv", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")

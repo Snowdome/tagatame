@@ -1,4 +1,4 @@
-# tower.py last updated 04/04/2020
+# tower.py last updated 07/06/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -63,6 +63,9 @@ def gotoTower(tEvent):
 			if not exists(tEvent.logo, short):
 				if exists(home, short):
 					clkObj(home)
+					sleep(normal)
+				if exists(invalid, 0):
+					clkObj(invalid, 0, 0, "Invalid")
 				clkObj(quest, 0, challenge)
 				clkObj(challenge, 0, tower)
 				clkObj(tower, 0, 1)
@@ -83,8 +86,7 @@ def gotoTower(tEvent):
 				sysMsg("Already in selected tower (floor selection menu)")
 			else:
 				sysMsg("In the wrong tower. Moving to the selected tower.")
-				clkObj(back)
-				wait(towerTitle, 10)
+				clkObj(back, loop=towerTitle)
 				while not exists(tEvent.logo, short):
 					click(questArrow)
 					sysMsg("Turning page: tower")
@@ -166,6 +168,8 @@ def autoTower(tEvent, team):
 								clkObj(towerComplete, 0, 1, "Congratulations OK")
 								t = -1
 								i = -1
+								wait(towerRestart, 30)
+								sysMsg("*************** End of command ***************")
 							else:
 								clkObj(towerStart)
 								t = -1
@@ -194,10 +198,9 @@ def resTower():
 
 #  -------------------------Command-------------------------
 # Seasonal Tower
-
+#autoTower(thunder, team7)
 
 # Ordinary Tower
-autoTower(veda, team10)
 autoTower(veda, team1)
 autoTower(veda, team2)
 autoTower(veda, team3)
@@ -205,10 +208,7 @@ autoTower(veda, team4)
 autoTower(veda, team5)
 autoTower(veda, team6)
 autoTower(veda, team7)
-autoTower(veda, team8)
-autoTower(veda, team9)
 resTower()
-autoTower(veda, team10)
 autoTower(veda, team1)
 autoTower(veda, team2)
 autoTower(veda, team3)
@@ -216,5 +216,3 @@ autoTower(veda, team4)
 autoTower(veda, team5)
 autoTower(veda, team6)
 autoTower(veda, team7)
-autoTower(veda, team8)
-autoTower(veda, team9)
