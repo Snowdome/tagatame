@@ -1,4 +1,4 @@
-# tagatame.py last updated 24/05/2020
+# tagatame.py last updated 27/06/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -59,12 +59,12 @@ rewardGet = "rewardGet.png"
 autoRepeat = "autoRepeat.png"
 arComplete = "arComplete.png"
 arReward = "arReward.png"
-arEnd = "arEnd.png"
+arEnd = "1593212045077.png"
 okAR = "okAR.png"
 arMenu = "arMenu.png"
 arMax = Pattern("arMax.png").targetOffset(-200,0)
 arRefillAP = Pattern("arRefillAP.png").targetOffset(-65,0)
-arStart = Pattern("arStart.png").targetOffset(-100,0)
+arStart = "arStart.png"
 playerReward = Pattern("playerReward.png").targetOffset(0,450)	# Loc of OK button in respect to the title bar
 
 # Battle menu
@@ -308,7 +308,7 @@ def enableAR():
 	clkObj(arMax)
 	clkObj(arRefillAP)
 	clkObj(arStart, 0, okAR)
-	clkObj(okAR)
+	clkObj(okAR, 0, settings)
 
 # Check whether auto repeat has completed, and claim reward
 def arCheck():
@@ -325,7 +325,7 @@ def arCheck():
 		else:
 			sysMsg("Auto repeat has completed. Total waiting time: " + str(t) + " min.")
 		clkObj(autoRepeat)
-		clkObj(arReward)
+		clkObj(arReward, 0, arEnd)
 		clkObj(arEnd)
 		clkObj(confirm)
 		sleep(double)

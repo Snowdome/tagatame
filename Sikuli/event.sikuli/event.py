@@ -32,6 +32,7 @@ vDay2018 = evQ("vDay2018Ev.png", "Archive", "vDay2018Stage.png", "vDay2018Title.
 halloween2018 = evQ("halloween2018Ev.png", "Archive", "halloween2018Stage.png", "halloween2018Title.png")
 wrathArmorF = evQ("wrathArmorFEv.png", "Current", "wrathArmorFStage.png", "wrathArmorFTitle.png")
 dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
+wedding = evQ("weddingEv.png", "Current", "weddingStage.png", "weddingTitle.png")
 pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
 starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png")
 statue1 = evQ("1591547671751.png", "Daily", "1591547691756.png", Pattern("1591547706246.png").exact())
@@ -52,7 +53,7 @@ def gotoEv(evQ):
 					clkObj(questLoc, remark="questLoc")
 				else:
 					clkObj(quest)
-				clkObj(event)
+				clkObj(event, 0, daily)
 				if evQ.stat == "Daily":
 					clkObj(daily, 0, eventTitle)
 					sleep(15)
@@ -110,4 +111,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(statue2, 100)
+autoAR(wedding, 100)
