@@ -139,7 +139,13 @@ def apCheck(option):
 
 def btAction(outcomeA=stageCleared, outcomeB=gameover):
 	sysMsg("Entering battle.")
-	wait(btMenu, long)
+	t = 0
+	while t != -1:
+		if not exists(btMenu, 0):
+			t = t + 1
+			sysMsg("btMenu not found. Waiting for 1 more sec. Total waiting time: " + str(t) + " sec.")
+		else:
+			t = -1
 	while not exists(toggleAutoOn, 0):
 		clkObj(toggleAuto)
 		sleep(normal)
@@ -342,6 +348,6 @@ def warQ(r, n=1, reAp=1):
 	else:
 		exit()
 #  -------------------------Body-------------------------
-bondQ(n=50)
+#bondQ(n=50)
 #trainQ(floor4, n=5)
-#warQ(r1, n=100)
+warQ(r1, n=100)

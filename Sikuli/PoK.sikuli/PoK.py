@@ -436,6 +436,6 @@ def autoTower():
 #btQuest(4)
 #forge(50-7)
 #enhance(dollWhite, 23)
-#drawTicket("all")
+drawTicket("all")
 #drawDoll(100)
-autoTower()
+#autoTower()
