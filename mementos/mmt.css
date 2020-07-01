@@ -29,7 +29,7 @@ tbody#history tr:nth-child(odd) {
 	background-color: #f2f2f2;
 }
 
-td[headers="icon"]>img,
+td[headers="icon"]>a>img,
 td[headers="origin"]>img,
 td[headers="group"]>img {
 	height: 32px;
