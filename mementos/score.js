@@ -52,7 +52,7 @@ function score() {
 	var e14 = document.querySelector('#ex14').checked;
 	var e15 = document.querySelector('#ex15').checked;
 	var e16 = document.querySelector('#ex16').checked;
-	var e16 = document.querySelector('#ex17').checked;
+	var e17 = document.querySelector('#ex17').checked;
 	document.getElementById('m001').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0 + e17 * 0);
 	document.getElementById('m002').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 0 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 0 + s6 * 0 + s7 * 0 + s0 * 0) + (e01 * 0 + e02 * 0 + e03 * 0 + e04 * +e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0 + e17 * 0);
 	document.getElementById('m003').innerHTML = (b1 * 0 + b2 * 0 + b0 * 0) + (s1 * 15 + s2 * 0 + s3 * 0 + s4 * 0 + s5 * 15 + s6 * 0 + s7 * 0 + s0 * 15) + (e01 * 30 + e02 * 0 + e03 * 0 + e04 * 30 + e05 * 0 + e06 * 0 + e07 * 0 + e08 * 0 + e09 * 0 + e10 * 0 + e11 * 0 + e12 * 0 + e13 * 0 + e14 * 0 + e15 * 0 + e16 * 0 + e17 * 0);
