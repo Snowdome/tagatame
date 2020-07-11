@@ -35,12 +35,12 @@ dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
 wedding = evQ("weddingEv.png", "Current", "weddingStage.png", "weddingTitle.png")
 pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
 starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png")
-statue1 = evQ("1591547671751.png", "Daily", "1591547691756.png", Pattern("1591547706246.png").exact())
-statue2 = evQ("1591547746528.png", "Daily", "1591547691756.png", Pattern("1591547777889.png").exact())
-statue3 = evQ("1591547810713.png", "Daily", "1591547691756.png", Pattern("1591547828360.png").exact())
-statue4 = evQ("1591547863076.png", "Daily", "1591547691756.png", Pattern("1591547875431.png").exact())
-statue5 = evQ("1591547902442.png", "Daily", "1591547691756.png", Pattern("1591547927575.png").exact())
-statue6 = evQ("1591547950399.png", "Daily", "1591547691756.png", Pattern("1591547961810.png").exact())
+statue1 = evQ("statue1.png", "Daily", "statueStage.png", Pattern("statue1Title.png").exact())
+statue2 = evQ("statue2.png", "Daily", "statueStage.png", Pattern("statue2Title.png").exact())
+statue3 = evQ("statue3.png", "Daily", "statueStage.png", Pattern("statue3Title.png").exact())
+statue4 = evQ("statue4.png", "Daily", "statueStage.png", Pattern("statue4Title.png").exact())
+statue5 = evQ("statue5.png", "Daily", "statueStage.png", Pattern("statue5Title.png").exact())
+statue6 = evQ("statue6.png", "Daily", "statueStage.png", Pattern("statue6Title.png").exact())
 
 
 def gotoEv(evQ):
@@ -111,4 +111,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(wedding, 100)
+autoAR(statue2, 100)

@@ -1,4 +1,4 @@
-# tagatame.py last updated 27/06/2020
+# tagatame.py last updated 06/06/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -324,7 +324,7 @@ def arCheck():
 			t = t + 1
 		else:
 			sysMsg("Auto repeat has completed. Total waiting time: " + str(t) + " min.")
-		clkObj(autoRepeat)
+		clkObj(autoRepeat, 0, arReward)
 		clkObj(arReward, 0, arEnd)
 		clkObj(arEnd)
 		clkObj(confirm)

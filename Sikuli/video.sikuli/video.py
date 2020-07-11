@@ -1,4 +1,4 @@
-  # video.py last updated 19/03/2020
+  # video.py last updated 01/07/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -16,8 +16,20 @@ if not exists(stopRec, 0):
 	sysMsg("Please start recording first!")
 	exit()
 clkObj(playNext)
-sysMsg("Start playing current section") 
-wait(auto, FOREVER)
+sysMsg("Start playing current section")
+t = 0
+while t != -1:
+	if not exists(auto) and not exists(playNext):
+		sleep(1)
+		t = t + 1
+		sysMsg("Auto button not found. Waiting for 1 more sec. Total waiting time: " + str(t) + " sec.")
+	else:
+		if exists(auto):
+			t = -1
+		if exists(playNext):
+			sysMsg("Movie confirmation dialogue found.")
+			clkObj(playNext)
+			t = 0
 clkObj(auto, 0)
 i = 0
 t = 0
