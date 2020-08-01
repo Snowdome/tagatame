@@ -50,7 +50,7 @@ def gotoEv(evQ):
 			if not exists(evQ.event, 0):
 				if exists(home, 0):
 					clkObj(mainMenu)
-					clkObj(questLoc, remark="questLoc")
+					clkObj(questLoc, 0, event, remark="questLoc")
 				else:
 					clkObj(quest)
 				clkObj(event, 0, daily)
@@ -111,4 +111,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(statue2, 100)
+autoAR(statue1, 200)

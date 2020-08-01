@@ -1,3 +1,19 @@
+function chooseAllExtra() {
+	var extra = document.querySelectorAll('[id^=ex]');
+	for (i = 0; i < extra.length; i++) {
+		extra[i].checked = true;
+	}
+	score()
+}
+
+function clearExtra() {
+	var extra = document.querySelectorAll('[id^=ex]');
+	for (i = 0; i < extra.length; i++) {
+		extra[i].checked = false;
+	}
+	score()
+}
+
 function showNote() {
 	var x = document.getElementById('history');
 
