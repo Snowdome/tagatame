@@ -111,4 +111,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(statue1, 200)
+autoAR(statue5, 20)

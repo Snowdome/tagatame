@@ -1,4 +1,4 @@
-# tagatame.py last updated 06/06/2020
+# tagatame.py last updated 04/08/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -70,13 +70,14 @@ playerReward = Pattern("playerReward.png").targetOffset(0,450)	# Loc of OK butto
 # Battle menu
 
 noQuota = "noQuota.png"
+noQuotaOK = "noQuotaOK.png"
 noAP = "noAP.png"
 leaf60 = "leaf60.png"
 leaf120 = "leaf120.png"
 leaf614 = "leaf614.png"
 leafAdd = "leafAdd.png"
 okAP = "okAP.png"
-restoredAP = Pattern("restoredAP.png").targetOffset(0,215)	# Location of OK button in respect to the message
+restoredAP = Pattern("restoreAP.png").targetOffset(0,215)	# Location of OK button in respect to the message
 teamArrow = "teamArrow.png"
 btStart = "btStart.png"
 btAgain = "btAgain.png"
@@ -110,7 +111,7 @@ btAgain = "btAgain.png"
 confirm = "confirm.png"
 cancel = "cancel.png"
 btNext = "btNext.png"
-questMission = "questMission.png"
+questMission = Pattern("questMission.png").targetOffset(0,445)
 visionMax = Pattern("visionMax.png").targetOffset(0,440)	# Location of OK button in respect to the title bar
 btEnd = "btEnd.png"
 
@@ -210,8 +211,8 @@ def apCheck(object, item=leaf120, q=1):
 			clkObj(leafAdd)
 			q = q - 1
 		clkObj(okAP)
-		clkObj(restoredAP)
-		clkObj(object)
+		clkObj(restoredAP, 0, object)
+		clkObj(object, 0, 1)
 	else:
 		sysMsg("Sufficient AP. Proceed to next step.")
 
@@ -234,30 +235,55 @@ def runeCheck():
 
 # After entering battle, toggle Auto if not On, and complete.
 def btAction(loop=0):
-	wait(btMenu, long)
-	if exists(toggleAuto, normal):
-		clkObj(toggleAuto)
-		sysMsg("Toggled auto.")
-		sleep(short)
-	else:
-		sysMsg("Auto already on.")
-	wait(questMission, battle)
-	clkObj(questMission)
-	sysMsg("Quest completed.")
-	while exists(visionMax):
-		sysMsg("Vision achieved.")
-		sleep(normal)
-		clkObj(visionMax, remark = "visionMax")
-	if exists(peddlerShop, normal):
-		sysMsg("Travelling merchant appeared.")
-		clkObj(peddlerShop)
-	if loop == 0:
-		sysMsg("Repeat battle disabled. Returning to stage selection page.")
-		sleep(changePage)
-		clkObj(btEnd, 0, 1)
-	else:
-		sysMsg("Restarting battle.")
-		#Incomplete script
+	while loop > -1:
+		t = 0
+		wait(btMenu, long)
+		if exists(toggleAuto, normal):
+			clkObj(toggleAuto)
+			sysMsg("Toggled auto.")
+			sleep(short)
+		else:
+			sysMsg("Auto already on.")
+		while t != -1:
+			if not exists(questMission, 0):
+				sysMsg("Still in battle. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
+				t = t + 10
+				sleep(10)
+			else:
+				sysMsg("Quest completed.")
+				clkObj(questMission, 0, 1)
+				t = -1
+		click()
+		while exists(visionMax):
+			sysMsg("Vision achieved.")
+			sleep(5)
+			clkObj(visionMax, remark = "visionMax")
+		if exists(peddlerShop, normal):
+			sysMsg("Travelling merchant appeared.")
+			clkObj(peddlerShop)
+		if loop == 0:
+			sysMsg("No more remaining loop. Returning to stage selection page.")
+			sleep(changePage)
+			clkObj(btEnd, 0, 1)
+			loop = -1
+		else:
+			loop = loop - 1
+			sysMsg("Restarting battle, remaining loop = " + str(loop) + ".")
+			clkObj(btAgain)
+			mouseMove(10,0)
+			if exists(peddlerShop, normal):
+				sysMsg("Travelling merchant appeared.")
+				clkObj(peddlerShop)
+			clkObj(btAgain)
+			sleep(2)
+			apCheck(btAgain)
+			clkObj(btStart)
+			sleep(1)
+			if exists(noQuota, 0):
+				clkObj(noQuotaOK)
+				clkObj(back)
+				loop = -1
+				sleep(5)
 
 
 # After entering battle, quit.

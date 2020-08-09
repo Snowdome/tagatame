@@ -1,5 +1,6 @@
 TS_AOT_01.png
 TS_AOT_02.png
+TS_AOT_03.png
 TS_APRILFOOL_01.png
 TS_APRILFOOL_2020.png
 TS_BF_01.png
