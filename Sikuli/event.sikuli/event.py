@@ -1,4 +1,4 @@
-# event.py last updated 24/05/2020
+# event.py last updated 12/08/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -16,6 +16,7 @@ class evQ():
 
 #  -------------------------Assets-------------------------
 evArchive = "evArchive.png"
+evAOT = "evAOT.png"
 access = "access.png"
 
 #  -------------------------Variables-------------------------
@@ -33,6 +34,7 @@ halloween2018 = evQ("halloween2018Ev.png", "Archive", "halloween2018Stage.png", 
 wrathArmorF = evQ("wrathArmorFEv.png", "Current", "wrathArmorFStage.png", "wrathArmorFTitle.png")
 dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
 wedding = evQ("weddingEv.png", "Current", "weddingStage.png", "weddingTitle.png")
+AOT = evQ("AOTEvHard.png", "AOT", "AOTStage.png", "aotTitle.png")
 pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
 starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png")
 statue1 = evQ("statue1.png", "Daily", "statueStage.png", Pattern("statue1Title.png").exact())
@@ -74,6 +76,11 @@ def gotoEv(evQ):
 								clkObj(questArrow)
 								sysMsg("Turning page: main quest")
 							clkObj(evArchive)
+						if evQ.stat == "AOT":
+							while not exists(evAOT, double):
+								clkObj(questArrow)
+								sysMsg("Turning page: main quest")
+							clkObj(evAOT)
 						while not exists(evQ.event, double):
 							clkObj(questArrow)
 							if evQ.stat == "Current":
@@ -111,4 +118,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(statue5, 20)
+autoAR(AOT, 200)
