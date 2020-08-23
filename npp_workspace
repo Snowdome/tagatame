@@ -11,6 +11,7 @@
             <File name="Sikuli\tower.sikuli\tower.py" />
             <File name="Sikuli\video.sikuli\video.py" />
         </Folder>
+        <File name="dmgCalc.html" />
         <File name="index.html" />
         <File name="index_tinyurl.html" />
         <File name="mementos\mmt.html" />
@@ -21,8 +22,8 @@
         <File name="runes\runes.html" />
         <File name="runes\runes.css" />
         <File name="runes\runes.js" />
-        <File name="runes\table.html" />
         <File name="runes\runeCalc.html" />
+        <File name="runes\table.html" />
     </Project>
     <Project name="PoK">
         <File name="Sikuli\PoK.sikuli\PoK.py" />

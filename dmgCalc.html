@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+	<title>傷害計算器</title>
+	<meta charset="utf-8" />
+	<meta property="og:url" content="https://snowdome.github.io/tagatame/index.html" />
+	<meta property="og:image" content="https://snowdome.github.io/tagatame/favicon.png" />
+	<link rel="stylesheet" href="runes.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#603cba">
+	<meta name="theme-color" content="#ffffff">
+	<!-- Global site tag (gtag.js) - Google Analytics 
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157948182-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+
+		gtag('config', 'UA-157948182-1');
+
+	</script> -->
+</head>
+
+<style>
+	table {
+		border-spacing: 0;
+		border: 1px solid #ddd;
+		width: auto;
+	}
+
+	th {
+		border: 1px solid #ddd;
+		text-align: left;
+	}
+
+	tr td {
+		border: 1px solid #ddd;
+		vertical-align: middle;
+		width: 90px;
+	}
+
+	td>input {
+		width: 85px;
+	}
+
+	td,
+	.irrelevant:not(.selected) {
+		color: #ddd;
+	}
+
+	.selected {
+		color: blue;
+	}
+
+	.passive:not(.irrelevant) {
+		color: black;
+	}
+
+	[title="Attack Score"] {
+		color: red;
+	}
+
+	[title="Defense Score"] {
+		color: blue;
+	}
+
+	[title="Damage Modifier"] {
+		color: orange;
+	}
+
+</style>
+
+<script>
+	function domInt(element, text) {
+		if (text == "value") {
+			return parseInt(document.getElementById(element).value);
+		} else if (text == "innerHTML") {
+			return parseInt(document.getElementById(element).innerHTML);
+		} else if (text == "innerText") {
+			return parseInt(document.getElementById(element).innerText);
+		} else {
+			return parseInt(document.getElementById(element).getAttribute("data-" + text));
+		}
+	}
+
+	function jqInt(selector) {
+		return parseInt(document.querySelector(selector).value);
+	}
+
+	function resetClass() {
+		var previous = document.querySelectorAll("td.selected");
+		for (i = 0; i < previous.length; i++) {
+			previous[i].classList.remove("selected");
+		}
+		var irrelevant = document.querySelectorAll(".irrelevant");
+		for (i = 0; i < irrelevant.length; i++) {
+			irrelevant[i].classList.remove("irrelevant");
+		}
+	}
+
+	function calc() {
+		/* Define variables */
+		var unitCritScore = Math.floor(Math.sqrt(domInt("unitCrit", "value"))) * 2;
+		var targetCritScore = Math.floor(Math.floor(Math.sqrt(domInt("targetLuck", "value")) / 2));
+		var heightMod = document.querySelector('[name="height"]:checked').value * -5;
+
+		/* Highlight the relevant additional stats for chosen skill details */
+		if (document.getElementById("skiNA").checked == true) {
+			document.getElementById("skillMod").value = 1;
+			document.getElementById("effSingle").checked = true;
+			document.getElementById("effSingle").parentElement.nextElementSibling.className = "irrelevant";
+			document.getElementById("initActive").checked = true;
+			document.getElementById("initActive").parentElement.nextElementSibling.className = "irrelevant";
+			document.getElementById("critTrue").checked = true;
+			document.getElementById("critTrue").parentElement.nextElementSibling.className = "irrelevant";
+			document.getElementById("skillNorm").checked = true;
+			document.getElementById("skillNorm").parentElement.previousElementSibling.className = "irrelevant";
+			document.getElementById("skillNorm").parentElement.nextElementSibling.className = "irrelevant";
+			document.getElementById("height").setAttribute("data-mod", jqInt('[name="height"]:checked') * 5);
+		} else {
+			document.getElementById("height").setAttribute("data-mod", 0);
+		}
+
+		if (document.getElementById("effSingle").checked == true) {
+			document.getElementById("unitSingle").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("targetSingle").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("p1").setAttribute("data-plus", domInt("unitSingle", "value"));
+			document.getElementById("p1").setAttribute("data-minus", domInt("targetSingle", "value"));
+		} else if (document.getElementById("effArea").checked == true) {
+			document.getElementById("unitArea").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("targetArea").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("p1").setAttribute("data-plus", domInt("unitArea", "value"));
+			document.getElementById("p1").setAttribute("data-minus", domInt("targetArea", "value"));
+		}
+
+		if (document.getElementById("initCounter").checked == true) {
+			document.getElementById("unitCounter").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("targetCounter").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("p2").setAttribute("data-plus", domInt("unitCounter", "value"));
+			document.getElementById("p2").setAttribute("data-minus", domInt("targetCounter", "value"));
+		} else {
+			document.getElementById("p2").setAttribute("data-plus", 0);
+			document.getElementById("p2").setAttribute("data-minus", 0);
+		}
+
+		if (document.getElementById("critTrue").checked == true) {
+			document.getElementById("unitCritCalc").innerText = unitCritScore - targetCritScore - heightMod + domInt("unitCritRate", "value") + "%";
+		} else {
+			document.getElementById("unitCrit").parentElement.previousElementSibling.className = " irrelevant";
+			document.getElementById("unitCritRate").parentElement.previousElementSibling.className = " irrelevant";
+			document.getElementById("targetLuck").parentElement.previousElementSibling.className = " irrelevant";
+			document.getElementById("unitCritCalc").previousElementSibling.className = " irrelevant";
+			document.getElementById("unitCritCalc").className = " irrelevant";
+			document.getElementById("unitCritCalc").innerText = "0%";
+		}
+
+		if (document.getElementById("pmPhysical").checked == true) {
+			document.getElementById("targetDef").parentElement.previousElementSibling.style.color = "black";
+			document.getElementById("targetDef").parentElement.previousElementSibling.style.background = "lightyellow";
+			document.getElementById("targetMdef").parentElement.previousElementSibling.style = "";
+			document.getElementById("p3").setAttribute("data-def", domInt("targetDef", "value"));
+		} else if (document.getElementById("pmMagical").checked == true) {
+			if (document.getElementById("scaleType").value != "tele") {
+				document.getElementById("targetMdef").parentElement.previousElementSibling.style.color = "black";
+			}
+			document.getElementById("targetDef").parentElement.previousElementSibling.style = "";
+			document.getElementById("targetMdef").parentElement.previousElementSibling.style.background = "lightyellow";
+			document.getElementById("p3").setAttribute("data-def", domInt("targetMdef", "value"));
+		}
+
+		if (document.getElementById("dSide").checked == true) {
+			document.getElementById("unitSideAtk").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("ignoreSideDef").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("dir").setAttribute("data-plus", domInt("unitSideAtk", "value"));
+			document.getElementById("dir").setAttribute("data-minus", domInt("ignoreSideDef", "value"));
+		} else if (document.getElementById("dBack").checked == true) {
+			document.getElementById("unitBackAtk").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("ignoreBackDef").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("dir").setAttribute("data-plus", domInt("unitBackAtk", "value"));
+			document.getElementById("dir").setAttribute("data-minus", domInt("ignoreBackDef", "value"));
+		} else {
+			document.getElementById("dir").setAttribute("data-plus", 0);
+			document.getElementById("dir").setAttribute("data-minus", 0);
+		}
+
+		document.getElementById("type").setAttribute("data-charType", jqInt('[name="charType"]:checked') * 25);
+		if (document.getElementById("skillPlus").checked == true) {
+			document.getElementById("unitEleSp").parentElement.previousElementSibling.className = "selected";
+			document.getElementById("type").setAttribute("data-skillType", domInt("unitEleSp", "value") + 25);
+		} else {
+			document.getElementById("type").setAttribute("data-skillType", jqInt('[name="skillType"]:checked') * 25);
+		}
+
+		/* Calculate attack score depending on chosen scale type */
+		switch (document.getElementById("scaleType").value) {
+			case "pAtk":
+				document.getElementById("unitAtk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitAtk", "value")
+				);
+				break;
+			case "pDef":
+				document.getElementById("unitDef").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitDef", "value")
+				);
+				break;
+			case "mAtk":
+				document.getElementById("unitMatk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitMatk", "value")
+				);
+				break;
+			case "dual":
+				document.getElementById("unitAtk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitMatk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitAtk", "value") +
+					domInt("unitMatk", "value")
+				);
+				break;
+			case "pSp":
+				document.getElementById("unitLv").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitAtk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitAgi").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitDex").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitAtk", "value") +
+					Math.floor(domInt("unitAgi", "value") / 2) +
+					Math.floor(domInt("unitAgi").value * document.getElementById("unitLv", "value") / 100) +
+					Math.floor(domInt("unitDex", "value") / 4)
+				);
+				break;
+			case "mSp":
+				document.getElementById("unitLv").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitMatk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitAgi").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitDex").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitMatk", "value") +
+					Math.floor(domInt("unitAgi", "value") / 2) +
+					Math.floor(domInt("unitAgi").value * document.getElementById("unitLv", "value") / 100) +
+					Math.floor(domInt("unitDex", "value") / 4)
+				);
+				break;
+			case "shoot":
+				document.getElementById("unitAtk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitDex").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitAtk", "value") +
+					domInt("unitDex", "value")
+				);
+				break;
+			case "tele":
+				document.getElementById("unitMatk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitMdef").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("targetMdef").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitMatk", "value") +
+					domInt("unitMdef", "value") -
+					domInt("targetMdef", "value")
+				);
+				break;
+			case "weather":
+				document.getElementById("unitMatk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitLuck").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitMatk", "value") +
+					domInt("unitLuck", "value")
+				);
+				break;
+			case "luckD":
+				document.getElementById("unitLuck").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("targetLuck").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitLuck", "value") * 2 -
+					domInt("targetLuck", "value")
+				);
+				break;
+			case "moonlight":
+				document.getElementById("unitAtk").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitDex").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("unitLuck").parentElement.previousElementSibling.className = "selected";
+				document.getElementById("fScaledAtk").setAttribute("data-basescore",
+					domInt("unitAtk", "value") +
+					Math.floor(domInt("unitDex", "value") / 2) +
+					Math.floor(domInt("unitLuck", "value") / 2)
+				);
+				break;
+		}
+
+		/* HP current and max adjustment */
+		if (document.getElementById("unitHpMax").value == "" || domInt("unitHp", "value") > domInt("unitHpMax", "value")) {
+			document.getElementById("unitHpMax").value = document.getElementById("unitHp").value;
+		}
+		if (document.getElementById("targetHpMax").value == "" || domInt("targetHp", "value") > domInt("targetHpMax", "value")) {
+			document.getElementById("targetHpMax").value = document.getElementById("targetHp").value;
+		}
+
+		/* Damage formula breakdown */
+		/* Step 1: calculate attack score */
+			document.getElementById("fScaledAtk").innerHTML = Math.floor(domInt("fScaledAtk", "basescore") * parseFloat(document.getElementById("scaleMod").value));
+		document.getElementById("fSkillMod").innerHTML = parseFloat(document.getElementById("skillMod").value).toFixed(2);
+		document.getElementById("atkScore").innerHTML = Math.floor(domInt("fScaledAtk", "innerHTML") * parseFloat(document.getElementById("fSkillMod").innerHTML));
+
+		/* Step 2: calculate damage modifier */
+			document.getElementById("fMod2Side").innerHTML =
+			domInt("height", "mod") +
+			domInt("type", "chartype") +
+			domInt("type", "skilltype");
+
+		document.getElementById("fModPlus").innerHTML =
+			domInt("p1", "plus") +
+			domInt("p2", "plus") +
+			domInt("dir", "plus") +
+			domInt("unitEle", "value") +
+			domInt("unitType", "value") +
+			domInt("unitSin", "value") +
+			domInt("unitManual", "value");
+
+		document.getElementById("fModMinus").innerHTML =
+			domInt("p1", "minus") +
+			domInt("p2", "minus") +
+			domInt("targetEle", "value")
+
+		document.getElementById("dmgMod").innerHTML =
+			100 +
+			domInt("fMod2Side", "innerHTML") +
+			domInt("fModPlus", "innerHTML") -
+			domInt("fModMinus", "innerHTML") + "%";
+
+		/* Step 3: calculate defense score */
+			document.getElementById("fRelDef").innerHTML = domInt("p3", "def");
+		document.getElementById("fDefMod").innerHTML =
+			100 +
+			domInt("ignoreDef", "value") +
+			domInt("dir", "minus") -
+			domInt("height", "mod");
+		document.getElementById("defScore").innerHTML = Math.round(domInt("fRelDef", "innerHTML") * domInt("fDefMod", "innerHTML") / 100);
+
+		/* Step 4: calculate screen damage */
+			document.getElementById("fAtkScore").innerHTML = domInt("atkScore", "innerHTML");
+		document.getElementById("fDefScore").innerHTML = domInt("defScore", "innerHTML");
+		document.getElementById("fDmgMod").innerHTML = domInt("dmgMod", "innerHTML") + "%";
+		document.getElementById("fTypeResist").innerHTML = (100 - domInt("targetType", "value")) + "%";
+		document.getElementById("fAllResist").innerHTML = (100 - domInt("targetAllDef", "value")) + "%";
+		document.getElementById("screenDmg").innerHTML = Math.max(1,
+			Math.floor(
+				Math.floor(
+					Math.floor(
+						(domInt("fAtkScore", "innerHTML") * parseFloat(document.getElementById("fDmgMod").innerHTML) / 100) - domInt("fDefScore", "innerHTML")) * domInt("fTypeResist", "innerHTML") / 100
+				) * domInt("fAllResist", "innerHTML") / 100
+			)
+		);
+	}
+
+	function assign() {
+		/* Assign default scale value for chosen scale type */
+		switch (document.getElementById("scaleType").value) {
+			case "pAtk":
+				document.getElementById("scaleMod").value = 1.40;
+				break;
+			case "pDef":
+				document.getElementById("scaleMod").value = 1.50;
+				break;
+			case "mAtk":
+				document.getElementById("scaleMod").value = 1.50;
+				break;
+			case "dual":
+				document.getElementById("scaleMod").value = 0.90;
+				break;
+			case "pSp":
+				document.getElementById("scaleMod").value = 0.85;
+				break;
+			case "mSp":
+				document.getElementById("scaleMod").value = 0.9;
+				break;
+			case "shoot":
+				document.getElementById("scaleMod").value = 0.80;
+				break;
+			case "tele":
+				document.getElementById("scaleMod").value = 1.50;
+				break;
+			case "weather":
+				document.getElementById("scaleMod").value = 0.70;
+				break;
+			case "luckD":
+				document.getElementById("scaleMod").value = 1.00;
+				break;
+			case "moonlight":
+				document.getElementById("scaleMod").value = 0.80;
+				break;
+		}
+		calc()
+	}
+
+</script>
+
+<body>
+	<p><b>傷害計算器 by 雪頂夢 @ PigPigChannel (last updated on 23/08/2020) v0.5</b></p>
+	<p>註：
+	<ol>
+		<li>小數位計算上可能有些微出入</li>
+		<li>暫不支援自爆／底力／渾身／復仇／巨人殺手／吹風／連擊／MP傷害等另類計算</li>
+		<li><b><u>魔攻</u></b>跟<b><u>魔法攻撃力</u></b>為兩種概念。以下魔攻(Magical)均指面版的MATK相關；魔法攻撃力指魔法類技能(A網標為Magic / MATK Power)。</li>
+		<li>攻種：斬撃／刺突／打擊／射撃／魔法／無區分</li>
+		<li>更新系數倍率以外的設定後會更改系數倍率至該攻種的常見數值，請按實際情況調整。</li>
+		<li>元素：只有角色屬性跟加值屬性相同才有加成，例如LS裡光角的全屬性增加即為增加光屬性，而即使你用附術為一隻光角加火屬性並不會增加其火屬性傷害。</li>
+		<li>Beta版，歡迎提供資料+報錯</li>
+	</ol>
+	</p>
+	<p>系數：
+		<select id="scaleType" width="55px" oninput="resetClass(); assign();">
+			<option value="pAtk">物攻</option>
+			<option value="pDef">物防</option>
+			<option value="mAtk">魔攻</option>
+			<option value="dual">雙攻</option>
+			<option value="shoot">射擊</option>
+			<option value="pSp">風來</option>
+			<option value="mSp">任侠</option>
+			<option value="tele">念動</option>
+			<option value="weather">天侯</option>
+			<option value="luckD">運差</option>
+			<option value="moonlight">月影</option>
+		</select>
+		<input type="number" id="scaleMod" value="1" min="0.05" step="0.05" onchange="resetClass(); calc();" style="width: 55px;"></input>　
+		技能倍率：<input type="number" id="skillMod" value="1" min="0.01" step="0.01" onchange="resetClass(); calc();" style="width: 55px;"></input>
+	<form oninput="resetClass(); calc();"><br>參數：
+		<label><input name="ski" type="radio" id="skiNA" value="normalAtk">普攻</input></label><label><input name="ski" type="radio" id="skiS" value="skill" checked>技能</input></label>
+		<br><span id="p1">　　　</span>
+		<label><input name="eff" type="radio" id="effSingle" value="single" checked>單體</input></label><label><input name="eff" type="radio" id="effArea" value="area">範圍</input></label>
+		<br><span id="p2">　　　</span>
+		<label><input name="init" type="radio" id="initActive" value="active" checked>主動</input></label><label><input name="init" type="radio" id="initCounter" value="counter">反擊</input></label>
+		<br><span id="p3">　　　</span>
+		<label><input name="pm" type="radio" id="pmPhysical" value="physical" checked>物</input></label>　<label><input name="pm" type="radio" id="pmMagical" value="magical">魔</input></label>
+		<br>暴擊：
+		<label><input name="crit" type="radio" id="critTrue" value="true" checked>可</input></label>　<label><input name="crit" type="radio" id="critFalse" value="false">不可</input></label>
+		<br><span id="height">高度：</span>
+		<label><input name="height" type="radio" id="hHigh" value="1">高</input></label>　<label><input name="height" type="radio" id="hFlat" value="0" checked>平</input></label>　<label><input name="height" type="radio" id="hLow" value="-1">低</input></label>
+		<br><span id="dir">方向：</span>
+		<label><input name="dir" type="radio" id="dFront" value="front" checked>正</input></label>　<label><input name="dir" type="radio" id="dSide" value="side">側</input></label>　<label><input name="dir" type="radio" id="dBack" value="back">背</input></label>
+		<br>　　　
+		<br><span id="type">屬性：</span>
+		<br>角色：
+		<label><input name="charType" type="radio" id="charPlus" value="1">勊</input></label>　<label><input name="charType" type="radio" id="charNorm" value="0" checked>常</input></label>　<label><input name="charType" type="radio" id="charMinus" value="-1">耐</input></label>
+		<br>技能：
+		<label><input name="skillType" type="radio" id="skillPlus" value="1">勊</input></label>　<label><input name="skillType" type="radio" id="skillNorm" value="0" checked>常</input></label>　<label><input name="skillType" type="radio" id="skillMinus" value="-1">耐</input></label>
+	</form>
+	<p>
+	<table onchange="calc()">
+		<thead>
+			<tr>
+				<th colspan="4">己方數值</th>
+				<th rowspan="15" style="width: 30px;"></th>
+				<th colspan="4">目標數值</th>
+			</tr>
+			<tr>
+				<td title="Unit Lv">Lv</td>
+				<td><input type="number" id="unitLv" value="97" min="1" max="97" tabindex="1"></input></td>
+				<td colspan="2">額外加成：</td>
+				<td title="Target Lv">Lv</td>
+				<td><input type="number" id="targetLv" min="1" max="97" tabindex="3"></input></td>
+				<td colspan="2">額外防禦：</td>
+			</tr>
+			<tr>
+				<td title="Unit HP (Current)">HP_current</td>
+				<td><input type="number" id="unitHp" min="1" tabindex="1"></input></td>
+				<td title="Single ATK">單體</td>
+				<td><input type="number" id="unitSingle" tabindex="2"></input></td>
+				<td title="Target HP (Current)">HP_current</td>
+				<td><input type="number" id="targetHp" min="1" tabindex="3"></input></td>
+				<td title="Single ATK Res">單體</td>
+				<td><input type="number" id="targetSingle" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit HP (Max)">HP_max</td>
+				<td><input type="number" id="unitHpMax" min="1" tabindex="1"></input></td>
+				<td title="Area ATK">範圍</td>
+				<td><input type="number" id="unitArea" tabindex="2"></input></td>
+				<td title="Target HP (Max)">HP_max</td>
+				<td><input type="number" id="targetHpMax" min="1" tabindex="3"></input></td>
+				<td title="Area ATK Res">範圍</td>
+				<td><input type="number" id="targetArea" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit PATK">物攻</td>
+				<td><input type="number" id="unitAtk" min="1" tabindex="1"></input></td>
+				<td title="Counter ATK Power">反擊</td>
+				<td><input type="number" id="unitCounter" tabindex="2"></input></td>
+				<td title="Target PATK">物攻</td>
+				<td><input type="number" id="targetAtk" min="1" tabindex="3"></input></td>
+				<td title="Counter Res">反擊</td>
+				<td><input type="number" id="targetCounter" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit PDEF">物防</td>
+				<td><input type="number" id="unitDef" min="1" tabindex="1"></input></td>
+				<td class="passive" title="Unit Element">元素</td>
+				<td><input type="number" id="unitEle" tabindex="2"></input></td>
+				<td title="Target PDEF">物防</td>
+				<td><input type="number" id="targetDef" min="1" tabindex="3"></input></td>
+				<td class="passive" title="Element Resist">元素</td>
+				<td><input type="number" id="targetEle" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit MATK">魔攻</td>
+				<td><input type="number" id="unitMatk" min="1" tabindex="1"></input></td>
+				<td class="passive">攻種</td>
+				<td><input type="number" id="unitType" tabindex="2"></input></td>
+				<td title="Target MATK">魔攻</td>
+				<td><input type="number" id="targetMatk" min="1" tabindex="3"></input></td>
+				<td class="passive">攻種</td>
+				<td><input type="number" id="targetType" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit MDEF">魔防</td>
+				<td><input type="number" id="unitMdef" min="1" tabindex="1"></input></td>
+				<td colspan="2"></td>
+				<td title="Target MDEF">魔防</td>
+				<td><input type="number" id="targetMdef" min="1" tabindex="3"></input></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr>
+				<td title="Unit DEX">器用</td>
+				<td><input type="number" id="unitDex" min="1" tabindex="1"></input></td>
+				<td colspan="2">特效類：</td>
+				<td title="Target DEX">器用</td>
+				<td><input type="number" id="targetDex" min="1" tabindex="3"></input></td>
+				<td class="passive" title="Element Unit Defense">全防禦</td>
+				<td><input type="number" id="targetAllDef" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit AGI">素早</td>
+				<td><input type="number" id="unitAgi" min="1" tabindex="1"></input></td>
+				<td title="Strong vs Element">元素</td>
+				<td><input type="number" id="unitEleSp" tabindex="2"></input></td>
+				<td title="Target AGI">素早</td>
+				<td><input type="number" id="targetAgi" min="1" tabindex="3"></input></td>
+				<td colspan="2" rowspan="2"></td>
+			</tr>
+			<tr>
+				<td class="passive" title="Unit CRIT">會心</td>
+				<td><input type="number" id="unitCrit" min="1" tabindex="1"></input></td>
+				<td class="passive" title="Strong vs Sin">大罪</td>
+				<td><input type="number" id="unitSin" tabindex="2"></input></td>
+				<td title="Target CRIT">會心</td>
+				<td><input type="number" id="targetCrit" min="1" tabindex="3"></input></td>
+			</tr>
+			<tr>
+				<td title="Unit LUCK">運</td>
+				<td><input type="number" id="unitLuck" min="1" tabindex="1"></input></td>
+				<td class="passive">其他</td>
+				<td><input type="number" id="unitManual" tabindex="2"></input></td>
+				<td class="passive" title="Target LUCK">運</td>
+				<td><input type="number" id="targetLuck" min="1" tabindex="3"></input></td>
+				<td class="passive" title="Ignore Defense Rate">無視防禦</td>
+				<td><input type="number" id="ignoreDef" tabindex="4"></input></td>
+				</td>
+			</tr>
+			<tr>
+				<td title="Side ATK">側面攻擊</td>
+				<td><input type="number" id="unitSideAtk" value="0" tabindex="1"></input></td>
+				<td colspan="2" rowspan="2"></td>
+				<td colspan="2" rowspan="3"></td>
+				<td title="Side Defense Rate">側面防禦</td>
+				<td><input type="number" id="ignoreSideDef" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td title="Back ATK">背面攻擊</td>
+				<td><input type="number" id="unitBackAtk" value="0" tabindex="1"></input></td>
+				<td title="Back Defense Rate">背面防禦</td>
+				<td><input type="number" id="ignoreBackDef" tabindex="4"></input></td>
+			</tr>
+			<tr>
+				<td class="passive" title="Unit CRIT rate">暴擊率補正</td>
+				<td><input type="number" id="unitCritRate" value="0" tabindex="1"></input></td>
+				<td class="passive">暴擊率</td>
+				<td id="unitCritCalc" class="passive">0%</td>
+				<td colspan="2"></td>
+			</tr>
+		</thead>
+	</table>
+	<p>
+		Attack Score = <span id="fScaledAtk" title="Scaled Attack">scaledAtk</span> x <span id="fSkillMod" title="Skill Modifier">skillMod</span> = <span id="atkScore" title="Attack Score">atkScore</span><br>
+		Damage Modifier = [<span title="Basic Modifier Score">100</span> + (<span id="fModPlus" title="Bonus Modifier total">modPlus</span>) - (<span id="fModMinus" title="Penalty Modifier total">modMinus</span>) + (<span id="fMod2Side" title="Type & Height Modifier total">modMisc</span>)]% = <span id="dmgMod" title="Damage Modifier">dmgMod</span><br>
+		Defense Score = <span id="fRelDef" title="Target Relevant Defense Value">relDef</span> x <span id="fDefMod" title="Defense Modifier">defMod</span>% = <span id="defScore" title="Defense Score">defScore</span><br>
+		Screen Damage = (<span id="fAtkScore" title="Attack Score">atkScore</span> x <span id="fDmgMod" title="Damage Modifier">dmgMod</span> - <span id="fDefScore" title="Defense Score">defScore</span>) x <span id="fTypeResist" title="Target Type Resist Value">typeResist</span> x <span id="fAllResist" title="Target All Resist Value">allResist</span> = <span id="screenDmg" title="In game reference damage">screenDmg</span>
+		<!-- <script>
+			resetClass();
+			assign();
+
+		</script> -->
+</body>
+
+</html>
