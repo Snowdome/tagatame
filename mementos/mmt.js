@@ -14,6 +14,15 @@ function clearExtra() {
 	score()
 }
 
+function chooseTypeExtra() {
+	clearExtra()
+	var extra = document.querySelectorAll('[id^=ex]');
+	for (i = 0; i < 6; i++) {
+		extra[i].checked = true;
+	}
+	score()
+}
+
 function showNote() {
 	var x = document.getElementById('history');
 
