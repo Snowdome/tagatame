@@ -1,4 +1,4 @@
-# tagatame.py last updated 04/08/2020
+# tagatame.py last updated 29/08/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -77,7 +77,7 @@ leaf120 = "leaf120.png"
 leaf614 = "leaf614.png"
 leafAdd = "leafAdd.png"
 okAP = Pattern("okAP.png").similar(0.85)
-restoredAP = Pattern("restoreAP.png").targetOffset(0,215)	# Location of OK button in respect to the message
+restoredAP = Pattern("restoreAP.png").similar(0.90).targetOffset(0,215)	# Location of OK button in respect to the message
 teamArrow = "teamArrow.png"
 btStart = "btStart.png"
 btAgain = "btAgain.png"
@@ -158,7 +158,7 @@ def clkObj(object, delay=0, loop=0, remark=0):
 					if loop == 1:
 						if exists(object, 0):
 							t = t + 1
-							sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+							sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " times.")
 						else:	
 							t = -1
 							sysMsg("Current object passed, loop completed.")
@@ -206,6 +206,7 @@ def esc(object, delay=0, loop=0, remark=0):
 # AP Check (object = lastAction, optional: item = leaf type, quantity)
 def apCheck(object, item=leaf120, q=1):
 	if exists(noAP, normal):
+		sysMsg("Insufficient AP.")
 		clkObj(item)
 		while q != 1:
 			clkObj(leafAdd)

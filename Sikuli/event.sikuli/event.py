@@ -1,4 +1,4 @@
-# event.py last updated 16/08/2020
+# event.py last updated 25/08/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -36,6 +36,8 @@ dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
 wedding = evQ("weddingEv.png", "Current", "weddingStage.png", "weddingTitle.png")
 AOT = evQ("AOTEvHard.png", "AOT", "AOTStage.png", "aotTitle.png")
 AOT2 = evQ("AOTEvHell.png", "AOT", "AOT2Stage.png", "aot2Title.png")
+yudit = evQ("yuditEv.png", "Current", "yuditStage.png", "yuditTile.png")
+
 pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
 starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png")
 statue1 = evQ("statue1.png", "Daily", "statueStage.png", Pattern("statue1Title.png").exact())
@@ -119,4 +121,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(AOT2, 200)
+autoAR(yudit, 5)
