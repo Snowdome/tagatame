@@ -723,6 +723,22 @@ function lockInput() {
 		document.getElementById("setBonus").innerHTML += "HP+15%<br>";
 		document.getElementById("setBonusEm").innerHTML += "HP+15%<br>";
 	}
+	// 技巧
+	var gikou = 0;
+	for (var i = 0; i < setCount.length; ++i) {
+		if (setCount[i] == "09")
+			gikou++;
+	}
+	if (gikou > 5) {
+		document.getElementById("setBonus").innerHTML += "命中+30<br>";
+		document.getElementById("setBonusEm").innerHTML += "命中+30<br>";
+	} else if (gikou > 3) {
+		document.getElementById("setBonus").innerHTML += "命中+20<br>";
+		document.getElementById("setBonusEm").innerHTML += "命中+20<br>";
+	} else if (gikou > 1) {
+		document.getElementById("setBonus").innerHTML += "命中+10<br>";
+		document.getElementById("setBonusEm").innerHTML += "命中+10<br>";
+	}
 	//疾駆
 	var genzou = 0;
 	for (var i = 0; i < setCount.length; ++i) {
@@ -1152,13 +1168,17 @@ function gauge(slot) {
 				var q = 3;
 				break;
 		}
-		var btnGauge = document.getElementsByClassName("useGauge" + q);
-		for (i = 0; i < btnGauge.length; i++) {
-			btnGauge[i].disabled = true;
+		if (document.getElementById("enRate" + slot).innerHTML != "100%") {
+			var btnGauge = document.getElementsByClassName("useGauge" + q);
+			for (i = 0; i < btnGauge.length; i++) {
+				btnGauge[i].disabled = true;
+				document.getElementById("enRate" + slot).innerHTML = "100%";
+				document.getElementById("gauge" + q).innerHTML = (baseRate + "%");
+				console.log("Enhance success rate for rune" + slot + " has been forced to 100%. New gauge(" + q + ") is " + baseRate + "%.");
+			}
+		} else {
+			console.log("Base rate is already 100%.")
 		}
-		document.getElementById("enRate" + slot).innerHTML = "100%";
-		document.getElementById("gauge" + q).innerHTML = (baseRate + "%");
-		console.log("Enhance success rate for rune" + slot + " has been forced to 100%. New gauge(" + q + ") is " + baseRate + "%.");
 	}
 }
 

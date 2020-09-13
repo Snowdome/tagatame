@@ -1,4 +1,4 @@
-# story.py last updated 21/10/2019
+# story.py last updated 12/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -27,7 +27,7 @@ babelBanner = "babelBanner.png"
 def gotoStory(storyQ):
 	if not exists(settings, short):
 		click(home)
-		wait(quest, 20)
+		waitObj(quest, 20)
 		sleep(double)
 	clkObj(quest)
 	click(story)

@@ -1,4 +1,4 @@
- # spEvent.py last updated 03/08/2020
+ # spEvent.py last updated 12/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -21,6 +21,7 @@ class spQ():
 gen = "gen.png"
 bbq = "bbq.png"
 bbqQuest = "bbqQuest.png"
+bbqQp = "bbqQp.png"
 bbqNormal = "bbqNormal.png"
 bbqHard = "bbqHard.png"
 bbqEx = "bbqEx.png"
@@ -74,6 +75,9 @@ as3 = spQ("麒麟×靴底スタンドアロン", "as3Ev.png", "adv", "as3Logo.pn
 # Advnace Boss Templar - 四辻夢幻によろしく
 as4 = spQ("四辻夢幻によろしく", "as4Ev.png", "adv", "as4Logo.png", "as4Stage.png", "asCoin.png")
 
+# Advnace Boss Templar - ズバリおのれの十紋葬
+as5 = spQ("ズバリおのれの十紋葬", "as5Ev.png", "adv", "as5Logo.png", "as5Stage.png", "asCoin.png")
+
 # Advance Boss Crossover - 夜明けに奏でるクレーデレ
 sevenSin = spQ("夜明けに奏でるクレーデレ", "7sinEv.png", "adv", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")
 
@@ -125,7 +129,7 @@ def gotoSP(spQ, mode="boss"):
 					clkObj(mainMenu)
 					clkObj(questLoc)
 				else:
-					clkObj(quest)
+					clkObj(quest, remark="Quest Loc")
 				if spQ.menuLoc == "gen":
 					clkObj(story)
 					clkObj(gen, 0, 1)
@@ -143,7 +147,8 @@ def gotoSP(spQ, mode="boss"):
 				clkObj(bossHardX)
 			clkObj(spStart)
 		else:
-			clkObj(bbqQuest, 0, bbqNormal)
+			clkObj(bbqQuest, 0, bbqQp)
+			sleep(2)
 			while not exists(mode):
 				clkObj(bbqModeSwitch)
 				sleep(1)
@@ -154,7 +159,7 @@ def gotoSP(spQ, mode="boss"):
 # After entering battle, toggle Auto if not On, and complete.
 def spAction(reward):
 	t = 0
-	wait(btMenu, 30)
+	waitObj(btMenu, 30)
 	if exists(toggleAuto, normal):
 		click(toggleAuto)
 		sysMsg("Toggled auto")
@@ -170,7 +175,8 @@ def spAction(reward):
 			sysMsg("Reward icon found.")
 			t = -1
 
-def spAction(stage, remark):
+def spAction(stage, mode, remark):
+	waitObj(mode, 15)
 	clkObj(stage, remark=remark)
 	clkObj(bbqOK)
 	clkObj(btStart)
@@ -186,11 +192,12 @@ def spAction(stage, remark):
 def spStory(spQ, mode=bbqHard):
 	sysMsg("Initializing SpecialEventStory command - " + spQ.name + ".")
 	gotoSP(spQ, mode)
-	spAction(stage1, "Stage 1")
-	spAction(stage2, "Stage 2")
-	spAction(stage3, "Stage 3")
-	spAction(stage4, "Stage 4")
-	spAction(stage5, "Stage 5")
+	spAction(stage1, mode, "Stage 1")
+	spAction(stage2, mode, "Stage 2")
+	spAction(stage3, mode, "Stage 3")
+	spAction(stage4, mode, "Stage 4")
+	spAction(stage5, mode, "Stage 5")
+	waitObj(mode, 30)
 	sysMsg("***************Completed SpecialEventStory command - " + spQ.name + ".***************")
 	
 	
@@ -314,18 +321,32 @@ def spDraw(n=1):
 				else:
 					pass
 
+def spStoryGen():
+	spStory(gen10, bbqHard)
+	spStory(gen9, bbqHard)
+	spStory(gen8, bbqHard)
+	spStory(gen7, bbqHard)
+	spStory(gen6, bbqHard)
+	spStory(gen5, bbqHard)
+	spStory(gen4, bbqHard)
+	spStory(gen3, bbqHard)
+	spStory(gen2, bbqHard)
+	spStory(gen1, bbqHard)
 
+def spStoryAsEx():
+	spStory(as3, bbqEx)
+	spStory(as5, bbqEx)
+	spStory(as4, bbqEx)
+
+def spStoryAsHard():
+	spStory(as5, bbqHard)
+	spStory(as4, bbqHard)
+	spStory(as3, bbqHard)
+	spStory(as2, bbqHard)
+	spStory(as1, bbqHard)
 
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
 #spDraw("all")
-spStory(gen10, bbqHard)
-spStory(gen9, bbqHard)
-spStory(gen8, bbqHard)
-spStory(gen7, bbqHard)
-spStory(gen6, bbqHard)
-spStory(gen5, bbqHard)
-spStory(gen4, bbqHard)
-spStory(gen3, bbqHard)
-spStory(gen2, bbqHard)
-spStory(gen1, bbqHard)
+spStoryAsEx()
+#spStory(as5)

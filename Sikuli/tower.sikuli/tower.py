@@ -1,4 +1,4 @@
-# tower.py last updated 07/06/2020
+# tower.py last updated 12/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -69,7 +69,7 @@ def gotoTower(tEvent):
 				clkObj(quest, 0, challenge)
 				clkObj(challenge, 0, tower)
 				clkObj(tower, 0, 1)
-				wait(towerTitle, 10)
+				waitObj(towerTitle, 10)
 			else:
 				sysMsg("Tower title menu found. Choosing selected tower.")
 		while not exists(tEvent.logo, short):
@@ -92,7 +92,7 @@ def gotoTower(tEvent):
 					sysMsg("Turning page: tower")
 					sleep(normal)
 				clkObj(tEvent.logo)
-	wait(currentFloor, 15)
+	waitObj(currentFloor, 15)
 	if exists(towerRestart, 0):
 		sysMsg("Error - Tower is already cleared")
 	else:
@@ -142,7 +142,7 @@ def autoTower(tEvent, team):
 				if exists(teamEmpty, 0):
 					sysMsg("Reminder - Team consists of empty slot")
 					clkObj(teamEmpty)	
-				wait(btMenu, long)
+				waitObj(btMenu, 180)
 				if exists(toggleAuto, normal):
 					click(toggleAuto)
 					sysMsg("Toggled auto")
@@ -168,15 +168,15 @@ def autoTower(tEvent, team):
 								clkObj(towerComplete, 0, 1, "Congratulations OK")
 								t = -1
 								i = -1
-								wait(towerRestart, 30)
+								waitObj(towerRestart, 30)
 								sysMsg("*************** End of command ***************")
 							else:
 								clkObj(towerStart)
 								t = -1
 						else:
-							t = t + refresh
-							sleep(refresh)
-							sysMsg("Completion message not found. Waiting for " + str(refresh) + " more sec. Total waiting time: " + str(t) + " sec.")
+							t = t + 10
+							sleep(10)
+							sysMsg("Completion message not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
 
 
 
@@ -195,70 +195,73 @@ def resTower():
 		else:
 			sysMsg("*************** Free restore is not available ***************")
 
+def autoTowerVeda():
+	#Ordinary Tower
+	autoTower(veda, team1)
+	autoTower(veda, team2)
+	autoTower(veda, team3)
+	autoTower(veda, team4)
+	autoTower(veda, team5)
+	autoTower(veda, team6)
+	autoTower(veda, team7)
+	resTower()
+	autoTower(veda, team1)
+	autoTower(veda, team2)
+	autoTower(veda, team3)
+	autoTower(veda, team4)
+	autoTower(veda, team5)
+	autoTower(veda, team6)
+	autoTower(veda, team7)
+
+def autoTowerType():
+	# Seasonal Tower
+	autoTower(wind, team1)
+	autoTower(wind, team2)
+	autoTower(wind, team3)
+	autoTower(wind, team4)
+	autoTower(wind, team5)
+	autoTower(wind, team6)
+	autoTower(wind, team7)
+	resTower()
+	autoTower(wind, team1)
+	autoTower(wind, team2)
+	autoTower(wind, team3)
+	autoTower(wind, team4)
+	autoTower(wind, team5)
+	autoTower(wind, team6)
+	autoTower(wind, team7)
+	
+	autoTower(light, team1)
+	autoTower(light, team2)
+	autoTower(light, team3)
+	autoTower(light, team4)
+	autoTower(light, team5)
+	autoTower(light, team6)
+	autoTower(light, team7)
+	resTower()
+	autoTower(light, team1)
+	autoTower(light, team2)
+	autoTower(light, team3)
+	autoTower(light, team4)
+	autoTower(light, team5)
+	autoTower(light, team6)
+	autoTower(light, team7)
+	
+	autoTower(dark, team1)
+	autoTower(dark, team2)
+	autoTower(dark, team3)
+	autoTower(dark, team4)
+	autoTower(dark, team5)
+	autoTower(dark, team6)
+	autoTower(dark, team7)
+	resTower()
+	autoTower(dark, team1)
+	autoTower(dark, team2)
+	autoTower(dark, team3)
+	autoTower(dark, team4)
+	autoTower(dark, team5)
+	autoTower(dark, team6)
+	autoTower(dark, team7)
 
 #  -------------------------Command-------------------------
-# Seasonal Tower
-# autoTower(wind, team1)
-# autoTower(wind, team2)
-# autoTower(wind, team3)
-# autoTower(wind, team4)
-# autoTower(wind, team5)
-# autoTower(wind, team6)
-# autoTower(wind, team7)
-# resTower()
-# autoTower(wind, team1)
-# autoTower(wind, team2)
-# autoTower(wind, team3)
-# autoTower(wind, team4)
-# autoTower(wind, team5)
-# autoTower(wind, team6)
-# autoTower(wind, team7)
-
-# autoTower(light, team1)
-# autoTower(light, team2)
-# autoTower(light, team3)
-# autoTower(light, team4)
-# autoTower(light, team5)
-# autoTower(light, team6)
-# autoTower(light, team7)
-# resTower()
-# autoTower(light, team1)
-# autoTower(light, team2)
-# autoTower(light, team3)
-# autoTower(light, team4)
-# autoTower(light, team5)
-# autoTower(light, team6)
-# autoTower(light, team7)
-
-# autoTower(dark, team1)
-# autoTower(dark, team2)
-# autoTower(dark, team3)
-# autoTower(dark, team4)
-# autoTower(dark, team5)
-# autoTower(dark, team6)
-# autoTower(dark, team7)
-# resTower()
-# autoTower(dark, team1)
-# autoTower(dark, team2)
-# autoTower(dark, team3)
-# autoTower(dark, team4)
-# autoTower(dark, team5)
-# autoTower(dark, team6)
-# autoTower(dark, team7)
-
-#Ordinary Tower
-autoTower(veda, team1)
-autoTower(veda, team2)
-autoTower(veda, team3)
-autoTower(veda, team4)
-autoTower(veda, team5)
-autoTower(veda, team6)
-autoTower(veda, team7)
-resTower()
-autoTower(veda, team1)
-autoTower(veda, team2)
-autoTower(veda, team3)
-autoTower(veda, team4)
-autoTower(veda, team5)
-autoTower(veda, team6)
-autoTower(veda, team7)
+autoTowerVeda()

@@ -1,4 +1,4 @@
-# rune.py last updated 10/05/2020
+# rune.py last updated 12/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -125,7 +125,7 @@ def runeEnh():
 			t = 0
 			while not exists(enSuccess, 0) and not exists(enFail, 0):
 				sysMsg("Waiting for enhance result. Total waiting time: " + str(t) + " sec.")
-				wait(1)
+				sleep(1)
 				t = t + 1
 			else:
 				if exists(enSuccess, 0):
@@ -142,7 +142,7 @@ def runeEnh():
 				if exists(enFail, 0):
 					f = f + 1
 					sysMsg("Enhance failed. Total failed attempt: " + str(f) + " times.")
-					wait(enhance)
+					waitObj(enhance)
 					gaugeCheck()
 					clkObj(enhance)
 					clkObj(confirm)

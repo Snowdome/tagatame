@@ -1,4 +1,4 @@
-# event.py last updated 25/08/2020
+# event.py last updated 12/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -108,7 +108,7 @@ def autoAR(evQ, n=10):
 	while i < n:
 		gotoEv(evQ)
 		enableAR()
-		wait(settings, 30)
+		waitObj(settings, 30)
 		arCheck()
 		merchantCheck(m)
 		i = i + 1

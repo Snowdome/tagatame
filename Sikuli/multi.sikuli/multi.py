@@ -1,4 +1,4 @@
-# multi.py last updated 29/05/2020
+# multi.py last updated 12/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -223,7 +223,7 @@ def gotoSubMulti(multiQ):
 					clkObj(subHome)
 				clkObj(subQuest, 0, subMulti, "suQuest Loc")
 				clkObj(subMulti)
-				wait(subMultiMenu, FOREVER)
+				waitObj(subMultiMenu, 300)
 			while not exists(multiQ.chapter, double):
 				clkObj(subArrow, remark="[Sub]Arrow")
 				sysMsg("[Sub] Turning page: chapter")
@@ -255,9 +255,9 @@ def multiSingle(multiQ, script, n=0):
 		apCheck(multiStart)
 		clkObj(confirm)
 		sysMsg("Quest started")
-		wait(btMenu, 30)
+		waitObj(btMenu, 30)
 		script()
-		wait(finished, 120)
+		waitObj(finished, 120)
 		clkObj(finished, 0, multiStart)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
@@ -314,7 +314,7 @@ def multiDouble(multiQ, script, n=1):
 			if exists(subConfirm, 0):
 				clkObj(subConfirm)
 		sysMsg("Entering battle")
-		wait(end, FOREVER)
+		waitObj(end, 300)
 		### Nox disconnect script here ###
 #		if exists(title):
 #			clkObj(title)
@@ -330,7 +330,7 @@ def multiDouble(multiQ, script, n=1):
 		#if exists(finished):
 		#	sysMsg("Quest completed")
 		if i + 1 < n:
-			wait(subHome, 30)
+			waitObj(subHome, 30)
 			gotoSubMulti(multiQ)
 			# Sub send invitation (slot 1)
 			clkObj(subInvite)
