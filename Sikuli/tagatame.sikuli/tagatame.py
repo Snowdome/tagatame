@@ -148,7 +148,7 @@ def sysMsg(msg, title=0, object=0):
 			else:
 				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[2] Terminatd the command.")
 				exit(1)
-	elif title == "FindFailed Error (wait)":
+	elif title == "FindFailed Error (waitObj)":
 		r = 1
 		while r != -1:
 			decision = select("(" + str(r) + ")" + msg, title, options=list)
@@ -333,9 +333,8 @@ def btAction(loop=0):
 			if exists(noQuota, 0):
 				sysMsg("No more remaining loop. Terminating the loop and returning to stage selection page.")
 				clkObj(noQuotaOK)
-				#clkObj(back)
+				clkObj(back)
 				loop = -1
-				sleep(5)
 
 
 # After entering battle, quit.

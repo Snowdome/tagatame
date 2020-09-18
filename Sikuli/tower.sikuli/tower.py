@@ -1,4 +1,4 @@
-# tower.py last updated 12/09/2020
+# tower.py last updated 14/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -60,7 +60,7 @@ def gotoTower(tEvent):
 	if not exists(towerStart, short):
 		if not exists(towerTitle, short):
 			sysMsg("Going to selected tower.")
-			if not exists(tEvent.logo, short):
+			if not exists(tEvent.logo, 5):
 				if exists(home, short):
 					clkObj(home)
 					sleep(normal)
@@ -213,8 +213,58 @@ def autoTowerVeda():
 	autoTower(veda, team6)
 	autoTower(veda, team7)
 
-def autoTowerType():
-	# Seasonal Tower
+def autoTowerType1():
+	# Seasonal Tower set 1
+	autoTower(fire, team1)
+	autoTower(fire, team2)
+	autoTower(fire, team3)
+	autoTower(fire, team4)
+	autoTower(fire, team5)
+	autoTower(fire, team6)
+	autoTower(fire, team7)
+	resTower()
+	autoTower(fire, team1)
+	autoTower(fire, team2)
+	autoTower(fire, team3)
+	autoTower(fire, team4)
+	autoTower(fire, team5)
+	autoTower(fire, team6)
+	autoTower(fire, team7)
+	
+	autoTower(water, team1)
+	autoTower(water, team2)
+	autoTower(water, team3)
+	autoTower(water, team4)
+	autoTower(water, team5)
+	autoTower(water, team6)
+	autoTower(water, team7)
+	resTower()
+	autoTower(water, team1)
+	autoTower(water, team2)
+	autoTower(water, team3)
+	autoTower(water, team4)
+	autoTower(water, team5)
+	autoTower(water, team6)
+	autoTower(water, team7)
+	
+	autoTower(thunder, team1)
+	autoTower(thunder, team2)
+	autoTower(thunder, team3)
+	autoTower(thunder, team4)
+	autoTower(thunder, team5)
+	autoTower(thunder, team6)
+	autoTower(thunder, team7)
+	resTower()
+	autoTower(thunder, team1)
+	autoTower(thunder, team2)
+	autoTower(thunder, team3)
+	autoTower(thunder, team4)
+	autoTower(thunder, team5)
+	autoTower(thunder, team6)
+	autoTower(thunder, team7)
+
+def autoTowerType2():
+	# Seasonal Tower set 2
 	autoTower(wind, team1)
 	autoTower(wind, team2)
 	autoTower(wind, team3)
@@ -264,4 +314,5 @@ def autoTowerType():
 	autoTower(dark, team7)
 
 #  -------------------------Command-------------------------
-autoTowerVeda()
+#autoTowerVeda()
+autoTowerType1()

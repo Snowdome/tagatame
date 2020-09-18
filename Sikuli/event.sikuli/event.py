@@ -1,4 +1,4 @@
-# event.py last updated 12/09/2020
+# event.py last updated 16/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -40,6 +40,7 @@ yudit = evQ("yuditEv.png", "Current", "yuditStage.png", "yuditTile.png")
 
 pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
 starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png")
+merchant = evQ(Pattern("merchantEv.png").targetOffset(435,40), "Key", "merchantStage.png", "merchantTitle.png")
 statue1 = evQ("statue1.png", "Daily", "statueStage.png", Pattern("statue1Title.png").exact())
 statue2 = evQ("statue2.png", "Daily", "statueStage.png", Pattern("statue2Title.png").exact())
 statue3 = evQ("statue3.png", "Daily", "statueStage.png", Pattern("statue3Title.png").exact())
@@ -95,7 +96,7 @@ def gotoEv(evQ):
 	else:
 		sysMsg("Already in selected event")
 
-def autoAR(evQ, n=10):
+def evAR(evQ, n=10):
 	i = 0
 	m = input("Enable merchantCheck? (1: Enable)", "1")
 	sysMsg("m = " + str(m))
@@ -121,4 +122,4 @@ def autoAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-autoAR(yudit, 5)
+evAR(pirate, 50)

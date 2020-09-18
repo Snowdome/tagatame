@@ -1,4 +1,4 @@
-# multi.py last updated 12/09/2020
+# multi.py last updated 18/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -19,7 +19,7 @@ myUnit = "teamEdit.png"
 multiList = "multiList.png"
 arrowRight = Pattern("arrowRight.png").targetOffset(20,198)	# Location of right arrow in respect to the close button
 createRoom = "createRoom.png"
-private = Pattern("private.png").similar(0.90).targetOffset(100,0)
+private = Pattern("private.png").similar(0.90).targetOffset(110,0)
 confirmCreate = "confirmCreate.png"
 multiStart = "multiStart.png"
 questFailed = Pattern("questFailed.png").targetOffset(20,143)
@@ -161,6 +161,7 @@ mainCh1 = "mainCh1.png"
 solo105 = multiQ(mainCh1, "main105Stage.png", "main105Title.png")
 
 soloXmas = multiQ("mainXmasCh.png", "mainXmasStage.png", "mainXmasTitle.png")
+soloZahar = multiQ(Pattern("zaharCh.png").targetOffset(100,0), "zaharStage.png", "zaharTitle.png")
 
 # Ch1: double team seiseki
 # Ch2: normal seiseki
@@ -194,16 +195,20 @@ def gotoMulti(multiQ):
 			if not exists(multiList, 0):
 				if not exists(settings, 0):
 					clkObj(home, 0, quest)
-				clkObj(quest)
+				clkObj(quest, 0, multi)
 				clkObj(multi, 0, multiList)
 			else:
 				sysMsg("Already in Multi Quest selection menu")
+			sleep(8)
 			while not exists(multiQ.chapter, double):
-				clkObj(questArrow)
+				clkObj(questArrow, remark="Quest Arrow")
 				sysMsg("Turning page: chapter")
-			clkObj(multiQ.chapter)
+			while exists(multiList, 0):
+				clkObj(multiQ.chapter)
+				mouseMove(10,0)
+				sleep(2)
 			while not exists(multiQ.stage, double):
-				clkObj(questArrow)
+				clkObj(questArrow, remark="Quest Arrow")
 				sysMsg("Turning page: stage")
 		clkObj(multiQ.stage)
 		clkObj(createRoom)
@@ -246,8 +251,7 @@ def gotoSubMulti(multiQ):
 def multiSingle(multiQ, script, n=0):
 	sysMsg("Initializing MultiSingle command")
 	i = 0
-	if not exists(mRec, 0):
-		sysMsg("Cannot find Macro Recorder.\nPress Yes after the window has been opened.", "Setup error")
+	waitObj(mRec, 0)
 	if not exists(btStart, short):
 		gotoMulti(multiQ)
 	while i < n:
@@ -256,8 +260,9 @@ def multiSingle(multiQ, script, n=0):
 		clkObj(confirm)
 		sysMsg("Quest started")
 		waitObj(btMenu, 30)
-		script()
-		waitObj(finished, 120)
+		if script != "auto":
+			script()
+		waitObj(finished, 300)
 		clkObj(finished, 0, multiStart)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
@@ -389,5 +394,5 @@ def multiDouble(multiQ, script, n=1):
 #multiDouble(subS2b, actsS2b, 1000)
 
 
-multiDouble(sub102, acts102, 500)
-#multiSingle(soloXmas, neroSolo, 50)
+#multiDouble(sub102, acts102, 500)
+multiSingle(soloZahar, "auto", 21)

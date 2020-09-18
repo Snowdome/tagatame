@@ -1,4 +1,4 @@
- # spEvent.py last updated 12/09/2020
+ # spEvent.py last updated 15/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -157,7 +157,7 @@ def gotoSP(spQ, mode="boss"):
 
 
 # After entering battle, toggle Auto if not On, and complete.
-def spAction(reward):
+def spBossAction(reward):
 	t = 0
 	waitObj(btMenu, 30)
 	if exists(toggleAuto, normal):
@@ -184,9 +184,9 @@ def spAction(stage, mode, remark):
 	if exists(noQuota):
 		clkObj(noQuotaOK)
 		clkObj(bbqBack)
+		clkObj(bbqBack)
 	else:
 		btAction(loop=2)
-	clkObj(bbqBack)
 	sysMsg("***** Completed " + str(remark) + ".*****")
 
 def spStory(spQ, mode=bbqHard):
@@ -217,7 +217,7 @@ def spBoss(spQ, n=1):
 		#	clkObj(spStart)
 		#	teamSelect(team)
 		#	clkObj(btStart)
-		#	spAction(spQ.reward)
+		#	spBossAction(spQ.reward)
 		#	i = i + 1
 		#	sysMsg("Successfully executed " + str(i) + " time(s); killed boss " + str(c) + " time(s)")
 		#	sleep(normal)	
@@ -228,7 +228,7 @@ def spBoss(spQ, n=1):
 			find(btStart)
 			#teamSelect(team)
 			clkObj(btStart)
-			spAction(spQ.reward)
+			spBossAction(spQ.reward)
 			i = i + 1
 			if exists(spStart):
 				sysMsg("Quest failed")
@@ -347,6 +347,6 @@ def spStoryAsHard():
 
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-#spDraw("all")
-spStoryAsEx()
-#spStory(as5)
+spDraw("all")
+#spStoryAsEx()
+#spStory(as3)

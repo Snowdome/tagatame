@@ -27,7 +27,7 @@ def worldBoss(n):
 			sysMsg("wbDmg not found. Waiting for 1 sec. Total waiting time = " + str(t) + " sec.")
 			t = t + 1
 			sleep(1)
-		i = i + 1
+		i = i + 1 
 		clkObj(wbDmg)
 		x = 0
 		while not exists(arrange, 0):
