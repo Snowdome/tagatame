@@ -1,4 +1,4 @@
- # spEvent.py last updated 15/09/2020
+ # spEvent.py last updated 25/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -21,6 +21,7 @@ class spQ():
 gen = "gen.png"
 bbq = "bbq.png"
 bbqQuest = "bbqQuest.png"
+genQuest = "quest.png"
 bbqQp = "bbqQp.png"
 bbqNormal = "bbqNormal.png"
 bbqHard = "bbqHard.png"
@@ -85,8 +86,10 @@ sevenSin = spQ("夜明けに奏でるクレーデレ", "7sinEv.png", "adv", "7si
 slime = spQ("捻じれ時空のスカベンジャー", "slimeEv.png", "adv", "slimeLogo.png", "slimeStage.png", "slimeCoin.png")
 
 # Advance Boss Crossover - 波打ち際モラトリアム
-shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "shieldLogo.png", "shieldStage.png", "shieldCoin.png")
+shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "1600954480072.png", "1600954496922.png", "1600954509508.png")
 
+# Advance Boss Crossover - 
+reZero = spQ("Re:Zero", "1600954465632.png", "adv", "shieldLogo.png", "shieldStage.png", "shieldCoin.png")
 
 # Genesis Boss 1 - 「創る、この世界を」（前編）
 gen1 = spQ("「創る、この世界を」（前編）", "gen1Ev.png", "gen", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
@@ -147,7 +150,10 @@ def gotoSP(spQ, mode="boss"):
 				clkObj(bossHardX)
 			clkObj(spStart)
 		else:
-			clkObj(bbqQuest, 0, bbqQp)
+			if spQ.menuLoc == "gen":
+				clkObj(genQuest, 0, bbqQp)
+			if spQ.menuLoc == "adv":
+				clkObj(bbqQuest, 0, bbqQp)
 			sleep(2)
 			while not exists(mode):
 				clkObj(bbqModeSwitch)
@@ -175,29 +181,39 @@ def spBossAction(reward):
 			sysMsg("Reward icon found.")
 			t = -1
 
-def spAction(stage, mode, remark):
-	waitObj(mode, 15)
+def spAction(stage, mode, menuLoc, remark):
 	clkObj(stage, remark=remark)
 	clkObj(bbqOK)
 	clkObj(btStart)
 	apCheck(btStart)
 	if exists(noQuota):
 		clkObj(noQuotaOK)
+		sysMsg("No remaining quota today. Returning to stage selection page.")
 		clkObj(bbqBack)
 		clkObj(bbqBack)
 	else:
-		btAction(loop=2)
+		if mode == bbqEx:
+			btAction(loop=0)
+		else:
+			btAction(loop=2)
+		waitObj(mode, 30)
+		if menuLoc == "gen":
+			clkObj(bbqBack)
+		else:
+			clkObj(bbqBack)
+	waitObj(mode, 30)
 	sysMsg("***** Completed " + str(remark) + ".*****")
 
 def spStory(spQ, mode=bbqHard):
 	sysMsg("Initializing SpecialEventStory command - " + spQ.name + ".")
+	menuLoc = spQ.menuLoc
 	gotoSP(spQ, mode)
-	spAction(stage1, mode, "Stage 1")
-	spAction(stage2, mode, "Stage 2")
-	spAction(stage3, mode, "Stage 3")
-	spAction(stage4, mode, "Stage 4")
-	spAction(stage5, mode, "Stage 5")
-	waitObj(mode, 30)
+	waitObj(mode, 15)
+	spAction(stage1, mode, menuLoc, "Stage 1")
+	spAction(stage2, mode, menuLoc, "Stage 2")
+	spAction(stage3, mode, menuLoc, "Stage 3")
+	spAction(stage4, mode, menuLoc, "Stage 4")
+	spAction(stage5, mode, menuLoc, "Stage 5")
 	sysMsg("***************Completed SpecialEventStory command - " + spQ.name + ".***************")
 	
 	
@@ -322,8 +338,6 @@ def spDraw(n=1):
 					pass
 
 def spStoryGen():
-	spStory(gen10, bbqHard)
-	spStory(gen9, bbqHard)
 	spStory(gen8, bbqHard)
 	spStory(gen7, bbqHard)
 	spStory(gen6, bbqHard)
@@ -332,6 +346,13 @@ def spStoryGen():
 	spStory(gen3, bbqHard)
 	spStory(gen2, bbqHard)
 	spStory(gen1, bbqHard)
+	#No Gem
+	spStory(gen10, bbqHard)
+	spStory(gen9, bbqHard)
+
+def spStoryGenEx():
+	spStory(gen8, bbqEx)
+	spStory(gen7, bbqEx)
 
 def spStoryAsEx():
 	spStory(as3, bbqEx)
@@ -347,6 +368,11 @@ def spStoryAsHard():
 
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-spDraw("all")
+#spDraw("all")
 #spStoryAsEx()
 #spStory(as3)
+
+spStory(reZero, bbqEx)
+spStory(reZero, bbqHard)
+#spStoryGenEx()
+spStoryGen()

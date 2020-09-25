@@ -1,4 +1,4 @@
-# event.py last updated 16/09/2020
+# event.py last updated 22/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -20,6 +20,7 @@ evAOT = "evAOT.png"
 access = "access.png"
 
 #  -------------------------Variables-------------------------
+summer2020 = evQ("summer2020Ev.png", "Archive", "summer2020Stage.png", "summer2020Title.png")
 halloween = evQ("halloweenEv.png", "Archive", "halloweenStage.png", "1589093890927.png")
 wVday = evQ("whiteVdayEv.png", "Archive", "whiteVdayStage.png", "whiteVdayTitle.png")
 vDay = evQ("vDayEv.png", "Archive", "vDayStage.png", "vDayTitle.png")
@@ -29,7 +30,7 @@ pirate = evQ("pirateEv.png", "Archive", "pirateStage.png", "pirateTitle.png")
 easter = evQ("easterEv.png", "Archive", "easterStage.png", "easterTitle.png")
 shieldBallon = evQ("1589098452707.png", "Current", "shieldBallonStage.png", "shieldBallonTitle.png")
 xmas2018 = evQ("xmas2018Ev.png", "Archive", "xmas2018Stage.png", "xmas2018Title.png")
-vDay2018 = evQ("vDay2018Ev.png", "Archive", "vDay2018Stage.png", "vDay2018Title.png")
+vDay2018 = evQ("vDay2018Ev.png", "Archive", "vDay2018Stage.png", "vDayy2018Title.png")
 halloween2018 = evQ("halloween2018Ev.png", "Archive", "halloween2018Stage.png", "halloween2018Title.png")
 wrathArmorF = evQ("wrathArmorFEv.png", "Current", "wrathArmorFStage.png", "wrathArmorFTitle.png")
 dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
@@ -98,12 +99,9 @@ def gotoEv(evQ):
 
 def evAR(evQ, n=10):
 	i = 0
-	m = input("Enable merchantCheck? (1: Enable)", "1")
-	sysMsg("m = " + str(m))
 	if exists(arMenu):
 		sysMsg("Ongoing auto repat found. Waiting for completion.")
 		arCheck()
-		merchantCheck(m)
 		sleep(10)
 		i = 1 + 1
 	while i < n:
@@ -111,7 +109,6 @@ def evAR(evQ, n=10):
 		enableAR()
 		waitObj(settings, 30)
 		arCheck()
-		merchantCheck(m)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
 		sleep(10)
@@ -122,4 +119,5 @@ def evAR(evQ, n=10):
 
 #  -------------------------Command-------------------------
 #arCheck()
-evAR(pirate, 50)
+#evAR(pirate, 50)
+evAR(vDay, 30)

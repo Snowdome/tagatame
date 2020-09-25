@@ -1,4 +1,4 @@
-# tagatame.py last updated 12/09/2020
+# tagatame.py last updated 23/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -59,7 +59,7 @@ rewardGet = "rewardGet.png"
 autoRepeat = "autoRepeat.png"
 arComplete = "arComplete.png"
 arReward = "arReward.png"
-arEnd = "1593212045077.png"
+arEnd = "arEnd.png"
 okAR = "okAR.png"
 arMenu = "arMenu.png"
 arMax = Pattern("arMax.png").targetOffset(-200,0)
@@ -254,7 +254,7 @@ def esc(object, delay=0, loop=0, remark=0):
 
 
 # AP Check (object = lastAction, optional: item = leaf type, quantity)
-def apCheck(object, item=leaf120, q=1):
+def apCheck(object, item=leaf120, q=1, nextObj="N/A"):
 	if exists(noAP, normal):
 		sysMsg("Insufficient AP.")
 		clkObj(item)
@@ -263,7 +263,10 @@ def apCheck(object, item=leaf120, q=1):
 			q = q - 1
 		clkObj(okAP)
 		clkObj(restoredAP, 0, object)
-		clkObj(object, 0, 1)
+		if nextObj != "N/A":
+			clkObj(object, 0, nextObj)
+		else:
+			clkObj(object, 0, 1)
 	else:
 		sysMsg("Sufficient AP. Proceed to next step.")
 
@@ -288,7 +291,7 @@ def runeCheck():
 def btAction(loop=0):
 	while loop > -1:
 		t = 0
-		wait(btMenu, long)
+		waitObj(btMenu, long)
 		if exists(toggleAuto, normal):
 			clkObj(toggleAuto)
 			sysMsg("Toggled auto.")
@@ -358,17 +361,14 @@ def teamSelect(position, page=1):
 	clkObj(position)
 	sysMsg("Team changed to " + str(position))
 
-def merchantCheck(m=1):
-	if m == "1":
-		sysMsg("Checking if travelling merchant arrives.")
-		if exists(peddlerShop, 15):
-			sysMsg("Travelling merchant appears.")
-			clkObj(peddlerShop)
-			clkObj(okAR)
-		else:
-			sysMsg("Travelling merchant not found.")
+def merchantCheck():
+	sysMsg("Checking if travelling merchant arrives.")
+	if exists(peddlerShop, 15):
+		sysMsg("Travelling merchant appears.")
+		clkObj(peddlerShop)
+		clkObj(okAR)
 	else:
-		sysMsg("Travelling merchant check is disabled.")
+		sysMsg("Travelling merchant not found.")
 
 # Get reward from completed mission
 def getReward():
@@ -405,8 +405,10 @@ def arCheck():
 		clkObj(arReward, 0, arEnd)
 		clkObj(arEnd)
 		clkObj(confirm)
-		sleep(double)
+		sleep(2)
 		clkObj(okAR)
+		sleep(5)
+		merchantCheck()
 		clkObj(playerReward, 0, settings, "2nd OK button")
 
 sysMsg("Imported tagatame.sikuli")

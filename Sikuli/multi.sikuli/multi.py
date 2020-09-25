@@ -162,6 +162,7 @@ solo105 = multiQ(mainCh1, "main105Stage.png", "main105Title.png")
 
 soloXmas = multiQ("mainXmasCh.png", "mainXmasStage.png", "mainXmasTitle.png")
 soloZahar = multiQ(Pattern("zaharCh.png").targetOffset(100,0), "zaharStage.png", "zaharTitle.png")
+soloZaharI = multiQ(Pattern("zaharCh.png").targetOffset(100,0), "1600393931083.png", "1600393951157.png")
 
 # Ch1: double team seiseki
 # Ch2: normal seiseki
@@ -255,14 +256,15 @@ def multiSingle(multiQ, script, n=0):
 	if not exists(btStart, short):
 		gotoMulti(multiQ)
 	while i < n:
+		sleep(3)
 		clkObj(multiStart)
-		apCheck(multiStart)
+		apCheck(multiStart, nextObj=confirm)
 		clkObj(confirm)
 		sysMsg("Quest started")
 		waitObj(btMenu, 30)
 		if script != "auto":
 			script()
-		waitObj(finished, 300)
+		waitObj(finished, 360)
 		clkObj(finished, 0, multiStart)
 		i = i + 1
 		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
@@ -395,4 +397,4 @@ def multiDouble(multiQ, script, n=1):
 
 
 #multiDouble(sub102, acts102, 500)
-multiSingle(soloZahar, "auto", 21)
+multiSingle(soloZaharI, "auto", 7)
