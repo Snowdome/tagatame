@@ -1,9 +1,15 @@
+function notContains(elements, string) {
+	return Array.prototype.filter.call(elements, function (tr) {
+		return tr.textContent.indexOf(string) == -1;
+	});
+}
+
 function chooseAllExtra() {
 	var extra = document.querySelectorAll('[id^=ex]');
 	for (i = 0; i < extra.length; i++) {
 		extra[i].checked = true;
 	}
-	score()
+	score();
 }
 
 function clearExtra() {
@@ -11,16 +17,16 @@ function clearExtra() {
 	for (i = 0; i < extra.length; i++) {
 		extra[i].checked = false;
 	}
-	score()
+	score();
 }
 
 function chooseTypeExtra() {
-	clearExtra()
+	clearExtra();
 	var extra = document.querySelectorAll('[id^=ex]');
 	for (i = 0; i < 6; i++) {
 		extra[i].checked = true;
 	}
-	score()
+	score();
 }
 
 function showNote() {
@@ -38,7 +44,7 @@ function showNote() {
 function refreshMmt() {
 	// Show or hide all memento rows according to normal pool option
 	var x = document.getElementsByClassName('mmt');
-	if (document.getElementById('d0').checked == true) {
+	if (document.getElementById('d0').checked === true) {
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = 'table-row';
 		}
@@ -107,35 +113,59 @@ function refreshMmt() {
 		}
 	}
 
-	// then show rows per event / limited options
+	// then show rows according to event / limited options
 	for (i = 1; i <= 2; i++) {
 		var y = document.getElementById('d' + i);
 		var z = document.getElementsByClassName(y.value);
-		if (y.checked == true) {
-			console.log('Option [d' + i + ']' + document.getElementById('labelD' + i).innerText + ' is shown.')
+		if (y.checked === true) {
+			console.log('Option [d' + i + ']' + document.getElementById('labelD' + i).innerText + ' mementos are shown.');
 			for (j = 0; j < z.length; j++) {
 				z[j].style.display = 'table-row';
 			}
 		} else {
-			console.log('Option [d' + i + ']' + document.getElementById('labelD' + i).innerText + ' is hidden.')
+			console.log('Option [d' + i + ']' + document.getElementById('labelD' + i).innerText + ' mementos are hidden.');
 			for (j = 0; j < z.length; j++) {
 				z[j].style.display = 'none';
 			}
 		}
 	}
-		
-	// finally hide rows if show groupless is not checked
-	var groupless = document.getElementsByClassName('groupless');
-	if (document.getElementById('d3').checked == true) {
-		console.log('Option [d3]' + document.getElementById('labelD' + i).innerText + ' is shown.')
+	
+	// then only show rows based on group option
+	var groupSelector = document.getElementById("d4").value;
+	switch (groupSelector) {
+		case "all":
+			var mmt = [];
+			console.log('Option [d4]All mementos are shown.');
+			break;
+		case "groupless":
+			var mmt = document.querySelectorAll('tr.mmt:not(.groupless)');
+			console.log('Option [d4]Only groupless mementos are shown.');
+			if (document.getElementById('d3').checked === false) {
+				document.getElementById('d3').checked = true;
+				console.log('Option [d3]顯示無團隊 changed to true.');
+			}
+			break;
+		default:
+			var mmt = notContains(document.querySelectorAll('tr.mmt'), groupSelector);
+			console.log('Option [d4]Only ' + groupSelector + ' is shown.');
+	}
+	for (j = 0; j < mmt.length; j++) {
+		mmt[j].style.display = 'none';
+	}
+
+	// lastly arrange groupless mementos according to display option
+	var groupless = document.getElementsByClassName('groupless');	
+	if (document.getElementById('d3').checked === true) {
+		console.log('Option [d3]顯示無團隊 is true.')
 	} else {
-		console.log('Option [d3]' + document.getElementById('labelD' + i).innerText + ' is hidden.')
+		console.log('Option [d3]顯示無團隊 is false.')
 		for (j = 0; j < groupless.length; j++) {
 			groupless[j].style.display = 'none';
 		}
 	}
 
 	$('tr:visible').removeClass('odd').filter(':odd').addClass('odd');
+	
 
 }
 

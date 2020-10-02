@@ -43,7 +43,7 @@ td[headers="name"] {
 
 td[headers="origin"],
 td[headers="group"] {
-	text-align: center;
+	text-align: left;
 	white-space: nowrap;
 }
 
@@ -85,8 +85,8 @@ th#luck {
 	text-align: center;
 }
 
-tr :nth-child(3),
-tr :nth-child(4) {
+tr td:nth-child(3),
+tr td:nth-child(4) {
 	width: 16px;
 	text-align: center;
 }

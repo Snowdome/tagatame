@@ -1,4 +1,4 @@
-# tagatame.py last updated 23/09/2020
+# tagatame.py last updated 27/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -215,7 +215,7 @@ def clkObj(object, delay=0, loop=0, remark=0):
 		sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (clkObj)", object)
 
 # Wait for object
-def waitObj(object, time=wTime, remark=0):
+def waitObj(object, time=wTime, remark=0, errMsg="N/A"):
 	if remark == 0:
 		subject = repr(object)
 	else:
@@ -224,11 +224,14 @@ def waitObj(object, time=wTime, remark=0):
 		sysMsg("Waiting for " + subject)
 		wait(object, time)
 	except FindFailed:
-		sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
+		if errMsg == "N/A":
+			sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
+		else:
+			sysMsg(message + "\nCannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
 
 # Wait for object and press ESC (optional: delay = length(ms))
-def esc(object, delay=0, loop=0, remark=0):
-	if remark == 0:
+def esc(object, delay=0, loop=0, remark="N/A"):
+	if remark == "N/A":
 		subject = repr(object)
 	else:
 		if remark == 1:
@@ -288,7 +291,7 @@ def runeCheck():
 		sysMsg("Rune check passed")
 
 # After entering battle, toggle Auto if not On, and complete.
-def btAction(loop=0):
+def btAction(loop=0, m=0):
 	while loop > -1:
 		t = 0
 		waitObj(btMenu, long)
@@ -305,39 +308,40 @@ def btAction(loop=0):
 				sleep(10)
 			else:
 				sysMsg("Quest completed.")
-				clkObj(questMission, 0, 1)
+				clkObj(questMission, loop=1)
 				t = -1
 		click()
 		while exists(visionMax):
 			sysMsg("Vision achieved.")
 			sleep(5)
-			clkObj(visionMax, remark = "visionMax")
-		if exists(peddlerShop, normal):
-			sysMsg("Travelling merchant appeared.")
-			clkObj(peddlerShop)
+			clkObj(visionMax, remark="visionMax")
+		merchantCheck(m)
+		if merchantCheck() == 1:
+			m = 1
 		if loop == 0:
 			sysMsg("No more remaining loop. Returning to stage selection page.")
 			sleep(changePage)
-			clkObj(btEnd, 0, 1)
+			clkObj(btEnd, loop=1)
 			loop = -1
 		else:
 			loop = loop - 1
 			sysMsg("Restarting battle, remaining loop = " + str(loop) + ".")
 			clkObj(btAgain)
 			mouseMove(10,0)
-			if exists(peddlerShop, normal):
-				sysMsg("Travelling merchant appeared.")
-				clkObj(peddlerShop)
+			merchantCheck(m)
+			if merchantCheck() == 1:
+				m = 1
 			clkObj(btAgain)
 			sleep(2)
 			apCheck(btAgain)
 			clkObj(btStart)
 			sleep(1)
 			if exists(noQuota, 0):
-				sysMsg("No more remaining loop. Terminating the loop and returning to stage selection page.")
+				sysMsg("No more quota for today. Terminating the loop and returning to stage selection page.")
 				clkObj(noQuotaOK)
 				clkObj(back)
 				loop = -1
+		return m
 
 
 # After entering battle, quit.
@@ -361,14 +365,18 @@ def teamSelect(position, page=1):
 	clkObj(position)
 	sysMsg("Team changed to " + str(position))
 
-def merchantCheck():
-	sysMsg("Checking if travelling merchant arrives.")
-	if exists(peddlerShop, 15):
-		sysMsg("Travelling merchant appears.")
-		clkObj(peddlerShop)
-		clkObj(okAR)
+def merchantCheck(m=0):
+	if m == 0:
+		sysMsg("Checking if travelling merchant arrives.")
+		if exists(peddlerShop, 5):
+			sysMsg("Travelling merchant appears.")
+			clkObj(peddlerShop)
+			m = 1
+		else:
+			sysMsg("Travelling merchant not found.")
 	else:
-		sysMsg("Travelling merchant not found.")
+		sysMsg("Merchant check has been disabled.")
+	return m
 
 # Get reward from completed mission
 def getReward():

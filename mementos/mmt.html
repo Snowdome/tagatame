@@ -43,6 +43,7 @@
 	<p>❃真理念裝レリーフ只即用於非<span class="event">活動</span>的5★念裝
 		<br>❃暫時只有節日レリーフ可以突破<span class="event">活動</span>／非5★念裝
 		<br>❃每日主題境界值關卡未必能增加<span class="event">活動</span>念裝的境界值 (以關卡公告為準)
+		<br>❃聯動抽念歸類為<span class="limited">限定</span>
 		<br>❃本清單不包括2★念裝 / 純紀念品 (通常為最大Level為1的念裝)
 		<br>❃<span class="title">藍字</span>的標題為可排序</p>
 
@@ -93,14 +94,40 @@
 			<p>顯示選項：<br>
 				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked>普池</label>
 				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>活動</label>
-                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label>
-				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">無團隊</label><br>
+                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label><br>
+				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">顯示無團隊</label>
+				<label id="labelD4" for="d3">只顯示團隊：<select id="d4" name="groupList">
+					<option value="all" selected>❃全部顯示❃</option>
+					<option value="groupless">❃無團隊❃</option>
+					<option value="エンヴィリア王国騎士団">エンヴィリア王国騎士団</option>
+					<option value="蒼炎騎士団">蒼炎騎士団</option>
+					<option value="緋炎騎士団">緋炎騎士団</option>
+					<option value="シェイナファンクラブ">シェイナファンクラブ</option>
+					<option value="ラーストリス騎士団">ラーストリス騎士団</option>
+					<option value="シャドウメサイヤ">シャドウメサイヤ</option>
+					<option value="スロウス技師">スロウス技師</option>
+					<option value="海賊団">海賊団</option>
+					<option value="ワダツミ武門">ワダツミ武門</option>
+					<option value="砂漠の民">砂漠の民</option>
+					<option value="聖教騎士団">聖教騎士団</option>
+					<option value="トラブルメーカーズ">トラブルメーカーズ</option>
+					<option value="十戒衆">十戒衆</option>
+					<option value="FgG">FgG</option>
+					<option value="〈七つの大罪〉">〈七つの大罪〉</option>
+					<option value="マクロスフロンティア">マクロスフロンティア</option>
+					<option value="転スラ">転スラ</option>
+					<option value="クリユニ">クリユニ</option>
+					<option value="ブレフロ">ブレフロ</option>
+					<option value="盾の勇者の成り上がり">盾の勇者の成り上がり</option>
+					<option value="進撃の巨人">進撃の巨人</option>
+					<option value="Re:ゼロ">Re:ゼロ</option>
+				</select><br>
 				數值：<label><input type="radio" id="secInfo1" name="secInfo" value="show">詳細</label>
 				<label><input type="radio" id="secInfo0" name="secInfo" value="hide" checked>摘要</label><br>
 				起源：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">文字</label>
-				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>圖片</label><br>
+				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>圖示</label><br>
 				團隊：　<label><input type="radio" id="optGroup0" name="optGroup" value="text">文字</label>
-				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>圖片</label><br>
+				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>圖示</label><br>
 			</p>
 		</form>
 	</div>
@@ -109,13 +136,21 @@
 		<table id="changeLog">
 			<tbody id="latest">
 				<tr>
+					<td>02/10/2020</td>
+					<td>
+						<p><u>Added:</u><br>1. 血税の正しい使い方<br>2. ジョーカーの逮捕劇<br>3. トラブルメーカーの正義<br>4. 支えあう双子のメイド<br></p>
+						<p><u>Modified:</u><br>1. Updated スロウス技師 info<br>2. Updated sub-group info<br>3. Adjusted memento group display options<br>4. Minor adjustment in dual type presentation<br>5. Refined calculation<br></p>
+						<p><u>Bugfixed:</u><br>1. 特式お手入れの成果は [普通→<span class="limited">限定</span>]<br>2. 打ち上げる夏の思い出 [普通→<span class="limited">限定</span>]<br>3. 優しき風を纏いて [普通→<span class="limited">限定</span>]<br>4. 悪戯の祭典、その裏に [普通→<span class="limited">限定</span>]<br><br>5. 誓いの刃 [普通→<span class="limited">限定</span>]</p>
+					</td>
+				</tr>
+			</tbody>
+			<tbody id="history" style="display: none;">
+				<tr>
 					<td>25/09/2020</td>
 					<td>
 						<p><u>Added:</u><br>1. 絶対正義の再臨<br>2. ロズワール邸の非日常<br>3. 精霊術師の騎士として<br></p>
 					</td>
 				</tr>
-			</tbody>
-			<tbody id="history" style="display: none;">
 				<tr>
 					<td>18/09/2020</td>
 					<td>
@@ -132,7 +167,8 @@
 					<td>24/08/2020</td>
 					<td>
 						<p><u>Added:</u><br>1. 寄り添い、一緒に<br></p>
-						<p><u>Modified:</u><br>1. Bugfix in dual type calculations<br>2. Added select all attack types button for extra options<br></p>
+						<p><u>Modified:</u><br>1. Added select all attack types button for extra options<br></p>
+						<p><u>Bugfixed:<br>1. Dual type calculations<br></p>
 					</td>
 				</tr>
 				<tr>
@@ -157,14 +193,15 @@
 					<td>01/08/2020</td>
 					<td>
 						<p><u>Added:</u><br>1. 氷塵は終了の合図<br>2.王女の休息、その未来<br>3.戒めは青き潮騒に抱かれ<br></p>
-						<p><u>Modified:</u><br>1. Bugfix in headers and calculations<br>2. Added select all and clear all button for extra options<br></p>
+						<p><u>Modified:</u><br>1. Added select all and clear all button for extra options<br></p>
+						<p><u>Bugfixed:</u><br>1. Bugfix in headers and calculations<br></p>
 					</td>
 				</tr>
 				<tr>
 					<td>19/07/2020</td>
 					<td>
 						<p><u>Added:</u><br>1. 水鉄砲で描く笑顔<br>2.剣豪のスイカ斬り<br>3.魔法少女の一番熱い日<br></p>
-						<p><u>Modified:</u><br>1. Bugfix in シェイナファンクラブ mementos<br></p>
+						<p><u>Bugfixed:</u><br>1. Bugfix in シェイナファンクラブ mementos<br></p>
 					</td>
 				</tr><tr>
 					<td>11/07/2020</td>
@@ -267,14 +304,14 @@
 					<td>
 						<p><u>Added:</u><br>1. 将軍の誇りチョコ<br>2. 円環の瞳<br></p>
 						<p><u>Modified:</u><br>1. Added font color for <span class="limited">限定</span> &amp; <span class="event">活動</span><br>2. 額外屬性 [dropdown menu→checkboxes]<br></p>
-						<p><u>Bugfix:</u><br>1. 追いかけるは好奇心[人特効 0→10]<br></p>
+						<p><u>Bugfixed:</u><br>1. 追いかけるは好奇心 [人特効 0→10]<br></p>
 					</td>
 				</tr>
 				<tr>
 					<td>07/02/2020</td>
 					<td>
 						<p><u>Added:</u><br>1. 世界を壊す、先駆けに<br>2. 追いかけるは好奇心<br>3. 落涙なき慟哭<br></p>
-						<p><u>Bugfix:</u><br>1. 真理への戒めと記録→<span class="limited">限定</span><br>2. Sorting order→default set to descending<br>3. Number sorting bug fixed</p>
+						<p><u>Bugfixed:</u><br>1. 真理への戒めと記録 [普通→<span class="limited">限定</span>]<br>2. Sorting order→default set to descending<br>3. Number sorting bug fixed</p>
 					</td>
 				</tr>
 				<tr>

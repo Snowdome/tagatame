@@ -1,4 +1,4 @@
- # spEvent.py last updated 25/09/2020
+ # spEvent.py last updated 27/09/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -86,10 +86,10 @@ sevenSin = spQ("夜明けに奏でるクレーデレ", "7sinEv.png", "adv", "7si
 slime = spQ("捻じれ時空のスカベンジャー", "slimeEv.png", "adv", "slimeLogo.png", "slimeStage.png", "slimeCoin.png")
 
 # Advance Boss Crossover - 波打ち際モラトリアム
-shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "1600954480072.png", "1600954496922.png", "1600954509508.png")
+shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "shieldLogo.png", "shieldStage.png", "shieldCoin.png")
 
-# Advance Boss Crossover - 
-reZero = spQ("Re:Zero", "1600954465632.png", "adv", "shieldLogo.png", "shieldStage.png", "shieldCoin.png")
+# Advance Boss Crossover - Re:ゼロから始める異世界生活
+reZero = spQ("Re:ゼロから始める異世界生活", "reZeroEv.png", "adv", "reZeroLogo.png", "reZeroStage.png", "reZeroCoin.png")
 
 # Genesis Boss 1 - 「創る、この世界を」（前編）
 gen1 = spQ("「創る、この世界を」（前編）", "gen1Ev.png", "gen", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
@@ -182,6 +182,7 @@ def spBossAction(reward):
 			t = -1
 
 def spAction(stage, mode, menuLoc, remark):
+	errMsg = "Struck in" + str(remark) + " (post battle)."
 	clkObj(stage, remark=remark)
 	clkObj(bbqOK)
 	clkObj(btStart)
@@ -201,7 +202,7 @@ def spAction(stage, mode, menuLoc, remark):
 			clkObj(bbqBack)
 		else:
 			clkObj(bbqBack)
-	waitObj(mode, 30)
+	waitObj(mode, 30, errMsg=errMsg)
 	sysMsg("***** Completed " + str(remark) + ".*****")
 
 def spStory(spQ, mode=bbqHard):
@@ -209,12 +210,17 @@ def spStory(spQ, mode=bbqHard):
 	menuLoc = spQ.menuLoc
 	gotoSP(spQ, mode)
 	waitObj(mode, 15)
-	spAction(stage1, mode, menuLoc, "Stage 1")
-	spAction(stage2, mode, menuLoc, "Stage 2")
-	spAction(stage3, mode, menuLoc, "Stage 3")
-	spAction(stage4, mode, menuLoc, "Stage 4")
-	spAction(stage5, mode, menuLoc, "Stage 5")
-	sysMsg("***************Completed SpecialEventStory command - " + spQ.name + ".***************")
+	remark = spQ.name + " Stage 1"
+	spAction(stage1, mode, menuLoc, remark)
+	remark = spQ.name + " Stage 2"
+	spAction(stage2, mode, menuLoc, remark)
+	remark = spQ.name + " Stage 3"
+	spAction(stage3, mode, menuLoc, remark)
+	remark = spQ.name + " Stage 4"
+	spAction(stage4, mode, menuLoc, remark)
+	remark = spQ.name + " Stage 5"
+	spAction(stage5, mode, menuLoc, remark)
+	sysMsg("***************Completed SpecialEventStory command - " + spQ.name + " (" + str(mode) + ") .***************")
 	
 	
 
@@ -279,12 +285,12 @@ def spDraw(n=1):
 		clkObj(evDraw)
 	if exists(evDrawX, 0):
 		clkObj(evDrawX)
-	clkObj(evDraw10, 0, 0, "Event Draw-10")
+	clkObj(evDraw10, remark="Event Draw-10")
 	if exists(empty, 0.5):
 		clkObj(spOK)
 		sleep(normal)
 		clkObj(spOK)
-		clkObj(evDraw10, 0, 0, "Event Draw-10")
+		clkObj(evDraw10, remark="Event Draw-10")
 	if exists(noCoin, 0):
 		clkObj(spOK)
 		sysMsg("No more coins available")
@@ -297,12 +303,12 @@ def spDraw(n=1):
 		sysMsg("***************Successfully executed 1st time***************")
 		if n == "all":
 			while not exists(noCoin):
-				clkObj(evDraw10, 0, 0, "Event Draw-10")
+				clkObj(evDraw10, remark="Event Draw-10")
 				if exists(empty, 0.5):
 					clkObj(spOK)
 					sleep(normal)
 					clkObj(spOK)
-					clkObj(evDraw10, 0, 0, "Event Draw-10")
+					clkObj(evDraw10, remark="Event Draw-10")
 				try:
 					#click(drawing)
 					i = i + 1
@@ -314,12 +320,12 @@ def spDraw(n=1):
 					sysMsg("No more coins available")
 		else:
 			while i < n:
-				clkObj(evDraw10, 0, 0, "Event Draw-10")
+				clkObj(evDraw10, remark="Event Draw-10")
 				if exists(empty, 0.5):
 					clkObj(spOK)
 					sleep(normal)
 					clkObj(spOK)
-					clkObj(evDraw10, 0, 0, "Event Draw-10x")
+					clkObj(evDraw10, remark="Event Draw-10x")
 				if not exists(noCoin, 0):
 					try:
 						#clkObj(drawing)
@@ -337,7 +343,7 @@ def spDraw(n=1):
 				else:
 					pass
 
-def spStoryGen():
+def spStoryGen(m=0):
 	spStory(gen8, bbqHard)
 	spStory(gen7, bbqHard)
 	spStory(gen6, bbqHard)
@@ -372,7 +378,7 @@ def spStoryAsHard():
 #spStoryAsEx()
 #spStory(as3)
 
-spStory(reZero, bbqEx)
-spStory(reZero, bbqHard)
+#spStory(reZero, bbqEx)
+#spStory(reZero, bbqHard)
 #spStoryGenEx()
 spStoryGen()
