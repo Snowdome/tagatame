@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+	<title>Mementos Spreadsheet</title>
+	<meta charset="utf-8" />
+	<meta property="og:url" content="https://snowdome.github.io/tagatame/index.html" />
+	<meta property="og:image" content="https://snowdome.github.io/tagatame/favicon.png" />
+	<link rel="stylesheet" href="mmt.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#603cba">
+	<meta name="theme-color" content="#ffffff">
+	<script src=mmt.js></script>
+	<script src=score.js></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+		var includes = $('[data-include]');
+		jQuery.each(includes, function() {
+			var file = $(this).data('include') + '.html';
+			$(this).load(file);
+			});
+		});
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157948182-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-157948182-1');
+	</script>
+	-->
+</head>
+
+<body>
+	<p><b>Consolidated by 雪頂夢 @ PigPigChannel</b> <a href="mmt.html">中文版</a></p>
+	<p>❃真理念裝レリーフ(LB coin) can only be used on non-<span class="event">event</span>-5★ Mementos
+		<br>❃Currently only seasonal LB coin can be used on <span class="event">event</span> / non-5★ Mementos
+		<br>❃Daily vision stages usually CANNOT increase <span class="event">Event</span> Mementos' vision progress. (Refer to in-game or official event details for further info)
+		<br>❃Collabl Mementos (Gatcha) are classified as <span class="limited">Limited</span> in this spreadsheet
+		<br>❃This spreadsheet does not include 2★ Mementos  / memorial (usually those with max level 1)
+		<br>❃<span class="title">Blue</span> title are sortable</p>
+
+	<div id="parameters" oninput="score()">
+		<form autocomplete="off">
+			<p><b><u>Parameters</u></b></p>
+			<p>Basic:
+				<label><input type="radio" id="pm1" name="pm" value="phy">PATK</label>
+				<label><input type="radio" id="pm2" name="pm" value="mag">MATK</label>
+				<label><input type="radio" id="pm0" name="pm" value="either" checked>Max</label><br>
+			Sin.Type:
+				<label><input type="radio" id="sin1" name="sin" value="envy">Envy</label>
+				<label><input type="radio" id="sin2" name="sin" value="sloth">Sloth</label>
+				<label><input type="radio" id="sin3" name="sin" value="lust">Lust</label>
+				<label><input type="radio" id="sin4" name="sin" value="gluttony">Gluttony</label>
+				<label><input type="radio" id="sin5" name="sin" value="wrath">Wrath</label>
+				<label><input type="radio" id="sin6" name="sin" value="greed">Greed</label>
+				<label><input type="radio" id="sin7" name="sin" value="pride">Pride</label>
+				<label><input type="radio" id="sin0" name="sin" value="any" checked>Max</label>
+				<label><input type="radio" id="sin0" name="sin" value="none">Ignored</label>
+			</p>
+			<p>Bonus:
+				<br>
+				<label><input type="checkbox" id="ex01" name="extra" value="slash" checked>Slash</label>
+				<label><input type="checkbox" id="ex02" name="extra" value="pierce" checked>Pierce</label>
+				<label><input type="checkbox" id="ex03" name="extra" value="blow" checked>Blow</label>
+				<label><input type="checkbox" id="ex04" name="extra" value="shoot" checked>Shoot</label>
+				<label><input type="checkbox" id="ex05" name="extra" value="magical" checked>Magical</label>
+				<label><input type="checkbox" id="ex06" name="extra" value="null" checked>Null</label>
+				<br>
+				<label><input type="checkbox" id="ex07" name="extra" value="counter" checked>Counter</label>
+				<label><input type="checkbox" id="ex08" name="extra" value="thunder" checked>vs_Thunder</label>
+				<label><input type="checkbox" id="ex09" name="extra" value="wind" checked>vs_Wind</label>
+				<label><input type="checkbox" id="ex10" name="extra" value="dark" checked>vs_Dark</label>
+				<label><input type="checkbox" id="ex11" name="extra" value="single" checked>Single</label>
+				<label><input type="checkbox" id="ex12" name="extra" value="area" checked>Area</label>
+				<label><input type="checkbox" id="ex13" name="extra" value="human" checked>vs_Human</label>
+				<br>
+				<label><input type="checkbox" id="ex14" name="extra" value="hybrids" checked>vs_Hybrids</label>
+				<label><input type="checkbox" id="ex15" name="extra" value="vajra" checked>vs_Vajra</label>
+				<label><input type="checkbox" id="ex16" name="extra" value="magDoll" checked>vs_Demon Golem</label>
+				<label><input type="checkbox" id="ex17" name="extra" value="lesserDevil" checked>vs_Sub-Demon</label>
+				<label><input type="checkbox" id="ex18" name="extra" value="gigantic" checked>vs_Gigantic</label>
+			</p>
+		</form>
+		<button type="button" id=chooseAllExtra onclick="chooseAllExtra()">Select all</button> <button type="button" id=chooseAllExtra onclick="chooseTypeExtra()">Only Attack.Types</button> <button type="button" id=clearExtra onclick="clearExtra()">Clear all</button>
+		<form autocomplete="off" oninput="refreshMmt()">
+			<p>Display options：<br>
+				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked>Normal</label>
+				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>Event</label>
+                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>Limited</label>
+				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">Display Groupless Mementos</label><br>
+				<label id="labelD4" for="d3">Only display the following group：<select id="d4" name="groupList">
+					<option value="all" selected>❃Display All❃</option>
+					<option value="groupless">❃Groupless❃</option>
+					<option value="エンヴィリア王国騎士団">Royal Knights of Envylia</option>
+					<option value="蒼炎騎士団">Blue Flame Knight</option>
+					<option value="緋炎騎士団">Scarlet Flame Guard</option>
+					<option value="シェイナファンクラブ">Shayna Fan Club</option>
+					<option value="ラーストリス騎士団">Knighthood of Wratharis</option>
+					<option value="シャドウメサイヤ">Shadow Messiah</option>
+					<option value="スロウス技師">Sloth Technicians</option>
+					<option value="海賊団">Pirates</option>
+					<option value="ワダツミ武門">Wadatsumi Clan</option>
+					<option value="砂漠の民">Desert Citizen</option>
+					<option value="聖教騎士団">Holy Guard</option>
+					<option value="トラブルメーカーズ">Troublemakers</option>
+					<option value="十戒衆">Templars</option>
+					<option value="FgG">FgG Collab</option>
+					<option value="〈七つの大罪〉">The Seven Deadly Sins</option>
+					<option value="マクロスフロンティア">Macross Frontier</option>
+					<option value="転スラ">That Time I Got Reincarnated as a Slime</option>
+					<option value="クリユニ">Crystal of Re:union</option>
+					<option value="ブレフロ">Brave Frontier</option>
+					<option value="盾の勇者の成り上がり">The Rising of the Shield Hero</option>
+					<option value="進撃の巨人">Attack on Titan</option>
+					<option value="Re:ゼロ">Re:Zero</option>
+				</select><br>
+				Stats：<label><input type="radio" id="secInfo1" name="secInfo" value="show">Detailed</label>
+				<label><input type="radio" id="secInfo0" name="secInfo" value="hide" checked>Abstract</label><br>
+				Origin：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">Text</label>
+				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>Icon</label><br>
+				Group：<label><input type="radio" id="optGroup0" name="optGroup" value="text">Text</label>
+				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>Icon</label><br>
+			</p>
+		</form>
+	</div>
+	<div id="message" data-include="mmtLog"></div>
+	<div id="mmtList" data-include="mmtList"></div>
+</body>
+
+</html>

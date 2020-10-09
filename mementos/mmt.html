@@ -39,7 +39,7 @@
 </head>
 
 <body>
-	<p><b>Consolidated by 雪頂夢 @ PigPigChannel</b></p>
+	<p><b>Consolidated by 雪頂夢 @ PigPigChannel <a href=mmt_en.html>English version</a></b></p>
 	<p>❃真理念裝レリーフ只即用於非<span class="event">活動</span>的5★念裝
 		<br>❃暫時只有節日レリーフ可以突破<span class="event">活動</span>／非5★念裝
 		<br>❃每日主題境界值關卡未必能增加<span class="event">活動</span>念裝的境界值 (以關卡公告為準)
@@ -75,9 +75,9 @@
 				<label><input type="checkbox" id="ex06" name="extra" value="null" checked>無区分</label>
 				<br>
 				<label><input type="checkbox" id="ex07" name="extra" value="counter" checked>反撃</label>
-				<label><input type="checkbox" id="ex08" name="extra" value="dark" checked>雷属性特効</label>
+				<label><input type="checkbox" id="ex08" name="extra" value="thunder" checked>雷属性特効</label>
 				<label><input type="checkbox" id="ex09" name="extra" value="wind" checked>風属性特効</label>
-				<label><input type="checkbox" id="ex10" name="extra" value="wind" checked>闇属性特効</label>
+				<label><input type="checkbox" id="ex10" name="extra" value="dark" checked>闇属性特効</label>
 				<label><input type="checkbox" id="ex11" name="extra" value="single" checked>単体</label>
 				<label><input type="checkbox" id="ex12" name="extra" value="area" checked>範囲</label>
 				<label><input type="checkbox" id="ex13" name="extra" value="human" checked>人特効</label>
@@ -94,8 +94,8 @@
 			<p>顯示選項：<br>
 				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked>普池</label>
 				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>活動</label>
-                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label><br>
-				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">顯示無團隊</label>
+                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label>
+				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">顯示無團隊</label><br>
 				<label id="labelD4" for="d3">只顯示團隊：<select id="d4" name="groupList">
 					<option value="all" selected>❃全部顯示❃</option>
 					<option value="groupless">❃無團隊❃</option>
@@ -126,202 +126,12 @@
 				<label><input type="radio" id="secInfo0" name="secInfo" value="hide" checked>摘要</label><br>
 				起源：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">文字</label>
 				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>圖示</label><br>
-				團隊：　<label><input type="radio" id="optGroup0" name="optGroup" value="text">文字</label>
+				團隊：<label><input type="radio" id="optGroup0" name="optGroup" value="text">文字</label>
 				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>圖示</label><br>
 			</p>
 		</form>
 	</div>
-	<div id=message>
-		<p>Change log: <button id=showBtn onclick="showNote()">Show update history</button></p>
-		<table id="changeLog">
-			<tbody id="latest">
-				<tr>
-					<td>02/10/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 血税の正しい使い方<br>2. ジョーカーの逮捕劇<br>3. トラブルメーカーの正義<br>4. 支えあう双子のメイド<br></p>
-						<p><u>Modified:</u><br>1. Updated スロウス技師 info<br>2. Updated sub-group info<br>3. Adjusted memento group display options<br>4. Minor adjustment in dual type presentation<br>5. Refined calculation<br></p>
-						<p><u>Bugfixed:</u><br>1. 特式お手入れの成果は [普通→<span class="limited">限定</span>]<br>2. 打ち上げる夏の思い出 [普通→<span class="limited">限定</span>]<br>3. 優しき風を纏いて [普通→<span class="limited">限定</span>]<br>4. 悪戯の祭典、その裏に [普通→<span class="limited">限定</span>]<br><br>5. 誓いの刃 [普通→<span class="limited">限定</span>]</p>
-					</td>
-				</tr>
-			</tbody>
-			<tbody id="history" style="display: none;">
-				<tr>
-					<td>25/09/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 絶対正義の再臨<br>2. ロズワール邸の非日常<br>3. 精霊術師の騎士として<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>18/09/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 陽光の未来に<br>2. 誇りを支える光<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>02/09/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 道具に降る終雨<br>2. 抜刀忘れ草<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>24/08/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 寄り添い、一緒に<br></p>
-						<p><u>Modified:</u><br>1. Added select all attack types button for extra options<br></p>
-						<p><u>Bugfixed:<br>1. Dual type calculations<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>23/08/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 最後の騎士道<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>15/08/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 初めての機械工作<br>2. 揺るがぬ意志の剣<br></p>
-					</td>
-				<tr>
-					<td>09/08/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 巨人に抗いし翼<br>2. 巨体特効<br></p>
-						<p><u>Modified:</u><br>1. Updated 進撃の巨人 info<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>01/08/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 氷塵は終了の合図<br>2.王女の休息、その未来<br>3.戒めは青き潮騒に抱かれ<br></p>
-						<p><u>Modified:</u><br>1. Added select all and clear all button for extra options<br></p>
-						<p><u>Bugfixed:</u><br>1. Bugfix in headers and calculations<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>19/07/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 水鉄砲で描く笑顔<br>2.剣豪のスイカ斬り<br>3.魔法少女の一番熱い日<br></p>
-						<p><u>Bugfixed:</u><br>1. Bugfix in シェイナファンクラブ mementos<br></p>
-					</td>
-				</tr><tr>
-					<td>11/07/2020</td>
-					<td>
-						<p><u>Added:</u><br>Option to exclude Sin Type bonus in calculation<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>01/07/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 乙女は引かず、盾は輝く<br>2. 即発進スプラッシュ<br></p>
-						<p><u>Modified:</u><br>1. Clicking thumbnail will redirect to the corresponding <a href='https://www.alchemistcodedb.com'>ADB</a> page<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>27/06/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 盤上交差の岐路<br>2. 祝宴のとあるキラキラ<br>3. 誰よりも華麗に<br>4. 雷属性特効<br></p>
-						<p><u>Modified:</u><br>1. Updated グリードダイク軍 info<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>17/06/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 粛清の黒き刃<br>
-					</td>
-				</tr>
-				<tr>
-					<td>01/06/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 冷たく輝くベッドに<br>2. 幸せの香りに満ちて<br></p>
-						<p><u>Modified:</u><br>1. Origin display options<br>2. Details display options<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>22/05/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 託されし世界を導く光<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>17/05/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 白黒の熊を照らす火灯<br>2. 消えない汚れ<br>3. Added 普池/活動/限定 display options<br></p>
-						<p><u>Modified:</u><br>1. シークレットヒーロー<br>2. Refined alternative row background color<br>3. Seperated main table content into mmtList.html<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>01/05/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 盾の勇者に差し込む光<br>2. 第二王女の願いごと<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>19/04/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 完全なる闇の遊戯<br>2. 珠星、決戦の地へ<br>3. 白銀の野望、ここに降り立ち<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>11/04/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 〈十戒〉に抗いし王女<br>2. 下位魔神特効<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>02/04/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 伝説の塔の下で<br>2. 穢れなき生者を喰らい<br>3. 黒という記憶<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>22/03/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 甘き血刃<br>2. おもてなしの心<br>3. 皆様に花マルを<br>4. グランガイアサマナーズ<br></p>
-						<p><u>Modified:</u><br>1. Crystal of Reunion &amp; Brave Frontier mementos added leader skill stats<br>2. Minor script / body text changes<br>
-					</td>
-				</tr>
-				<tr>
-					<td>01/03/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 確定事象の砂時計<br>2.大森林の唱和<br>3.華紋は桜色に染まり<br></p>
-						<p><u>Modified:</u><br>1. Added option to hide groupless mementos<br>2. Minor script update<br>
-					</td>
-				</tr>
-				<tr>
-					<td>26/02/2020</td>
-					<td>
-						<p><u>Modified:</u><br>1. Minor script update<br>
-					</td>
-				</tr>
-				<tr>
-					<td>23/02/2020</td>
-					<td>
-						<p><u>Modified:</u><br>1. Made header sticky<br>
-					</td>
-				</tr>
-				<tr>
-					<td>15/02/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 将軍の誇りチョコ<br>2. 円環の瞳<br></p>
-						<p><u>Modified:</u><br>1. Added font color for <span class="limited">限定</span> &amp; <span class="event">活動</span><br>2. 額外屬性 [dropdown menu→checkboxes]<br></p>
-						<p><u>Bugfixed:</u><br>1. 追いかけるは好奇心 [人特効 0→10]<br></p>
-					</td>
-				</tr>
-				<tr>
-					<td>07/02/2020</td>
-					<td>
-						<p><u>Added:</u><br>1. 世界を壊す、先駆けに<br>2. 追いかけるは好奇心<br>3. 落涙なき慟哭<br></p>
-						<p><u>Bugfixed:</u><br>1. 真理への戒めと記録 [普通→<span class="limited">限定</span>]<br>2. Sorting order→default set to descending<br>3. Number sorting bug fixed</p>
-					</td>
-				</tr>
-				<tr>
-					<td>29/01/2020</td>
-					<td>Released</td>
-				</tr>
-			</tbody>
-		</table>
-		<p>
-	</div>
+	<div id="message" data-include="mmtLog"></div>
 	<div id="mmtList" data-include="mmtList"></div>
 </body>
 

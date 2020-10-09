@@ -1,4 +1,4 @@
-# tagatame.py last updated 27/09/2020
+# tagatame.py last updated 07/10/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -107,6 +107,7 @@ toggleAuto = "toggleAuto.png"
 autoOn = "autoOn.png"
 btMenu = "btMenu.png"
 quitQuest = "quitQuest.png"
+escMenu = "escMenu.png"
 btAgain = "btAgain.png"
 confirm = "confirm.png"
 cancel = "cancel.png"

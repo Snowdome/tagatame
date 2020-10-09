@@ -91,6 +91,9 @@ shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "shieldLog
 # Advance Boss Crossover - Re:ゼロから始める異世界生活
 reZero = spQ("Re:ゼロから始める異世界生活", "reZeroEv.png", "adv", "reZeroLogo.png", "reZeroStage.png", "reZeroCoin.png")
 
+# Advance Boss - Wild Card Hero
+WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1602106552459.png", "1602106560384.png")
+
 # Genesis Boss 1 - 「創る、この世界を」（前編）
 gen1 = spQ("「創る、この世界を」（前編）", "gen1Ev.png", "gen", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
 
@@ -120,6 +123,12 @@ gen9 = spQ("「嫉妬が胸を灼こうとも」（前編）", "gen9Ev.png", "ge
 
 # Genesis Boss 10 - 「嫉妬が胸を灼こうとも」（前編）
 gen10 = spQ("「嫉妬が胸を灼こうとも」（前編）", "gen10Ev.png", "gen", "gen10Logo.png", "gen10Stage.png", "genCoin.png")
+
+drop = Region(246,368,476,88)
+ryui = "ryui.png"
+nero1hit = Pattern("nero1hit.png").targetOffset(167,0)
+WCH2 = Pattern("WCH2.png").targetOffset(165,0)
+WCH3 = Pattern("WCH3.png").targetOffset(165,0)
 
 #  -------------------------Define Function-------------------------
 # Go to special event
@@ -343,6 +352,70 @@ def spDraw(n=1):
 				else:
 					pass
 
+def shard(unit, script, loop=2, m=0):
+	i = 0
+	while loop > -1:
+		clkObj(bbqOK)
+		clkObj(btStart)
+		apCheck(btStart)
+		if exists(noQuota):
+			clkObj(noQuotaOK)
+			sysMsg("No remaining quota today. Returning to stage selection page.")
+			clkObj(bbqBack)
+			loop = -1
+		else:
+			waitObj(btMenu, 30)
+			i = i + 1
+			sysMsg("*************** Total attempt: " + str (i) + " time(s) ***************")
+			clkObj(script)
+			waitObj(quitQuest, 60)
+			capture(drop, "C:\Users\kklau\Desktop\capture", str(i))
+			if not drop.exists(unit, 0):
+				sysMsg("Unit shard not found, restarting.")
+				clkObj(quitQuest)
+				clkObj(confirm)
+				waitObj(bbqOK, 30)
+			else:
+				loop = loop - 1
+				sysMsg("Unit shard found.")
+				clkObj(escMenu)
+				clkObj(toggleAuto)
+				t = 0
+				while t != -1:
+					if not exists(questMission, 0):
+						sysMsg("Still in battle. Waiting for 1 more sec. Total waiting time: " + str(t) + " sec.")
+						t = t + 1
+						sleep(1)
+					else:
+						sysMsg("Quest completed.")
+						clkObj(questMission, loop=1)
+						t = -1
+						i = i + 1
+				click()
+				merchantCheck(m)
+				if merchantCheck() == 1:
+					m = 1
+				clkObj(btEnd)
+	return m
+
+def shard_ryui():
+	gotoSP(WCH, bbqHard)
+	waitObj(bbqHard, 15)
+	#remark = WCH.name + " Stage 1"
+	#clkObj(stage1)
+	#shard(ryui, nero1hit)
+	#clkObj(bbqBack)
+	remark = WCH.name + " Stage 2"
+	#sleep(5)
+	clkObj(stage2)
+	shard(ryui, WCH2)
+	clkObj(bbqBack)
+	remark = WCH.name + " Stage 3"
+	sleep(5)
+	clkObj(stage3)
+	shard(ryui, WCH3)
+	clkObj(bbqBack)
+
 def spStoryGen(m=0):
 	spStory(gen8, bbqHard)
 	spStory(gen7, bbqHard)
@@ -381,4 +454,5 @@ def spStoryAsHard():
 #spStory(reZero, bbqEx)
 #spStory(reZero, bbqHard)
 #spStoryGenEx()
-spStoryGen()
+#spStoryGen()
+shard_ryui()

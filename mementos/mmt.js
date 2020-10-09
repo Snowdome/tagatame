@@ -294,3 +294,33 @@ function sortTableByNumber(n) {
 	}
 	refreshMmt();
 }
+
+function translate() {
+	var headers = document.getElementsByTagName("th");
+	headers[0].innerText = "Icon";
+	headers[1].innerText = "Rank";
+	headers[3].innerText = "R";
+	headers[4].innerText = "Origin";
+	headers[5].innerText = "Group";
+	headers[6].innerText = "Score";
+	headers[7].innerText = "HP";
+	headers[8].innerText = "PAtk";
+	headers[9].innerText = "MAtk";
+	headers[10].innerText = "PDef";
+	headers[11].innerText = "MDef";
+	headers[12].innerText = "Dex";
+	headers[13].innerText = "Agi";
+	headers[14].innerText = "Luc";
+	headers[15].innerText = "Atk.Type";
+	headers[16].innerText = "Val";
+	headers[17].innerText = "Vs";
+	headers[18].innerText = "Val";
+	headers[19].innerText = "Misc";
+	headers[20].innerText = "Env";
+	headers[21].innerText = "Slo";
+	headers[22].innerText = "Lus";
+	headers[23].innerText = "Glu";
+	headers[24].innerText = "Wra";
+	headers[25].innerText = "Gre";
+	headers[26].innerText = "Pri";
+}
