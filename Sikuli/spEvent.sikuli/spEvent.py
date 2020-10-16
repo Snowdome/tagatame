@@ -39,7 +39,11 @@ bossHardX = "bossHardX.png"
 spStart = "spStart.png"
 evDraw = "evDraw.png"
 evDrawX = "evDrawX.png"
-evDraw10 = Pattern("evDraw10.png").targetOffset(115,415)	# Location in respect to the title bar
+evDrawBtn1 = "evDrawBtn1.png"
+evDrawBtn2 = "evDrawBtn2.png"
+evDrawMax = "evDrawMax.png"
+evDrawConfirm = "evDrawConfirm.png"
+evDrawSkip = "evDrawSkip.png"
 empty = "empty.png"
 noCoin = Pattern("noCoin.png").targetOffset(0,240)	# Location of OK button in respect to the message
 spOK = "spOK.png"
@@ -281,7 +285,7 @@ def spBoss(spQ, n=1):
 			sleep(double)
 
 
-def spDraw(n=1):
+def spDraw(n=100):
 	sysMsg("Initializing SpecialEventDraw command")
 	i = 0
 	if exists(btStart, 0):
@@ -294,7 +298,11 @@ def spDraw(n=1):
 		clkObj(evDraw)
 	if exists(evDrawX, 0):
 		clkObj(evDrawX)
-	clkObj(evDraw10, remark="Event Draw-10")
+	clkObj(evDrawBtn1)
+	clkObj(evDrawMax)
+	clkObj(evDrawConfirm)
+	waitObj(evDrawSkip, 10)
+	clkObj(evDrawSkip)
 	if exists(empty, 0.5):
 		clkObj(spOK)
 		sleep(normal)
@@ -310,47 +318,31 @@ def spDraw(n=1):
 		except FindFailed:
 			pass
 		sysMsg("***************Successfully executed 1st time***************")
-		if n == "all":
-			while not exists(noCoin):
-				clkObj(evDraw10, remark="Event Draw-10")
-				if exists(empty, 0.5):
-					clkObj(spOK)
-					sleep(normal)
-					clkObj(spOK)
-					clkObj(evDraw10, remark="Event Draw-10")
+		while i < n:
+			clkObj(evDrawBtn2)
+			clkObj(evDrawMax)
+			clkObj(evDrawConfirm)
+			if exists(empty, 0.5):
+				clkObj(spOK)
+				sleep(normal)
+				clkObj(spOK)
+				clkObj(evDraw10, remark="Event Draw-10x")
+			if not exists(noCoin, 0):
 				try:
-					#click(drawing)
+					#clkObj(drawing)
 					i = i + 1
 				except FindFailed:
 					pass
 				sysMsg("***************Successfully executed " + str(i) + " times***************")
-				if exists(noCoin):
-					clkObj(spOK)
-					sysMsg("No more coins available")
-		else:
-			while i < n:
-				clkObj(evDraw10, remark="Event Draw-10")
-				if exists(empty, 0.5):
-					clkObj(spOK)
-					sleep(normal)
-					clkObj(spOK)
-					clkObj(evDraw10, remark="Event Draw-10x")
-				if not exists(noCoin, 0):
-					try:
-						#clkObj(drawing)
-						i = i + 1
-					except FindFailed:
-						pass
-					sysMsg("***************Successfully executed " + str(i) + " times***************")
-				else:
-					clkObj(spOK)
-					sysMsg("No more coins available")
-					i = n
 			else:
-				if n < 0:
-					sysMsg("Error: n must be empty or positive")
-				else:
-					pass
+				clkObj(spOK)
+				sysMsg("No more coins available")
+				i = n
+		else:
+			if n < 0:
+				sysMsg("Error: n must be empty or positive")
+			else:
+				pass
 
 def shard(unit, script, loop=2, m=0):
 	i = 0
@@ -447,7 +439,7 @@ def spStoryAsHard():
 
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-#spDraw("all")
+spDraw()
 #spStoryAsEx()
 #spStory(as3)
 
@@ -455,4 +447,4 @@ def spStoryAsHard():
 #spStory(reZero, bbqHard)
 #spStoryGenEx()
 #spStoryGen()
-shard_ryui()
+#shard_ryui()
