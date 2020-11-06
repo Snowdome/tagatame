@@ -142,6 +142,9 @@ function importJSON() {
 			case "加護":
 				document.getElementById("set" + r).value = "05kago";
 				break;
+			case "宝石":
+				document.getElementById("set" + r).value = "06houseki";
+				break;
 			case "命脈":
 				document.getElementById("set" + r).value = "07meimyaku";
 				break;
@@ -712,6 +715,16 @@ function lockInput() {
 	} else if (kago > 1) {
 		document.getElementById("setBonus").innerHTML += "全狀態異常耐性+5<br>";
 		document.getElementById("setBonusEm").innerHTML += "全狀態異常耐性+5<br>";
+	}
+	// 宝石
+	var houseki = 0;
+	for (var i = 0; i < setCount.length; ++i) {
+		if (setCount[i] == "06")
+			houseki++;
+	}
+	if (houseki > 3) {
+		document.getElementById("setBonus").innerHTML += "起始MP+10<br>";
+		document.getElementById("setBonusEm").innerHTML += "起始MP+10<br>";
 	}
 	// 命脈
 	var meimyaku = 0;
