@@ -1,4 +1,4 @@
- # spEvent.py last updated 27/09/2020
+ # spEvent.py last updated 04/11/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -66,7 +66,7 @@ fgg = spQ("すなわち恋の雪景色", "fggEv.png", "adv", "fggLogo.png", "fgg
 drama = spQ("誓いの刃、貫く魔槍", "dramaEv.png", "adv", "dramaLogo.png", "dramaStage.png", "dramaCoin.png")
 
 # Advance Boss Novel - 姉弟とヒトリの剣士
-# Missing
+novel = spQ("姉弟とヒトリの剣士", "novelEv.png", "adv", "novelLogo.png", "novelStage.png", "novelCoin.png")
 
 # Advnace Boss Templar - 七色琥珀のサンセリフ
 as1 = spQ("七色琥珀のサンセリフ", "as1Ev.png", "adv", "as1Logo.png", "as1Stage.png", "asCoin.png")
@@ -98,35 +98,38 @@ reZero = spQ("Re:ゼロから始める異世界生活", "reZeroEv.png", "adv", "
 # Advance Boss - Wild Card Hero
 WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1602106552459.png", "1602106560384.png")
 
-# Genesis Boss 1 - 「創る、この世界を」（前編）
-gen1 = spQ("「創る、この世界を」（前編）", "gen1Ev.png", "gen", "gen1Logo.png", "gen1Stage.png", "genCoin.png")
+# Genesis 1A - 「創る、この世界を」（前編）
+gen1a = spQ("1A 「創る、この世界を」（前編）", "gen1aEv.png", "gen", "gen1aLogo.png", "gen1aStage.png", "genCoin.png")
 
-# Genesis Boss 2 - 「創る、この世界を」（後編）
-gen2 = spQ("創る、この世界を」（後編）", "gen2Ev.png", "gen", "gen2Logo.png", "gen2Stage.png", "genCoin.png")
+# Genesis 1B - 「創る、この世界を」（後編）
+gen1b = spQ("1B 創る、この世界を」（後編）", "gen1bEv.png", "gen", "gen1bLogo.png", "gen1bStage.png", "genCoin.png")
 
-# Genesis Boss 3 - 「恋と、色欲の偏差」（前編）
-gen3 = spQ("「恋と、色欲の偏差」（前編）", "gen3Ev.png", "gen", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
+# Genesis 2A - 「恋と、色欲の偏差」（前編）
+gen2a = spQ("2A 「恋と、色欲の偏差」（前編）", "gen2aEv.png", "gen", "gen2aLogo.png", "gen2aStage.png", "genCoin.png")
 
-# Genesis Boss 4 - 「恋と、色欲の偏差」（後編）
-gen4 = spQ("「恋と、色欲の偏差」（後編）", "gen4Ev.png", "gen", "gen3Logo.png", "gen3Stage.png", "genCoin.png")
+# Genesis 2B - 「恋と、色欲の偏差」（後編）
+gen2b = spQ("2B 「恋と、色欲の偏差」（後編）", "gen2bEv.png", "gen", "gen2bLogo.png", "gen2bStage.png", "genCoin.png")
 
-# Genesis Boss 5 - 「それを怠惰と呼ぶのなら」（前編）
-gen5 = spQ("「それを怠惰と呼ぶのなら」（前編）", "gen5Ev.png", "gen", "gen5Logo.png", "gen5Stage.png", "genCoin.png")
+# Genesis 3A - 「それを怠惰と呼ぶのなら」（前編）
+gen3a = spQ("3A 「それを怠惰と呼ぶのなら」（前編）", "gen3aEv.png", "gen", "gen3aLogo.png", "gen3aStage.png", "genCoin.png")
 
-# Genesis Boss 6 - 「それを怠惰と呼ぶのなら」（後編）
-gen6 = spQ("「それを怠惰と呼ぶのなら」（後編）", "gen6Ev.png", "gen", "gen6Logo.png", "gen6Stage.png", "genCoin.png")
+# Genesis 3B - 「それを怠惰と呼ぶのなら」（後編）
+gen3b = spQ("3B 「それを怠惰と呼ぶのなら」（後編）", "gen3bEv.png", "gen", "gen3bLogo.png", "gen3bStage.png", "genCoin.png")
 
-# Genesis Boss 7 - 「その暴食をも呑み干して」（前編）
-gen7 = spQ("「その暴食をも呑み干して」（前編）", "gen7Ev.png", "gen", "gen7Logo.png", "gen7Stage.png", "genCoin.png")
+# Genesis 4A - 「その暴食をも呑み干して」（前編）
+gen4a = spQ("4A 「その暴食をも呑み干して」（前編）", "gen4aEv.png", "gen", "gen4aLogo.png", "gen4aStage.png", "genCoin.png")
 
-# Genesis Boss 8 - 「その暴食をも呑み干して」（後編）
-gen8 = spQ("「その暴食をも呑み干して」（後編）", "gen8Ev.png", "gen", "gen8Logo.png", "gen8Stage.png", "genCoin.png")
+# Genesis 4B - 「その暴食をも呑み干して」（後編）
+gen4b = spQ("4B 「その暴食をも呑み干して」（後編）", "gen4bEv.png", "gen", "gen4bLogo.png", "gen4bStage.png", "genCoin.png")
 
-# Genesis Boss 9 - 「嫉妬が胸を灼こうとも」（前編）
-gen9 = spQ("「嫉妬が胸を灼こうとも」（前編）", "gen9Ev.png", "gen", "gen9Logo.png", "gen9Stage.png", "genCoin.png")
+# Genesis 5A - 「嫉妬が胸を灼こうとも」（前編）
+gen5a = spQ("5A 「嫉妬が胸を灼こうとも」（前編）", "gen5aEv.png", "gen", "gen5aLogo.png", "gen5aStage.png", "genCoin.png")
 
-# Genesis Boss 10 - 「嫉妬が胸を灼こうとも」（前編）
-gen10 = spQ("「嫉妬が胸を灼こうとも」（前編）", "gen10Ev.png", "gen", "gen10Logo.png", "gen10Stage.png", "genCoin.png")
+# Genesis 5B - 「嫉妬が胸を灼こうとも」（後編）
+gen5b = spQ("5B 「嫉妬が胸を灼こうとも」（後編）", "gen5bEv.png", "gen", "gen5bLogo.png", "gen5bStage.png", "genCoin.png")
+
+# Gensos 6A - 「この憤怒こそ我が正義」（前編）
+gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png", "gen", "gen6aLogo.png", "gen6aStage.png", "genCoin.png")
 
 drop = Region(246,368,476,88)
 ryui = "ryui.png"
@@ -409,21 +412,25 @@ def shard_ryui():
 	clkObj(bbqBack)
 
 def spStoryGen(m=0):
-	spStory(gen8, bbqHard)
-	spStory(gen7, bbqHard)
-	spStory(gen6, bbqHard)
-	spStory(gen5, bbqHard)
-	spStory(gen4, bbqHard)
-	spStory(gen3, bbqHard)
-	spStory(gen2, bbqHard)
-	spStory(gen1, bbqHard)
-	#No Gem
-	spStory(gen10, bbqHard)
-	spStory(gen9, bbqHard)
+	spStory(gen6a, bbqHard)
+	spStory(gen4b, bbqHard)
+	spStory(gen4a, bbqHard)
+	spStory(gen3b, bbqHard)
+	spStory(gen3a, bbqHard)
+	spStory(gen2b, bbqHard)
+	spStory(gen2a, bbqHard)
+	spStory(gen1b, bbqHard)
+	spStory(gen1a, bbqHard)
+	# No gem
+	spStory(gen5b, bbqHard)
+	spStory(gen5a, bbqHard)
 
 def spStoryGenEx():
-	spStory(gen8, bbqEx)
-	spStory(gen7, bbqEx)
+	# New story
+	spStory(gen6a, bbqEx)
+	# Gem mining
+	spStory(gen4b, bbqEx)
+	spStory(gen4a, bbqEx)
 
 def spStoryAsEx():
 	spStory(as3, bbqEx)
@@ -439,12 +446,12 @@ def spStoryAsHard():
 
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-spDraw()
+#spDraw()
 #spStoryAsEx()
 #spStory(as3)
 
 #spStory(reZero, bbqEx)
 #spStory(reZero, bbqHard)
-#spStoryGenEx()
-#spStoryGen()
+spStoryGenEx()
+spStoryGen()
 #shard_ryui()

@@ -160,8 +160,8 @@ def autoTower(tEvent, team):
 						if exists(reward, 0):
 							i = i + 1
 							sysMsg("*************** " + str(i) + " floor(s) cleared ***************")
-							clkObj(reward, 0, 0, "Reward")
-							clkObj(btEnd, 0, 1)
+							clkObj(reward, 0, 1, "Reward")
+							clkObj(btEnd, 3, 1)
 							sleep(changePage)
 							if exists(towerComplete, 0):
 								sysMsg("*************** Tower cleared ***************")
@@ -244,5 +244,5 @@ def autoTowerSet2():
 	
 
 #  -------------------------Command-------------------------
-#autoTowerVeda()
-autoTowerSet2()
+autoTowerVeda()
+#autoTowerSet2()

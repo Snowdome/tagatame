@@ -1,4 +1,4 @@
-# tagatame.py last updated 07/10/2020
+# tagatame.py last updated 01/11/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -222,7 +222,7 @@ def waitObj(object, time=wTime, remark=0, errMsg="N/A"):
 	else:
 		subject = remark
 	try:
-		sysMsg("Waiting for " + subject)
+		sysMsg("Waiting for " + subject + " for " + str(time))
 		wait(object, time)
 	except FindFailed:
 		if errMsg == "N/A":
@@ -293,6 +293,7 @@ def runeCheck():
 
 # After entering battle, toggle Auto if not On, and complete.
 def btAction(loop=0, m=0):
+	sysMsg("///// Executing btAction(loop=" + str(loop) + ") /////")
 	while loop > -1:
 		t = 0
 		waitObj(btMenu, long)
@@ -316,21 +317,21 @@ def btAction(loop=0, m=0):
 			sysMsg("Vision achieved.")
 			sleep(5)
 			clkObj(visionMax, remark="visionMax")
-		merchantCheck(m)
-		if merchantCheck() == 1:
+		if merchantCheck(m) == 1:
 			m = 1
 		if loop == 0:
 			sysMsg("No more remaining loop. Returning to stage selection page.")
 			sleep(changePage)
-			clkObj(btEnd, loop=1)
+			clkObj(btEnd)
+			mouseMove(10,0)
+			click()
 			loop = -1
 		else:
 			loop = loop - 1
 			sysMsg("Restarting battle, remaining loop = " + str(loop) + ".")
 			clkObj(btAgain)
 			mouseMove(10,0)
-			merchantCheck(m)
-			if merchantCheck() == 1:
+			if merchantCheck(m) == 1:
 				m = 1
 			clkObj(btAgain)
 			sleep(2)
@@ -342,8 +343,7 @@ def btAction(loop=0, m=0):
 				clkObj(noQuotaOK)
 				clkObj(back)
 				loop = -1
-		return m
-
+	sysMsg("///// End of btAction /////")
 
 # After entering battle, quit.
 def btQuit():
@@ -372,7 +372,6 @@ def merchantCheck(m=0):
 		if exists(peddlerShop, 5):
 			sysMsg("Travelling merchant appears.")
 			clkObj(peddlerShop)
-			m = 1
 		else:
 			sysMsg("Travelling merchant not found.")
 	else:

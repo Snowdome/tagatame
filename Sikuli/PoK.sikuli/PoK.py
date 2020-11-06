@@ -1,4 +1,4 @@
-# PoK.py last updated 08/02/2020
+# PoK.py last updated 04/11/2020
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -86,15 +86,53 @@ towerReward = "towerReward.png"
 
 #  -------------------------Define Function-------------------------
 # Debug message
-def sysMsg(text, popType=0):
+def sysMsg(msg, title=0, object=0):
 	now = time.localtime()
-	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + text)
-	if popType != 0:	# Sikilu pop up message
-		decision = popAsk(text + "\nOr press No to terminate the command.", popType)
-		now = time.localtime()
-		if not decision:
-			exit(1)
-		print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "Yes button has been pressed")
+	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + msg)
+	if title == "FindFailed Error (clkObj)":	# Sikilu pop up message
+		r = 1
+		while r != -1:
+			decision = select("(" + str(r) + ")" + msg, title, options=list)
+			now = time.localtime()
+			if decision == list[0]:
+				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[0] Trying to locate the missing object again.")
+				if exists(object, 0):
+					now = time.localtime()
+					click(object)
+					print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[0] Found and clicked the missing object.")
+					r = -1
+				else:
+					now = time.localtime()
+					print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[0] Still cannot locate the missing object.")
+					r = r + 1
+					
+			elif decision == list[1]:
+				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[1] Proceed the current command with the missing object being skipped.")
+				r = -1
+			else:
+				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[2] Terminatd the command.")
+				exit(1)
+	elif title == "FindFailed Error (waitObj)":
+		r = 1
+		while r != -1:
+			decision = select("(" + str(r) + ")" + msg, title, options=list)
+			now = time.localtime()
+			if decision == list[0]:
+				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[0] Trying to locate the missing object again.")
+				if exists(object, 0):
+					now = time.localtime()
+					print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[0] Found the missing object.")
+					r = -1
+				else:
+					now = time.localtime()
+					print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[0] Still cannot locate the missing object.")
+					r = r + 1
+			elif decision == list[1]:
+				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[1] Proceed the current command with the missing object being skipped.")
+				r = -1
+			else:
+				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[2] Terminatd the command.")
+				exit(1)
 
 # Click object (optional: delay = length(sec), loop = repeat until no longer exists, remark = use class.remark or customized message on log)
 def clkObj(object, delay=0, loop=0, remark=0):
@@ -115,26 +153,30 @@ def clkObj(object, delay=0, loop=0, remark=0):
 		else:
 			t = 0
 			while t != -1:
-				click(object)
-				sysMsg("Clicked on " + subject)
-				mouseMove(10,0)
-				sleep(1)
-				if loop == 1:
-					if exists(object, 0):
-						t = t + 1
-						sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
-					else:	
-						t = -1
-						sysMsg("Current object passed, loop completed.")
-				else:
-					if not exists(loop, 0):
-						t = t + 1
-						sysMsg("Cannot find " + repr(loop) + "; repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+				if exists(object, 0):
+					click(object)
+					mouseMove(10,0)
+					sleep(1)
+					sysMsg("Clicked on " + subject)
+					if loop == 1:
+						if exists(object, 0):
+							t = t + 1
+							sysMsg("Repeat clicking on " + subject + "; total looped time = " + str(t) + " times.")
+						else:	
+							t = -1
+							sysMsg("Current object passed, loop completed.")
 					else:
-						t = -1
-						sysMsg(repr(loop) + " found, loop completed.")
+						if not exists(loop, 0):
+							t = t + 1
+							sysMsg("Cannot find " + repr(loop) + "; repeat clicking on " + subject + "; total looped time = " + str(t) + " sec.")
+						else:
+							t = -1
+							sysMsg(repr(loop) + " found, loop completed.")
+				else:
+					sysMsg(subject + " no longer exists.")
+					t = -1
 	except FindFailed:
-		sysMsg("Cannot find " + subject + "\nPress Yes to start the next step", "FindFailed Error")
+		sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (clkObj)", object)
 
 
 
@@ -436,6 +478,6 @@ def autoTower():
 #btQuest(4)
 #forge(50-7)
 #enhance(dollWhite, 23)
-drawTicket("all")
+#drawTicket("all")
 #drawDoll(100)
-#autoTower()
+autoTower()
