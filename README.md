@@ -18,3 +18,7 @@
   <br>PoK texture captured under DMM player (444*672 actual screen)
   <br>Tagatame texture captured under Nox Player (960*540)
 </p>
+
+<p>
+  <br>All game content and assets are trademarks and copyrights of Fuji&gumi Games or gumi Inc.
+</p?

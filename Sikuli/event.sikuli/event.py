@@ -1,4 +1,4 @@
-# event.py last updated 22/09/2020
+# event.py last updated 06/11/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -17,6 +17,7 @@ class evQ():
 #  -------------------------Assets-------------------------
 evArchive = "evArchive.png"
 evAOT = "evAOT.png"
+evPOK = "evPOK.png"
 access = "access.png"
 
 #  -------------------------Variables-------------------------
@@ -37,6 +38,8 @@ dWorld = evQ("dWorldEv.png", "Current", "dWorldStage.png", "dWorldTitle.png")
 wedding = evQ("weddingEv.png", "Current", "weddingStage.png", "weddingTitle.png")
 AOT = evQ("AOTEvHard.png", "AOT", "AOTStage.png", "aotTitle.png")
 AOT2 = evQ("AOTEvHell.png", "AOT", "AOT2Stage.png", "aot2Title.png")
+POK12 = evQ("POKEvEx.png", "POK", "POK12Stage.png", "POK12Title.png")
+POK10 = evQ("POKEvEx.png", "POK", "1604806963152.png", "1604806975054.png")
 yudit = evQ("yuditEv.png", "Current", "yuditStage.png", "yuditTile.png")
 
 pipa = evQ(Pattern("pipaEv.png").targetOffset(425,35), "Key", "pipaStage.png", "pipaTitle.png")
@@ -86,13 +89,18 @@ def gotoEv(evQ):
 								clkObj(questArrow)
 								sysMsg("Turning page: main quest")
 							clkObj(evAOT)
+						if evQ.stat == "POK":
+							while not exists(evPOK, double):
+								clkObj(questArrow)
+								sysMsg("Turning page: main quest")
+							clkObj(evPOK)
 						while not exists(evQ.event, double):
-							clkObj(questArrow)
+							clkObj(questArrow, remark="Quest Arrow")
 							if evQ.stat == "Current":
 								sysMsg("Turning page: main quest")
 							if evQ.stat == "Archive":
 								sysMsg("Turning page: archive quest")
-			clkObj(evQ.event, 0, evQ.stage)
+			clkObj(evQ.event)
 		clkObj(evQ.stage, 0, evQ.title)
 	else:
 		sysMsg("Already in selected event")
@@ -114,10 +122,9 @@ def evAR(evQ, n=10):
 		sleep(10)
 	if n < 0:
 		sysMsg("Error: n must be empty or positive")
-	else:
-		exit()
 
 #  -------------------------Command-------------------------
 #arCheck()
 #evAR(pirate, 50)
-evAR(vDay, 30)
+#evAR(vDay, 30)
+evAR(POK12, 10)

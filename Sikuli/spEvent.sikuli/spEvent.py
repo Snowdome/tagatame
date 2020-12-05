@@ -165,6 +165,12 @@ def gotoSP(spQ, mode="boss"):
 			if spQ.menuLoc == "adv":
 				clkObj(bossHardX)
 			clkObj(spStart)
+		elif mode == "draw":
+			sleep(3)
+			if exists(evDraw, 0):
+				clkObj(evDraw)
+			if exists(evDrawX, 0):
+				clkObj(evDrawX)
 		else:
 			if spQ.menuLoc == "gen":
 				clkObj(genQuest, 0, bbqQp)
@@ -288,9 +294,11 @@ def spBoss(spQ, n=1):
 			sleep(double)
 
 
-def spDraw(n=100):
+def spDraw(n=100, spQ=0):
 	sysMsg("Initializing SpecialEventDraw command")
 	i = 0
+	if spQ != 0:
+		gotoSP(spQ, mode="draw")
 	if exists(btStart, 0):
 		clkObj(back)
 		sleep(normal)
@@ -386,7 +394,7 @@ def shard(unit, script, loop=2, m=0):
 						clkObj(questMission, loop=1)
 						t = -1
 						i = i + 1
-				click()
+				click(reFocus)
 				merchantCheck(m)
 				if merchantCheck() == 1:
 					m = 1
@@ -412,7 +420,9 @@ def shard_ryui():
 	clkObj(bbqBack)
 
 def spStoryGen(m=0):
-	spStory(gen6a, bbqHard)
+    # New story
+	
+	# Gem mining
 	spStory(gen4b, bbqHard)
 	spStory(gen4a, bbqHard)
 	spStory(gen3b, bbqHard)
@@ -422,15 +432,20 @@ def spStoryGen(m=0):
 	spStory(gen1b, bbqHard)
 	spStory(gen1a, bbqHard)
 	# No gem
-	spStory(gen5b, bbqHard)
-	spStory(gen5a, bbqHard)
+	#spStory(gen6a, bbqHard)
+	#spStory(gen5b, bbqHard)
+	#spStory(gen5a, bbqHard)
 
 def spStoryGenEx():
 	# New story
-	spStory(gen6a, bbqEx)
+	
 	# Gem mining
 	spStory(gen4b, bbqEx)
 	spStory(gen4a, bbqEx)
+	# No gem
+	#spStory(gen6a, bbqEx)
+	#spStory(gen5b, bbqEx)
+	#spStory(gen5a, bbqEx)
 
 def spStoryAsEx():
 	spStory(as3, bbqEx)
@@ -444,14 +459,27 @@ def spStoryAsHard():
 	spStory(as2, bbqHard)
 	spStory(as1, bbqHard)
 
+def ringo():
+	spStory(gen4b, bbqEx)
+	spStory(gen4a, bbqEx)
+	spStory(gen4b, bbqHard)
+	spStory(gen4a, bbqHard)
+	spStory(gen3b, bbqHard)
+	spStory(gen3a, bbqHard)
+	spStory(gen2b, bbqHard)
+	spStory(gen2a, bbqHard)
+	spStory(gen1b, bbqHard)
+	spStory(gen1a, bbqHard)
+
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-#spDraw()
+#spDraw(spQ=gen4b)
 #spStoryAsEx()
 #spStory(as3)
 
 #spStory(reZero, bbqEx)
 #spStory(reZero, bbqHard)
-spStoryGenEx()
-spStoryGen()
+#spStoryGenEx()
+#spStoryGen()
 #shard_ryui()
+ringo()

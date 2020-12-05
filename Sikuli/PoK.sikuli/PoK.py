@@ -1,4 +1,4 @@
-# PoK.py last updated 04/11/2020
+# PoK.py last updated 16/11/2020
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -31,6 +31,15 @@ skip = "skip.png"
 redraw = "redraw.png"
 pageNext = "pageNext.png"
 pageBack = "pageBack.png"
+
+# AP check
+noAP = "noAP.png"
+drink30 = Pattern("drink30.png").targetOffset(280,25)    # location of the confirm button in respect to the icon
+drink70 = Pattern("drink70.png").targetOffset(280,25)    # location of the confirm button in respect to the icon
+drink150 = Pattern("drink150.png").targetOffset(280,25)    # location of the confirm button in respect to the icon
+drinkAdd = "drinkAdd.png"
+okAP = "okAP.png"
+restoredAP = Pattern("restoredAP.png").targetOffset(0,125)    # location of the OK button in respect to the message
 
 # Hime enchancement
 himeEn = Pattern("himeEn.png").targetOffset(0,270)
@@ -84,8 +93,18 @@ setup = "setup.png"
 btSummary = "btSummary.png"
 towerReward = "towerReward.png"
 
+# Fade Out
+stages = "stages.png"
+value = "value.png"    # Location of the stage banner in respect to the object
+stageLocked = "stageLocked.png"
+stageNA = "stageNA.png"
+stageEnter = Pattern(value).targetOffset(0, 265)
+charNext = Pattern(pageBack).targetOffset(17, 215)
+
+
 #  -------------------------Define Function-------------------------
 # Debug message
+list = ("Retry", "Skip", "Terminate")
 def sysMsg(msg, title=0, object=0):
 	now = time.localtime()
 	print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + msg)
@@ -178,7 +197,35 @@ def clkObj(object, delay=0, loop=0, remark=0):
 	except FindFailed:
 		sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (clkObj)", object)
 
+# Wait for object
+def waitObj(object, time=wTime, remark=0, errMsg="N/A"):
+	if remark == 0:
+		subject = repr(object)
+	else:
+		subject = remark
+	try:
+		sysMsg("Waiting for " + subject + " for " + str(time))
+		wait(object, time)
+	except FindFailed:
+		if errMsg == "N/A":
+			sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
+		else:
+			sysMsg(message + "\nCannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
 
+
+# AP Check (optional: item = drink type, quantity)
+def apCheck(item=drink70, q=1):
+	if exists(noAP, 2):
+		sysMsg("Insufficient AP.")
+		clkObj(item)
+		while q != 1:
+			clkObj(drinkAdd)
+			sleep(1)
+			q = q - 1
+		clkObj(okAP)
+		clkObj(restoredAP, 0)
+	else:
+		sysMsg("Sufficient AP. Proceed to next step.")
 
 # Enhance hime with chosen doll
 def enhance(doll, n=1):
@@ -290,7 +337,7 @@ def btAction(n=1):
 	i = 0
 	while i < n:
 		clkObj(btStart)
-		wait(btResult, FOREVER)
+		waitObj(btResult, 60)
 		sleep(normal)
 		while exists(affinity):
 			click(affinity)
@@ -470,6 +517,33 @@ def autoTower():
 					sysMsg("Completion message not found. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
 	sysMsg("End of command")
 
+# Starts in Unit stat screen. Check for fadeOut stage and repeat for n times
+def fadeOut(n=1):
+    i = 0
+    j = 0
+    while i < n:
+        clkObj(stages)
+        waitObj(value, 10)
+        if exists(stageNA, 0):
+            sysMsg("Stage not available.")
+        elif exists(stageLocked, 0):
+            sysMsg("Stage is locked.")
+        else:
+            clkObj(stageEnter, remark="Stage")
+            apCheck(drink30)
+            clkObj(yes)
+            sysMsg("Entering battle")
+            waitObj(btResult, 30)
+            clkObj(btResult, 0, 1)
+            clkObj(loot)
+            clkObj(btEndNext)
+            j = j + 1
+            sysMsg("///// Successfully enhanced " + str(j) + " unit(s) /////")
+        clkObj(pageBack)
+        clkObj(charNext, remark="Next Unit")
+        i = i + 1
+        sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
+
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
@@ -480,4 +554,5 @@ def autoTower():
 #enhance(dollWhite, 23)
 #drawTicket("all")
 #drawDoll(100)
-autoTower()
+#autoTower()
+fadeOut(50)

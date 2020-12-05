@@ -38,6 +38,7 @@ fiddler = "fiddler.png"
 
 
 # Homepage
+reFocus = Pattern("reFocus.png").targetOffset(-25,0)
 home = "home.png"
 settings = "settings.png"
 mainMenu = "mainMenu.png"
