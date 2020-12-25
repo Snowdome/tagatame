@@ -1,4 +1,4 @@
-# tagatame.py last updated 01/11/2020
+# tagatame.py last updated 24/12/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -172,8 +172,8 @@ def sysMsg(msg, title=0, object=0):
 				print("%02d:%02d:%02d " % (now.tm_hour, now.tm_min, now.tm_sec) + "[2] Terminatd the command.")
 				exit(1)
 
-# Click object (optional: delay = length(sec), loop = 0/1/nextObject, remark = use customized message on log)
-def clkObj(object, delay=0, loop=0, remark=0):
+# Click object (optional: delay = length(sec), loop = 0/1/nextObject, remark = use customized message on log, ff = deccision on findFailed error)
+def clkObj(object, delay=0, loop=0, remark=0, ff=0):
 	if remark == 0:
 		subject = repr(object)
 	else:
@@ -214,10 +214,13 @@ def clkObj(object, delay=0, loop=0, remark=0):
 					sysMsg(subject + " no longer exists.")
 					t = -1
 	except FindFailed:
-		sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (clkObj)", object)
+		if ff == "skip":
+			sysMsg("Cannot find " + subject + ". Chosen: [1]Skip")
+		else:
+			sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (clkObj)", object)
 
 # Wait for object
-def waitObj(object, time=wTime, remark=0, errMsg="N/A"):
+def waitObj(object, time=wTime, remark=0, errMsg="N/A", ff=0):
 	if remark == 0:
 		subject = repr(object)
 	else:
@@ -226,10 +229,13 @@ def waitObj(object, time=wTime, remark=0, errMsg="N/A"):
 		sysMsg("Waiting for " + subject + " for " + str(time))
 		wait(object, time)
 	except FindFailed:
-		if errMsg == "N/A":
-			sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
+		if ff == "skip":
+			sysMsg("Cannot find " + subject + ". Chosen: [1]Skip")
 		else:
-			sysMsg(message + "\nCannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
+			if errMsg == "N/A":
+				sysMsg("Cannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
+			else:
+				sysMsg(message + "\nCannot find " + subject + ". Please choose: [0]Retry, [1]Skip, [2]Terminate", "FindFailed Error (waitObj)", object)
 
 # Wait for object and press ESC (optional: delay = length(ms))
 def esc(object, delay=0, loop=0, remark="N/A"):
@@ -392,8 +398,12 @@ def getReward():
 def enableAR():
 	clkObj(arMenu)
 	clkObj(arMax)
-	clkObj(arRefillAP)
-	clkObj(arStart, 0, okAR)
+	#clkObj(arRefillAP)
+	clkObj(arStart)
+	while not exists(okAR, 0):
+		sleep(3)
+		if exists(arStart, 0):
+			clkObj(arStart)
 	clkObj(okAR, 0, settings)
 
 # Check whether auto repeat has completed, and claim reward
@@ -418,6 +428,6 @@ def arCheck():
 		clkObj(okAR)
 		sleep(5)
 		merchantCheck()
-		clkObj(playerReward, 0, settings, "2nd OK button")
+		#clkObj(playerReward, 0, settings, "2nd OK button")
 
 sysMsg("Imported tagatame.sikuli")

@@ -1,4 +1,4 @@
- # spEvent.py last updated 04/11/2020
+ # spEvent.py last updated 24/12/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -28,6 +28,7 @@ bbqHard = "bbqHard.png"
 bbqEx = "bbqEx.png"
 bbqModeSwitch = Pattern("mainMenu.png").targetOffset(-810,65)	# Location of mode button in respect to the menu button
 bbqOK = "bbqOK.png"
+bbqCancel = "bbqCancel.png"
 bbqBack = "bbqBack.png"
 stage1 = Pattern("mainMenu.png").targetOffset(-745,205)	# Location of stage 1 in respect to the menu button
 stage2 = Pattern("mainMenu.png").targetOffset(-620,295)	# Location of stage 2 button in respect to the menu button
@@ -130,6 +131,9 @@ gen5b = spQ("5B 「嫉妬が胸を灼こうとも」（後編）", "gen5bEv.png"
 
 # Gensos 6A - 「この憤怒こそ我が正義」（前編）
 gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png", "gen", "gen6aLogo.png", "gen6aStage.png", "genCoin.png")
+
+# Gensos 6B - 「この憤怒こそ我が正義」（後編）
+gen6b = spQ("6B 「この憤怒こそ我が正義」（後編）", "gen6bEv.png", "gen", "gen6bLogo.png", "gen6bStage.png", "genCoin.png")
 
 drop = Region(246,368,476,88)
 ryui = "ryui.png"
@@ -242,7 +246,7 @@ def spStory(spQ, mode=bbqHard):
 	spAction(stage4, mode, menuLoc, remark)
 	remark = spQ.name + " Stage 5"
 	spAction(stage5, mode, menuLoc, remark)
-	sysMsg("***************Completed SpecialEventStory command - " + spQ.name + " (" + str(mode) + ") .***************")
+	sysMsg("***************Completed SpecialEventStory command - " + spQ.name + " (" + str(mode) + ")***************")
 	
 	
 
@@ -294,11 +298,15 @@ def spBoss(spQ, n=1):
 			sleep(double)
 
 
-def spDraw(n=100, spQ=0):
-	sysMsg("Initializing SpecialEventDraw command")
+def spDraw(n=1000, spQ=0):
+	if spQ != 0:
+		sysMsg("Initializing SpecialEventDraw command - " + spQ.name)
+	else:
+		sysMsg("Initializing SpecialEventDraw command")
 	i = 0
 	if spQ != 0:
 		gotoSP(spQ, mode="draw")
+		sleep(2)
 	if exists(btStart, 0):
 		clkObj(back)
 		sleep(normal)
@@ -309,51 +317,49 @@ def spDraw(n=100, spQ=0):
 		clkObj(evDraw)
 	if exists(evDrawX, 0):
 		clkObj(evDrawX)
-	clkObj(evDrawBtn1)
-	clkObj(evDrawMax)
-	clkObj(evDrawConfirm)
-	waitObj(evDrawSkip, 10)
-	clkObj(evDrawSkip)
-	if exists(empty, 0.5):
-		clkObj(spOK)
-		sleep(normal)
-		clkObj(spOK)
-		clkObj(evDraw10, remark="Event Draw-10")
+	clkObj(evDrawBtn2)
+	sleep(1)
 	if exists(noCoin, 0):
 		clkObj(spOK)
-		sysMsg("No more coins available")
+		sysMsg("**********No more coins available**********")
+		clkObj(bbqBack)
+		clkObj(home)
+		sleep(10)
+		i = n
 	else:
-		try:
-			#clkObj(drawing)
-			i = i + 1
-		except FindFailed:
-			pass
-		sysMsg("***************Successfully executed 1st time***************")
-		while i < n:
-			clkObj(evDrawBtn2)
+		if exists(empty, 0):
+			clkObj(spOK)
+			sleep(normal)
+			clkObj(spOK)
+			clkObj(evDrawBtn1)
 			clkObj(evDrawMax)
-			clkObj(evDrawConfirm)
-			if exists(empty, 0.5):
+		clkObj(evDrawConfirm)
+		waitObj(evDrawSkip, 10, ff="skip")
+		clkObj(evDrawSkip, ff="skip")
+		i = i + 1
+	while i < n:
+		clkObj(evDrawBtn1)
+		sleep(1)
+		if exists(noCoin, 0):
+			clkObj(spOK)
+			sysMsg("**********No more coins available**********")
+			clkObj(bbqCancel)
+			clkObj(bbqBack)
+			clkObj(home)
+			sleep(10)
+			i = n
+		else:
+			if exists(empty, 0):
 				clkObj(spOK)
 				sleep(normal)
 				clkObj(spOK)
-				clkObj(evDraw10, remark="Event Draw-10x")
-			if not exists(noCoin, 0):
-				try:
-					#clkObj(drawing)
-					i = i + 1
-				except FindFailed:
-					pass
-				sysMsg("***************Successfully executed " + str(i) + " times***************")
-			else:
-				clkObj(spOK)
-				sysMsg("No more coins available")
-				i = n
-		else:
-			if n < 0:
-				sysMsg("Error: n must be empty or positive")
-			else:
-				pass
+				clkObj(evDrawBtn1)
+			clkObj(evDrawMax)
+			clkObj(evDrawConfirm)
+			waitObj(evDrawSkip, 10, ff="skip")
+			clkObj(evDrawSkip, ff="skip")
+			i = i + 1
+        
 
 def shard(unit, script, loop=2, m=0):
 	i = 0
@@ -421,6 +427,7 @@ def shard_ryui():
 
 def spStoryGen(m=0):
     # New story
+	spStory(gen6b, bbqHard)
 	
 	# Gem mining
 	spStory(gen4b, bbqHard)
@@ -438,6 +445,7 @@ def spStoryGen(m=0):
 
 def spStoryGenEx():
 	# New story
+	spStory(gen6b, bbqEx)
 	
 	# Gem mining
 	spStory(gen4b, bbqEx)
@@ -471,15 +479,24 @@ def ringo():
 	spStory(gen1b, bbqHard)
 	spStory(gen1a, bbqHard)
 
+def spDrawMine():
+	spDraw(spQ=gen1a)
+	spDraw(spQ=gen1b)
+	spDraw(spQ=gen2a)
+	spDraw(spQ=gen2b)
+	spDraw(spQ=gen3a)
+	spDraw(spQ=gen3b)
+	spDraw(spQ=gen4a)
+	spDraw(spQ=gen4b)
+
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-#spDraw(spQ=gen4b)
 #spStoryAsEx()
 #spStory(as3)
+#spDrawMine()
 
 #spStory(reZero, bbqEx)
 #spStory(reZero, bbqHard)
-#spStoryGenEx()
-#spStoryGen()
-#shard_ryui()
-ringo()
+spStoryGenEx()
+spStoryGen()
+#ringo()

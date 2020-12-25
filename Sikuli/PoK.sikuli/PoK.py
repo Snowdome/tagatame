@@ -530,8 +530,24 @@ def fadeOut(n=1):
             sysMsg("Stage is locked.")
         else:
             clkObj(stageEnter, remark="Stage")
+            sleep(2)            
             apCheck(drink30)
-            clkObj(yes)
+            if exists(yes):
+                clkObj(yes)
+            else:
+                if exists(btStart):
+                    sysMsg("Special stage found.")
+                clkObj(btStart)
+                apCheck(drink70, q=2)
+                sysMsg("Entering battle")
+                waitObj(btResult, 30)
+                clkObj(btResult, 0, 1)
+                clkObj(loot)
+                clkObj(btEndNext)
+                clkObj(stageEnter, remark="Stage")
+                sleep(2)
+                apCheck(drink30)
+                clkObj(yes)
             sysMsg("Entering battle")
             waitObj(btResult, 30)
             clkObj(btResult, 0, 1)

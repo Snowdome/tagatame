@@ -1,4 +1,4 @@
-# event.py last updated 06/11/2020
+# event.py last updated 06/12/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -112,8 +112,15 @@ def evAR(evQ, n=10):
 		arCheck()
 		sleep(10)
 		i = 1 + 1
-	while i < n:
+	else:
 		gotoEv(evQ)
+		enableAR()
+		waitObj(settings, 30)
+		arCheck()
+		i = i + 1
+		sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
+		sleep(10)
+	while i < n:
 		enableAR()
 		waitObj(settings, 30)
 		arCheck()
@@ -127,4 +134,5 @@ def evAR(evQ, n=10):
 #arCheck()
 #evAR(pirate, 50)
 #evAR(vDay, 30)
-evAR(POK12, 10)
+#evAR(POK12, 10)
+evAR(pirate, 30)
