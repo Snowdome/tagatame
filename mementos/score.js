@@ -162,7 +162,7 @@ function score() {
     document.getElementById('m106').innerHTML = (b0 * 0) + (s0 * 30 + s3 * 30 + s7 * 30) + (e05 * 30);
     document.getElementById('m107').innerHTML = (b0 * 20 + b1 * 20) + (s0 * 30 + s5 * 30 + s7 * 30) + (e01 * 20);
     document.getElementById('m108').innerHTML = (b0 * 0) + (s0 * 40 + s6 * 20 + s7 * 40) + (e01 * 40);
-    document.getElementById('m109').innerHTML = (b0 * 30 + b1 * 30) + (s0 * 40 + s7 * 40) + (e03 * 40);
+    document.getElementById('m109').innerHTML = (b0 * 0) + (s0 * 40 + s6 * 20 + s7 * 40) + (e01 * 30 + e02 * 30 - e01 * e02 * 30 + e11 * 20);
     document.getElementById('m110').innerHTML = (b0 * 40) + (s0 * 40 + s6 * 20 + s7 * 40);
     document.getElementById('m111').innerHTML = (b0 * 0) + (s0 * 30 + s6 * 30 + s7 * 30) + (e05 * 20 + e03 * 20 - e05 * e03 * 20);
     document.getElementById('m112').innerHTML = (b0 * 30 + b1 * 30) + (s0 * 20 + s3 * 20 + s5 * 20 + s7 * 20) + (e01 * 40);
@@ -296,7 +296,7 @@ function score() {
     document.getElementById('m240').innerHTML = (b0 * 0) + (s0 * 40 + s5 * 40 + s6 * 20) + (e04 * 30);
     document.getElementById('m241').innerHTML = (b0 * 30 + b1 * 30 + b2 * 30) + (s0 * 40 + s5 * 40 + s6 * 20);
     document.getElementById('m242').innerHTML = (b0 * 30) + (s0 * 30 + s1 * 30 + s5 * 30);
-    document.getElementById('m243').innerHTML = (b0 * 0) + (s0 * 40 + s4 * 40 + s5 * 20) + (e01 * 30);
+    document.getElementById('m243').innerHTML = (b0 * 50) + (s0 * 40 + s4 * 40 + s5 * 20);
     document.getElementById('m244').innerHTML = (b0 * 0) + (s0 * 15 + s1 * 15 + s5 * 15);
     document.getElementById('m245').innerHTML = (b0 * 0) + (s0 * 40 + s4 * 40 + s5 * 20) + (e01 * 20);
     document.getElementById('m246').innerHTML = (b0 * 0);

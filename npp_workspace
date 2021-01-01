@@ -1,23 +1,17 @@
 <NotepadPlus>
     <Project name="Tagatame">
-        <Folder name="SikuliX">
-            <File name="Sikuli\event.sikuli\event.py" />
-            <File name="Sikuli\inspSkill.sikuli\inspSkill.py" />
-            <File name="Sikuli\multi.sikuli\multi.py" />
-            <File name="Sikuli\rune.sikuli\rune.py" />
-            <File name="Sikuli\spEvent.sikuli\spEvent.py" />
-            <File name="Sikuli\story.sikuli\story.py" />
-            <File name="Sikuli\tagatame.sikuli\tagatame.py" />
-            <File name="Sikuli\tower.sikuli\tower.py" />
-            <File name="Sikuli\video.sikuli\video.py" />
-        </Folder>
-        <File name="dmgCalc.html" />
+        <File name="Sikuli\event.sikuli\event.py" />
+        <File name="Sikuli\inspSkill.sikuli\inspSkill.py" />
+        <File name="Sikuli\multi.sikuli\multi.py" />
+        <File name="Sikuli\Archive\raid.sikuli\raid.py" />
+        <File name="Sikuli\spEvent.sikuli\spEvent.py" />
+        <File name="Sikuli\story.sikuli\story.py" />
+        <File name="Sikuli\tagatame.sikuli\tagatame.py" />
+        <File name="Sikuli\tower.sikuli\tower.py" />
         <File name="index.html" />
         <File name="index_tinyurl.html" />
         <File name="mementos\mmt.html" />
-        <File name="mementos\mmt_en.html" />
         <File name="mementos\mmtList.html" />
-        <File name="mementos\mmtList.txt" />
         <File name="mementos\mmtLog.html" />
         <File name="mementos\mmt.css" />
         <File name="mementos\mmt.js" />
@@ -25,22 +19,10 @@
         <File name="runes\runes.html" />
         <File name="runes\runes.css" />
         <File name="runes\runes.js" />
-        <File name="runes\runeCalc.html" />
         <File name="runes\table.html" />
     </Project>
     <Project name="PoK">
-        <File name="Sikuli\PoK.sikuli\PoK.py" />
+        <File name="PoK.sikuli\PoK.py" />
         <File name="C:\Program Files (x86)\DMMGamePlayer\PoK\Data\paths.json" />
-    </Project>
-    <Project name="FEH">
-        <File name="Sikuli\FEH.sikuli\FEH.py" />
-    </Project>
-    <Project name="AnotherEden">
-        <File name="another_picker\en.html" />
-        <File name="another_picker\index.html" />
-        <File name="another_picker\collection.html" />
-        <File name="another_picker\js\collection.js" />
-        <File name="another_picker\css\collection.css" />
-        <File name="another_picker\collection.csv" />
     </Project>
 </NotepadPlus>
