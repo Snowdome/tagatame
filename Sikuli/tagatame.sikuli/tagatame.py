@@ -1,4 +1,4 @@
-# tagatame.py last updated 24/12/2020
+# tagatame.py last updated 03/01/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -67,10 +67,12 @@ arMax = Pattern("arMax.png").targetOffset(-200,0)
 arRefillAP = Pattern("arRefillAP.png").targetOffset(-65,0)
 arStart = "arStart.png"
 playerReward = Pattern("playerReward.png").targetOffset(0,450)	# Loc of OK button in respect to the title bar
+arReturn = "arReturn.png"
 
 # Battle menu
 
 noQuota = "noQuota.png"
+noAR = "noAR.png"
 noQuotaOK = "noQuotaOK.png"
 noAP = "noAP.png"
 leaf60 = "leaf60.png"
@@ -397,37 +399,52 @@ def getReward():
 
 def enableAR():
 	clkObj(arMenu)
-	clkObj(arMax)
-	#clkObj(arRefillAP)
-	clkObj(arStart)
-	while not exists(okAR, 0):
-		sleep(3)
-		if exists(arStart, 0):
-			clkObj(arStart)
-	clkObj(okAR, 0, settings)
+	if exists(noAR, 2):
+		sysMsg("Failed to initial auto repeat function.")
+		clkObj(noQuotaOK)
+		return 0
+	else:
+		clkObj(arMax)
+		#clkObj(arRefillAP)
+		clkObj(arStart)
+		while not exists(okAR, 0):
+			sleep(3)
+			#if exists(arStart, 0):
+				#clkObj(arStart)
+		clkObj(okAR, 0, settings)
+		return 1
 
 # Check whether auto repeat has completed, and claim reward
-def arCheck():
+def arCheck(loop=0):
 	sysMsg("Checking status for auto repeat.")
 	if not exists(autoRepeat, 0):
 		sysMsg("Auto repeat has not activated.")
 	else:
-		t = 0
-		while not exists(arComplete, 0):
-			sysMsg("Auto repeat has not completed yet. Total waiting time: " + str(t) + " min.")					
-			mouseMove(10,0)
-			sleep(60)
-			t = t + 1
-		else:
-			sysMsg("Auto repeat has completed. Total waiting time: " + str(t) + " min.")
-		clkObj(autoRepeat, 0, arReward)
-		clkObj(arReward, 0, arEnd)
-		clkObj(arEnd)
-		clkObj(confirm)
-		sleep(2)
-		clkObj(okAR)
-		sleep(5)
-		merchantCheck()
-		#clkObj(playerReward, 0, settings, "2nd OK button")
+		while loop > 0:
+			t = 0
+			while not exists(arComplete, 0):
+				sysMsg("Auto repeat has not completed yet. Total waiting time: " + str(t/2) + " min.")					
+				mouseMove(10,0)
+				sleep(30)
+				t = t + 1
+			else:
+				sysMsg("Auto repeat has completed. Total waiting time: " + str(t/2) + " min.")
+			clkObj(autoRepeat, 0, arReward)
+			clkObj(arReward, 0, arEnd)
+			clkObj(arEnd)
+			clkObj(confirm)
+			sleep(2)
+			clkObj(okAR)
+			sleep(5)
+			merchantCheck()
+			if loop == "return":
+				clkObj(arReturn)
+				loop = 0
+			elif loop > 0:
+				sysMsg("Repeating the same stage. Remaining loop: " + str(loop))
+				enableAR()
+				loop = loop - 1
+			else:
+				sysMsg("Auto repeat completed")
 
 sysMsg("Imported tagatame.sikuli")

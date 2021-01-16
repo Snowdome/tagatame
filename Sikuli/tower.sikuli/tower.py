@@ -230,19 +230,20 @@ def autoTowerType(tType):
 	autoTower(tType, team6)
 	autoTower(tType, team7)
 
-def autoTowerSet1():
+def autoTowerEx(set):
 	# Seasonal Tower set 1
-	autoTowerType(fire)
-	autoTowerType(water)
-	autoTowerType(thunder)
+	if set == 1:
+		autoTowerType(fire)
+		autoTowerType(water)
+		autoTowerType(thunder)
 
-def autoTowerSet2():
 	# Seasonal Tower set 2
-	autoTowerType(dark)
-	autoTowerType(wind)
-	autoTowerType(light)
+	if set == 2:
+		autoTowerType(dark)
+		autoTowerType(wind)
+		autoTowerType(light)
 	
 
 #  -------------------------Command-------------------------
 autoTowerVeda()
-#autoTowerSet2()
+autoTowerEx(1)

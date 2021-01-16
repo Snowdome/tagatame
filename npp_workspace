@@ -22,7 +22,7 @@
         <File name="runes\table.html" />
     </Project>
     <Project name="PoK">
-        <File name="PoK.sikuli\PoK.py" />
+        <File name="Sikuli\PoK.sikuli\PoK.py" />
         <File name="C:\Program Files (x86)\DMMGamePlayer\PoK\Data\paths.json" />
     </Project>
 </NotepadPlus>

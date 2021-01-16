@@ -1,12 +1,10 @@
-# PoK.py last updated 16/11/2020
+# PoK.py last updated 10/01/2021
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
 import time
 
 #  -------------------------Global Setting-------------------------
-Settings.MinSimilarity = 0.8
-
 # Waiting time
 short = 0.1
 normal = 1
@@ -34,12 +32,12 @@ pageBack = "pageBack.png"
 
 # AP check
 noAP = "noAP.png"
-drink30 = Pattern("drink30.png").targetOffset(280,25)    # location of the confirm button in respect to the icon
-drink70 = Pattern("drink70.png").targetOffset(280,25)    # location of the confirm button in respect to the icon
-drink150 = Pattern("drink150.png").targetOffset(280,25)    # location of the confirm button in respect to the icon
+drink30 = Pattern("drink30.png").targetOffset(280,25)	# location of the confirm button in respect to the icon
+drink70 = Pattern("drink70.png").targetOffset(280,25)	# location of the confirm button in respect to the icon
+drink150 = Pattern("drink150.png").targetOffset(280,25)	# location of the confirm button in respect to the icon
 drinkAdd = "drinkAdd.png"
 okAP = "okAP.png"
-restoredAP = Pattern("restoredAP.png").targetOffset(0,125)    # location of the OK button in respect to the message
+restoredAP = Pattern("restoredAP.png").targetOffset(0,125)	# location of the OK button in respect to the message
 
 # Hime enchancement
 himeEn = Pattern("himeEn.png").targetOffset(0,270)
@@ -95,11 +93,12 @@ towerReward = "towerReward.png"
 
 # Fade Out
 stages = "stages.png"
-value = "value.png"    # Location of the stage banner in respect to the object
+value = "value.png"	# Location of the stage banner in respect to the object
 stageLocked = "stageLocked.png"
 stageNA = "stageNA.png"
 stageEnter = Pattern(value).targetOffset(0, 265)
 charNext = Pattern(pageBack).targetOffset(17, 215)
+killerInnocent = "killerInnocent.png"
 
 
 #  -------------------------Define Function-------------------------
@@ -214,7 +213,7 @@ def waitObj(object, time=wTime, remark=0, errMsg="N/A"):
 
 
 # AP Check (optional: item = drink type, quantity)
-def apCheck(item=drink70, q=1):
+def apCheck(item=drink70, q=1, nextAction=0):
 	if exists(noAP, 2):
 		sysMsg("Insufficient AP.")
 		clkObj(item)
@@ -224,6 +223,8 @@ def apCheck(item=drink70, q=1):
 			q = q - 1
 		clkObj(okAP)
 		clkObj(restoredAP, 0)
+		if nextAction != 0:
+			clkObj(nextAction)
 	else:
 		sysMsg("Sufficient AP. Proceed to next step.")
 
@@ -519,46 +520,46 @@ def autoTower():
 
 # Starts in Unit stat screen. Check for fadeOut stage and repeat for n times
 def fadeOut(n=1):
-    i = 0
-    j = 0
-    while i < n:
-        clkObj(stages)
-        waitObj(value, 10)
-        if exists(stageNA, 0):
-            sysMsg("Stage not available.")
-        elif exists(stageLocked, 0):
-            sysMsg("Stage is locked.")
-        else:
-            clkObj(stageEnter, remark="Stage")
-            sleep(2)            
-            apCheck(drink30)
-            if exists(yes):
-                clkObj(yes)
-            else:
-                if exists(btStart):
-                    sysMsg("Special stage found.")
-                clkObj(btStart)
-                apCheck(drink70, q=2)
-                sysMsg("Entering battle")
-                waitObj(btResult, 30)
-                clkObj(btResult, 0, 1)
-                clkObj(loot)
-                clkObj(btEndNext)
-                clkObj(stageEnter, remark="Stage")
-                sleep(2)
-                apCheck(drink30)
-                clkObj(yes)
-            sysMsg("Entering battle")
-            waitObj(btResult, 30)
-            clkObj(btResult, 0, 1)
-            clkObj(loot)
-            clkObj(btEndNext)
-            j = j + 1
-            sysMsg("///// Successfully enhanced " + str(j) + " unit(s) /////")
-        clkObj(pageBack)
-        clkObj(charNext, remark="Next Unit")
-        i = i + 1
-        sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
+	i = 0
+	j = 0
+	while i < n:
+		clkObj(stages)
+		waitObj(value, 10)
+		if exists(stageNA, 0):
+			sysMsg("Stage not available.")
+		elif exists(stageLocked, 0):
+			sysMsg("Stage is locked.")
+		else:
+			clkObj(stageEnter, remark="Stage")
+			#sleep(2)			
+			apCheck(drink30)
+			if exists(yes):
+				clkObj(yes)
+			else:
+				sysMsg("===== Special stage found. =====")
+				clkObj(btStart)
+				apCheck(drink70, q=2, nextAction=btStart)
+				sysMsg("Entering battle")
+				waitObj(btResult, 60)
+				clkObj(btResult, 0, 1)
+				clkObj(loot)
+				clkObj(killerInnocent)
+				clkObj(btEndNext)
+				clkObj(stageEnter, remark="Stage")
+				sleep(2)
+				apCheck(drink30)
+				clkObj(yes)
+			sysMsg("Entering battle")
+			waitObj(btResult, 30)
+			clkObj(btResult, 0, 1)
+			clkObj(loot)
+			clkObj(btEndNext)
+			j = j + 1
+			sysMsg("///// Successfully enhanced " + str(j) + " unit(s) /////")
+		clkObj(pageBack)
+		clkObj(charNext, remark="Next Unit")
+		i = i + 1
+		sysMsg("*************** Successfully executed " + str(i) + " time(s) **************")
 
 #  -------------------------Script-------------------------
 #keyLv()

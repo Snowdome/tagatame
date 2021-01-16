@@ -1,4 +1,4 @@
- # spEvent.py last updated 24/12/2020
+   # spEvent.py last updated 24/12/2020
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -67,37 +67,43 @@ fgg = spQ("すなわち恋の雪景色", "fggEv.png", "adv", "fggLogo.png", "fgg
 drama = spQ("誓いの刃、貫く魔槍", "dramaEv.png", "adv", "dramaLogo.png", "dramaStage.png", "dramaCoin.png")
 
 # Advance Boss Novel - 姉弟とヒトリの剣士
-novel = spQ("姉弟とヒトリの剣士", "novelEv.png", "adv", "novelLogo.png", "novelStage.png", "novelCoin.png")
+novel = spQ("姉弟とヒトリの剣士", "novelEv.png", "adv", "novelLogo.png", "1609668054847.png", "novelCoin.png")
 
 # Advnace Boss Templar - 七色琥珀のサンセリフ
-as1 = spQ("七色琥珀のサンセリフ", "as1Ev.png", "adv", "as1Logo.png", "as1Stage.png", "asCoin.png")
+as1 = spQ("AS1 七色琥珀のサンセリフ", "as1Ev.png", "adv", "as1Logo.png", "1609668024358.png", "asCoin.png")
 
 # Advnace Boss Templar - うるさいよ五月雨
-as2 = spQ("うるさいよ五月雨", "as2Ev.png", "adv", "as2Logo.png", "as2Stage.png", "asCoin.png")
+as2 = spQ("AS2 うるさいよ五月雨", "as2Ev.png", "adv", "as2Logo.png", "1609667982665.png", "asCoin.png")
 
 # Advnace Boss Templar - 麒麟×靴底スタンドアロン
-as3 = spQ("麒麟×靴底スタンドアロン", "as3Ev.png", "adv", "as3Logo.png", "as3Stage.png", "asCoin2.png")
+as3 = spQ("AS3 麒麟×靴底スタンドアロン", "as3Ev.png", "adv", "as3Logo.png", "1609667881695.png", "asCoin2.png")
 
 # Advnace Boss Templar - 四辻夢幻によろしく
-as4 = spQ("四辻夢幻によろしく", "as4Ev.png", "adv", "as4Logo.png", "as4Stage.png", "asCoin.png")
+as4 = spQ("AS4 四辻夢幻によろしく", "as4Ev.png", "adv", "as4Logo.png", "1609667949494.png", "asCoin.png")
 
 # Advnace Boss Templar - ズバリおのれの十紋葬
-as5 = spQ("ズバリおのれの十紋葬", "as5Ev.png", "adv", "as5Logo.png", "as5Stage.png", "asCoin.png")
+as5 = spQ("AS5 ズバリおのれの十紋葬", "as5Ev.png", "adv", "as5Logo.png", "1609667911058.png", "asCoin.png")
 
-# Advance Boss Crossover - 夜明けに奏でるクレーデレ
+# Advnace Boss Templar - 冥弩メメント＆ロイド
+as6 = spQ("AS6 冥弩メメント＆ロイド", "as6Ev.png", "adv", "as6Logo.png", "as6Stage.png", "asCoin.png")
+
+# Advance Boss Collab - 夜明けに奏でるクレーデレ
 sevenSin = spQ("夜明けに奏でるクレーデレ", "7sinEv.png", "adv", "7sinLogo.png", "7sinStage.png", "7sinCoin.png")
 
-# Advance Boss Crossover - 捻じれ時空のスカベンジャー
+# Advance Boss Collab - 捻じれ時空のスカベンジャー
 slime = spQ("捻じれ時空のスカベンジャー", "slimeEv.png", "adv", "slimeLogo.png", "slimeStage.png", "slimeCoin.png")
 
-# Advance Boss Crossover - 波打ち際モラトリアム
+# Advance Boss Collab - 波打ち際モラトリアム
 shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "shieldLogo.png", "shieldStage.png", "shieldCoin.png")
 
-# Advance Boss Crossover - Re:ゼロから始める異世界生活
+# Advance Boss Collab - Re:ゼロから始める異世界生活
 reZero = spQ("Re:ゼロから始める異世界生活", "reZeroEv.png", "adv", "reZeroLogo.png", "reZeroStage.png", "reZeroCoin.png")
 
+# Advance Boss Collab - 拳に宿りしは誰ガ為の
+kof = spQ("拳に宿りしは誰ガ為の", "1609675651248.png" , "adv", "1609675625057.png", "1609675692125.png", "1609675672525.png")
+
 # Advance Boss - Wild Card Hero
-WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1602106552459.png", "1602106560384.png")
+WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1609668093389.png", "1602106560384.png")
 
 # Genesis 1A - 「創る、この世界を」（前編）
 gen1a = spQ("1A 「創る、この世界を」（前編）", "gen1aEv.png", "gen", "gen1aLogo.png", "gen1aStage.png", "genCoin.png")
@@ -185,7 +191,13 @@ def gotoSP(spQ, mode="boss"):
 				clkObj(bbqModeSwitch)
 				sleep(1)
 	else:
-		sysMsg("Already in selected special event")
+		sysMsg("Already in selected special event (map screen)")
+		if mode == bbqHard or mode ==bbqEx:
+			while not exists(mode):
+				clkObj(bbqModeSwitch)
+				sleep(1)
+			
+				
 
 
 # After entering battle, toggle Auto if not On, and complete.
@@ -211,23 +223,24 @@ def spAction(stage, mode, menuLoc, remark):
 	errMsg = "Struck in" + str(remark) + " (post battle)."
 	clkObj(stage, remark=remark)
 	clkObj(bbqOK)
-	clkObj(btStart)
-	apCheck(btStart)
-	if exists(noQuota):
-		clkObj(noQuotaOK)
-		sysMsg("No remaining quota today. Returning to stage selection page.")
-		clkObj(bbqBack)
-		clkObj(bbqBack)
-	else:
-		if mode == bbqEx:
+	if mode == bbqHard:
+		if enableAR() == 0:
+			clkObj(bbqBack)
+		else:
+			waitObj(autoRepeat, 30)
+			arCheck(loop="return")
+			waitObj(mode, 30)
+	if mode == bbqEx:
+		clkObj(btStart)
+		apCheck(btStart)
+		if exists(noQuota):
+			clkObj(noQuotaOK)
+			sysMsg("No remaining quota today. Returning to stage selection page.")
+			clkObj(bbqBack)
+		else:
 			btAction(loop=0)
-		else:
-			btAction(loop=2)
-		waitObj(mode, 30)
-		if menuLoc == "gen":
-			clkObj(bbqBack)
-		else:
-			clkObj(bbqBack)
+			waitObj(mode, 30)
+	clkObj(bbqBack)
 	waitObj(mode, 30, errMsg=errMsg)
 	sysMsg("***** Completed " + str(remark) + ".*****")
 
@@ -359,7 +372,7 @@ def spDraw(n=1000, spQ=0):
 			waitObj(evDrawSkip, 10, ff="skip")
 			clkObj(evDrawSkip, ff="skip")
 			i = i + 1
-        
+		
 
 def shard(unit, script, loop=2, m=0):
 	i = 0
@@ -425,13 +438,15 @@ def shard_ryui():
 	shard(ryui, WCH3)
 	clkObj(bbqBack)
 
-def spStoryGen(m=0):
-    # New story
+def spStoryGen():
+	# New story
 	spStory(gen6b, bbqHard)
-	
+	spStory(gen6b, bbqEx)
 	# Gem mining
 	spStory(gen4b, bbqHard)
+	spStory(gen4b, bbqEx)
 	spStory(gen4a, bbqHard)
+	spStory(gen4a, bbqEx)
 	spStory(gen3b, bbqHard)
 	spStory(gen3a, bbqHard)
 	spStory(gen2b, bbqHard)
@@ -440,44 +455,46 @@ def spStoryGen(m=0):
 	spStory(gen1a, bbqHard)
 	# No gem
 	#spStory(gen6a, bbqHard)
-	#spStory(gen5b, bbqHard)
-	#spStory(gen5a, bbqHard)
-
-def spStoryGenEx():
-	# New story
-	spStory(gen6b, bbqEx)
-	
-	# Gem mining
-	spStory(gen4b, bbqEx)
-	spStory(gen4a, bbqEx)
-	# No gem
 	#spStory(gen6a, bbqEx)
+	#spStory(gen5b, bbqHard)
 	#spStory(gen5b, bbqEx)
+	#spStory(gen5a, bbqHard)
 	#spStory(gen5a, bbqEx)
 
-def spStoryAsEx():
-	spStory(as3, bbqEx)
-	spStory(as5, bbqEx)
-	spStory(as4, bbqEx)
-
-def spStoryAsHard():
-	spStory(as5, bbqHard)
-	spStory(as4, bbqHard)
+def spStoryAs():
+	# New story
+	spStory(as6, bbqHard)
+	spStory(as6, bbqEx)
+	spStory(kof, bbqHard)
+	spStory(kof, bbqEx)
+	# Gem Mining
 	spStory(as3, bbqHard)
+	spStory(as3, bbqEx)
 	spStory(as2, bbqHard)
 	spStory(as1, bbqHard)
+	# No gem
+	#spStory(as5, bbqHard)
+	#spStory(as5, bbqEx)
+	#spStory(as4, bbqHard)
+	#spStory(as4, bbqEx)
 
-def ringo():
-	spStory(gen4b, bbqEx)
-	spStory(gen4a, bbqEx)
-	spStory(gen4b, bbqHard)
-	spStory(gen4a, bbqHard)
-	spStory(gen3b, bbqHard)
-	spStory(gen3a, bbqHard)
-	spStory(gen2b, bbqHard)
-	spStory(gen2a, bbqHard)
-	spStory(gen1b, bbqHard)
-	spStory(gen1a, bbqHard)
+def mine(mode="gen"):
+	if mode == "gen":
+		spStory(gen4b, bbqEx)
+		spStory(gen4a, bbqEx)
+		spStory(gen4b, bbqHard)
+		spStory(gen4a, bbqHard)
+		spStory(gen3b, bbqHard)
+		spStory(gen3a, bbqHard)
+		spStory(gen2b, bbqHard)
+		spStory(gen2a, bbqHard)
+		spStory(gen1b, bbqHard)
+		spStory(gen1a, bbqHard)
+	if mode == "as":
+		spStory(as3, bbqHard)
+		spStory(as3, bbqEx)
+		spStory(as2, bbqHard)
+		spStory(as1, bbqHard)
 
 def spDrawMine():
 	spDraw(spQ=gen1a)
@@ -491,12 +508,9 @@ def spDrawMine():
 
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
-#spStoryAsEx()
-#spStory(as3)
 #spDrawMine()
-
-#spStory(reZero, bbqEx)
-#spStory(reZero, bbqHard)
-spStoryGenEx()
-spStoryGen()
-#ringo()
+#spStoryGen()
+spStoryAs()
+#arCheck(loop=10)																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	[
+#mine()
+#spStory(kof, bbqHard)
