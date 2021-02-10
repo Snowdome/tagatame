@@ -141,6 +141,9 @@ gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png"
 # Gensos 6B - 「この憤怒こそ我が正義」（後編）
 gen6b = spQ("6B 「この憤怒こそ我が正義」（後編）", "gen6bEv.png", "gen", "gen6bLogo.png", "gen6bStage.png", "genCoin.png")
 
+# Gensos 7A - 「「強欲なるは我が心」（前編）
+gen7a = spQ("7A 「強欲なるは我が心」（前編）", "1612221594340.png", "gen", "1612221616635.png", "1612221642262.png", "genCoin.png")
+
 drop = Region(246,368,476,88)
 ryui = "ryui.png"
 nero1hit = Pattern("nero1hit.png").targetOffset(167,0)
@@ -480,6 +483,8 @@ def spStoryAs():
 
 def mine(mode="gen"):
 	if mode == "gen":
+		spStory(gen7a, bbqEx)
+		spStory(gen7a, bbqHard)
 		spStory(gen4b, bbqEx)
 		spStory(gen4a, bbqEx)
 		spStory(gen4b, bbqHard)
@@ -509,8 +514,7 @@ def spDrawMine():
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
 #spDrawMine()
-#spStoryGen()
-spStoryAs()
-#arCheck(loop=10)																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	[
-#mine()
-#spStory(kof, bbqHard)
+spStory(as3, bbqHard)
+spStory(as3, bbqEx)
+mine("gen")
+#arCheck(loop=10)

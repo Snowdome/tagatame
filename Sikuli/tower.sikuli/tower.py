@@ -106,6 +106,9 @@ def autoTower(tEvent, team):
 	if exists(towerRestart, 0):
 		if exists(tEvent.stage, 0):
 			sysMsg("Error - Tower is already cleared")
+		else:
+			sysMsg("In the wrong tower. Returning to home screen.")
+			clkObj(home)
 	else:		
 		if not exists(btStart, short):
 			gotoTower(tEvent)
@@ -240,10 +243,12 @@ def autoTowerEx(set):
 	# Seasonal Tower set 2
 	if set == 2:
 		autoTowerType(dark)
+		clkObj(home)
 		autoTowerType(wind)
+		clkObj(home)
 		autoTowerType(light)
 	
 
 #  -------------------------Command-------------------------
-autoTowerVeda()
-autoTowerEx(1)
+#autoTowerVeda()
+autoTowerEx(2)

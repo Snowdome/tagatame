@@ -1,4 +1,4 @@
-# PoK.py last updated 10/01/2021
+ # PoK.py last updated 10/01/2021
 #  -------------------------Import Modules and Class-------------------------
 from sikuli import *
 
@@ -37,7 +37,7 @@ drink70 = Pattern("drink70.png").targetOffset(280,25)	# location of the confirm 
 drink150 = Pattern("drink150.png").targetOffset(280,25)	# location of the confirm button in respect to the icon
 drinkAdd = "drinkAdd.png"
 okAP = "okAP.png"
-restoredAP = Pattern("restoredAP.png").targetOffset(0,125)	# location of the OK button in respect to the message
+restoredAP = "restoredAP.png"	# location of the OK button in respect to the message
 
 # Hime enchancement
 himeEn = Pattern("himeEn.png").targetOffset(0,270)
@@ -222,7 +222,7 @@ def apCheck(item=drink70, q=1, nextAction=0):
 			sleep(1)
 			q = q - 1
 		clkObj(okAP)
-		clkObj(restoredAP, 0)
+		clkObj(okAP, 0)
 		if nextAction != 0:
 			clkObj(nextAction)
 	else:
