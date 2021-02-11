@@ -514,7 +514,5 @@ def spDrawMine():
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
 #spDrawMine()
-spStory(as3, bbqHard)
-spStory(as3, bbqEx)
 mine("gen")
 #arCheck(loop=10)
