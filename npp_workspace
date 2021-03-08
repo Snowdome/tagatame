@@ -11,6 +11,7 @@
         <File name="index.html" />
         <File name="index_tinyurl.html" />
         <File name="mementos\mmt.html" />
+        <File name="mementos\mmt_en.html" />
         <File name="mementos\mmtList.html" />
         <File name="mementos\mmtLog.html" />
         <File name="mementos\mmt.css" />

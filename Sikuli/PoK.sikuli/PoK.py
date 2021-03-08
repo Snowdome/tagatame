@@ -70,6 +70,7 @@ btAgain = "btAgain.png"
 btEndNext = "btEndNext.png"
 btAP = "btAP.png"
 btStart = "btStart.png"
+btStartSp = "btStartSp.png"
 btMenu = "btMenu.png"
 keyUnlock = Pattern("keyUnlock.png").similar(0.80)
 keyLv3 = "keyLv3.png"
@@ -537,8 +538,8 @@ def fadeOut(n=1):
 				clkObj(yes)
 			else:
 				sysMsg("===== Special stage found. =====")
-				clkObj(btStart)
-				apCheck(drink70, q=2, nextAction=btStart)
+				clkObj(btStartSp)
+				apCheck(drink30, q=4, nextAction=btStart)
 				sysMsg("Entering battle")
 				waitObj(btResult, 60)
 				clkObj(btResult, 0, 1)
@@ -572,4 +573,4 @@ def fadeOut(n=1):
 #drawTicket("all")
 #drawDoll(100)
 #autoTower()
-fadeOut(50)
+fadeOut(60)

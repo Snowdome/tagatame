@@ -1,4 +1,4 @@
-# tower.py last updated 21/09/2020
+# tower.py last updated 03/06/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -28,6 +28,7 @@ wind = tEvent("wind", Pattern("windLogo.png").similar(0.90), Pattern("windStage.
 light = tEvent("light", Pattern("lightLogo.png").similar(0.90), Pattern("lightStage.png").similar(0.90), Pattern("lightStage2.png").similar(0.90))
 dark = tEvent("dark", Pattern("darkLogo.png").similar(0.90), Pattern("darkStage.png").similar(0.90), Pattern("darkStage2.png").similar(0.90))
 mobius = tEvent("mobius", "mobiusLogo.png", "dummy", "dummy")
+smt = tEvent("SMT", "1615113199643.png", "1615113216982.png", "1615113228799.png")
 currentFloor = "currentFloor.png"
 towerStart = "towerStart.png"
 towerRestart = "towerRestart.png"
@@ -250,5 +251,5 @@ def autoTowerEx(set):
 	
 
 #  -------------------------Command-------------------------
-#autoTowerVeda()
-autoTowerEx(2)
+autoTower (veda, team1)
+#autoTowerEx(2)

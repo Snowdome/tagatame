@@ -1,4 +1,4 @@
-   # spEvent.py last updated 24/12/2020
+# spEvent.py last updated 06/03/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -102,6 +102,9 @@ reZero = spQ("Re:ゼロから始める異世界生活", "reZeroEv.png", "adv", "
 # Advance Boss Collab - 拳に宿りしは誰ガ為の
 kof = spQ("拳に宿りしは誰ガ為の", "1609675651248.png" , "adv", "1609675625057.png", "1609675692125.png", "1609675672525.png")
 
+# Advance Boss Collab - 砂漠に奏でる夜想曲
+smt = spQ("砂漠に奏でる夜想曲", "1615209298335.png", "adv", "1615209316734.png", "1615209332674.png", "1615209345337.png")
+ 
 # Advance Boss - Wild Card Hero
 WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1609668093389.png", "1602106560384.png")
 
@@ -141,8 +144,11 @@ gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png"
 # Gensos 6B - 「この憤怒こそ我が正義」（後編）
 gen6b = spQ("6B 「この憤怒こそ我が正義」（後編）", "gen6bEv.png", "gen", "gen6bLogo.png", "gen6bStage.png", "genCoin.png")
 
-# Gensos 7A - 「「強欲なるは我が心」（前編）
+# Gensos 7A - 「強欲なるは我が心」（前編）
 gen7a = spQ("7A 「強欲なるは我が心」（前編）", "1612221594340.png", "gen", "1612221616635.png", "1612221642262.png", "genCoin.png")
+
+# Gensos 7B - 「強欲なるは我が心」（後編）
+gen7b = spQ("強欲なるは我が心」（後編）", "1615026515229.png", "gen", "1615026536405.png", "1615026560535.png", "genCoin.png")
 
 drop = Region(246,368,476,88)
 ryui = "ryui.png"
@@ -468,8 +474,6 @@ def spStoryAs():
 	# New story
 	spStory(as6, bbqHard)
 	spStory(as6, bbqEx)
-	spStory(kof, bbqHard)
-	spStory(kof, bbqEx)
 	# Gem Mining
 	spStory(as3, bbqHard)
 	spStory(as3, bbqEx)
@@ -483,10 +487,13 @@ def spStoryAs():
 
 def mine(mode="gen"):
 	if mode == "gen":
-		spStory(gen7a, bbqEx)
+		spStory(gen7b, bbqHard)
+		spStory(gen7b, bbqEx)
 		spStory(gen7a, bbqHard)
-		spStory(gen4b, bbqEx)
-		spStory(gen4a, bbqEx)
+		spStory(gen6b, bbqHard)
+		spStory(gen6a, bbqHard)
+		spStory(gen5b, bbqHard)
+		spStory(gen5a, bbqHard)
 		spStory(gen4b, bbqHard)
 		spStory(gen4a, bbqHard)
 		spStory(gen3b, bbqHard)
@@ -514,5 +521,5 @@ def spDrawMine():
 #  -------------------------Command-------------------------
 #spBoss(as2, 551/40)
 #spDrawMine()
+spStory(smt)
 mine("gen")
-#arCheck(loop=10)

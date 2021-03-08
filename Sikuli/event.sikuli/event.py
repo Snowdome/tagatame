@@ -7,12 +7,13 @@ from tagatame import *
 
 
 # Define class for special event
-class evQ(Pattern():
+class evQ():
 	def __init__(self, event, stat, stage, title):
 		self.event = event
 		self.stat = stat	# Current or Archive or Key or Daily event
 		self.stage = stage
 		self.title = title
+
 
 #  -------------------------Assets-------------------------
 evArchive = "evArchive.png"
@@ -50,6 +51,7 @@ vDay2017 = evQ(Pattern("1609671293056.png").targetOffset(-150,0), "Archive", "16
 vDay2018 = evQ(Pattern("1609671243473.png").targetOffset(-150,0), "Archive", "1609670006920.png", "1609670014794.png") #ちょこれいと☆まじっく
 vDay2019 = evQ(Pattern("1609671126746.png").targetOffset(-150,0), "Archive", "vDay2018Stage.png", "vDayy2018Title.png") #Spicy Chocolate Battle
 vDay2020 = evQ(Pattern("1609670991118.png").targetOffset(-150,0), "Archive", "1609674297891.png", "vDayTitle.png") #チョコレート・ハートミックス
+vDay2021 = evQ("1614382524492.png", "Current", "1614382536722.png", "1614382546378.png") #Chocolate tradeにご用心
 wedding2017 = evQ(Pattern("1609671282052.png").targetOffset(-150,0), "Archive", "1609670186754.png", "1609670193790.png") #Marriage-Go-Round
 wedding2018 = evQ(Pattern("1609671224428.png").targetOffset(-150,0), "Archive", "1609669924925.png", "1609669934161.png") #Happy Happy Crazy Wedding!
 wedding2020 = evQ(Pattern("1609670870490.png").targetOffset(-150,0), "Archive", "1609668965152.png", "1609668972044.png") #Wedding Knifeに祝福を
@@ -63,11 +65,11 @@ xmas2019 = evQ(Pattern("1609671003855.png").targetOffset(-150,0), "Archive", "xm
 xmas2020 = evQ(Pattern("1609670507657.png").targetOffset(-150,0), "Current", "1609668244324.png", "1609668256320.png") #Wish your Happy Xmas
 
 # Collab
-AOT = evQ(Pattern("AOTEvHard.png", "AOT", "AOTStage.png", "aotTitle.png") #紡ぐ彼方のメカニカル
-AOT2 = evQ(Pattern("AOTEvHell.png", "AOT", "AOT2Stage.png", "aot2Title.png") #紡ぐ彼方のメカニカル
-POK10 = evQ(Pattern("POKEvEx.png", "POK", "1604806963152.png", "1604806975054.png")
-POK12 = evQ(Pattern("POKEvEx.png", "POK", "POK12Stage.png", "POK12Title.png")
-shieldBallon = evQ(Pattern("1589098452707.png", "Current", "shieldBallonStage.png", "shieldBallonTitle.png") #オレンジバルーン大発生
+AOT = evQ("AOTEvHard.png", "AOT", "AOTStage.png", "aotTitle.png") #紡ぐ彼方のメカニカル
+AOT2 = evQ("AOTEvHell.png", "AOT", "AOT2Stage.png", "aot2Title.png") #紡ぐ彼方のメカニカル
+POK10 = evQ("POKEvEx.png", "POK", "1604806963152.png", "1604806975054.png")
+POK12 = evQ("POKEvEx.png", "POK", "POK12Stage.png", "POK12Title.png")
+shieldBallon = evQ("1589098452707.png", "Current", "shieldBallonStage.png", "shieldBallonTitle.png") #オレンジバルーン大発生
 
 # Misc
 wrathArmorF = evQ(Pattern("wrathArmorFEv.png").targetOffset(-150,0), "Archive", "wrathArmorFStage.png", "wrathArmorFTitle.png")
@@ -147,4 +149,5 @@ def evAR(evQ, n=10):
 #  -------------------------Command-------------------------
 #arCheck(loop=10)
 #evAR(vDay, 30)
-#evAR(POK12, 10)
+#evAR(vDay2021, 5)
+evAR(vDay2019, 30)
