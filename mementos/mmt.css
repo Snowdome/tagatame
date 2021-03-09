@@ -47,6 +47,10 @@ td[headers="group"] {
 	white-space: nowrap;
 }
 
+td[headers="group"] {
+	width: 64px;
+}
+
 th {
 	white-space: nowrap;
 	background: white;
@@ -72,7 +76,7 @@ th[onclick*="sortTable"] {
 
 tr :nth-child(16),
 tr :nth-child(18) {
-	width: 80px;
+	width: 70px;
 	text-align: center;
 }
 
@@ -113,7 +117,40 @@ tr :nth-child(n+21):nth-child(-n+27) {
 	color: red;
 }
 
+.ec {
+	color: red;
+	text-decoration: underline;
+}
+
 .title {
 	color: blue;
 	font-weight: bold;
+}
+
+.tooltip {
+	vertical-align: super;
+	font-size: smaller;
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 535px;
+	background-color: black;
+	color: #fff;
+	text-align: left;
+	border-radius: 6px;
+	padding: 5px;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: 50%;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
 }

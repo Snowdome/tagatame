@@ -75,18 +75,19 @@
 				<label><input type="checkbox" id="ex06" name="extra" value="null" checked>無区分</label>
 				<br>
 				<label><input type="checkbox" id="ex07" name="extra" value="counter" checked>反撃</label>
-				<label><input type="checkbox" id="ex08" name="extra" value="thunder" checked>雷属性特効</label>
-				<label><input type="checkbox" id="ex09" name="extra" value="wind" checked>風属性特効</label>
-				<label><input type="checkbox" id="ex10" name="extra" value="dark" checked>闇属性特効</label>
-				<label><input type="checkbox" id="ex11" name="extra" value="single" checked>単体</label>
-				<label><input type="checkbox" id="ex12" name="extra" value="area" checked>範囲</label>
-				<label><input type="checkbox" id="ex13" name="extra" value="human" checked>人特効</label>
+				<label><input type="checkbox" id="ex08" name="extra" value="fire" checked>火属性特効</label>
+				<label><input type="checkbox" id="ex09" name="extra" value="thunder" checked>雷属性特効</label>
+				<label><input type="checkbox" id="ex10" name="extra" value="wind" checked>風属性特効</label>
+				<label><input type="checkbox" id="ex11" name="extra" value="dark" checked>闇属性特効</label>
+				<label><input type="checkbox" id="ex12" name="extra" value="single" checked>単体</label>
+				<label><input type="checkbox" id="ex13" name="extra" value="area" checked>範囲</label>
+				<label><input type="checkbox" id="ex14" name="extra" value="human" checked>人特効</label>
 				<br>
-				<label><input type="checkbox" id="ex14" name="extra" value="hybrids" checked>異族特効</label>
-				<label><input type="checkbox" id="ex15" name="extra" value="vajra" checked>バジュラ特効</label>
-				<label><input type="checkbox" id="ex16" name="extra" value="magDoll" checked>魔動人形特効</label>
-				<label><input type="checkbox" id="ex17" name="extra" value="lesserDevil" checked>下位魔神特効</label>
-				<label><input type="checkbox" id="ex18" name="extra" value="gigantic" checked>巨体特効</label>
+				<label><input type="checkbox" id="ex15" name="extra" value="eldritch" checked>異族特効</label>
+				<label><input type="checkbox" id="ex16" name="extra" value="vajra" checked>バジュラ特効</label>
+				<label><input type="checkbox" id="ex17" name="extra" value="magDoll" checked>魔動人形特効</label>
+				<label><input type="checkbox" id="ex18" name="extra" value="lesserDevil" checked>下位魔神特効</label>
+				<label><input type="checkbox" id="ex19" name="extra" value="gigantic" checked>巨体特効</label>
 			</p>
 		</form>
 		<button type="button" id=chooseAllExtra onclick="chooseAllExtra()">全選</button> <button type="button" id=chooseAllExtra onclick="chooseTypeExtra()">僅攻種</button> <button type="button" id=clearExtra onclick="clearExtra()">清除全部</button>
@@ -96,35 +97,55 @@
 				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>活動</label>
                 <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label>
 				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">顯示無團隊</label><br>
-				<label id="labelD4" for="d3">只顯示團隊：<select id="d4" name="groupList">
-					<option value="all" selected>❃全部顯示❃</option>
-					<option value="groupless">❃無團隊❃</option>
-					<option value="エンヴィリア王国騎士団">エンヴィリア王国騎士団</option>
-					<option value="蒼炎騎士団">蒼炎騎士団</option>
-					<option value="緋炎騎士団">緋炎騎士団</option>
-					<option value="シェイナファンクラブ">シェイナファンクラブ</option>
-					<option value="ラーストリス騎士団">ラーストリス騎士団</option>
-					<option value="シャドウメサイヤ">シャドウメサイヤ</option>
-					<option value="スロウス技師">スロウス技師</option>
-					<option value="海賊団">海賊団</option>
-					<option value="ワダツミ武門">ワダツミ武門</option>
-					<option value="鬼掃隊“刃狐”">鬼掃隊“刃狐”</option>
-					<option value="砂漠の民">砂漠の民</option>
-					<option value="聖教騎士団">聖教騎士団</option>
-					<option value="トラブルメーカーズ">トラブルメーカーズ</option>
-					<option value="十戒衆">十戒衆</option>
-					<option value="FgG">FgG</option>
-					<option value="〈七つの大罪〉">〈七つの大罪〉</option>
-					<option value="マクロスフロンティア">マクロスフロンティア</option>
-					<option value="転スラ">転スラ</option>
-					<option value="クリユニ">クリユニ</option>
-					<option value="ブレフロ">ブレフロ</option>
-					<option value="盾の勇者の成り上がり">盾の勇者の成り上がり</option>
-					<option value="進撃の巨人">進撃の巨人</option>
-					<option value="Re:ゼロ">Re:ゼロ</option>
-				</select><br>
-				數值：<label><input type="radio" id="secInfo1" name="secInfo" value="show">詳細</label>
-				<label><input type="radio" id="secInfo0" name="secInfo" value="hide" checked>摘要</label><br>
+				<label id="labelD4" for="d4">只顯示起源：<select id="d4" name="originList" onchange="checkGroup()">
+					<option id="r0" value="all" selected>❃全部顯示❃</option>
+					<option id="r1" value="Envylia">エンヴィリア</option>
+					<option id="r2" value="Wratharis">ラーストリス</option>
+					<option id="r3" value="Slothstein">スロウスシュタイン</option>
+					<option id="r4" value="Lustburg">ルストブルグ</option>
+					<option id="r5" value="Gluttony Foss">グラトニー＝フォス</option>
+					<option id="r6" value="Greed Dike">グリードダイク</option>
+					<option id="r7" value="Saga Region">サガ地方</option>
+					<option id="r8" value="Wadatsumi">ワダツミ</option>
+					<option id="r9" value="Desert Zone">砂漠地帯</option>
+					<option id="r10" value="Northern Pride">ノーザンブライドレリーフ</option>
+					<option id="r11" value="Lost Blue">ロストブルー</option>
+					<option id="r12" value="Other">その他</option>
+				</select></label>
+				<label id="labelD5" for="d5">只顯示團隊：<select id="d5" name="groupList" onchange="checkFilter()">
+					<option id="g0" value="all" selected>❃全部顯示❃</option>
+					<option id="g1" value="groupless">❃無團隊❃</option>
+					<option id="g2" value="緋炎騎士団">緋炎騎士団</option>
+					<option id="g3" value="蒼炎騎士団">蒼炎騎士団</option>
+					<option id="g4" value="聖教騎士団">聖教騎士団</option>
+					<option id="g5" value="エンヴィリア王国騎士団">エンヴィリア王国騎士団</option>
+					<option id="g6" value="ラーストリス騎士団">ラーストリス騎士団</option>
+					<option id="g7" value="シャドウメサイヤ">シャドウメサイヤ</option>
+					<option id="g8" value="十戒衆">十戒衆</option>
+					<option id="g9" value="ワダツミ武門">ワダツミ武門</option>
+					<option id="g10" value="砂漠の民">砂漠の民</option>
+					<option id="g11" value="海賊団">海賊団</option>
+					<option id="g12" value="シェイナファンクラブ">シェイナファンクラブ</option>
+					<option id="g13" value="グリードダイク軍">グリードダイク軍</option>
+					<option id="g14" value="トラブルメーカーズ">トラブルメーカーズ</option>
+					<option id="g15" value="スロウス技師">スロウス技師</option>
+					<option id="g16" value="ビーナス魔法学校">ビーナス魔法学校</option>
+					<option id="g17" value="鬼掃隊“刃狐”">鬼掃隊“刃狐”</option>
+					<option id="g18" value="FgG">FgG</option>
+					<option id="g19" value="マクロスフロンティア">マクロスフロンティア</option>
+					<option id="g20" value="〈七つの大罪〉">〈七つの大罪〉</option>
+					<option id="g21" value="転スラ">転スラ</option>
+					<option id="g22" value="クリユニ">クリユニ</option>
+					<option id="g23" value="ブレフロ">ブレフロ</option>
+					<option id="g24" value="盾の勇者の成り上がり">盾の勇者の成り上がり</option>
+					<option id="g25" value="進撃の巨人">進撃の巨人</option>
+					<option id="g26" value="Re:ゼロ">Re:ゼロ</option>
+					<option id="g27" value="KOF">KOF</option>
+					<option id="g28" value="真3HD">真3HD</option>
+					<option id="g29" value="Global Original" style="display: none;">Global Original</option>
+				</select></label> <span class="tooltip">[?]<span class="tooltiptext">預設：顯示全部起源 ➔ 顯示各團隊念裝數目<br />情景1：選擇地區 ➔ 顯示各團隊念裝數目, 數目為零者以灰色顯示<br />情景2：選擇已變灰的團隊 ➔ 自動重設至顯示全部起源<br /></span></span><br>
+				數值：<label><input type="radio" id="optInfo1" name="optInfo" value="show">詳細</label>
+				<label><input type="radio" id="optInfo0" name="optInfo" value="hide" checked>摘要</label><br>
 				起源：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">文字</label>
 				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>圖示</label><br>
 				團隊：<label><input type="radio" id="optGroup0" name="optGroup" value="text">文字</label>
@@ -133,6 +154,7 @@
 		</form>
 	</div>
 	<div id="message" data-include="mmtLog"></div>
+	<div id="count">共<span id="mmtCount">0</span>張真理念裝符合條件。</div>
 	<div id="mmtList" data-include="mmtList"></div>
 </body>
 

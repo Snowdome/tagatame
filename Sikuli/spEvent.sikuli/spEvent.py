@@ -522,4 +522,5 @@ def spDrawMine():
 #spBoss(as2, 551/40)
 #spDrawMine()
 spStory(smt)
+spStory(smt, bbqEx)
 mine("gen")

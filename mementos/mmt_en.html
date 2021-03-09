@@ -50,11 +50,11 @@
 	<div id="parameters" oninput="score()">
 		<form autocomplete="off">
 			<p><b><u>Parameters</u></b></p>
-			<p>Basic:
+			<p>Basic: 
 				<label><input type="radio" id="pm1" name="pm" value="phy">PATK</label>
 				<label><input type="radio" id="pm2" name="pm" value="mag">MATK</label>
 				<label><input type="radio" id="pm0" name="pm" value="either" checked>Max</label><br>
-			Sin.Type:
+			Sin.Type: 
 				<label><input type="radio" id="sin1" name="sin" value="envy">Envy</label>
 				<label><input type="radio" id="sin2" name="sin" value="sloth">Sloth</label>
 				<label><input type="radio" id="sin3" name="sin" value="lust">Lust</label>
@@ -65,7 +65,7 @@
 				<label><input type="radio" id="sin0" name="sin" value="any" checked>Max</label>
 				<label><input type="radio" id="sin0" name="sin" value="none">Ignored</label>
 			</p>
-			<p>Bonus:
+			<p>Bonus: 
 				<br>
 				<label><input type="checkbox" id="ex01" name="extra" value="slash" checked>Slash</label>
 				<label><input type="checkbox" id="ex02" name="extra" value="pierce" checked>Pierce</label>
@@ -75,63 +75,86 @@
 				<label><input type="checkbox" id="ex06" name="extra" value="null" checked>Null</label>
 				<br>
 				<label><input type="checkbox" id="ex07" name="extra" value="counter" checked>Counter</label>
-				<label><input type="checkbox" id="ex08" name="extra" value="thunder" checked>vs_Thunder</label>
-				<label><input type="checkbox" id="ex09" name="extra" value="wind" checked>vs_Wind</label>
-				<label><input type="checkbox" id="ex10" name="extra" value="dark" checked>vs_Dark</label>
-				<label><input type="checkbox" id="ex11" name="extra" value="single" checked>Single</label>
-				<label><input type="checkbox" id="ex12" name="extra" value="area" checked>Area</label>
-				<label><input type="checkbox" id="ex13" name="extra" value="human" checked>vs_Human</label>
+				<label><input type="checkbox" id="ex08" name="extra" value="fire" checked>vs_Fire</label>
+				<label><input type="checkbox" id="ex09" name="extra" value="thunder" checked>vs_Thunder</label>
+				<label><input type="checkbox" id="ex10" name="extra" value="wind" checked>vs_Wind</label>
+				<label><input type="checkbox" id="ex11" name="extra" value="dark" checked>vs_Dark</label>
+				<label><input type="checkbox" id="ex12" name="extra" value="single" checked>Single</label>
+				<label><input type="checkbox" id="ex13" name="extra" value="area" checked>Area</label>
+				<label><input type="checkbox" id="ex14" name="extra" value="human" checked>vs_Human</label>
 				<br>
-				<label><input type="checkbox" id="ex14" name="extra" value="hybrids" checked>vs_Hybrids</label>
-				<label><input type="checkbox" id="ex15" name="extra" value="vajra" checked>vs_Vajra</label>
-				<label><input type="checkbox" id="ex16" name="extra" value="magDoll" checked>vs_Demon Golem</label>
-				<label><input type="checkbox" id="ex17" name="extra" value="lesserDevil" checked>vs_Sub-Demon</label>
-				<label><input type="checkbox" id="ex18" name="extra" value="gigantic" checked>vs_Gigantic</label>
+				<label><input type="checkbox" id="ex15" name="extra" value="eldritch" checked>vs_Eldritch</label>
+				<label><input type="checkbox" id="ex16" name="extra" value="vajra" checked>vs_Vajra</label>
+				<label><input type="checkbox" id="ex17" name="extra" value="magDoll" checked>vs_Demon Golem</label>
+				<label><input type="checkbox" id="ex18" name="extra" value="lesserDevil" checked>vs_Sub-Demon</label>
+				<label><input type="checkbox" id="ex19" name="extra" value="gigantic" checked>vs_Gigantic</label>
 			</p>
 		</form>
 		<button type="button" id=chooseAllExtra onclick="chooseAllExtra()">Select all</button> <button type="button" id=chooseAllExtra onclick="chooseTypeExtra()">Only Attack.Types</button> <button type="button" id=clearExtra onclick="clearExtra()">Clear all</button>
 		<form autocomplete="off" oninput="refreshMmt()">
-			<p>Display options：<br>
+			<p>Display options:<br>
 				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked>Normal</label>
 				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>Event</label>
                 <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>Limited</label>
 				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">Display Groupless Mementos</label><br>
-				<label id="labelD4" for="d3">Only display the following group：<select id="d4" name="groupList">
-					<option value="all" selected>❃Display All❃</option>
-					<option value="groupless">❃Groupless❃</option>
-					<option value="エンヴィリア王国騎士団">Royal Knights of Envylia</option>
-					<option value="蒼炎騎士団">Blue Flame Knight</option>
-					<option value="緋炎騎士団">Scarlet Flame Guard</option>
-					<option value="シェイナファンクラブ">Shayna Fan Club</option>
-					<option value="ラーストリス騎士団">Knighthood of Wratharis</option>
-					<option value="シャドウメサイヤ">Shadow Messiah</option>
-					<option value="スロウス技師">Sloth Technicians</option>
-					<option value="海賊団">Pirates</option>
-					<option value="ワダツミ武門">Wadatsumi Clan</option>
-					<option value="砂漠の民">Desert Citizen</option>
-					<option value="聖教騎士団">Holy Guard</option>
-					<option value="トラブルメーカーズ">Troublemakers</option>
-					<option value="十戒衆">Templars</option>
-					<option value="FgG">FgG Collab</option>
-					<option value="〈七つの大罪〉">The Seven Deadly Sins</option>
-					<option value="マクロスフロンティア">Macross Frontier</option>
-					<option value="転スラ">That Time I Got Reincarnated as a Slime</option>
-					<option value="クリユニ">Crystal of Re:union</option>
-					<option value="ブレフロ">Brave Frontier</option>
-					<option value="盾の勇者の成り上がり">The Rising of the Shield Hero</option>
-					<option value="進撃の巨人">Attack on Titan</option>
-					<option value="Re:ゼロ">Re:Zero</option>
-				</select><br>
-				Stats：<label><input type="radio" id="secInfo1" name="secInfo" value="show">Detailed</label>
-				<label><input type="radio" id="secInfo0" name="secInfo" value="hide" checked>Abstract</label><br>
-				Origin：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">Text</label>
+				<label id="labelD4" for="d4">Only display those from: <select id="d4" name="originList" onchange="checkGroup()">
+					<option value="all" selected>===All Regions===</option>
+					<option value="Envylia">Envylia</option>
+					<option value="Wratharis">Wratharis</option>
+					<option value="Slothstein">Slothstein</option>
+					<option value="Lustburg">Lustburg</option>
+					<option value="Gluttony Foss">Gluttony Foss</option>
+					<option value="Greed Dike">Greed Dike</option>
+					<option value="Saga Region">Saga Region</option>
+					<option value="Wadatsumi">Wadatsumi</option>
+					<option value="Desert Zone">Desert Zone</option>
+					<option value="Northern Pride">Northern Pride</option>
+					<option value="Lost Blue">Lost Blue</option>
+					<option value="Other">Other</option>
+				</select></label>
+				<label id="labelD5" for="d5">Only display the following group: <select id="d5" name="groupList" onchange="checkFilter()">
+					<option id="g0" value="all" selected>===Display All===</option>
+					<option id="g1" value="groupless">===Groupless===</option>
+					<option id="g2" value="緋炎騎士団">Scarlet Flame Guard</option>
+					<option id="g3" value="蒼炎騎士団">Blue Flame Knight</option>
+					<option id="g4" value="聖教騎士団">Holy Guard</option>
+					<option id="g5" value="エンヴィリア王国騎士団">Royal Knights of Envylia</option>
+					<option id="g6" value="ラーストリス騎士団">Knighthood of Wratharis</option>
+					<option id="g7" value="シャドウメサイヤ">Shadow Messiah</option>
+					<option id="g8" value="十戒衆">Templars</option>
+					<option id="g9" value="ワダツミ武門">Wadatsumi Clan</option>
+					<option id="g10" value="砂漠の民">Desert Citizen</option>
+					<option id="g11" value="海賊団">Pirates</option>
+					<option id="g12" value="シェイナファンクラブ">Shayna Fan Club</option>
+					<option id="g13" value="グリードダイク軍">Greed Dike Army</option>
+					<option id="g14" value="トラブルメーカーズ">Troublemakers</option>
+					<option id="g15" value="スロウス技師">Sloth Technicians</option>
+					<option id="g16" value="ビーナス魔法学校">Venus School of Magic</option>
+					<option id="g17" value="鬼掃隊“刃狐”">Blade Fox Corps</option>
+					<option id="g18" value="FgG">FgG Collab</option>
+					<option id="g19" value="マクロスフロンティア">Macross Frontier</option>
+					<option id="g20" value="〈七つの大罪〉">The Seven Deadly Sins</option>
+					<option id="g21" value="転スラ">That Time I Got Reincarnated as a Slime</option>
+					<option id="g22" value="クリユニ">Crystal of Re:union</option>
+					<option id="g23" value="ブレフロ">Brave Frontier</option>
+					<option id="g24" value="盾の勇者の成り上がり">The Rising of the Shield Hero</option>
+					<option id="g25" value="進撃の巨人">Attack on Titan</option>
+					<option id="g26" value="Re:ゼロ">Re:Zero</option>
+					<option id="g27" value="KOF">The King of Fighters</option>
+					<option id="g28" value="真3HD">Shin Megami Tensei III Nocturne HD Remaster</option>
+					<option id="g29" value="Global Original">Global Original</option>
+				</select></label> <span class="tooltip">[?]<span class="tooltiptext">Default: All Regions ➔ show group counts<br />Mode 1: Chosen Regions ➔ show available group counts, zero count groups become grey<br />Mode 2: Chosen grey group ➔ reset to All Regions</span></span><br>
+				Stats: <label><input type="radio" id="optInfo1" name="optInfo" value="show">Detailed</label>
+				<label><input type="radio" id="optInfo0" name="optInfo" value="hide" checked>Abstract</label><br>
+				Origin: <label><input type="radio" id="optOrigin0" name="optOrigin" value="text">Text</label>
 				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>Icon</label><br>
-				Group：<label><input type="radio" id="optGroup0" name="optGroup" value="text">Text</label>
+				Group: <label><input type="radio" id="optGroup0" name="optGroup" value="text">Text</label>
 				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>Icon</label><br>
 			</p>
 		</form>
 	</div>
 	<div id="message" data-include="mmtLog"></div>
+	<div id="count"><span id="mmtCount">0</span> filtered results found.</div>
 	<div id="mmtList" data-include="mmtList"></div>
 </body>
 
