@@ -136,7 +136,7 @@ def gotoEv(evQ):
 def evAR(evQ, n=10):
 	i = 0
 	if exists(arMenu):
-		sysMsg("Ongoing auto repat found. Waiting for completion.")
+		sysMsg("Ongoing auto repeat found. Waiting for completion.")
 		arCheck()
 		sleep(10)
 		i = 1 + 1
@@ -150,4 +150,4 @@ def evAR(evQ, n=10):
 #arCheck(loop=10)
 #evAR(vDay, 30)
 #evAR(vDay2021, 5)
-evAR(vDay2019, 30)
+evAR(summer2019, 5)

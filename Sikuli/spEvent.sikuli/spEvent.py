@@ -109,46 +109,46 @@ smt = spQ("砂漠に奏でる夜想曲", "1615209298335.png", "adv", "1615209316
 WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1609668093389.png", "1602106560384.png")
 
 # Genesis 1A - 「創る、この世界を」（前編）
-gen1a = spQ("1A 「創る、この世界を」（前編）", "gen1aEv.png", "gen", "gen1aLogo.png", "gen1aStage.png", "genCoin.png")
+gen1a = spQ("1A 「創る、この世界を」（前編）", "gen1aEv.png", "gen", "gen1aLogo.png", Pattern("gen1aStage.png").exact(), "genCoin.png")
 
 # Genesis 1B - 「創る、この世界を」（後編）
-gen1b = spQ("1B 創る、この世界を」（後編）", "gen1bEv.png", "gen", "gen1bLogo.png", "gen1bStage.png", "genCoin.png")
+gen1b = spQ("1B 創る、この世界を」（後編）", "gen1bEv.png", "gen", "gen1bLogo.png", Pattern("gen1bStage.png").exact(), "genCoin.png")
 
 # Genesis 2A - 「恋と、色欲の偏差」（前編）
-gen2a = spQ("2A 「恋と、色欲の偏差」（前編）", "gen2aEv.png", "gen", "gen2aLogo.png", "gen2aStage.png", "genCoin.png")
+gen2a = spQ("2A 「恋と、色欲の偏差」（前編）", "gen2aEv.png", "gen", "gen2aLogo.png", Pattern("gen2aStage.png").exact(), "genCoin.png")
 
 # Genesis 2B - 「恋と、色欲の偏差」（後編）
-gen2b = spQ("2B 「恋と、色欲の偏差」（後編）", "gen2bEv.png", "gen", "gen2bLogo.png", "gen2bStage.png", "genCoin.png")
+gen2b = spQ("2B 「恋と、色欲の偏差」（後編）", "gen2bEv.png", "gen", "gen2bLogo.png", Pattern("gen2bStage.png").exact(), "genCoin.png")
 
 # Genesis 3A - 「それを怠惰と呼ぶのなら」（前編）
-gen3a = spQ("3A 「それを怠惰と呼ぶのなら」（前編）", "gen3aEv.png", "gen", "gen3aLogo.png", "gen3aStage.png", "genCoin.png")
+gen3a = spQ("3A 「それを怠惰と呼ぶのなら」（前編）", "gen3aEv.png", "gen", "gen3aLogo.png", Pattern("gen3aStage.png").exact(), "genCoin.png")
 
 # Genesis 3B - 「それを怠惰と呼ぶのなら」（後編）
-gen3b = spQ("3B 「それを怠惰と呼ぶのなら」（後編）", "gen3bEv.png", "gen", "gen3bLogo.png", "gen3bStage.png", "genCoin.png")
+gen3b = spQ("3B 「それを怠惰と呼ぶのなら」（後編）", "gen3bEv.png", "gen", "gen3bLogo.png", Pattern("gen3bStage.png").exact(), "genCoin.png")
 
 # Genesis 4A - 「その暴食をも呑み干して」（前編）
-gen4a = spQ("4A 「その暴食をも呑み干して」（前編）", "gen4aEv.png", "gen", "gen4aLogo.png", "gen4aStage.png", "genCoin.png")
+gen4a = spQ("4A 「その暴食をも呑み干して」（前編）", "gen4aEv.png", "gen", "gen4aLogo.png", Pattern("gen4aStage.png").exact(), "genCoin.png")
 
 # Genesis 4B - 「その暴食をも呑み干して」（後編）
-gen4b = spQ("4B 「その暴食をも呑み干して」（後編）", "gen4bEv.png", "gen", "gen4bLogo.png", "gen4bStage.png", "genCoin.png")
+gen4b = spQ("4B 「その暴食をも呑み干して」（後編）", "gen4bEv.png", "gen", "gen4bLogo.png", Pattern("gen4bStage.png").exact(), "genCoin.png")
 
 # Genesis 5A - 「嫉妬が胸を灼こうとも」（前編）
-gen5a = spQ("5A 「嫉妬が胸を灼こうとも」（前編）", "gen5aEv.png", "gen", "gen5aLogo.png", "gen5aStage.png", "genCoin.png")
+gen5a = spQ("5A 「嫉妬が胸を灼こうとも」（前編）", "gen5aEv.png", "gen", "gen5aLogo.png", Pattern("gen5aStage.png").exact(), "genCoin.png")
 
 # Genesis 5B - 「嫉妬が胸を灼こうとも」（後編）
-gen5b = spQ("5B 「嫉妬が胸を灼こうとも」（後編）", "gen5bEv.png", "gen", "gen5bLogo.png", "gen5bStage.png", "genCoin.png")
+gen5b = spQ("5B 「嫉妬が胸を灼こうとも」（後編）", "gen5bEv.png", "gen", "gen5bLogo.png", Pattern("gen5bStage.png").exact(), "genCoin.png")
 
 # Gensos 6A - 「この憤怒こそ我が正義」（前編）
-gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png", "gen", "gen6aLogo.png", "gen6aStage.png", "genCoin.png")
+gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png", "gen", "gen6aLogo.png", Pattern("gen6aStage.png").exact(), "genCoin.png")
 
 # Gensos 6B - 「この憤怒こそ我が正義」（後編）
-gen6b = spQ("6B 「この憤怒こそ我が正義」（後編）", "gen6bEv.png", "gen", "gen6bLogo.png", "gen6bStage.png", "genCoin.png")
+gen6b = spQ("6B 「この憤怒こそ我が正義」（後編）", "gen6bEv.png", "gen", "gen6bLogo.png", Pattern("gen6bStage.png").exact(), "genCoin.png")
 
 # Gensos 7A - 「強欲なるは我が心」（前編）
-gen7a = spQ("7A 「強欲なるは我が心」（前編）", "1612221594340.png", "gen", "1612221616635.png", "1612221642262.png", "genCoin.png")
+gen7a = spQ("7A 「強欲なるは我が心」（前編）", "1612221594340.png", "gen", "1612221616635.png", Pattern("1612221642262.png").exact(), "genCoin.png")
 
 # Gensos 7B - 「強欲なるは我が心」（後編）
-gen7b = spQ("強欲なるは我が心」（後編）", "1615026515229.png", "gen", "1615026536405.png", "1615026560535.png", "genCoin.png")
+gen7b = spQ("強欲なるは我が心」（後編）", "1615026515229.png", "gen", "1615026536405.png", Pattern("1615026560535.png").exact(), "genCoin.png")
 
 drop = Region(246,368,476,88)
 ryui = "ryui.png"
@@ -519,6 +519,7 @@ def spDrawMine():
 	spDraw(spQ=gen4b)
 
 #  -------------------------Command-------------------------
+arCheck()
 #spBoss(as2, 551/40)
 #spDrawMine()
 spStory(smt)

@@ -1,4 +1,4 @@
-# tower.py last updated 03/06/2021
+# tower.py last updated 23/03/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -28,7 +28,8 @@ wind = tEvent("wind", Pattern("windLogo.png").similar(0.90), Pattern("windStage.
 light = tEvent("light", Pattern("lightLogo.png").similar(0.90), Pattern("lightStage.png").similar(0.90), Pattern("lightStage2.png").similar(0.90))
 dark = tEvent("dark", Pattern("darkLogo.png").similar(0.90), Pattern("darkStage.png").similar(0.90), Pattern("darkStage2.png").similar(0.90))
 mobius = tEvent("mobius", "mobiusLogo.png", "dummy", "dummy")
-smt = tEvent("SMT", "1615113199643.png", "1615113216982.png", "1615113228799.png")
+smt = tEvent("SMT", Pattern("1615113199643.png").similar(0.90), "1615113216982.png", "1615113228799.png")
+smtHard = tEvent("SMT Hard", Pattern("1616240458833.png").similar(0.90), "1616240509285.png", "1616240522533.png")
 currentFloor = "currentFloor.png"
 towerStart = "towerStart.png"
 towerRestart = "towerRestart.png"
@@ -196,8 +197,10 @@ def resTower():
 			clkObj(cfnRestore, 0, 0, "Confirm Restore")
 			sysMsg("*************** All units have been restored ***************")
 			clkObj(unitRestored)
+			return 1
 		else:
 			sysMsg("*************** Free restore is not available ***************")
+			return 0
 
 def autoTowerVeda():
 	#Ordinary Tower
@@ -225,14 +228,14 @@ def autoTowerType(tType):
 	autoTower(tType, team5)
 	autoTower(tType, team6)
 	autoTower(tType, team7)
-	resTower()
-	autoTower(tType, team1)
-	autoTower(tType, team2)
-	autoTower(tType, team3)
-	autoTower(tType, team4)
-	autoTower(tType, team5)
-	autoTower(tType, team6)
-	autoTower(tType, team7)
+	if resTower() == 1:
+		autoTower(tType, team1)
+		autoTower(tType, team2)
+		autoTower(tType, team3)
+		autoTower(tType, team4)
+		autoTower(tType, team5)
+		autoTower(tType, team6)
+		autoTower(tType, team7)
 
 def autoTowerEx(set):
 	# Seasonal Tower set 1
@@ -251,5 +254,6 @@ def autoTowerEx(set):
 	
 
 #  -------------------------Command-------------------------
-autoTower (veda, team1)
+autoTowerType(smtHard)
+#autoTower(veda, team1)
 #autoTowerEx(2)

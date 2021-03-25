@@ -1,4 +1,4 @@
-# tagatame.py last updated 03/01/2021
+# tagatame.py last updated 23/03/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -68,6 +68,7 @@ arRefillAP = Pattern("arRefillAP.png").targetOffset(-65,0)
 arStart = "arStart.png"
 playerReward = Pattern("playerReward.png").targetOffset(0,450)	# Loc of OK button in respect to the title bar
 arReturn = "arReturn.png"
+arReturnHome = "arReturnHome.png"
 
 # Battle menu
 
@@ -315,8 +316,12 @@ def btAction(loop=0, m=0):
 		while t != -1:
 			if not exists(questMission, 0):
 				sysMsg("Still in battle. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
-				t = t + 10
-				sleep(10)
+				if t > 1800:
+					sysMsg("Timeout (30 min)")
+					exit()
+				else:
+					t = t + 10
+					sleep(10)
 			else:
 				sysMsg("Quest completed.")
 				clkObj(questMission, loop=1)
@@ -415,14 +420,16 @@ def enableAR():
 		return 1
 
 # Check whether auto repeat has completed, and claim reward
-def arCheck(loop=0):
+def arCheck(loop=1):
 	sysMsg("Checking status for auto repeat.")
 	if not exists(autoRepeat, 0):
 		sysMsg("Auto repeat has not activated.")
 	else:
+		arRegion = Region(find(autoRepeat).x, find(autoRepeat).y - 65, find(autoRepeat).w, find(autoRepeat).h + 65)
 		while loop > 0:
 			t = 0
-			while not exists(arComplete, 0):
+			while not arRegion.exists(arComplete, 0):
+			#while not exists(arComplete, 0):
 				sysMsg("Auto repeat has not completed yet. Total waiting time: " + str(t/2) + " min.")					
 				mouseMove(10,0)
 				sleep(30)
@@ -440,11 +447,13 @@ def arCheck(loop=0):
 			if loop == "return":
 				clkObj(arReturn)
 				loop = 0
-			elif loop > 0:
+			elif loop > 1:
 				sysMsg("Repeating the same stage. Remaining loop: " + str(loop))
 				enableAR()
 				loop = loop - 1
 			else:
 				sysMsg("Auto repeat completed")
+				clkObj(arReturnHome)
+				sleep(5)
 
 sysMsg("Imported tagatame.sikuli")
