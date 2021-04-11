@@ -82,18 +82,16 @@
 <script>
 	function domInt(element, text) {
 		if (text == "value") {
-			return parseInt(document.getElementById(element).value);
+			return parseInt(document.getElementById(element).value) || 0;
 		} else if (text == "innerHTML") {
 			return parseInt(document.getElementById(element).innerHTML);
-		} else if (text == "innerText") {
-			return parseInt(document.getElementById(element).innerText);
 		} else {
 			return parseInt(document.getElementById(element).getAttribute("data-" + text));
 		}
 	}
 
 	function jqInt(selector) {
-		return parseInt(document.querySelector(selector).value);
+		return parseInt(document.querySelector(selector).value) || 0;
 	}
 
 	function resetClass() {
@@ -199,6 +197,8 @@
 		} else {
 			document.getElementById("type").setAttribute("data-skillType", jqInt('[name="skillType"]:checked') * 25);
 		}
+		
+		document.getElementById("frozen").setAttribute("data-mod", jqInt('[name="frozen"]:checked') * 50);
 
 		/* Calculate attack score depending on chosen scale type */
 		switch (document.getElementById("scaleType").value) {
@@ -313,10 +313,11 @@
 		document.getElementById("atkScore").innerHTML = Math.floor(domInt("fScaledAtk", "innerHTML") * parseFloat(document.getElementById("fSkillMod").innerHTML));
 
 		/* Step 2: calculate damage modifier */
-			document.getElementById("fMod2Side").innerHTML =
+			document.getElementById("fModMisc").innerHTML =
 			domInt("height", "mod") +
 			domInt("type", "chartype") +
-			domInt("type", "skilltype");
+			domInt("type", "skilltype") +
+			domInt("frozen", "mod");
 
 		document.getElementById("fModPlus").innerHTML =
 			domInt("p1", "plus") +
@@ -334,7 +335,7 @@
 
 		document.getElementById("dmgMod").innerHTML =
 			100 +
-			domInt("fMod2Side", "innerHTML") +
+			domInt("fModMisc", "innerHTML") +
 			domInt("fModPlus", "innerHTML") -
 			domInt("fModMinus", "innerHTML") + "%";
 
@@ -366,38 +367,47 @@
 	function assign() {
 		/* Assign default scale value for chosen scale type */
 		switch (document.getElementById("scaleType").value) {
-			case "pAtk":
+			case "pAtk":		// 物攻
 				document.getElementById("scaleMod").value = 1.40;
+				document.getElementById("pmPhysical").checked = true;
 				break;
-			case "pDef":
+			case "pDef":		// 物防
 				document.getElementById("scaleMod").value = 1.50;
+				document.getElementById("pmPhysical").checked = true;
 				break;
-			case "mAtk":
+			case "mAtk":		// 魔攻
 				document.getElementById("scaleMod").value = 1.50;
+				document.getElementById("pmMagical").checked = true;
 				break;
-			case "dual":
+			case "dual":		// 雙攻
 				document.getElementById("scaleMod").value = 0.90;
 				break;
-			case "pSp":
+			case "pSp":			// 風來
 				document.getElementById("scaleMod").value = 0.85;
+				document.getElementById("pmPhysical").checked = true;
 				break;
-			case "mSp":
+			case "mSp":			// 任侠
 				document.getElementById("scaleMod").value = 0.9;
+				document.getElementById("pmMagical").checked = true;
 				break;
-			case "shoot":
+			case "shoot":		// 射擊
 				document.getElementById("scaleMod").value = 0.80;
 				break;
-			case "tele":
+			case "tele":		// 念動
 				document.getElementById("scaleMod").value = 1.50;
+				document.getElementById("pmMagical").checked = true;
 				break;
-			case "weather":
+			case "weather":		// 天侯
 				document.getElementById("scaleMod").value = 0.70;
+				document.getElementById("pmMagical").checked = true;
 				break;
-			case "luckD":
+			case "luckD":		// 運差
 				document.getElementById("scaleMod").value = 1.00;
+				document.getElementById("pmMagical").checked = true;
 				break;
-			case "moonlight":
+			case "moonlight":	// 月影
 				document.getElementById("scaleMod").value = 0.80;
+				document.getElementById("pmMagical").checked = true;
 				break;
 		}
 		calc()
@@ -406,7 +416,7 @@
 </script>
 
 <body>
-	<p><b>傷害計算器 by 雪頂夢 @ PigPigChannel (last updated on 23/08/2020) v0.5</b></p>
+	<p><b>傷害計算器 by 雪頂夢 @ PigPigChannel (last updated on 11/04/2021) v0.6</b></p>
 	<p>註：
 	<ol>
 		<li>小數位計算上可能有些微出入</li>
@@ -518,8 +528,9 @@
 				<td><input type="number" id="unitType" tabindex="2"></input></td>
 				<td title="Target MATK">魔攻</td>
 				<td><input type="number" id="targetMatk" min="1" tabindex="3"></input></td>
-				<td class="passive">攻種</td>
-				<td><input type="number" id="targetType" tabindex="4"></input></td>
+				<td class="passive" id="frozen">凍結</td>
+				<td class="passive"	><label><input type="radio" name="frozen" id="frozenTrue" value="1" tabindex="4">是</label>
+				<label><input type="radio" name="frozen" id="frozenFalse" value="0" tabindex="4" checked>否</label></td>
 			</tr>
 			<tr>
 				<td title="Unit MDEF">魔防</td>
@@ -535,8 +546,8 @@
 				<td colspan="2">特效類：</td>
 				<td title="Target DEX">器用</td>
 				<td><input type="number" id="targetDex" min="1" tabindex="3"></input></td>
-				<td class="passive" title="Element Unit Defense">全防禦</td>
-				<td><input type="number" id="targetAllDef" tabindex="4"></input></td>
+				<td class="passive">攻種</td>
+				<td><input type="number" id="targetType" tabindex="4"></input></td>
 			</tr>
 			<tr>
 				<td title="Unit AGI">素早</td>
@@ -545,7 +556,8 @@
 				<td><input type="number" id="unitEleSp" tabindex="2"></input></td>
 				<td title="Target AGI">素早</td>
 				<td><input type="number" id="targetAgi" min="1" tabindex="3"></input></td>
-				<td colspan="2" rowspan="2"></td>
+				<td class="passive" title="Element Unit Defense">全防禦</td>
+				<td><input type="number" id="targetAllDef" tabindex="4"></td>
 			</tr>
 			<tr>
 				<td class="passive" title="Unit CRIT">會心</td>
@@ -554,6 +566,7 @@
 				<td><input type="number" id="unitSin" tabindex="2"></input></td>
 				<td title="Target CRIT">會心</td>
 				<td><input type="number" id="targetCrit" min="1" tabindex="3"></input></td>
+				<td colspan="2"></td>
 			</tr>
 			<tr>
 				<td title="Unit LUCK">運</td>
@@ -591,9 +604,9 @@
 	</table>
 	<p>
 		Attack Score = <span id="fScaledAtk" title="Scaled Attack">scaledAtk</span> x <span id="fSkillMod" title="Skill Modifier">skillMod</span> = <span id="atkScore" title="Attack Score">atkScore</span><br>
-		Damage Modifier = [<span title="Basic Modifier Score">100</span> + (<span id="fModPlus" title="Bonus Modifier total">modPlus</span>) - (<span id="fModMinus" title="Penalty Modifier total">modMinus</span>) + (<span id="fMod2Side" title="Type & Height Modifier total">modMisc</span>)]% = <span id="dmgMod" title="Damage Modifier">dmgMod</span><br>
+		Damage Modifier = [<span title="Basic Modifier Score">100</span> + (<span id="fModPlus" title="Bonus Modifier total">modPlus</span>) - (<span id="fModMinus" title="Penalty Modifier total">modMinus</span>) + (<span id="fModMisc" title="Misc Modifier total">modMisc</span>)]% = <span id="dmgMod" title="Damage Modifier">dmgMod</span><br>
 		Defense Score = <span id="fRelDef" title="Target Relevant Defense Value">relDef</span> x <span id="fDefMod" title="Defense Modifier">defMod</span>% = <span id="defScore" title="Defense Score">defScore</span><br>
-		Screen Damage = (<span id="fAtkScore" title="Attack Score">atkScore</span> x <span id="fDmgMod" title="Damage Modifier">dmgMod</span> - <span id="fDefScore" title="Defense Score">defScore</span>) x <span id="fTypeResist" title="Target Type Resist Value">typeResist</span> x <span id="fAllResist" title="Target All Resist Value">allResist</span> = <span id="screenDmg" title="In game reference damage">screenDmg</span>
+		Screen Damage = (<span id="fAtkScore" title="Attack Score">atkScore</span> x <span id="fDmgMod" title="Damage Modifier">dmgMod</span> - <span id="fDefScore" title="Defense Score">defScore</span>) x <span id="fTypeResist" title="Target Type Resist Value">typeResist</span> x <span id="fAllResist" title="Target All Resist Value">allResist</span> = <span id="screenDmg" title="In game reference damage" style="border-style: inset;">screenDmg</span>
 		<!-- <script>
 			resetClass();
 			assign();

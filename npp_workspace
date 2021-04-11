@@ -1,5 +1,6 @@
 <NotepadPlus>
     <Project name="Tagatame">
+        <File name="dmgCalc.html" />
         <File name="Sikuli\event.sikuli\event.py" />
         <File name="Sikuli\inspSkill.sikuli\inspSkill.py" />
         <File name="Sikuli\multi.sikuli\multi.py" />

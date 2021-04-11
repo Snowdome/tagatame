@@ -22,7 +22,7 @@ msgEnd = "***************End of command***************"
 #  -------------------------Assets-------------------------
 # Draw
 ticket = Pattern("ticket.png").targetOffset(0,125)
-drawMax = Pattern("gachuHeader.png").targetOffset(135,275)	# Location of max button in respect to title bar
+drawMax = Pattern("1617007617943.png").targetOffset(140,275)	# Location of max button in respect to title bar
 noTicket = "noTicket.png"
 drawOK = "drawOK.png"
 skip = "skip.png"
@@ -565,7 +565,7 @@ def fadeOut(n=1):
 #  -------------------------Script-------------------------
 #keyLv()
 #btAction(3)
-#btPtQuest(20)
+#btPtQuest(200)
 #btUnitQuest(999)
 #btQuest(4)
 #forge(50-7)
