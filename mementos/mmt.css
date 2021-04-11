@@ -89,6 +89,10 @@ th#luck {
 	text-align: center;
 }
 
+tr.mmt {
+    height: 40.4px;
+}
+
 tr td:nth-child(3),
 tr td:nth-child(4) {
 	width: 16px;
