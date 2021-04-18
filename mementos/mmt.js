@@ -400,6 +400,9 @@ function replaceKeyword(selector, oldStr, newStr) {
 }
 
 function translate() {
+	// show Global Origins in selection list
+	document.getElementById("g29").style.display = "";
+	
 	// translate headers
 	var headers = document.getElementsByTagName('th');
 	headers[0].innerText = "Icon";
@@ -417,9 +420,9 @@ function translate() {
 	headers[13].innerText = "Agi";
 	headers[14].innerText = "Luc";
 	headers[15].innerText = "Atk.Type";
-	headers[16].innerText = "Val";
+	headers[16].innerText = "Bonus";
 	headers[17].innerText = "Vs";
-	headers[18].innerText = "Val";
+	headers[18].innerText = "Bonus";
 	headers[19].innerText = "Misc";
 	headers[20].innerText = "Env";
 	headers[21].innerText = "Slo";

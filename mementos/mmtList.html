@@ -5,9 +5,11 @@
         if (window.location.href.indexOf('_en') > -1) {
             translate();
         }
-        var urls = document.querySelectorAll(a[href ^= 'https://www.alchemistcodedb.com/jp/card/ts-gl-');
-                for (i = 0; i < urls.length; i++) {
-                    urls[i].href = urls[i].href.replace(/jp,);}checkGroup();
+        var urls = document.querySelectorAll("a[href ^= 'https://www.alchemistcodedb.com/jp/card/ts-gl-']");
+        for (i = 0; i < urls.length; i++) {
+            urls[i].href = urls[i].href.replace("/jp", "");
+        }
+        checkGroup();
         ]]>
     </script>
     <table id='mementos'>
