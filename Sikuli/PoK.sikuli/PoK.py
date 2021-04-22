@@ -551,7 +551,7 @@ def fadeOut(n=1):
 				apCheck(drink30)
 				clkObj(yes)
 			sysMsg("Entering battle")
-			waitObj(btResult, 30)
+			waitObj(btResult, 60)
 			clkObj(btResult, 0, 1)
 			clkObj(loot)
 			clkObj(btEndNext)
