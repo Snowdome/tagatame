@@ -1,4 +1,4 @@
-# event.py last updated 03/01/2021
+# event.py last updated 25/04/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -33,6 +33,7 @@ shayna = evQ(Pattern("1609671080848.png").targetOffset(-150,0), "Archive", "1609
 starlight = evQ(Pattern("starlightEv.png").targetOffset(425,35), "Key", "starlightStage.png", "starlightTitle.png") #絆は星が燃えるより永く
 wrath = evQ(Pattern("1609670558629.png").targetOffset(-150,0), "Archive", "1609668686706.png", "1609668694461.png") #この薄汚れた世界に生きて
 yudit = evQ(Pattern("1609670586655.png").targetOffset(-150,0), "Archive", "yuditStage.png", "yuditTile.png") #繋ぐ明日へのメカニカル
+yura = evQ("1619317952458.png", "Current", "1619317969325.png", "1619317979844.png") #垣根無く、未来へ
 
 # Seasons
 easter2020 = evQ(Pattern("1609671093657.png").targetOffset(-150,0), "Archive", "easterStage.png", "easterTitle.png") #魔法仕掛けのColorful Egg
@@ -67,8 +68,9 @@ xmas2020 = evQ(Pattern("1609670507657.png").targetOffset(-150,0), "Current", "16
 # Collab
 AOT = evQ("AOTEvHard.png", "AOT", "AOTStage.png", "aotTitle.png") #紡ぐ彼方のメカニカル
 AOT2 = evQ("AOTEvHell.png", "AOT", "AOT2Stage.png", "aot2Title.png") #紡ぐ彼方のメカニカル
-POK10 = evQ("POKEvEx.png", "POK", "1604806963152.png", "1604806975054.png")
-POK12 = evQ("POKEvEx.png", "POK", "POK12Stage.png", "POK12Title.png")
+POKL1 = evQ("1619317644373.png", "POK", "1619317689465.png", "1619317715360.png")
+POK10 = evQ("1619317604855.png", "POK", "1604806963152.png", "1604806975054.png")
+POK12 = evQ("1619317604855.png", "POK", "POK12Stage.png", "POK12Title.png")
 shieldBallon = evQ("1589098452707.png", "Current", "shieldBallonStage.png", "shieldBallonTitle.png") #オレンジバルーン大発生
 
 # Misc
@@ -150,4 +152,5 @@ def evAR(evQ, n=10):
 #arCheck(loop=10)
 #evAR(vDay, 30)
 #evAR(vDay2021, 5)
-evAR(summer2019, 5)
+#evAR(yura, 10)
+evAR(statue6, 30)
