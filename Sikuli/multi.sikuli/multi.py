@@ -79,8 +79,37 @@ skill1 = Pattern("skillDown.png").targetOffset(-190,120)
 skill2 = Pattern("skillDown.png").targetOffset(-190,260)
 skill3 = Pattern("skillDown.png").targetOffset(-190,420)
 
+#  -------------------------rdpAssets-------------------------
+multiStartRDP = "multiStartRDP.png"
+confirmRDP = "confirmRDP.png"
+autoRDP = "autoRDP.png"
+btMenuRDP = "btMenuRDP.png"
+backRDP = "backRDP.png"
+
 
 #  -------------------------Saved automation-------------------------
+def rdpSoloAuto(n=1):
+	i = 0
+	sysMsg("Initializing rdpSoloAuto command.")
+	while i < n:
+		t = 0
+		clkObj(multiStartRDP)
+		apCheckRDP(multiStartRDP, nextObj=confirmRDP)
+		clkObj(confirmRDP)
+		waitObj(btMenuRDP, 30)
+		while t != -1:
+			if not exists(backRDP, 0):
+				sysMsg("Still in battle. Waiting for 1 more sec. Total waiting time: " + str(t) + " sec.")
+				sleep(1)
+				t = t + 1
+			else:
+				clkObj(backRDP, loop=1)
+				t = -1
+				i = i + 1
+				sysMsg("***************Successfully executed " + str(i) + " time(s)***************")
+				if i < n:
+					waitObj(multiStartRDP)
+
 def subRetreat():
 	clkObj(subBtMenu)
 	clkObj(subRetreatBtn)
@@ -394,7 +423,6 @@ def multiDouble(multiQ, script, n=1):
 #multiSingle(solo105, actm105, 1000)
 #multiDouble(sub205, acts105, 1000)
 #multiDouble(subS2b, actsS2b, 1000)
-
-
 #multiDouble(sub102, acts102, 500)
-multiSingle(soloZaharI, "auto", 7)
+#multiSingle(soloZaharI, "auto", 7)
+rdpSoloAuto(100)

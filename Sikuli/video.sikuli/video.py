@@ -1,4 +1,4 @@
-	   # video.py last updated 01/07/2020
+# video.py last updated 09/05/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -7,15 +7,24 @@ from tagatame import *
 
 
 #  -------------------------Assets-------------------------
+bar = Pattern("bar.png").targetOffset(-135,20)
 auto = "auto.png"
+playConfirm = "playConfirm.png"
 playNext = "playNext.png"
+startRec = Pattern("startRec.png").similar(0.85)
 stopRec = "stopRec.png"
 
 #  -------------------------Body-------------------------
-if not exists(stopRec, 0):
-	sysMsg("Please start recording first!")
+
+clkObj(bar)
+type("G", KeyModifier.CTRL + KeyModifier.SHIFT)
+clkObj(startRec)
+sleep(1)
+type(Key.ESC)
+if not exists(stopRec, 1):
+	sysMsg("Stop recoding button not found, please check.")
 	exit()
-clkObj(playNext)
+clkObj(playConfirm)
 sysMsg("Start playing current section")
 t = 0
 while t != -1:
@@ -51,3 +60,5 @@ while t != -1:
 			mouseMove(-10,0)
 			sleep(refresh)
 			sysMsg("End message not found. Waiting for " + str(refresh)+ " more sec. Total waiting time: " + str(t) + " sec.")
+
+#  -------------------------Command-------------------------

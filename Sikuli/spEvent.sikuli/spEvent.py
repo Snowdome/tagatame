@@ -100,13 +100,13 @@ shield = spQ("波打ち際モラトリアム", "shieldEv.png", "adv", "shieldLog
 reZero = spQ("Re:ゼロから始める異世界生活", "reZeroEv.png", "adv", "reZeroLogo.png", "reZeroStage.png", "reZeroCoin.png")
 
 # Advance Boss Collab - 拳に宿りしは誰ガ為の
-kof = spQ("拳に宿りしは誰ガ為の", "1609675651248.png" , "adv", "1609675625057.png", "1609675692125.png", "1609675672525.png")
+kof = spQ("拳に宿りしは誰ガ為の", "kofEv.png" , "adv", "kofLogo.png", "kofStage.png", "kofCoin.png")
 
 # Advance Boss Collab - 砂漠に奏でる夜想曲
-smt = spQ("砂漠に奏でる夜想曲", "1615209298335.png", "adv", "1615209316734.png", "1615209332674.png", "1615209345337.png")
+smt = spQ("砂漠に奏でる夜想曲", "smtEv.png", "adv", "smtLogo.png", "smtStage.png", "smtCoin.png")
  
 # Advance Boss - Wild Card Hero
-WCH = spQ("Wild Card Hero", "1602106517367.png", "adv", "1602106537649.png", "1609668093389.png", "1602106560384.png")
+WCH = spQ("Wild Card Hero", "ryuiEv.png", "adv", "ryuiLogo.png", "ryuiStage.png", "ryuiCoin.png")
 
 # Genesis 1A - 「創る、この世界を」（前編）
 gen1a = spQ("1A 「創る、この世界を」（前編）", "gen1aEv.png", "gen", "gen1aLogo.png", Pattern("gen1aStage.png").exact(), "genCoin.png")
@@ -145,16 +145,16 @@ gen6a = spQ("6A 「この憤怒こそ我が正義」（前編）", "gen6aEv.png"
 gen6b = spQ("6B 「この憤怒こそ我が正義」（後編）", "gen6bEv.png", "gen", "gen6bLogo.png", Pattern("gen6bStage.png").exact(), "genCoin.png")
 
 # Gensos 7A - 「強欲なるは我が心」（前編）
-gen7a = spQ("7A 「強欲なるは我が心」（前編）", "1612221594340.png", "gen", "1612221616635.png", Pattern("1612221642262.png").exact(), "genCoin.png")
+gen7a = spQ("7A 「強欲なるは我が心」（前編）", "gen7aEv.png", "gen", "gen7aLogo.png", Pattern("gen7aStage.png").exact(), "genCoin.png")
 
 # Gensos 7B - 「強欲なるは我が心」（後編）
-gen7b = spQ("強欲なるは我が心」（後編）", "1615026515229.png", "gen", "1615026536405.png", Pattern("1615026560535.png").exact(), "genCoin.png")
+gen7b = spQ("強欲なるは我が心」（後編）", "gen7bEv.png", "gen", "gen7bLogo.png", Pattern("gen7bStage.png").exact(), "genCoin.png")
 
 drop = Region(246,368,476,88)
 ryui = "ryui.png"
 nero1hit = Pattern("nero1hit.png").targetOffset(167,0)
 WCH2 = Pattern("WCH2.png").targetOffset(165,0)
-WCH3 = Pattern("WCH3.png").targetOffset(165,0)
+WCH3 = 
 
 #  -------------------------Define Function-------------------------
 # Go to special event

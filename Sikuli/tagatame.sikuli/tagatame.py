@@ -1,4 +1,4 @@
-# tagatame.py last updated 23/03/2021
+# tagatame.py last updated 10/05/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 from sikuli import *
@@ -76,12 +76,17 @@ noQuota = "noQuota.png"
 noAR = "noAR.png"
 noQuotaOK = "noQuotaOK.png"
 noAP = "noAP.png"
+noAPRDP = "noAPRDP.png"
 leaf60 = "leaf60.png"
+leaf60RDP = "leaf60RDP.png"
 leaf120 = "leaf120.png"
-leaf614 = "leaf614.png"
+leaf120RDP = "leaf120RDP.png"
 leafAdd = "leafAdd.png"
+leafAddRDP = "leafAddRDP.png"
 okAP = Pattern("okAP.png").similar(0.85)
+okAPRDP = "okAPRDP.png"
 restoredAP = Pattern("restoreAP.png").similar(0.90).targetOffset(0,215)	# Location of OK button in respect to the message
+restoredAPRDP = Pattern("restoredAPRDP.png").targetOffset(0,190) # Location of OK button in respect to the message
 teamArrow = "teamArrow.png"
 btStart = "btStart.png"
 btAgain = "btAgain.png"
@@ -277,6 +282,22 @@ def apCheck(object, item=leaf120, q=1, nextObj="N/A"):
 			q = q - 1
 		clkObj(okAP)
 		clkObj(restoredAP, 0, object)
+		if nextObj != "N/A":
+			clkObj(object, 0, nextObj)
+		else:
+			clkObj(object, 0, 1)
+	else:
+		sysMsg("Sufficient AP. Proceed to next step.")
+
+def apCheckRDP(object, item=leaf120RDP, q=1, nextObj="N/A"):
+	if exists(noAPRDP, normal):
+		sysMsg("Insufficient AP.")
+		clkObj(item)
+		while q != 1:
+			clkObj(leafAddRDP)
+			q = q - 1
+		clkObj(okAPRDP)
+		clkObj(restoredAPRDP, 0, object)
 		if nextObj != "N/A":
 			clkObj(object, 0, nextObj)
 		else:

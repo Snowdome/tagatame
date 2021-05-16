@@ -149,8 +149,8 @@ def evAR(evQ, n=10):
 		arCheck(loop=n)
 
 #  -------------------------Command-------------------------
-#arCheck(loop=10)
+arCheck(loop=20)
 #evAR(vDay, 30)
 #evAR(vDay2021, 5)
 #evAR(yura, 10)
-evAR(statue6, 30)
+#evAR(statue6, 30)
