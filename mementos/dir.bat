@@ -1,1 +1,1 @@
-dir resources\*.png /o:N /b  > mmtList.txt
+dir ..\resources\mmt\*.png /o:N /b  > mmtList.txt

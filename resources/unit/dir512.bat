@@ -1,0 +1,1 @@
+dir 512\*.png /o:N /b  > unitProfile512.txt
