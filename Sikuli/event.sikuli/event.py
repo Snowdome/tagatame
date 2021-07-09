@@ -56,6 +56,7 @@ vDay2021 = evQ("1614382524492.png", "Current", "1614382536722.png", "16143825463
 wedding2017 = evQ(Pattern("1609671282052.png").targetOffset(-150,0), "Archive", "1609670186754.png", "1609670193790.png") #Marriage-Go-Round
 wedding2018 = evQ(Pattern("1609671224428.png").targetOffset(-150,0), "Archive", "1609669924925.png", "1609669934161.png") #Happy Happy Crazy Wedding!
 wedding2020 = evQ(Pattern("1609670870490.png").targetOffset(-150,0), "Archive", "1609668965152.png", "1609668972044.png") #Wedding Knifeに祝福を
+wedding2021 = evQ("1625592878930.png", "Current", "1625592894710.png", "1625592909447.png") #Wish for you
 wVday2019 = evQ(Pattern("1609671112346.png").targetOffset(-150,0), "Archive", "1609669307116.png", "1609669398765.png") #ホワイトデー・コンプレックス
 wVday2020 = evQ(Pattern("1609670948562.png").targetOffset(-150,0), "Archive", "1609673255716.png", "whiteVdayTitle.png") #おもてなしは愛をこめて
 wVday2020b= evQ(Pattern("1609670519685.png").targetOffset(-150,0), "Archive", "1609668322128.png", "1609668330328.png") #永遠を紡ぐラブレター
@@ -149,8 +150,8 @@ def evAR(evQ, n=10):
 		arCheck(loop=n)
 
 #  -------------------------Command-------------------------
-arCheck(loop=20)
-#evAR(vDay, 30)
+arCheck(loop=10)
+#evAR(wedding2021, 10)
 #evAR(vDay2021, 5)
 #evAR(yura, 10)
 #evAR(statue6, 30)

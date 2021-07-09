@@ -255,5 +255,5 @@ def autoTowerEx(set):
 
 #  -------------------------Command-------------------------
 #autoTowerType(smtHard)
- autoTower(veda, team1)
+autoTower(veda, team1)
 #autoTowerEx(2)

@@ -13,6 +13,7 @@ playConfirm = "playConfirm.png"
 playNext = "playNext.png"
 startRec = Pattern("startRec.png").similar(0.85)
 stopRec = "stopRec.png"
+ep1 = Pattern("ep1.png").similar(0.95)
 
 #  -------------------------Body-------------------------
 
@@ -24,6 +25,7 @@ type(Key.ESC)
 if not exists(stopRec, 1):
 	sysMsg("Stop recoding button not found, please check.")
 	exit()
+clkObj(ep1)
 clkObj(playConfirm)
 sysMsg("Start playing current section")
 t = 0

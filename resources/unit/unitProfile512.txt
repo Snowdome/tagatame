@@ -189,6 +189,7 @@ hoo.png
 hozu.png
 hugo.png
 iena.png
+igna.png
 ikas.png
 ikon.png
 ikon_xmas.png
@@ -349,6 +350,7 @@ pok_eros.png
 pok_eros_swim.png
 pok_fail.png
 pok_frei.png
+pok_logis.png
 pok_long.png
 pok_para.png
 pok_risa.png
@@ -415,6 +417,8 @@ saha.png
 saha_babel.png
 sara.png
 sb_firo.png
+sb_fito.png
+sb_glas.png
 sb_melt.png
 sb_naof.png
 sb_raph.png
