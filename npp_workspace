@@ -18,10 +18,11 @@
         <File name="mementos\mmt.css" />
         <File name="mementos\mmt.js" />
         <File name="mementos\score.js" />
-        <File name="runes\runes.html" />
-        <File name="runes\runes.css" />
-        <File name="runes\runes.js" />
-        <File name="runes\table.html" />
+        <File name="seals\seals.html" />
+        <File name="seals\sealCalc.html" />
+        <File name="seals\seals.css" />
+        <File name="seals\seals.js" />
+        <File name="seals\table.html" />
     </Project>
     <Project name="PoK">
         <File name="Sikuli\PoK.sikuli\PoK.py" />
