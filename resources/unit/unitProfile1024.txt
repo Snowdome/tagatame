@@ -111,6 +111,9 @@ doro.png
 doro_swim.png
 drei.png
 drg_wagi_wiz_01.png
+dung_aiz.png
+dung_bell.png
+dung_hest.png
 edga.png
 edga_movies.png
 edwi.png
