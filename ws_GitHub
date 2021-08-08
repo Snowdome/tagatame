@@ -1,14 +1,6 @@
 <NotepadPlus>
-    <Project name="Tagatame">
+    <Project name="HTML">
         <File name="dmgCalc.html" />
-        <File name="Sikuli\event.sikuli\event.py" />
-        <File name="Sikuli\inspSkill.sikuli\inspSkill.py" />
-        <File name="Sikuli\multi.sikuli\multi.py" />
-        <File name="Sikuli\Archive\raid.sikuli\raid.py" />
-        <File name="Sikuli\spEvent.sikuli\spEvent.py" />
-        <File name="Sikuli\story.sikuli\story.py" />
-        <File name="Sikuli\tagatame.sikuli\tagatame.py" />
-        <File name="Sikuli\tower.sikuli\tower.py" />
         <File name="index.html" />
         <File name="index_tinyurl.html" />
         <File name="mementos\mmt.html" />
@@ -24,8 +16,14 @@
         <File name="seals\seals.js" />
         <File name="seals\table.html" />
     </Project>
-    <Project name="PoK">
-        <File name="Sikuli\PoK.sikuli\PoK.py" />
-        <File name="C:\Program Files (x86)\DMMGamePlayer\PoK\Data\paths.json" />
+    <Project name="eSkill">
+        <File name="eSkill\sword.xml" />
+        <File name="eSkill\staff.xml" />
+        <File name="eSkill\spear.xml" />
+        <File name="eSkill\blade.xml" />
+        <File name="eSkill\greatsword.xml" />
+        <File name="eSkill\centus.xml" />
+        <File name="eSkill\bow.xml" />
+        <File name="eSkill\memo.txt" />
     </Project>
 </NotepadPlus>

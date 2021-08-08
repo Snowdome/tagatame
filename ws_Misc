@@ -1,0 +1,16 @@
+<NotepadPlus>
+    <Project name="Tagatame_Sikuli">
+        <File name="Sikuli\event.sikuli\event.py" />
+        <File name="Sikuli\inspSkill.sikuli\inspSkill.py" />
+        <File name="Sikuli\multi.sikuli\multi.py" />
+        <File name="Sikuli\Archive\raid.sikuli\raid.py" />
+        <File name="Sikuli\spEvent.sikuli\spEvent.py" />
+        <File name="Sikuli\story.sikuli\story.py" />
+        <File name="Sikuli\tagatame.sikuli\tagatame.py" />
+        <File name="Sikuli\tower.sikuli\tower.py" />
+    </Project>
+    <Project name="PoK">
+        <File name="Sikuli\PoK.sikuli\PoK.py" />
+        <File name="C:\Program Files (x86)\DMMGamePlayer\PoK\Data\paths.json" />
+    </Project>
+</NotepadPlus>
