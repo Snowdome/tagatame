@@ -29,6 +29,18 @@ function showUnreleased() {
 	}
 }
 
+function switchTable4Btn() {
+	if (document.getElementById("switchTable4").innerHTML == "顯示01/06/2021前版本" ){
+		document.getElementById("switchTable4").innerHTML = "顯示01/06/2021後版本";
+		document.getElementById("table4").style.display = "table";
+		document.getElementById("table4v2").style.display = "none";
+	} else {
+		document.getElementById("switchTable4").innerHTML = "顯示01/06/2021前版本"
+		document.getElementById("table4").style.display = "none";
+		document.getElementById("table4v2").style.display = "table";
+	}
+}
+
 function showComment() {
 	var x = document.getElementById("Comment");
 
@@ -529,6 +541,15 @@ function unlockInput() {
 			document.getElementById(evoStatIntEm).innerHTML = "N/A";
 		}
 	}
+	for (i=1; i <= 6; i++) {
+		var en = "en" + i;
+		document.getElementById(en).style.display = "inline-block";
+	}
+	document.getElementById("zeni").innerHTML = 0;
+	document.getElementById("stoneGreen").innerHTML = 0;
+	document.getElementById("stoneBlue").innerHTML = 0;
+	document.getElementById("stoneYellow").innerHTML = 0;
+	document.getElementById("stoneRed").innerHTML = 0;
 }
 
 function lockInput() {
@@ -567,8 +588,8 @@ function lockInput() {
 		}
 		var set = document.getElementById("set" + slot).value.substring(2);
 		var ico = document.getElementById("set" + slot).value.substring(0, 2);
-		document.getElementById("rune" + slot).innerHTML = "<img src='resources/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico + ".png>";
-		document.getElementById("rune" + slot + "Em").innerHTML = "<img src='resources/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=resources/ui_Rune_3_icon_rune_taip" + ico + ".png>";
+		document.getElementById("rune" + slot).innerHTML = "<img src='../res/seals/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=../res/seals/ui_Rune_3_icon_rune_taip" + ico + ".png>";
+		document.getElementById("rune" + slot + "Em").innerHTML = "<img src='../res/seals/it_rune_" + rank + "_1_" + set + ".png'><img class='icon' src=../res/seals/ui_Rune_3_icon_rune_taip" + ico + ".png>";
 	}
 
 	/* Insert Basic Stat type */
@@ -1387,7 +1408,7 @@ function upgrade(set, slot) {
 				level.innerHTML = "覺醒0 強化3";
 				btn.innerHTML = "覺醒";
 				btn.className = "ev";
-				document.getElementById(useGauge).style.display = "none";
+				// document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
@@ -1409,23 +1430,23 @@ function upgrade(set, slot) {
 			level.innerHTML = "覺醒1 強化0";
 			btn.innerHTML = "強化";
 			btn.className = "en";
-			document.getElementById(useGauge).style.display = "inline-block";
-			document.getElementById(enRate).innerHTML = "60%";
+			// document.getElementById(useGauge).style.display = "inline-block";
+			document.getElementById(enRate).innerHTML = "100%";
 			evoStat(slot, "evoStatEm" + "1" + slot, "evoStatIntEm" + "1" + slot);
 			break;
 		case "覺醒1 強化0":
 			switch (rank) {
 				case "ssr":
-					cost = 360000;
-					costGreen = 5;
+					cost = 600000;
+					costGreen = 8;
 					break;
 				case "sr":
-					cost = 240000;
-					costGreen = 4;
+					cost = 400000;
+					costGreen = 6;
 					break;
 				case "r":
-					cost = 120000;
-					costGreen = 3;
+					cost = 200000;
+					costGreen = 5;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1441,22 +1462,22 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒1 強化1";
-				document.getElementById(enRate).innerHTML = "60%";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒1 強化1":
 			switch (rank) {
 				case "ssr":
-					cost = 450000;
-					costGreen = 5;
+					cost = 750000;
+					costGreen = 8;
 					break;
 				case "sr":
-					cost = 300000;
-					costGreen = 4;
+					cost = 500000;
+					costGreen = 6;
 					break;
 				case "r":
-					cost = 150000;
-					costGreen = 3;
+					cost = 250000;
+					costGreen = 5;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1472,22 +1493,22 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒1 強化2";
-				document.getElementById(enRate).innerHTML = "60%";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒1 強化2":
 			switch (rank) {
 				case "ssr":
-					cost = 540000;
-					costGreen = 5;
+					cost = 900000;
+					costGreen = 8;
 					break;
 				case "sr":
-					cost = 360000;
-					costGreen = 4;
+					cost = 600000;
+					costGreen = 6;
 					break;
 				case "r":
-					cost = 180000;
-					costGreen = 3;
+					cost = 300000;
+					costGreen = 5;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1505,7 +1526,7 @@ function upgrade(set, slot) {
 				level.innerHTML = "覺醒1 強化3";
 				btn.innerHTML = "覺醒";
 				btn.className = "ev";
-				document.getElementById(useGauge).style.display = "none";
+				// document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
@@ -1526,24 +1547,24 @@ function upgrade(set, slot) {
 			}
 			level.innerHTML = "覺醒2 強化0";
 			btn.innerHTML = "強化";
-			document.getElementById(useGauge).style.display = "inline-block";
-			document.getElementById(enRate).innerHTML = "30%";
+			// document.getElementById(useGauge).style.display = "inline-block";
+			document.getElementById(enRate).innerHTML = "100%";
 			btn.className = "en";
 			evoStat(slot, "evoStatEm" + "2" + slot, "evoStatIntEm" + "2" + slot);
 			break;
 		case "覺醒2 強化0":
 			switch (rank) {
 				case "ssr":
-					cost = 630000;
-					costGreen = 10;
+					cost = 2100000;
+					costGreen = 33;
 					break;
 				case "sr":
-					cost = 420000;
-					costGreen = 8;
+					cost = 1400000;
+					costGreen = 26;
 					break;
 				case "r":
-					cost = 210000;
-					costGreen = 6;
+					cost = 700000;
+					costGreen = 20;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1559,22 +1580,22 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒2 強化1";
-				document.getElementById(enRate).innerHTML = "30%";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒2 強化1":
 			switch (rank) {
 				case "ssr":
-					cost = 720000;
-					costGreen = 10;
+					cost = 2400000;
+					costGreen = 33;
 					break;
 				case "sr":
-					cost = 480000;
-					costGreen = 8;
+					cost = 1600000;
+					costGreen = 26;
 					break;
 				case "r":
-					cost = 240000;
-					costGreen = 6;
+					cost = 800000;
+					costGreen = 20;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1590,22 +1611,22 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒2 強化2";
-				document.getElementById(enRate).innerHTML = "30%";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒2 強化2":
 			switch (rank) {
 				case "ssr":
-					cost = 810000;
-					costGreen = 10;
+					cost = 2700000;
+					costGreen = 33;
 					break;
 				case "sr":
-					cost = 540000;
-					costGreen = 8;
+					cost = 1800000;
+					costGreen = 26;
 					break;
 				case "r":
-					cost = 270000;
-					costGreen = 6;
+					cost = 900000;
+					costGreen = 20;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1623,7 +1644,7 @@ function upgrade(set, slot) {
 				level.innerHTML = "覺醒2 強化3";
 				btn.innerHTML = "覺醒";
 				btn.className = "ev";
-				document.getElementById(useGauge).style.display = "none";
+				// document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
@@ -1644,24 +1665,24 @@ function upgrade(set, slot) {
 			}
 			level.innerHTML = "覺醒3 強化0";
 			btn.innerHTML = "強化";
-			document.getElementById(useGauge).style.display = "inline-block";
-			document.getElementById(enRate).innerHTML = "10%";
+			// document.getElementById(useGauge).style.display = "inline-block";
+			document.getElementById(enRate).innerHTML = "100%";
 			btn.className = "en";
 			evoStat(slot, "evoStatEm" + "3" + slot, "evoStatIntEm" + "3" + slot);
 			break;
 		case "覺醒3 強化0":
 			switch (rank) {
 				case "ssr":
-					cost = 900000;
-					costGreen = 15;
+					cost = 9000000;
+					costGreen = 150;
 					break;
 				case "sr":
-					cost = 600000;
-					costGreen = 12;
+					cost = 6000000;
+					costGreen = 120;
 					break;
 				case "r":
-					cost = 300000;
-					costGreen = 9;
+					cost = 3000000;
+					costGreen = 90;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1677,22 +1698,22 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒3 強化1";
-				document.getElementById(enRate).innerHTML = "10%";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒3 強化1":
 			switch (rank) {
 				case "ssr":
-					cost = 990000;
-					costGreen = 15;
+					cost = 9900000;
+					costGreen = 150;
 					break;
 				case "sr":
-					cost = 660000;
-					costGreen = 12;
+					cost = 6600000;
+					costGreen = 120;
 					break;
 				case "r":
-					cost = 330000;
-					costGreen = 9;
+					cost = 3300000;
+					costGreen = 90;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1708,22 +1729,22 @@ function upgrade(set, slot) {
 						break;
 				}
 				level.innerHTML = "覺醒3 強化2";
-				document.getElementById(enRate).innerHTML = "10%";
+				document.getElementById(enRate).innerHTML = "100%";
 			}
 			break;
 		case "覺醒3 強化2":
 			switch (rank) {
 				case "ssr":
-					cost = 1080000;
-					costGreen = 15;
+					cost = 10800000;
+					costGreen = 150;
 					break;
 				case "sr":
-					cost = 720000;
-					costGreen = 12;
+					cost = 7200000;
+					costGreen = 120;
 					break;
 				case "r":
-					cost = 360000;
-					costGreen = 9;
+					cost = 3600000;
+					costGreen = 90;
 					break;
 			}
 			if (enhance(slot, rank) == true) {
@@ -1748,7 +1769,7 @@ function upgrade(set, slot) {
 				}
 				level.innerHTML = "覺醒3 強化3";
 				btn.style.display = "none";
-				document.getElementById(useGauge).style.display = "none";
+				// document.getElementById(useGauge).style.display = "none";
 				document.getElementById(enRate).innerHTML = "N/A";
 			}
 			break;
@@ -1820,7 +1841,7 @@ function enhanceEvo(row, slot) {
 		function hammer() {
 			var p = parseInt(randomInt(1, 100));
 			document.getElementById("rolled").innerHTML = (p + " / 100");
-			if (p > 66) {
+			if (p > 0) {
 				document.getElementById(evoStatIntEmId).innerHTML = parseInt(document.getElementById(evoStatIntEmId).innerHTML) + 1;
 				document.getElementById("range").innerHTML = "效果強化成功";
 			} else {
@@ -1830,13 +1851,13 @@ function enhanceEvo(row, slot) {
 			var hammer = parseInt(document.getElementById("hammer").innerHTML.replace(/\,/g, ''));
 			switch (rank) {
 				case "ssr":
-					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 5);
+					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 15);
 					break;
 				case "sr":
-					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 3);
+					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 9);
 					break;
 				case "r":
-					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 1);
+					document.getElementById("hammer").innerHTML = Intl.NumberFormat('en-US').format(hammer + 3);
 					break;
 			}
 		}

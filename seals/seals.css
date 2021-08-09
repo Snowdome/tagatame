@@ -116,16 +116,20 @@ table#table2 .pC1 {
 table#table2 tr:nth-child(6) td:last-child,
 table#table2 tr:nth-child(9) td:last-child,
 table#table2 tr:nth-child(12) td:last-child,
-table#table4 {
+table#table4,
+table#table4v2 {
 	text-align: right;
 }
 
 table#table4 th,
-table#table4 td {
+table#table4 td,
+table#table4v2 th,
+table#table4v2 td {
 	width: 75px;
 }
 
-table#table4 th:first-child {
+table#table4 th:first-child,
+table#table4v2 th:first-child {
 	font-size: smaller;
 }
 
@@ -177,10 +181,13 @@ td:first-child {
 }
 
 .em,
-.en,
 button[id^="useGauge"] {
 	width: 60px;
 	float: left;
+}
+
+button[id^="useGauge"] {
+	display: none;
 }
 
 .en {
@@ -195,6 +202,7 @@ button[id^="useGauge"] {
 	border-color: lightgray;
 }
 
+.en,
 .ev,
 .rr {
 	width: 120px;

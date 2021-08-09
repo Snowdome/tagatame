@@ -43,6 +43,12 @@
 			</tbody>
 			<tbody id="history" style="display: none;">
 				<tr>
+					<td>09/08/2021</td>
+					<td>
+						<p><u>Modified:</u><br>1. Updated enhance formula as per 1/6/2001 change<br></p>
+					</td>
+				</tr>
+				<tr>
 					<td>06/11/2020</td>
 					<td>
 						<p><u>Modified:</u><br>1. <span class="new">宝石</span>刻印實裝<br></p>
@@ -445,7 +451,7 @@
 				<td class="pA1" id="stat4Em"></td>
 				<td class="pA1" id="stat5Em"></td>
 				<td class="pC1" id="stat6Em"></td>
-				<td class="paid"> <span id="zeni">0</span> <img src="../resources/seals/ui_Rune_2_icon_zeney.png"></td>
+				<td class="paid"> <span id="zeni">0</span> <img src="../res/seals/ui_Rune_2_icon_zeney.png"></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -455,7 +461,7 @@
 				<td><button type="button" class="rr" onclick="rerollBasicStat('A', '4')">重刷</button></td>
 				<td><button type="button" class="rr" onclick="rerollBasicStat('A', '5')">重刷</button></td>
 				<td><button type="button" class="rr" onclick="rerollBasicStat('C', '6')">重刷</button></td>
-				<td class="paid"><span id="gem">0</span> <img src="../resources/seals/ui_Rune_2_icon_stone.png"></td>
+				<td class="paid"><span id="gem">0</span> <img src="../res/seals/ui_Rune_2_icon_stone.png"></td>
 			</tr>
 			<tr>
 				<td>強化數值</td>
@@ -465,7 +471,7 @@
 				<td class="pA1" id="statEn4">0</td>
 				<td class="pA1" id="statEn5">0</td>
 				<td class="pC1" id="statEn6">0</td>
-				<td class="paid"><span id="stoneGreen">0</span> <img src="../resources/seals/it_runeenh.png"></td>
+				<td class="paid"><span id="stoneGreen">0</span> <img src="../res/seals/it_runeenh.png"></td>
 			</tr>
 			<tr>
 				<td>總數值</td>
@@ -475,7 +481,7 @@
 				<td class="pA1" id="statTotal4"></td>
 				<td class="pA1" id="statTotal5"></td>
 				<td class="pC1" id="statTotal6"></td>
-				<td class="paid"><span id="stoneBlue">0</span> <img src="../resources/seals/it_runeevo_r.png"></td>
+				<td class="paid"><span id="stoneBlue">0</span> <img src="../res/seals/it_runeevo_r.png"></td>
 			</tr>
 			<tr>
 				<td>覺醒屬性1</td>
@@ -485,7 +491,7 @@
 				<td class="any" id="evoStatEm14">N/A</td>
 				<td class="any" id="evoStatEm15">N/A</td>
 				<td class="any" id="evoStatEm16">N/A</td>
-				<td class="paid"><span id="stoneYellow">0</span> <img src="../resources/seals/it_runeevo_sr.png"></td>
+				<td class="paid"><span id="stoneYellow">0</span> <img src="../res/seals/it_runeevo_sr.png"></td>
 			</tr>
 			<tr>
 				<td>覺醒數值1</td>
@@ -495,7 +501,7 @@
 				<td class="any" id="evoStatIntEm14">N/A</td>
 				<td class="any" id="evoStatIntEm15">N/A</td>
 				<td class="any" id="evoStatIntEm16">N/A</td>
-				<td class="paid"><span id="stoneRed">0</span> <img src="../resources/seals/it_runeevo_ssr.png"></td>
+				<td class="paid"><span id="stoneRed">0</span> <img src="../res/seals/it_runeevo_ssr.png"></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -505,7 +511,7 @@
 				<td><button type="button" class="em" onclick="rerollEvo('1','4')">重刷</button><button type="button" class="em" onclick="enhanceEvo('1','4')">強化</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('1','5')">重刷</button><button type="button" class="em" onclick="enhanceEvo('1','5')">強化</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('1','6')">重刷</button><button type="button" class="em" onclick="enhanceEvo('1','6')">強化</button></td>
-				<td class="paid"><span id="hammer">0</span> <img src="../resources/seals/IT_RUNE_STATUS_HUMMER_ITEM.png"></td>
+				<td class="paid"><span id="hammer">0</span> <img src="../res/seals/IT_RUNE_STATUS_HUMMER_ITEM.png"></td>
 			</tr>
 			<tr>
 				<td>覺醒屬性2</td>
@@ -534,7 +540,7 @@
 				<td><button type="button" class="em" onclick="rerollEvo('2','4')">重刷</button><button type="button" class="em" onclick="enhanceEvo('2','4')">強化</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('2','5')">重刷</button><button type="button" class="em" onclick="enhanceEvo('2','5')">強化</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('2','6')">重刷</button><button type="button" class="em" onclick="enhanceEvo('2','6')">強化</button></td>
-				<td class="paid">累積ゲージ</td>
+				<td class="paid" style="display: none;">累積ゲージ</td>
 			</tr>
 			<tr>
 				<td>覺醒屬性3</td>
@@ -544,7 +550,7 @@
 				<td class="any" id="evoStatEm34">N/A</td>
 				<td class="any" id="evoStatEm35">N/A</td>
 				<td class="any" id="evoStatEm36">N/A</td>
-				<td class="paid"><span id="gauge3">0%</span> 3★</td>
+				<td class="paid"><span id="gauge3" style="display: none;">0%</span> 3★</td>
 			</tr>
 			<tr>
 				<td>覺醒數值3</td>
@@ -554,7 +560,7 @@
 				<td class="any" id="evoStatIntEm34">N/A</td>
 				<td class="any" id="evoStatIntEm35">N/A</td>
 				<td class="any" id="evoStatIntEm36">N/A</td>
-				<td class="paid"><span id="gauge4">0%</span> 4★</td>
+				<td class="paid"><span id="gauge4" style="display: none;">0%</span> 4★</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -564,7 +570,7 @@
 				<td><button type="button" class="em" onclick="rerollEvo('3','4')">重刷</button><button type="button" class="em" onclick="enhanceEvo('3','4')">強化</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('3','5')">重刷</button><button type="button" class="em" onclick="enhanceEvo('3','5')">強化</button></td>
 				<td><button type="button" class="em" onclick="rerollEvo('3','6')">重刷</button><button type="button" class="em" onclick="enhanceEvo('3','6')">強化</button></td>
-				<td class="paid"><span id="gauge5">0%</span> 5★</td>
+				<td class="paid"><span id="gauge5" style="display: none;">0%</span> 5★</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -584,7 +590,7 @@
 				<td id="lv4">覺醒0 強化0</td>
 				<td id="lv5">覺醒0 強化0</td>
 				<td id="lv6">覺醒0 強化0</td>
-				<td style="text-align: right;">Rolled: <span id="rolled"></span></td>
+				<td style="text-align: right;" style="display: none;">Rolled: <span id="rolled"></span></td>
 			</tr>
 			<tr>
 				<td>成功率</td>

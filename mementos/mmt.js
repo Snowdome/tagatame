@@ -479,4 +479,3 @@ function translate() {
 	replaceKeyword("td[headers=others]", "対巨体防御", "GiganticRes");
 	replaceKeyword("td[headers=others]", "会心", "Crit");
 }
-

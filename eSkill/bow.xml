@@ -1,0 +1,836 @@
+<mxGraphModel dx="1024" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+  <root>
+    <object label="" author="雪頂夢 @ PigPigChannel" info="Inspiration Skill (Bow)&#xa;Last updated 09/08/2021" id="AMT22FxVQ6m0w3-HDeBy-0">
+      <mxCell />
+    </object>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-1" value="Legend" parent="AMT22FxVQ6m0w3-HDeBy-0" />
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-2" value="" style="group;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-1" vertex="1" connectable="0">
+      <mxGeometry x="1210" y="60" width="460" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;strokeColor=#CCCCCC;align=left;verticalAlign=top;" parent="AMT22FxVQ6m0w3-HDeBy-2" vertex="1">
+      <mxGeometry x="20" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-4" value="&lt;span&gt;1️⃣&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;strokeColor=#CCCCCC;align=center;verticalAlign=middle;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-2" vertex="1">
+      <mxGeometry width="20" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-5" value="&lt;font&gt;活動:&amp;nbsp;己が限界に臨みし者 /&amp;nbsp;獅子王が宿した運命 [EX] /&amp;nbsp;逆襲の慟哭 /&amp;nbsp;その願い、時空を超えて（後編）[EX極] /&amp;nbsp;リターンズクエスト2&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;strokeColor=#CCCCCC;align=left;verticalAlign=middle;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-2" vertex="1">
+      <mxGeometry x="60" width="400" height="40" as="geometry" />
+    </mxCell>
+    <UserObject label="" tooltip="" id="AMT22FxVQ6m0w3-HDeBy-6">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/target/fury.png;" parent="AMT22FxVQ6m0w3-HDeBy-2" vertex="1">
+        <mxGeometry x="20" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <mxCell id="br1KyykoO_OywpIeR4so-0" value="" style="group" parent="AMT22FxVQ6m0w3-HDeBy-1" vertex="1" connectable="0">
+      <mxGeometry x="1210" y="110" width="145" height="340" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-1" value="🏹射擊: PATK + DEX&lt;br&gt;&lt;br&gt;✨魔射: MATK + DEX" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="5" y="240" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-2" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;fillColor=none;fontSize=16;align=center;container=1;collapsible=0;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="10" width="20" height="20" as="geometry">
+        <mxRectangle x="39" y="1505" width="80" height="20" as="alternateBounds" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-3" value="指定武具 (取代)" style="text;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=12;fontFamily=Microsoft JhengHei;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="40" width="100" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;strokeWidth=2;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="10" y="40" width="20" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-5" value="指定武具 (額外)" style="text;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=12;fontFamily=Microsoft JhengHei;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="40" y="40" width="100" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-6" value="開眼角色條件" style="text;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=12;fontFamily=Microsoft JhengHei;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="40" y="80" width="90" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-7" value="▶️" style="text;html=1;resizable=0;points=[];autosize=1;align=center;verticalAlign=bottom;spacingTop=0;fontSize=20;fontFamily=Microsoft JhengHei;spacing=0;fontStyle=0" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="5" y="150" width="30" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-8" value="開眼目標條件" style="text;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=12;fontFamily=Microsoft JhengHei;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="40" y="120" width="90" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-9" value="使用角色限制" style="text;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=12;fontFamily=Microsoft JhengHei;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="40" y="160" width="90" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-10" value="⏸️" style="text;html=1;resizable=0;points=[];autosize=1;align=center;verticalAlign=bottom;spacingTop=0;fontSize=20;fontFamily=Microsoft JhengHei;spacing=0;fontStyle=0" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="5" y="110" width="30" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-11" value="⏺️" style="text;html=1;resizable=0;points=[];autosize=1;align=center;verticalAlign=bottom;spacingTop=0;fontSize=20;fontFamily=Microsoft JhengHei;spacing=0;fontStyle=0" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="5" y="70" width="30" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-12" value="#️⃣" style="text;html=1;resizable=0;points=[];autosize=1;align=center;verticalAlign=bottom;spacingTop=0;fontSize=20;fontFamily=Microsoft JhengHei;spacing=0;fontStyle=0" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry y="190" width="40" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="br1KyykoO_OywpIeR4so-13" value="特定條件 (見右邊)" style="text;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=12;fontFamily=Microsoft JhengHei;" parent="br1KyykoO_OywpIeR4so-0" vertex="1">
+      <mxGeometry x="40" y="200" width="100" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-51" value="Table" parent="AMT22FxVQ6m0w3-HDeBy-0" />
+    <UserObject label="" tooltip="猛攻の蒼弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-bow-02" id="AMT22FxVQ6m0w3-HDeBy-54">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_BOW_02.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="105" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-59" value="弓" style="swimlane;html=1;childLayout=stackLayout;startSize=20;labelBackgroundColor=none;strokeColor=#CCCCCC;fillColor=#ffffff;fontFamily=Microsoft JhengHei;fontSize=12;fontColor=#000000;align=center;horizontal=0;labelBorderColor=none;collapsible=0;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+      <mxGeometry x="40" y="40" width="1170" height="1065" as="geometry">
+        <mxRectangle x="70" y="40" width="30" height="40" as="alternateBounds" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-60" value="武具" style="swimlane;html=1;startSize=20;collapsible=0;strokeColor=#CCCCCC;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" vertex="1">
+      <mxGeometry x="20" width="90" height="1065" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-61" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=classicThin;endFill=1;endSize=5;jettySize=auto;orthogonalLoop=1;strokeColor=#000000;strokeWidth=1;fontFamily=Microsoft JhengHei;fontSize=8;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-59" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="20" y="690" />
+          <mxPoint x="20" y="370" />
+          <mxPoint x="70" y="370" />
+        </Array>
+        <mxPoint x="70" y="215" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <UserObject label="Rank 1 (角色&amp;amp;目標等級&amp;nbsp;&lt;span class=&quot;ILfuVd&quot;&gt;≥&amp;nbsp;&lt;/span&gt;30)" id="AMT22FxVQ6m0w3-HDeBy-62">
+      <mxCell style="swimlane;html=1;startSize=20;collapsible=0;strokeColor=#CCCCCC;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" vertex="1">
+        <mxGeometry x="110" width="300" height="1065" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="ハイアロー" Condition_learn="一般 [12%]" Condition_use="無使用條件" Description="範囲内の対象に射撃攻撃[110%]&#xa;[射程:4,範囲:十字1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-66">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fontFamily=Microsoft JhengHei;collapsible=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-62" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="400" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="235" width="220" height="150" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-67">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-66" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="戒めの矢" Condition_learn="一般 [12%]" Condition_use="無使用條件" Description="敵に射撃攻撃[105%]&#xa;&amp;3ターン物攻[30%]・魔攻[30%]ダウン&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-68">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;fontColor=#333333;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-62" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="720" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="420" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-69">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-68" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="Consolidated by %author%&lt;br&gt;%info%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-70">
+      <mxCell style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=top;spacingTop=-4;fontFamily=Microsoft JhengHei;fontColor=#CCCCCC;editable=0;" parent="AMT22FxVQ6m0w3-HDeBy-62" vertex="1">
+        <mxGeometry y="20" width="240" height="50" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="ニードルシュート" Condition_learn="一般 [12%]" Condition_use="無使用條件" Description="敵に射撃攻撃[120%]&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-71">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;collapsible=1;container=0;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-62" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="140" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="100" width="220" height="150" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-72">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;;collapsible=0;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-71" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <mxCell id="AK1fX9IEhbnz2Jy2C3WP-4" value="" style="group" parent="AMT22FxVQ6m0w3-HDeBy-62" vertex="1" connectable="0">
+      <mxGeometry y="1025" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-64" value="未開放" style="rounded=0;whiteSpace=wrap;html=1;align=left;shadow=0;comic=0;glass=0;strokeColor=#CCCCCC;" parent="AK1fX9IEhbnz2Jy2C3WP-4" vertex="1">
+      <mxGeometry width="120" height="40" as="geometry" />
+    </mxCell>
+    <UserObject label="" tooltip="双弓ハーリット" link="https://www.alchemistcodedb.com/jp/gear/af-arms-ts-gouseru-01" id="AMT22FxVQ6m0w3-HDeBy-65">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/unused/AF_ARMS_TS_GOUSERU_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="AK1fX9IEhbnz2Jy2C3WP-4" vertex="1">
+        <mxGeometry x="40" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="霊弓『サジタリウス』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-genesis-gluttony-01" id="AK1fX9IEhbnz2Jy2C3WP-0">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/unused/AF_ARMS_GENESIS_GLUTTONY_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="AK1fX9IEhbnz2Jy2C3WP-4" vertex="1">
+        <mxGeometry x="80" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-81" target="ngGPFQEd_gYIC_ZKJAMm-2" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="800" y="520" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-76" value="Rank 2 (角色&amp;amp;目標等級&amp;nbsp;&lt;span class=&quot;ILfuVd&quot;&gt;≥&amp;nbsp;&lt;/span&gt;60)" style="swimlane;html=1;startSize=20;collapsible=0;strokeColor=#CCCCCC;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" vertex="1">
+      <mxGeometry x="410" width="300" height="1065" as="geometry" />
+    </mxCell>
+    <object label="蠱毒の矢" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="敵に射撃攻撃[160%]&#xa;&amp;毒効果[100%]&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-91">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="820" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="820" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-92">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-91" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="攻鎖の一矢" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="敵に射撃攻撃[135%]&#xa;&amp;3ターン物攻[70%]・魔攻[70%]大幅ダウン&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-77">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="740" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="740" width="220" height="180" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-78">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-77" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="戒めの降矢" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="範囲内の対象に射撃攻撃[130%]&#xa;&amp;3ターン物攻[30%]・魔攻[30%]ダウン&#xa;[射程:4,範囲:十字1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-79">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="620" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="340" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-80">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-79" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="クォーラルアロー" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="範囲内の対象に防御無視の射撃攻撃[140%]&#xa;[射程:2,範囲:幅3マスの直線,高低差:2]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-81">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="580" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="260" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-82">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-81" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="フォールアロー" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="範囲内の対象に射撃攻撃[140%]&#xa;[射程:4,範囲:正方形1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-83">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fontFamily=Microsoft JhengHei;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="380" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="220" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-84">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-83" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="ニードルアロー" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="自身を中心とした範囲内の対象に射撃攻撃[150%]&#xa;&amp;対象を後方に2マス移動&#xa;[範囲:正方形1マス,高低差:3]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-85">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="220" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="140" width="220" height="180" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-86">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-85" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="チャートシュート" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="敵に射撃攻撃[200%]&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-87">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="100" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="100" width="220" height="150" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-88">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-87" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="スパイクシュート" Condition_learn="一般 [20%]" Condition_use="無使用條件" Description="敵に射撃攻撃[170%]&#xa;[射程:5,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-89">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-76" vertex="1" collapsed="1">
+        <mxGeometry x="40" y="60" width="220" height="30" as="geometry">
+          <mxRectangle x="40" y="60" width="220" height="150" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-90">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;rounded=0;" parent="AMT22FxVQ6m0w3-HDeBy-89" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-90" target="AMT22FxVQ6m0w3-HDeBy-137" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;strokeColor=#000000;strokeWidth=2;fontSize=16;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-72" target="AMT22FxVQ6m0w3-HDeBy-90" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;strokeColor=#000000;strokeWidth=2;fontSize=16;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-72" target="AMT22FxVQ6m0w3-HDeBy-88" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-72" target="AMT22FxVQ6m0w3-HDeBy-86" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-87" target="AMT22FxVQ6m0w3-HDeBy-104" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="740" y="150" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-140" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-67" target="AMT22FxVQ6m0w3-HDeBy-81" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;strokeColor=#000000;strokeWidth=2;fontSize=16;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-67" target="AMT22FxVQ6m0w3-HDeBy-84" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-67" target="AMT22FxVQ6m0w3-HDeBy-86" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-67" target="AMT22FxVQ6m0w3-HDeBy-79" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="370" y="335" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-145" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-69" target="AMT22FxVQ6m0w3-HDeBy-78" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-146" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-69" target="AMT22FxVQ6m0w3-HDeBy-79" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="370" y="520" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-147" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-69" target="AMT22FxVQ6m0w3-HDeBy-91" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="380" y="465" as="sourcePoint" />
+        <mxPoint x="460" y="372.5" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-97" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-86" target="DPTHLW0eDt4OtfLXqJug-2" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="690" y="190" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-100" value="Rank 3 (角色&amp;amp;目標等級&amp;nbsp;&lt;span class=&quot;ILfuVd&quot;&gt;≥&amp;nbsp;&lt;/span&gt;85)" style="swimlane;html=1;startSize=20;collapsible=0;strokeColor=#CCCCCC;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-59" vertex="1">
+      <mxGeometry x="710" width="460" height="1065" as="geometry" />
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="4Yb_r_g2T3JWL6mJq5uJ-8" target="4Yb_r_g2T3JWL6mJq5uJ-0" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="50" y="660" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="COkIs2YLvd3N9No_lLEQ-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="AMT22FxVQ6m0w3-HDeBy-104" target="AMT22FxVQ6m0w3-HDeBy-134" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-104" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;fillColor=none;fontSize=16;align=center;container=1;collapsible=0;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="30" y="105" width="20" height="20" as="geometry">
+        <mxRectangle x="39" y="1505" width="80" height="20" as="alternateBounds" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="4Yb_r_g2T3JWL6mJq5uJ-8" target="4Yb_r_g2T3JWL6mJq5uJ-2" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="20" y="690" as="sourcePoint" />
+        <mxPoint x="120" y="745" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="DPTHLW0eDt4OtfLXqJug-2" target="c_tzw1QA3E6gwP_2T9zQ-0" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="DPTHLW0eDt4OtfLXqJug-2" target="c_tzw1QA3E6gwP_2T9zQ-3" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="DPTHLW0eDt4OtfLXqJug-2" target="c_tzw1QA3E6gwP_2T9zQ-6" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="DPTHLW0eDt4OtfLXqJug-2" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;fillColor=none;fontSize=16;align=center;container=1;collapsible=0;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="30" y="225" width="20" height="20" as="geometry">
+        <mxRectangle x="39" y="1505" width="80" height="20" as="alternateBounds" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="DPTHLW0eDt4OtfLXqJug-0" value="其他" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=bottom;spacingTop=-4;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="50" y="215" width="40" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="AMT22FxVQ6m0w3-HDeBy-104" target="AMT22FxVQ6m0w3-HDeBy-130" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="120" y="220" as="targetPoint" />
+        <mxPoint x="20" y="180" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="AMT22FxVQ6m0w3-HDeBy-104" target="AMT22FxVQ6m0w3-HDeBy-132" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="120" y="180" as="targetPoint" />
+        <mxPoint x="70" y="130" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="DPTHLW0eDt4OtfLXqJug-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontFamily=Microsoft JhengHei;fontSize=12;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="DPTHLW0eDt4OtfLXqJug-2" target="DPTHLW0eDt4OtfLXqJug-3" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="120" y="240" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-8" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="30" y="625" width="20" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-114" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;fillColor=none;fontSize=16;align=center;container=1;collapsible=0;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="30" y="385" width="20" height="20" as="geometry">
+        <mxRectangle x="39" y="1505" width="80" height="20" as="alternateBounds" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="c_tzw1QA3E6gwP_2T9zQ-114" target="AMT22FxVQ6m0w3-HDeBy-128" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="c_tzw1QA3E6gwP_2T9zQ-114" target="c_tzw1QA3E6gwP_2T9zQ-112" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-121" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="c_tzw1QA3E6gwP_2T9zQ-114" target="c_tzw1QA3E6gwP_2T9zQ-119" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="ngGPFQEd_gYIC_ZKJAMm-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="c_tzw1QA3E6gwP_2T9zQ-114" target="ngGPFQEd_gYIC_ZKJAMm-4" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="ngGPFQEd_gYIC_ZKJAMm-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="c_tzw1QA3E6gwP_2T9zQ-114" target="ngGPFQEd_gYIC_ZKJAMm-7" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="c_tzw1QA3E6gwP_2T9zQ-115" value="其他" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=bottom;spacingTop=-4;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="50" y="374" width="40" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="4Yb_r_g2T3JWL6mJq5uJ-15" target="4Yb_r_g2T3JWL6mJq5uJ-10" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-100" source="4Yb_r_g2T3JWL6mJq5uJ-15" target="4Yb_r_g2T3JWL6mJq5uJ-19" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-15" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;fillColor=none;fontSize=16;align=center;container=1;collapsible=0;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="30" y="745" width="20" height="20" as="geometry">
+        <mxRectangle x="39" y="1505" width="80" height="20" as="alternateBounds" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-16" value="其他" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=bottom;spacingTop=-4;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+      <mxGeometry x="50" y="734" width="40" height="20" as="geometry" />
+    </mxCell>
+    <object label="幻毒の剛弓▶️" Condition_learn="一般 [30%]" Condition_use="▶️屬性 - 雷" Description="敵に雷属性の射撃攻撃[185%]&#xa;&amp;毒・麻痺効果[100%]&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][雷][0.75射擊]" id="4Yb_r_g2T3JWL6mJq5uJ-27">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f0a30a;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#BD7000;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="900" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="900" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-28">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-27" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="瘴気閃矢" Condition_learn="一般 [30%]" Condition_use="無使用條件" Description="敵に射撃攻撃[190%]&#xa;&amp;猛毒効果[100%]&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="4Yb_r_g2T3JWL6mJq5uJ-25">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="860" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="860" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-26">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-25" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="蠱毒の降矢" Condition_learn="一般 [30%]" Condition_use="無使用條件" Description="敵に射撃攻撃[180%]&#xa;&amp;毒効果[100%]&#xa;[射程:4,範囲:十字1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="4Yb_r_g2T3JWL6mJq5uJ-23">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="820" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="820" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-24">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-23" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="顕現せし葬送の冥迅⏺️▶️" Condition_learn="一般 [50%]" Condition_use="▶️女性" Description="敵に闇属性の射撃魔法攻撃[160%]&#xa;&amp;1ターン物攻・魔攻を0にする&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="✨[魔法][射][闇][0.8魔射]" id="4Yb_r_g2T3JWL6mJq5uJ-19">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#e1d5e7;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#9673a6;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="780" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="780" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-20">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-19" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="イナクトイェーガー" link="https://www.alchemistcodedb.com/jp/gear/af-arms-irene-01" id="4Yb_r_g2T3JWL6mJq5uJ-21">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_IRENE_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="339" y="775" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="破攻の呪矢" Condition_learn="一般 [50%]" Condition_use="無使用條件" Description="敵に射撃攻撃[160%]&#xa;&amp;1ターン物攻・魔攻を0にする&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="4Yb_r_g2T3JWL6mJq5uJ-10">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="740" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="615" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-11">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-10" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="蒼穹の翼▶️" Condition_learn="一般 [40%]" Condition_use="▶️男性" Description="範囲内の敵に射撃攻撃[180%]&#xa;&amp;対象が命中ダウン状態の場合威力[100%]大幅アップかつ自身にクロックアップ&#xa;[射程:4,範囲:正方形1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="4Yb_r_g2T3JWL6mJq5uJ-2">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="700" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="700" width="220" height="215" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-3">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-2" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="ライルの弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-ryle-00" id="4Yb_r_g2T3JWL6mJq5uJ-7">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_RYLE_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="340" y="695" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="貫矢・影射" Condition_learn="一般 [一般:40% ライルの弓:20%]" Condition_use="無使用條件" Description="範囲内の敵に射撃攻撃[160%]&#xa;&amp;3ターン素早さ[40%]ダウンかつ移動力-1&#xa;&amp;対象が素早さダウン状態の場合威力[100%]大幅アップ&#xa;[射程:4,範囲:正方形1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="4Yb_r_g2T3JWL6mJq5uJ-0">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="660" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="660" width="220" height="225" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="4Yb_r_g2T3JWL6mJq5uJ-1">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="4Yb_r_g2T3JWL6mJq5uJ-0" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="攻鎖の剛矢" Condition_learn="一般 [一般:40% ライルの弓:20%]" Condition_use="無使用條件" Description="範囲内の敵に射撃攻撃[165%]&#xa;&amp;3ターン物攻[70%]・魔攻[70%]大幅ダウン&#xa;[射程:4,範囲:正方形1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="-zeKbeCp8ixAPhpzfNrZ-0">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="620" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="620" width="220" height="195" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="-zeKbeCp8ixAPhpzfNrZ-1">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="-zeKbeCp8ixAPhpzfNrZ-0" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="アロースピア" Condition_learn="一般 [50%]" Condition_use="無使用條件" Description="範囲内の対象に防御無視の射撃攻撃[230%]&#xa;[射程:3,範囲:幅3マスの直線,高低差:2]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="ngGPFQEd_gYIC_ZKJAMm-2">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="580" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="615" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="ngGPFQEd_gYIC_ZKJAMm-3">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="ngGPFQEd_gYIC_ZKJAMm-2" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="純潔神弓アルテミス" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-arte-00" id="ngGPFQEd_gYIC_ZKJAMm-0">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_ARTE_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="339" y="535" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="黒奏弓『骸撃』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-b-arte-01" id="ngGPFQEd_gYIC_ZKJAMm-1">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_B_ARTE_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="379" y="535" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="朔月嵐⏺️▶️" Condition_learn="⏺️角色 - アルテミス,&#xa;[黑]アルテミス[50%]" Condition_use="▶️角色 - アルテミス,&#xa;[黑]アルテミス" Description="範囲内の対象に4連続の風属性射撃攻撃[52.38%@]&#xa;&amp;異族特効[100%]&#xa;&amp;確率でクリティカル発生&#xa;[射程:4,範囲:菱形2マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][風][0.75射擊]" id="c_tzw1QA3E6gwP_2T9zQ-119">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#d5e8d4;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#82b366;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="119" y="540" width="220" height="30" as="geometry">
+          <mxRectangle x="119" y="540" width="220" height="225" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="c_tzw1QA3E6gwP_2T9zQ-120">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="c_tzw1QA3E6gwP_2T9zQ-119" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="恋愛弓エロース" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-eros-00" id="c_tzw1QA3E6gwP_2T9zQ-118">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_EROS_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="339" y="495" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="恋花爛漫⏺️▶️" Condition_learn="⏺️角色 - エロース[50%]" Condition_use="▶️角色 - エロース" Description="範囲内の対象に光属性の射撃攻撃[210%]&#xa;&amp;強力な闇属性特効[150%]&#xa;&amp;強力な異族特効[200%]&#xa;[射程:6,範囲:菱形2マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][光][0.75射擊]" id="c_tzw1QA3E6gwP_2T9zQ-112">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#fff2cc;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#d6b656;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="119" y="500" width="220" height="30" as="geometry">
+          <mxRectangle x="119" y="500" width="220" height="195" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="c_tzw1QA3E6gwP_2T9zQ-113">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="c_tzw1QA3E6gwP_2T9zQ-112" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="深淵アビスレイ⏺️▶️" Condition_learn="⏺️角色 - 深淵冥姫ヨミ [50%]" Condition_use="▶️角色 - 深淵冥姫ヨミ" Description="範囲内の対象に闇属性の射撃攻撃[210%]&#xa;&amp;強力な暗闇効果[100%]&#xa;&amp;3ターン自身の物攻[50%]・器用さ[50%]アップ&#xa;[射程:5,範囲:正方形1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][闇][0.75射擊]" id="ngGPFQEd_gYIC_ZKJAMm-7">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#e1d5e7;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#9673a6;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="460" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="460" width="220" height="225" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="ngGPFQEd_gYIC_ZKJAMm-8">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="ngGPFQEd_gYIC_ZKJAMm-7" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="深淵冥弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-s-yomi-00" id="ngGPFQEd_gYIC_ZKJAMm-9">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_S_YOMI_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="340" y="455" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="キルザパーガトリー⏺️▶️" Condition_learn="⏺️角色 - シェキナー[50%]" Condition_use="▶️角色 - シェキナー" Description="範囲内の対象に火属性の射撃攻撃[210%]&#xa;&amp;異族特効[100%]&#xa;&amp;5ターン対象の消費ジュエル[80%]大幅増加&#xa;[射程:4,範囲:正方形1マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][火][0.75射擊]" id="ngGPFQEd_gYIC_ZKJAMm-4">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f8cecc;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#b85450;fontFamily=Microsoft JhengHei;arcSize=20;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="420" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="420" width="220" height="225" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="ngGPFQEd_gYIC_ZKJAMm-5">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="ngGPFQEd_gYIC_ZKJAMm-4" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="輝弓シェキナー" link="https://www.alchemistcodedb.com/jp/gear/af-arms-bow-shekinah-01" id="ngGPFQEd_gYIC_ZKJAMm-6">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_BOW_SHEKINAH_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="340" y="415" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="ローラティオアロー" Condition_learn="一般 [50%]" Condition_use="無使用條件" Description="範囲内の対象に射撃攻撃[175%]&#xa;[射程:5,範囲:菱形2マス,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-128">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="380" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="380" width="220" height="150" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-129">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-128" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="顕現せし葬送の冥迅⏺️▶️" Condition_learn="⏺️角色 - フェイルノート [100%]" Condition_use="▶️角色 - フェイルノート" Description="自身を中心とした範囲内の敵に闇属性の射撃攻撃[170%]&#xa;&amp;対象が状態異常の場合威力[80%]アップ&#xa;[範囲:菱形3マス,高低差:5]" placeholders="1" Type="🏹[物理][射][闇][0.85射擊]" id="c_tzw1QA3E6gwP_2T9zQ-6">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#e1d5e7;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#9673a6;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="340" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="340" width="220" height="195" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="c_tzw1QA3E6gwP_2T9zQ-7">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="c_tzw1QA3E6gwP_2T9zQ-6" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="魔獄弓『フェイルノート』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-failnaught-01" id="c_tzw1QA3E6gwP_2T9zQ-9">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_FAILNAUGHT_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="340" y="335" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="弓迅カクタス" Condition_learn="一般 [25%]" Condition_use="無使用條件" Description="移動後自身を中心とした範囲内の対象に射撃攻撃[200%]&#xa;&amp;3ターンリアクション発動率[100%]大幅ダウン&#xa;[移動範囲:菱形4マス,範囲:正方形1マス,高低差:3]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="c_tzw1QA3E6gwP_2T9zQ-3">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="300" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="300" width="220" height="210" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="c_tzw1QA3E6gwP_2T9zQ-4">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="c_tzw1QA3E6gwP_2T9zQ-3" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="クォーラルレイン" Condition_learn="一般 [25%]" Condition_use="無使用條件" Description="自身を中心とした範囲内の対象に射撃攻撃[230%]&#xa;[範囲:シカクロス2マス,高低差:3]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="c_tzw1QA3E6gwP_2T9zQ-0">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="260" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="260" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="c_tzw1QA3E6gwP_2T9zQ-1">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="c_tzw1QA3E6gwP_2T9zQ-0" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="スパイラルアロー" Condition_learn="一般 [25%]" Condition_use="無使用條件" Description="自身を中心とした範囲内の対象に射撃攻撃[180%]&#xa;&amp;対象を後方に3マス移動&#xa;&amp;移動禁止効果[100%]&#xa;[範囲:菱形2マス,高低差:3]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="DPTHLW0eDt4OtfLXqJug-3">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;fontColor=#333333;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="220" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="220" width="220" height="195" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="DPTHLW0eDt4OtfLXqJug-4">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="DPTHLW0eDt4OtfLXqJug-3" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <UserObject label="" tooltip="マキナセスタス" link="https://www.alchemistcodedb.com/jp/gear/af-arms-seda-bow" id="AMT22FxVQ6m0w3-HDeBy-108">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_SEDA_BOW.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1">
+        <mxGeometry x="340" y="175" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <object label="神狼の嵐牙⏺️⏸️▶️1️⃣" Condition_learn="⏺️角色 - セーダ&#xa;⏸️單位 - VS1️⃣ [100%]" Condition_use="▶️角色 - セーダ" Description="敵に風属性の射撃攻撃[185%]&#xa;&amp;発動前に1ターン自身の射撃攻撃力2倍&#xa;&amp;自身が状態異常の場合威力[80%]大幅アップ&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-130">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#d5e8d4;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#82b366;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="180" width="220" height="30" as="geometry">
+          <mxRectangle x="870" y="220" width="220" height="225" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-131">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-130" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="バーニングチャージ⏺️" Condition_learn="一般 [35%]" Condition_use="▶️屬性 - 火" Description="敵に火属性の射撃攻撃[185%]&#xa;&amp;3ターン自身の射撃攻撃力[70%]アップ&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][火][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-132">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f8cecc;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#b85450;fontFamily=Microsoft JhengHei;arcSize=20;swimlaneFillColor=#ffffff;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="140" width="220" height="30" as="geometry">
+          <mxRectangle x="870" y="180" width="220" height="180" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-133">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-132" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="チャージボルト" Condition_learn="一般 [35%]" Condition_use="無使用條件" Description="敵に射撃攻撃[260%]&#xa;&amp;3ターンスタン効果[100%]&#xa;[射程:4,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-134">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;comic=0;swimlaneFillColor=#ffffff;fontColor=#333333;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="100" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="100" width="220" height="165" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-135">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-134" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <object label="ストライクショット" Condition_learn="一般 [50%]" Condition_use="無使用條件" Description="敵に射撃攻撃[200%]&#xa;&amp;3ターン射撃耐性[25%]ダウン&#xa;&amp;必中&#xa;&amp;ジャンプ中の相手に特効[150%]&#xa;&amp;ジャンプ中断&#xa;[射程:5,高低差:無制限]" placeholders="1" Type="🏹[物理][射][0.75射擊]" id="AMT22FxVQ6m0w3-HDeBy-136">
+      <mxCell style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#f5f5f5;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;strokeColor=#666666;fontFamily=Microsoft JhengHei;swimlaneFillColor=#ffffff;fontColor=#333333;" parent="AMT22FxVQ6m0w3-HDeBy-100" vertex="1" collapsed="1">
+        <mxGeometry x="120" y="60" width="220" height="30" as="geometry">
+          <mxRectangle x="120" y="60" width="220" height="210" as="alternateBounds" />
+        </mxGeometry>
+      </mxCell>
+    </object>
+    <object label="%Condition_learn%&#xa;%Condition_use%&#xa;&#xa;%Type%&#xa;----------&#xa;%Description%" placeholders="1" id="AMT22FxVQ6m0w3-HDeBy-137">
+      <mxCell style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontFamily=Microsoft JhengHei;labelBorderColor=none;labelBackgroundColor=none;whiteSpace=wrap;fontColor=#000000;" parent="AMT22FxVQ6m0w3-HDeBy-136" vertex="1">
+        <mxGeometry y="30" width="220" as="geometry" />
+      </mxCell>
+    </object>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-83" target="c_tzw1QA3E6gwP_2T9zQ-114" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="720" y="430" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="4Yb_r_g2T3JWL6mJq5uJ-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-77" target="4Yb_r_g2T3JWL6mJq5uJ-15" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="OVnt5xJc-v2IrSeeDq6B-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-91" target="4Yb_r_g2T3JWL6mJq5uJ-23" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="OVnt5xJc-v2IrSeeDq6B-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-91" target="4Yb_r_g2T3JWL6mJq5uJ-25" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="OVnt5xJc-v2IrSeeDq6B-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-91" target="4Yb_r_g2T3JWL6mJq5uJ-27" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="G5UcuBi7iW2f59KfCmuR-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" parent="AMT22FxVQ6m0w3-HDeBy-59" source="AMT22FxVQ6m0w3-HDeBy-79" target="-zeKbeCp8ixAPhpzfNrZ-0" edge="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="DPTHLW0eDt4OtfLXqJug-5" value="其他" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=bottom;spacingTop=-4;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+      <mxGeometry x="800" y="135" width="40" height="20" as="geometry" />
+    </mxCell>
+    <UserObject label="" tooltip="怒涛の紅弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-bow-01" id="AMT22FxVQ6m0w3-HDeBy-53">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_BOW_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="65" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="凪読弓アリーズハーン" link="https://www.alchemistcodedb.com/jp/gear/af-arms-seda-bow" id="AMT22FxVQ6m0w3-HDeBy-55">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_SEDA_BOW.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="145" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="輝弓シェキナー" link="https://www.alchemistcodedb.com/jp/gear/af-arms-bow-shekinah-01" id="AMT22FxVQ6m0w3-HDeBy-56">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_BOW_SHEKINAH_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="185" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="深淵冥弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-s-yomi-00" id="AMT22FxVQ6m0w3-HDeBy-57">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_S_YOMI_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="225" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="アトミックイェーガー" link="https://www.alchemistcodedb.com/jp/gear/af-arms-hun-02" id="AMT22FxVQ6m0w3-HDeBy-58">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_HUN_02.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="265" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="恋愛弓エロース" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-eros-00" id="AMT22FxVQ6m0w3-HDeBy-52">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_EROS_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="305" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="純潔神弓アルテミス" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-arte-00" id="AMT22FxVQ6m0w3-HDeBy-148">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_ARTE_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="345" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="ライルの弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-ryle-00" id="BZS41Y3-eugOpdFLjVYd-0">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_RYLE_00.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="385" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="黒奏弓『骸撃』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-b-arte-01" id="GNawKwJANIYKar37XFoK-0">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_B_ARTE_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="425" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="魔獄弓『フェイルノート』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-failnaught-01" id="GNawKwJANIYKar37XFoK-1">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_POK_FAILNAUGHT_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="465" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="イナクトイェーガー" link="https://www.alchemistcodedb.com/jp/gear/af-arms-irene-01" id="GNawKwJANIYKar37XFoK-2">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_IRENE_01.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="505" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="金環翼弓" link="https://www.alchemistcodedb.com/jp/gear/af-arms-hun-03" id="GNawKwJANIYKar37XFoK-3">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/bow/AF_ARMS_HUN_03.png;fontFamily=Microsoft JhengHei;" parent="AMT22FxVQ6m0w3-HDeBy-51" vertex="1">
+        <mxGeometry x="65" y="545" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <mxCell id="AMT22FxVQ6m0w3-HDeBy-149" value="Top" parent="AMT22FxVQ6m0w3-HDeBy-0" />
+    <mxCell id="ffvi2M0HA8ArWOz4mxHv-0" value="" style="group" parent="AMT22FxVQ6m0w3-HDeBy-149" vertex="1" connectable="0">
+      <mxGeometry x="40" width="280" height="40" as="geometry" />
+    </mxCell>
+    <UserObject label="" tooltip="Sword" link="data:page/id,74e2e168-ea6b-b213-b513-2b3c1d86103e" id="ffvi2M0HA8ArWOz4mxHv-1">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/sword.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBorder=#CCCCCC;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="Staff" link="data:page/id,xnddiJWxtpKfvcE5pkk6" id="ffvi2M0HA8ArWOz4mxHv-5">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/staff.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBorder=#CCCCCC;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry x="40" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="Spear" link="data:page/id,zD3coKp2_fbwIms_sE8T" id="ffvi2M0HA8ArWOz4mxHv-6">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/spear.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBorder=#CCCCCC;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry x="80" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="Blade" link="data:page/id,9mBSCxyWkqm2xTTJYsas" id="ffvi2M0HA8ArWOz4mxHv-7">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/blade.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBorder=#CCCCCC;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry x="120" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="Greatsword" link="data:page/id,vtGWIGu2w9Ukqe7kQiA2" id="ffvi2M0HA8ArWOz4mxHv-2">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/greatsword.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBorder=#CCCCCC;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry x="160" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="Cestus" link="data:page/id,6W-TSG6boiJD6CtuLBlO" id="ffvi2M0HA8ArWOz4mxHv-3">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/cestus.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBorder=#CCCCCC;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry x="200" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="Bow" link="data:page/id,ElUTni16pKQLA0YZrfqN" id="ffvi2M0HA8ArWOz4mxHv-4">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/type/bow.png;fontFamily=Microsoft JhengHei;aspect=fixed;imageBackground=#FFFFCC;imageBorder=#000000;" parent="ffvi2M0HA8ArWOz4mxHv-0" vertex="1">
+        <mxGeometry x="240" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+  </root>
+</mxGraphModel>
