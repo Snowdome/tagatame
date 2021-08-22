@@ -5,6 +5,7 @@ acha_swim.png
 acha_young.png
 adre.png
 ainan.png
+ainan_yuka.png
 aish.png
 aish_swim.png
 alai.png
@@ -211,6 +212,7 @@ jria.png
 jria_dark.png
 jria_hall.png
 just.png
+kaede.png
 kagu.png
 kagu_grow_kagu.png
 kagu_newy.png
@@ -240,6 +242,7 @@ l_urob.png
 laev.png
 laev_swim.png
 lami.png
+lang.png
 lavi.png
 lavi_xmas.png
 leafa.png
@@ -330,6 +333,7 @@ noin.png
 noin_young.png
 olga.png
 orion.png
+orion_young.png
 othi.png
 othi_dark.png
 othi_newy.png
@@ -482,7 +486,10 @@ tere_swim.png
 teti.png
 thil.png
 thol.png
+thol_anniv.png
 thol_gold_thol.png
+thol_tmemo.png
+thol_yuka.png
 tina.png
 toma.png
 tori.png
@@ -552,6 +559,7 @@ zin_babel.png
 zoph.png
 zwei.png
 zwei_swim.png
+zwei_tmemo.png
 zyva.png
 zyva_male.png
 zyva_young.png
