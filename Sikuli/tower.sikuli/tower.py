@@ -30,10 +30,15 @@ dark = tEvent("dark", Pattern("darkLogo.png").similar(0.90), Pattern("darkStage.
 mobius = tEvent("mobius", "mobiusLogo.png", "dummy", "dummy")
 smt = tEvent("SMT", Pattern("1615113199643.png").similar(0.90), "1615113216982.png", "1615113228799.png")
 smtHard = tEvent("SMT Hard", Pattern("1616240458833.png").similar(0.90), "1616240509285.png", "1616240522533.png")
+dungeon = tEvent("Dungmachi",  "dungeonLogo.png", Pattern("dungeonStage.png").similar(0.90), "dungeonStageFull.png")
 currentFloor = "currentFloor.png"
 towerStart = "towerStart.png"
 towerRestart = "towerRestart.png"
 restore = Pattern("restore.png").similar(0.95)
+okTower = "okTower.png"
+nextLevel = "nextLevel.png"
+selectLevel = "selectLevel.png"
+selectConfirm = "selectConfirm.png"
 cfnRestore = Pattern("cfnRestore.png").targetOffset(100,225)	# Location in rspect to the message
 unitRestored = Pattern("unitRestored.png").targetOffset(0,295)	# Location of OK button in respect to the title bar
 invalid = Pattern("invalid.png").targetOffset(0,240)	# Location in rspect to the message
@@ -166,7 +171,11 @@ def autoTower(tEvent, team):
 							i = i + 1
 							sysMsg("*************** " + str(i) + " floor(s) cleared ***************")
 							clkObj(reward, 0, 1, "Reward")
-							clkObj(btEnd, 3, 1)
+							clkObj(btEnd, 3)
+							while exists(btEnd, 0):
+								mouseMove(10,0)
+								clkObj(btEnd)
+								sleep(3)
 							sleep(changePage)
 							if exists(towerComplete, 0):
 								sysMsg("*************** Tower cleared ***************")
@@ -252,8 +261,46 @@ def autoTowerEx(set):
 		clkObj(home)
 		autoTowerType(light)
 	
-
+def dungmachi(n):
+	i = 0
+	while i < n:
+		clkObj(btStart)
+		clkObj(confirm)
+		waitObj(btMenu, 120)
+		clkObj(Pattern("Dungmachi29F.png").targetOffset(322,0))
+		t = 0
+		while not exists(okTower, 0):
+			sysMsg("Still in battle. Waiting for 5 more sec. Total waiting time: " + str(t) + " sec.")
+			sleep(5)
+			t = t + 5
+		clkObj(okTower)
+		sleep(1)
+		clkObj(okTower)
+		sleep(1)
+		clkObj(nextLevel)
+		mouseMove(10,0)
+		sleep(1)
+		if exists(nextLevel, 0):
+			clkObj(nextLevel)
+		i = i + 1
+		sysMsg("*************** " + str(i) + " time(s) cleared ***************")
+		t = 0
+		while not exists(selectLevel, 0):
+			if t > 1200:
+				sysMsg("Waiting time over 600. Terminating command.")
+				exit(1)
+			sysMsg("Still loading. Waiting for 5 more sec. Total waiting time: " + str(t) + " sec.")
+			sleep(5)
+			t = t + 5
+		clkObj(selectLevel)
+		clkObj(dungeon.stage)
+		sleep(1)
+		clkObj(selectConfirm, loop=1)
+		sysMsg("********** Returned to preparation page **********")
+	
+		
 #  -------------------------Command-------------------------
 #autoTowerType(smtHard)
-autoTower(veda, team1)
+autoTower(veda, team2)
 #autoTowerEx(2)
+#dungmachi(1000)

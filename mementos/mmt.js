@@ -66,9 +66,7 @@ function hideGlobal() {
 	}
 }
 
-function checkGroup() {
-	document.getElementById('d5').selectedIndex = 0;
-	refreshMmt();
+function recountMmt() {
 	for (i = 0; i < document.getElementById("d5").options.length; i++) {
 		switch (i) {
 			case 0:
@@ -89,6 +87,16 @@ function checkGroup() {
 			document.getElementById(gNum).style.color = "black";
 		}
 	}
+	console.log("Recounted number of mementos by group.");
+}
+
+function checkGroup() {
+	if (document.getElementById('d4').selectedIndex != 0) {
+		if (document.getElementById('d5').selectedIndex != 0) {
+			document.getElementById('d5').selectedIndex = 0;
+		}
+	}
+	refreshMmt();
 }
 
 function checkFilter() {
@@ -98,23 +106,22 @@ function checkFilter() {
 		document.getElementById('d4').selectedIndex = 0;
 		console.log('Automation: [d4]Mementos from All Regions are shown.');
 		document.getElementById('d5').selectedIndex = 0;
+		refreshMmt();
 		for (i = 1; i < document.getElementById("d4").options.length; i++) {
 			var rNum = "r" + i;
 			document.getElementById(rNum).style.color = "black";
 		}
-		refreshMmt();
-		checkGroup();
 		document.getElementById('d5').selectedIndex = index;
-		refreshMmt();
 	}
 	var url = location.href;				//Save down the URL without hash.
     location.href = "#mementos";			//Go to the target element.
     history.replaceState(null,null,url);	//Don't like hashes. Changing it back.
+	refreshMmt(recount=false);
 }
 
 
 
-function refreshMmt() {
+function refreshMmt(recount=true) {
 	// Decide what info to show
 	var optInfo = [
 		document.querySelectorAll('[headers = "HP"]'),
@@ -263,6 +270,11 @@ function refreshMmt() {
 	// Show the number of filtered result
 	document.getElementById("mmtCount").innerHTML = trIsNotHidden(document.querySelectorAll('tr.mmt')).length;
 	
+	if (recount == true) {
+		recountMmt();
+	} else {
+	 	console.log("Refreshed mementos without recounting.")
+	}
 	// console.log("=====End of refreshMmt=====");
 }
 
@@ -455,7 +467,7 @@ function translate() {
 	replaceKeyword("td[headers=special]", "巨体", "Gigantic");
 	replaceKeyword("td[headers=special]", "人", "Human");
 	replaceKeyword("td[headers=others]", "MP上限", "MaxJewel");
-	replaceKeyword("td[headers=others]", "MP回復", "JewelGain");
+	replaceKeyword("td[headers=others]", "MP獲得量", "JewelGain");
 	replaceKeyword("td[headers=others]", "命中率", "Hit");
 	replaceKeyword("td[headers=others]", "斬撃回避率", "SlashEvasion");
 	replaceKeyword("td[headers=others]", "射撃回避率", "MissleEvasion");

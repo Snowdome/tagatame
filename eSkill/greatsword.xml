@@ -1,6 +1,6 @@
 <mxGraphModel dx="1024" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
   <root>
-    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill(Greatsword)&#xa;Last updated 09/08/2021" id="ZrlzfmGnvQnesD42w9Tn-0">
+    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill(Greatsword)&#xa;Last updated 23/08/2021" id="ZrlzfmGnvQnesD42w9Tn-0">
       <mxCell />
     </object>
     <mxCell id="ZrlzfmGnvQnesD42w9Tn-1" value="Legend" parent="ZrlzfmGnvQnesD42w9Tn-0" />
@@ -148,6 +148,9 @@
     </mxCell>
     <mxCell id="ZrlzfmGnvQnesD42w9Tn-30" value="武具" style="swimlane;html=1;startSize=20;collapsible=0;strokeColor=#CCCCCC;fontFamily=Microsoft JhengHei;" parent="ZrlzfmGnvQnesD42w9Tn-29" vertex="1">
       <mxGeometry x="20" width="90" height="980" as="geometry" />
+    </mxCell>
+    <mxCell id="tHmHQqR5w4M3J2yIllZS-0" value="&amp;nbsp; &amp;nbsp;大劍&amp;nbsp; &amp;nbsp; &amp;nbsp;鐮刀" style="text;html=1;resizable=0;points=[];autosize=1;align=left;verticalAlign=bottom;spacingTop=-4;fontFamily=Microsoft JhengHei;" parent="ZrlzfmGnvQnesD42w9Tn-30" vertex="1">
+      <mxGeometry y="20" width="90" height="20" as="geometry" />
     </mxCell>
     <mxCell id="ZrlzfmGnvQnesD42w9Tn-31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=classicThin;endFill=1;endSize=5;jettySize=auto;orthogonalLoop=1;strokeColor=#000000;strokeWidth=1;fontFamily=Microsoft JhengHei;fontSize=8;fontColor=#000000;" parent="ZrlzfmGnvQnesD42w9Tn-29" edge="1">
       <mxGeometry relative="1" as="geometry">
@@ -749,97 +752,102 @@
     </UserObject>
     <UserObject label="" tooltip="魔剣レーヴァテイン" link="https://www.alchemistcodedb.com/jp/gear/af-arms-swo-laevatein" id="ZrlzfmGnvQnesD42w9Tn-158">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_SWO_LAEVATEIN.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="65" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="75" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="ファントムブレード" link="https://www.alchemistcodedb.com/jp/gear/af-arms-great-sword-02" id="ZrlzfmGnvQnesD42w9Tn-161">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_GREAT_SWORD_02.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="105" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="115" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="逢魔ノ大剣" link="https://www.alchemistcodedb.com/jp/gear/af-arms-great-sword-01" id="ZrlzfmGnvQnesD42w9Tn-162">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_GREAT_SWORD_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="145" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="155" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="名刀マサムネ" link="https://www.alchemistcodedb.com/jp/gear/af-arms-katana-masamune-01" id="ZrlzfmGnvQnesD42w9Tn-165">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_KATANA_MASAMUNE_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="185" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="195" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="祝剣『ハゴイーター』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-ank-syou-00" id="ZrlzfmGnvQnesD42w9Tn-169">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_ANK_SYOU_00.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="225" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="235" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="黒奏刃『骸斬』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-b-laev-01" id="ZrlzfmGnvQnesD42w9Tn-170">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_POK_B_LAEV_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="265" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="275" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="烈火フランベルジュ" link="https://www.alchemistcodedb.com/jp/gear/af-arms-ank-02" id="ZrlzfmGnvQnesD42w9Tn-171">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_ANK_02.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="305" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="315" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="暗黒剣グラオザーム" link="https://www.alchemistcodedb.com/jp/gear/af-arms-saha-00" id="ZrlzfmGnvQnesD42w9Tn-172">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_SAHA_00.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="345" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="355" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="レオファルシオン" link="https://www.alchemistcodedb.com/jp/gear/af-arms-orion-01" id="ZrlzfmGnvQnesD42w9Tn-173">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_ORION_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="385" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="395" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="黒奏刀『骸斬』" link="https://www.alchemistcodedb.com/jp/gear/af-arms-pok-b-masa-01" id="ZrlzfmGnvQnesD42w9Tn-174">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_POK_B_MASA_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="425" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="435" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="ブロッサムクレイモア" link="https://www.alchemistcodedb.com/jp/gear/af-arms-anastasia-01" id="ZrlzfmGnvQnesD42w9Tn-175">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_ANASTASIA_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="465" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="475" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="覇炎剣ダンデルガ" link="https://www.alchemistcodedb.com/jp/gear/af-arms-swo-dandelga" id="iUSVZm7Ghl2yXoYgGUKO-1">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_SWO_DANDELGA.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="505" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="515" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="無双剛剣" link="https://www.alchemistcodedb.com/jp/gear/af-arms-kubera-01" id="EwK5Z1tBf3WBL50KDb1L-0">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_KUBERA_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="545" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="555" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="氷蛇剣「インガルフ」" link="https://www.alchemistcodedb.com/jp/gear/af-arms-neville-01" id="DdTSE1KOEis3sE-jpc06-0">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_NEVILLE_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="585" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="595" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="雷轟剣「レヴィン」" link="https://www.alchemistcodedb.com/jp/gear/af-arms-vlad-01" id="DdTSE1KOEis3sE-jpc06-1">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_VLAD_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="625" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="635" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="暗黒剣「ファーニス」" link="https://www.alchemistcodedb.com/jp/gear/af-arms-caesar-01" id="DdTSE1KOEis3sE-jpc06-2">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_CAESAR_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="65" y="665" width="40" height="40" as="geometry" />
+        <mxGeometry x="65" y="675" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="魂奪の大鎌" link="https://www.alchemistcodedb.com/jp/gear/af-arms-nec-02" id="ZrlzfmGnvQnesD42w9Tn-166">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_NEC_02.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="105" y="65" width="40" height="40" as="geometry" />
+        <mxGeometry x="105" y="75" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="時止縛の大鎌" link="https://www.alchemistcodedb.com/jp/gear/af-arms-nec-03" id="ZrlzfmGnvQnesD42w9Tn-168">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_NEC_03.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="105" y="105" width="40" height="40" as="geometry" />
+        <mxGeometry x="105" y="115" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <UserObject label="" tooltip="ブラッドデスサイズ" link="https://www.alchemistcodedb.com/jp/gear/af-arms-rosa-01" id="ZrlzfmGnvQnesD42w9Tn-176">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_ROSA_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
-        <mxGeometry x="105" y="145" width="40" height="40" as="geometry" />
+        <mxGeometry x="105" y="155" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="魂杭剣" link="https://www.alchemistcodedb.com/jp/gear/af-arms-zophie-01" id="E7MESdDSbbrjiExsubXz-0">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/greatsword/AF_ARMS_ZOPHIE_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="ZrlzfmGnvQnesD42w9Tn-4" vertex="1">
+        <mxGeometry x="105" y="195" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <mxCell id="ZrlzfmGnvQnesD42w9Tn-183" value="Top" parent="ZrlzfmGnvQnesD42w9Tn-0" />

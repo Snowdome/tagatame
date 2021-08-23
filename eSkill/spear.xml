@@ -1,6 +1,6 @@
 <mxGraphModel dx="1024" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
   <root>
-    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill (Spear)&#xa;Last updated 09/08/2021" id="63iavTtTUdOo2QP5zjvT-0">
+    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill (Spear)&#xa;Last updated 23/08/2021" id="63iavTtTUdOo2QP5zjvT-0">
       <mxCell />
     </object>
     <mxCell id="61WlQHU7NxKh0x15uzr--1" value="Legend" parent="63iavTtTUdOo2QP5zjvT-0" />
@@ -793,6 +793,11 @@
     <UserObject label="" tooltip="虎咆槍「タラッサ」" link="https://www.alchemistcodedb.com/jp/gear/af-arms-dartagnan-01" id="STnwurjKiY-Hom9EvsYa-0">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/spear/AF_ARMS_DARTAGNAN_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="63iavTtTUdOo2QP5zjvT-1" vertex="1">
         <mxGeometry x="65" y="625" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="雷狼威槍" link="https://www.alchemistcodedb.com/jp/gear/af-arms-langhao-01" id="mfZYoyzN9RKDEYoNT7HJ-0">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/spear/AF_ARMS_LANGHAO_01.png;fontFamily=Microsoft JhengHei;" parent="63iavTtTUdOo2QP5zjvT-1" vertex="1">
+        <mxGeometry x="105" y="65" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <mxCell id="42ZcXCpYlSTavEcF9bQh-0" value="Top" parent="63iavTtTUdOo2QP5zjvT-0" />

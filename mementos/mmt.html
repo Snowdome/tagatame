@@ -77,27 +77,28 @@
 				<br>
 				<label><input type="checkbox" id="ex08" name="extra" value="counter" checked>反撃</label>
 				<label><input type="checkbox" id="ex09" name="extra" value="fire" checked>火属性特効</label>
-				<label><input type="checkbox" id="ex10" name="extra" value="thunder" checked>雷属性特効</label>
-				<label><input type="checkbox" id="ex11" name="extra" value="wind" checked>風属性特効</label>
-				<label><input type="checkbox" id="ex12" name="extra" value="dark" checked>闇属性特効</label>
-				<label><input type="checkbox" id="ex13" name="extra" value="single" checked>単体</label>
-				<label><input type="checkbox" id="ex14" name="extra" value="area" checked>範囲</label>
-				<label><input type="checkbox" id="ex15" name="extra" value="human" checked>人特効</label>
+				<label><input type="checkbox" id="ex10" name="extra" value="water" checked>水属性特効</label>
+				<label><input type="checkbox" id="ex11" name="extra" value="thunder" checked>雷属性特効</label>
+				<label><input type="checkbox" id="ex12" name="extra" value="wind" checked>風属性特効</label>
+				<label><input type="checkbox" id="ex13" name="extra" value="dark" checked>闇属性特効</label>
+				<label><input type="checkbox" id="ex14" name="extra" value="single" checked>単体</label>
+				<label><input type="checkbox" id="ex15" name="extra" value="area" checked>範囲</label>
+				<label><input type="checkbox" id="ex16" name="extra" value="human" checked>人特効</label>
 				<br>
-				<label><input type="checkbox" id="ex16" name="extra" value="eldritch" checked>異族特効</label>
-				<label><input type="checkbox" id="ex17" name="extra" value="vajra" checked>バジュラ特効</label>
-				<label><input type="checkbox" id="ex18" name="extra" value="magDoll" checked>魔動人形特効</label>
-				<label><input type="checkbox" id="ex19" name="extra" value="lesserDevil" checked>下位魔神特効</label>
-				<label><input type="checkbox" id="ex20" name="extra" value="gigantic" checked>巨体特効</label>
+				<label><input type="checkbox" id="ex17" name="extra" value="eldritch" checked>異族特効</label>
+				<label><input type="checkbox" id="ex18" name="extra" value="vajra" checked>バジュラ特効</label>
+				<label><input type="checkbox" id="ex19" name="extra" value="magDoll" checked>魔動人形特効</label>
+				<label><input type="checkbox" id="ex20" name="extra" value="lesserDevil" checked>下位魔神特効</label>
+				<label><input type="checkbox" id="ex21" name="extra" value="gigantic" checked>巨体特効</label>
 			</p>
 		</form>
 		<button type="button" id=chooseAllExtra onclick="chooseAllExtra()">全選</button> <button type="button" id=chooseAllExtra onclick="chooseTypeExtra()">僅攻種</button> <button type="button" id=clearExtra onclick="clearExtra()">清除全部</button>
-		<form autocomplete="off" oninput="refreshMmt()">
+		<form autocomplete="off">
 			<p>顯示選項：<br>
-				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" checked>普池</label>
-				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" checked>活動</label>
-                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" checked>限定</label>
-				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless">顯示無團隊</label><br>
+				<label id="labelD0"><input type="checkbox" id="d0" name="display" value="normal" oninput="refreshMmt()" checked>普池</label>
+				<label id="labelD1"><input type="checkbox" id="d1" name="display" value="ev" oninput="refreshMmt()" checked>活動</label>
+                <label id="labelD2"><input type="checkbox" id="d2" name="display" value="ltd" oninput="refreshMmt()" checked>限定</label>
+				<label id="labelD3"><input type="checkbox" id="d3" name="display" value="groupless" oninput="refreshMmt()">顯示無團隊</label><br>
 				<label id="labelD4" for="d4">只顯示起源：<select id="d4" name="originList" onchange="checkGroup()">
 					<option id="r0" value="all" selected>❃全部顯示❃</option>
 					<option id="r1" value="Envylia">エンヴィリア</option>
