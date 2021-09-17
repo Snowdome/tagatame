@@ -573,4 +573,4 @@ def fadeOut(n=1):
 #drawTicket("all")
 #drawDoll(100)
 #autoTower()
-fadeOut(60)
+fadeOut(80)

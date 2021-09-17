@@ -148,12 +148,12 @@
 					<option id="g30" value="祭礼代表">祭礼代表</option>
 					<option id="g31" value="Global Original" style="display: none;">Global Original</option>
 				</select></label> <span class="tooltip">[?]<span class="tooltiptext">預設：顯示全部起源 ➔ 顯示各團隊念裝數目<br />情景1：選擇地區 ➔ 顯示各團隊念裝數目, 數目為零者以灰色顯示<br />情景2：選擇已變灰的團隊 ➔ 自動重設至顯示全部起源<br /></span></span><br>
-				數值：<label><input type="radio" id="optInfo1" name="optInfo" value="show">詳細</label>
-				<label><input type="radio" id="optInfo0" name="optInfo" value="hide" checked>摘要</label><br>
-				起源：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text">文字</label>
-				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked>圖示</label><br>
-				團隊：<label><input type="radio" id="optGroup0" name="optGroup" value="text">文字</label>
-				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked>圖示</label><br>
+				數值：<label><input type="radio" id="optInfo1" name="optInfo" value="show" onchange="refreshMmt()">詳細</label>
+				<label><input type="radio" id="optInfo0" name="optInfo" value="hide" checked onchange="refreshMmt()">摘要</label><br>
+				起源：<label><input type="radio" id="optOrigin0" name="optOrigin" value="text" onchange="refreshMmt()">文字</label>
+				<label><input type="radio" id="optOrigin1" name="optOrigin" value="logo" checked onchange="refreshMmt()">圖示</label><br>
+				團隊：<label><input type="radio" id="optGroup0" name="optGroup" value="text" onchange="refreshMmt()">文字</label>
+				<label><input type="radio" id="optGroup1" name="optGroup" value="logo" checked onchange="refreshMmt()">圖示</label><br>
 			</p>
 		</form>
 	</div>

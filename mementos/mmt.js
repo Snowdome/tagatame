@@ -171,12 +171,16 @@ function refreshMmt(recount=true) {
 		// console.log("[o2]Displaying group by text.");
 		for (i = 0; i < groupName.length; i++) {
 			groupName[i].style.display = 'inline';
+		}
+		for (i = 0; i < groupLogo.length; i++) {
 			groupLogo[i].style.display = 'none';
 		}
 	} else if (document.querySelector('input[name = "optGroup"]:checked').value == "logo") {
 		// console.log("[o2]Displaying group by logo.");
 		for (i = 0; i < groupName.length; i++) {
 			groupName[i].style.display = 'none';
+		}
+		for (i = 0; i < groupLogo.length; i++) {
 			groupLogo[i].style.display = 'inline';
 		}
 	}

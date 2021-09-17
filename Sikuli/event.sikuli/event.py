@@ -1,4 +1,4 @@
-# event.py last updated 25/04/2021
+# event.py last updated 16/09/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -20,6 +20,51 @@ evArchive = "evArchive.png"
 evAOT = "evAOT.png"
 evPOK = "evPOK.png"
 access = "access.png"
+ptOk = "ptOk.png"
+
+def ptQuest(n=10):
+	i = 0
+	while i < n:
+		clkObj(ptOk)
+		t = 0
+		while t != -1:
+			if exists(questMission, 0):
+				clkObj(Pattern("questMission.png"))
+				t = -1
+			else:
+				sysMsg("Waiting for questMission for 10. Total waiting time = " + str(t))
+				t = t + 10
+		clkObj(btAgain)
+		sleep(1)
+		if exists (btAgain):
+			mouseMove(10,0)
+			clkObj(btAgain)
+			sleep(2)
+		apCheck(btAgain)
+		waitObj(btStart, 60)
+		clkObj(btStart)
+		waitObj(btMenu, 30)
+		if exists(toggleAuto):
+			clkObj(toggleAuto)
+			sysMsg("Toggled auto.")
+			sleep(1)
+		else:
+			sysMsg("Auto already on.")
+		t = 0
+		while t != -1:
+			if not exists(ptOk, 0):
+				sysMsg("Still in battle. Waiting for 10 more sec. Total waiting time: " + str(t) + " sec.")
+				if t > 1800:
+					sysMsg("Timeout (1800)")
+					exit()
+				else:
+					t = t + 10
+					sleep(10)
+			else:
+				sysMsg("Quest completed.")
+				i = i + 1
+				sysMsg("Restarting quest for the " + str(i) + "times.")
+				t = -1
 
 #  -------------------------Variables-------------------------
 # Side Stories
@@ -150,8 +195,9 @@ def evAR(evQ, n=10):
 		arCheck(loop=n)
 
 #  -------------------------Command-------------------------
-arCheck(loop=20)
+#arCheck(loop=5)
 #evAR(wedding2021, 10)
 #evAR(vDay2021, 5)
 #evAR(yura, 10)
 #evAR(statue6, 30)
+ptQuest(100)
