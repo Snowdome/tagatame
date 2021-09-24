@@ -1,6 +1,6 @@
 <mxGraphModel dx="1024" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
   <root>
-    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill(Sword)&#xa;Last updated 09/08/2021" id="0">
+    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill(Sword)&#xa;Last updated 24/09/2021" id="0">
       <mxCell />
     </object>
     <mxCell id="yg_MDEYsvXNqDT6bO8t5-1" value="Legend" parent="0" />
@@ -1053,6 +1053,11 @@
     <UserObject label="" tooltip="金環翼剣" link="https://www.alchemistcodedb.com/jp/gear/af-arms-arm-04" id="bKSVxTWL6-oCrJRluwt1-2">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/sword/AF_ARMS_ARM_04.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="1" vertex="1">
         <mxGeometry x="105" y="465" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="爆炎の支配者の剣" link="https://www.alchemistcodedb.com/jp/gear/af-arms-dung-aiz-01" id="Dbe7KMW8yKx0SkY9Uisp-2">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/sword/AF_ARMS_TSP_SHIZ_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" vertex="1" parent="1">
+        <mxGeometry x="105" y="585" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <mxCell id="CMqVhnibRCmWstmhkNtI-1" value="Top" parent="0" />

@@ -506,9 +506,11 @@ ts_merl.png
 ts_zeld.png
 tsan.png
 tsp_beni.png
+tsp_diab.png
 tsp_mill.png
 tsp_rimu.png
 tsp_rimu_slime.png
+tsp_shiz.png
 tyrh.png
 tyrh_swim.png
 ugac.png
@@ -545,6 +547,7 @@ yuen.png
 yuna.png
 yura.png
 yuto.png
+zafi.png
 zang.png
 zayi.png
 zayi_anniv.png
