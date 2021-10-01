@@ -1,4 +1,4 @@
-# tower.py last updated 23/03/2021
+# tower.py last updated 25/09/2021
 
 #  -------------------------Import Modules and Classes-------------------------
 import tagatame
@@ -186,6 +186,7 @@ def autoTower(tEvent, team):
 								sysMsg("*************** End of command ***************")
 							else:
 								clkObj(towerStart)
+								sleep(3)
 								t = -1
 						else:
 							t = t + 10
@@ -301,6 +302,7 @@ def dungmachi(n):
 		
 #  -------------------------Command-------------------------
 #autoTowerType(smtHard)
+autoTower(veda, team1)
 autoTower(veda, team2)
 #autoTowerEx(2)
 #dungmachi(1000)
