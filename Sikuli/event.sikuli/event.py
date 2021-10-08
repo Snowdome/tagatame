@@ -26,6 +26,13 @@ def ptQuest(n=10):
 	i = 0
 	while i < n:
 		clkObj(ptOk)
+		sleep(2)
+		t = 0
+		while exists(ptOk):
+			mouseMove(10,0)
+			if exists(ptOk, 0):
+				clkObj(ptOk)
+			sleep(1)
 		t = 0
 		while t != -1:
 			if exists(questMission, 0):
@@ -33,6 +40,7 @@ def ptQuest(n=10):
 				t = -1
 			else:
 				sysMsg("Waiting for questMission for 10. Total waiting time = " + str(t))
+				sleep(10)
 				t = t + 10
 		clkObj(btAgain)
 		sleep(1)
@@ -43,7 +51,7 @@ def ptQuest(n=10):
 		apCheck(btAgain)
 		waitObj(btStart, 60)
 		clkObj(btStart)
-		waitObj(btMenu, 30)
+		waitObj(btMenu, 60)
 		if exists(toggleAuto):
 			clkObj(toggleAuto)
 			sysMsg("Toggled auto.")
@@ -200,4 +208,4 @@ def evAR(evQ, n=10):
 #evAR(vDay2021, 5)
 #evAR(yura, 10)
 #evAR(statue6, 30)
-ptQuest(100)
+ptQuest(10)

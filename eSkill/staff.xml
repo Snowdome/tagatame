@@ -1,6 +1,6 @@
 <mxGraphModel dx="1024" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
   <root>
-    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill (Staff)&#xa;Last updated 09/08/2021" id="fWMqtXJ-GvRH-J6JPAox-0">
+    <object label="" author="雪頂夢 @ PigPigChannel" info="Enlightened Skill (Staff)&#xa;Last updated 08/10/2021" id="fWMqtXJ-GvRH-J6JPAox-0">
       <mxCell />
     </object>
     <mxCell id="lmXjh8P1oxOo0u9FveWj-0" value="Legend" parent="fWMqtXJ-GvRH-J6JPAox-0" />
@@ -962,6 +962,11 @@
     <UserObject label="" tooltip="彩精の祭器" link="https://www.alchemistcodedb.com/jp/gear/af-arms-ines-01" id="A8CzYcY_xNoqJqyOXhrt-0">
       <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/staff/AF_ARMS_INES_01.png;fontFamily=Microsoft JhengHei;aspect=fixed;" parent="fWMqtXJ-GvRH-J6JPAox-1" vertex="1">
         <mxGeometry x="105" y="185" width="40" height="40" as="geometry" />
+      </mxCell>
+    </UserObject>
+    <UserObject label="" tooltip="金環翼杖" link="https://www.alchemistcodedb.com/jp/gear/af-arms-rod-04" id="WaTr1OjbbwGn1YkGstYk-1">
+      <mxCell style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;imageAspect=0;image=https://snowdome.github.io/tagatame/res/weapon/staff/AF_ARMS_ROD_04.png;fontFamily=Microsoft JhengHei;aspect=fixed;" vertex="1" parent="fWMqtXJ-GvRH-J6JPAox-1">
+        <mxGeometry x="105" y="225" width="40" height="40" as="geometry" />
       </mxCell>
     </UserObject>
     <mxCell id="a_WeAOuQS7yolmwBX8cx-0" value="Top" parent="fWMqtXJ-GvRH-J6JPAox-0" />
