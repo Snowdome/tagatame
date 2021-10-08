@@ -1071,10 +1071,10 @@ function evoStat(slot, evoStatEmId, evoStatIntEmId) {
 					document.getElementById(evoStatEmId).innerHTML = "魅了耐性";
 					break;
 				case 6:
-					document.getElementById(evoStatEmId).innerHTML = "狂化耐性";
+					document.getElementById(evoStatEmId).innerHTML = "憤怒耐性";
 					break;
 				case 7:
-					document.getElementById(evoStatEmId).innerHTML = "Clockdown耐性";
+					document.getElementById(evoStatEmId).innerHTML = "時緩耐性";
 					break;
 				case 8:
 					document.getElementById(evoStatEmId).innerHTML = "鈍足耐性";
@@ -1151,28 +1151,31 @@ function evoStat(slot, evoStatEmId, evoStatIntEmId) {
 			evoType.className = "pB2";
 			switch (roll) {
 				case 1:
-					document.getElementById(evoStatEmId).innerHTML = "毒耐性";
+					document.getElementById(evoStatEmId).innerHTML = "暗闇耐性";
 					break;
 				case 2:
-					document.getElementById(evoStatEmId).innerHTML = "暈眩耐性";
+					document.getElementById(evoStatEmId).innerHTML = "石化耐性";
 					break;
 				case 3:
-					document.getElementById(evoStatEmId).innerHTML = "麻痺耐性";
+					document.getElementById(evoStatEmId).innerHTML = "沈默耐性";
 					break;
 				case 4:
-					document.getElementById(evoStatEmId).innerHTML = "睡眠耐性";
+					document.getElementById(evoStatEmId).innerHTML = "移動禁止耐性";
 					break;
 				case 5:
-					document.getElementById(evoStatEmId).innerHTML = "魅了耐性";
+					document.getElementById(evoStatEmId).innerHTML = "攻擊禁止耐性";
 					break;
 				case 6:
-					document.getElementById(evoStatEmId).innerHTML = "狂化耐性";
+					document.getElementById(evoStatEmId).innerHTML = "死之宣告耐性";
 					break;
 				case 7:
-					document.getElementById(evoStatEmId).innerHTML = "Clockdown耐性";
+					document.getElementById(evoStatEmId).innerHTML = "時停耐性";
 					break;
 				case 8:
-					document.getElementById(evoStatEmId).innerHTML = "鈍足耐性";
+					document.getElementById(evoStatEmId).innerHTML = "回復無效耐性";
+					break;
+				case 9:
+					document.getElementById(evoStatEmId).innerHTML = "補助行動禁止耐性";
 					break;
 				default:
 					console.log("Error in evoStat(" + slot + ", " + evoStatEmId + ", " + evoStatIntEmId + ") case 6, please check.");

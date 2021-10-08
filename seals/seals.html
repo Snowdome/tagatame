@@ -40,13 +40,13 @@
 		<p class="header" id="ch1">1. 入門篇</p>
 		<p>一開始可以存50顆刻印（已裝備的刻印不計算在內），而每最大值+5盛惠100幻晶石（最大值為300）。<span class="highlight">請注意，當倉庫刻印多於最大值時，將無法開始戰鬥。</span>（PoK玩家會好熟悉）</p>
 		<p><img src=img/runes_full.png alt="Runes overflow"></p>
-		<p>整個刻印系統由三種元素組成：級別、大罪屬性（形狀）和組合（符文）。級別決定基礎值，形狀決定屬性，符文決定組合加成。</p>
+		<p>整個刻印系統由三種元素組成：級別、大罪屬性（形狀）和組合（刻印）。級別決定基礎值，形狀決定屬性，刻印決定組合加成。</p>
 		<p>目前級別分為三級：3★(藍色<img class=thumbnail src="../res/seals/it_rune_r_1_kongo.png">)、4★(黃色<img class=thumbnail src="../res/seals/it_rune_sr_1_kongo.png">)及5★(紅色<img class=thumbnail src="../res/seals/it_rune_ssr_1_kongo.png">)。就其餘兩項元素，可以先看一看表格一得一個概念：</p>
 		<div>
 			<p class="caption">表格一：全5★石概覽 <button type="button" id="showBtn1" onclick="showUnreleased()">顯示未實裝刻印</button></p>
 			<table id="table1">
 				<tr>
-					<th>符文</th>
+					<th>刻印</th>
 					<th>嫉妬</th>
 					<th>怠惰</th>
 					<th>色欲</th>
@@ -235,9 +235,12 @@
 					<td colspan=9>未有資料</td>
 				</tr>
 			</table>
-			<p>每個角色每種形狀的刻印可以各裝備上一顆。當同一種符文達到指定數量後，會得到額外組合加成。<span class="highlight">組合加成是可以重複的。</span>由於符文並不影響基礎屬性，所以配置的大方向會是4+2或者2+2+2（目前6顆一套的組合尚未實裝）。</p>
+			<p>每個角色每種形狀的刻印可以各裝備上一顆。當同一種刻印達到指定數量後，會得到額外組合加成。<span class="highlight">組合加成是可以重複的。</span>由於刻印並不影響基礎屬性，所以配置的大方向會是4+2或者2+2+2（目前6顆一套的組合尚未實裝）。</p>
 		</div>
-		<p><span class="caption">表格二：各刻印屬性</span><br><u>14/03/2020</u>：原來我搞錯左，暴食覺醒唔係MP回復而係MP獲得量 Orz</p>
+		<p>
+			<span class="caption">表格二：各刻印屬性</span><br>
+			<u>14/03/2020</u>：原來我搞錯左，暴食覺醒唔係MP回復而係MP獲得量 Orz<br>
+			<u>08/10/2021</u>：07/10/2021更新後，『色欲刻印』新增『狂化耐性』、『強欲刻印』新增『補助行動禁止耐性』</p>
 		<table id="table2">
 			<tr>
 				<th class="rowId"></th>
@@ -372,14 +375,14 @@
 				<td class="pC1">2%</td>
 			</tr>
 			<tr>
-				<td rowspan="8">覺醒屬性</td>
+				<td rowspan="9">覺醒屬性</td>
 				<td class="pA2">斬擊攻擊</td>
 				<td class="pB2">斬擊耐性</td>
 				<td class="pB2">毒耐性</td>
 				<td class="pA2">MP獲得量</td>
 				<td class="pB2">物攻衰弱耐性</td>
 				<td class="pB2">暗闇耐性</td>
-				<td colspan="3" rowspan="8">概率升級機制由01/06/2021開始取消，升級成本按比例上升。</td>
+				<td colspan="3" rowspan="9">概率升級機制由01/06/2021開始取消，升級成本按比例上升。</td>
 			</tr>
 			<tr>
 				<td class="pA2">打擊攻擊</td>
@@ -416,7 +419,7 @@
 			<tr>
 				<td class="pA2">跳躍攻擊</td>
 				<td class="pB2">跳躍耐性</td>
-				<td class="pB2">狂化耐性</td>
+				<td class="pB2">憤怒耐性</td>
 				<td></td>
 				<td class="pB2">素早衰弱耐性</td>
 				<td class="pB2">死之宣告耐性</td>
@@ -424,7 +427,7 @@
 			<tr>
 				<td></td>
 				<td></td>
-				<td class="pB2">Clockdown耐性</td>
+				<td class="pB2">時緩耐性</td>
 				<td></td>
 				<td class="pB2">運衰弱耐性</td>
 				<td class="pB2">時停耐性</td>
@@ -436,6 +439,14 @@
 				<td></td>
 				<td></td>
 				<td class="pB2">回復無效耐性</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td class="pB2">狂化耐性</td>
+				<td></td>
+				<td></td>
+				<td class="pB2">補助行動禁止耐性</td>
 			</tr>
 		</table>
 		<p>大罪屬性決定刻印提供的基礎屬性跟覺醒屬性的種類，而刻印的級別則決定基礎能力的範圍值，但對覺醒屬性並沒有影響。就目前的數據而言，基礎能力的範圍值並沒有重疊。因此，在不考慮成平時情況下，不存在歐洲清泉用低級刻印勝過非洲油王的情況。</p>
@@ -982,7 +993,7 @@
 				<p class="caption">表格七：全5★石概覽（改）</p>
 				<table id="table7">
 					<tr>
-						<th>符文</th>
+						<th>刻印</th>
 						<th>嫉妬</th>
 						<th>怠惰</th>
 						<th>色欲</th>
